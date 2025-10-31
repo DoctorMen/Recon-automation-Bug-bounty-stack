@@ -1,0 +1,82 @@
+{
+  "generated": "2025-10-31T01:24:49.436865",
+  "programs": [
+    "shopify.com",
+    "starbucks.com",
+    "uber.com",
+    "twitter.com",
+    "github.com",
+    "mozilla.org",
+    "wordpress.com",
+    "automattic.com",
+    "dropbox.com",
+    "yelp.com",
+    "instagram.com",
+    "tiktok.com",
+    "paypal.com",
+    "ebay.com",
+    "apple.com",
+    "microsoft.com",
+    "atlassian.com",
+    "alibaba.com",
+    "sony.com",
+    "nintendo.com",
+    "google.com",
+    "facebook.com",
+    "linkedin.com",
+    "yahoo.com",
+    "oracle.com",
+    "adobe.com",
+    "vmware.com",
+    "cisco.com"
+  ],
+  "by_platform": {
+    "hackerone": [
+      "shopify.com",
+      "starbucks.com",
+      "uber.com",
+      "twitter.com",
+      "github.com",
+      "mozilla.org",
+      "wordpress.com",
+      "automattic.com",
+      "dropbox.com",
+      "yelp.com",
+      "instagram.com",
+      "tiktok.com",
+      "paypal.com",
+      "ebay.com"
+    ],
+    "bugcrowd": [
+      "apple.com",
+      "microsoft.com",
+      "atlassian.com",
+      "alibaba.com",
+      "sony.com",
+      "nintendo.com"
+    ],
+    "public_programs": [
+      "google.com",
+      "facebook.com",
+      "linkedin.com",
+      "yahoo.com",
+      "oracle.com",
+      "adobe.com",
+      "vmware.com",
+      "cisco.com"
+    ],
+    "government_educational": []
+  },
+  "high_value_tags": [
+    "authentication",
+    "authorization",
+    "api",
+    "rce",
+    "ssrf",
+    "sqli",
+    "xss",
+    "xxe",
+    "subdomain-takeover",
+    "cloud-misconfig"
+  ]
+}

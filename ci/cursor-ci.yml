@@ -1,0 +1,703 @@
+name: Recon Stack Pipeline
+
+# Multi-Agent Recon Pipeline
+# This workflow splits the recon process across multiple independent agents/jobs
+# that can run on different runners. Each agent:
+# - Runs in isolation on its own runner
+# - Receives inputs via GitHub Actions artifacts
+# - Produces outputs that are uploaded as artifacts for downstream agents
+# - Can continue on error to allow other agents to complete
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run daily at 2 AM UTC (adjust as needed)
+    - cron: '0 2 * * *'
+
+# Runner Configuration
+# Default: ubuntu-latest (GitHub-hosted runners)
+# To use self-hosted runners: Change runs-on to 'self-hosted' or use labels like:
+#   runs-on: [self-hosted, linux, x64]
+# For different OS: ubuntu-22.04, macos-latest, windows-latest
+# Each agent can use different runners by changing its runs-on value
+
+jobs:
+  # Setup Agent: Installs tools and prepares environment
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+      
+      - name: Install recon tools
+        run: |
+          # Install Subfinder
+          go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+          
+          # Install Amass
+          go install -v github.com/owasp-amass/amass/v4/...@master
+          
+          # Install DNSx
+          go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
+          
+          # Install httpx
+          go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+          
+          # Install Nuclei
+          go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+          
+          # Install jq
+          sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Make scripts executable
+        run: |
+          chmod +x scripts/*.sh
+      
+      - name: Verify targets.txt exists
+        run: |
+          if [ ! -f targets.txt ]; then
+            echo "ERROR: targets.txt not found"
+            exit 1
+          fi
+          echo "Targets file found:"
+          cat targets.txt
+      
+      - name: Upload targets and scripts
+        uses: actions/upload-artifact@v3
+        with:
+          name: setup-artifacts
+          path: |
+            targets.txt
+            scripts/
+          retention-days: 1
+
+  # Recon Scanner Agent: Subdomain enumeration
+  recon-scanner:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+      
+      - name: Install recon tools
+        run: |
+          go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+          go install -v github.com/owasp-amass/amass/v4/...@master
+          go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
+          sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Download setup artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: setup-artifacts
+          path: .
+      
+      - name: Verify artifacts downloaded
+        run: |
+          if [ ! -f targets.txt ]; then
+            echo "ERROR: targets.txt not found after download"
+            exit 1
+          fi
+          if [ ! -d scripts ]; then
+            echo "ERROR: scripts directory not found after download"
+            exit 1
+          fi
+      
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+      
+      - name: Run Recon Scanner
+        run: ./scripts/run_recon.sh
+        continue-on-error: true
+      
+      - name: Upload subdomain results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: recon-results
+          path: |
+            output/subs.txt
+            output/recon-run.log
+          retention-days: 30
+
+  # Web Mapper Agent: HTTP probing and technology detection
+  web-mapper:
+    runs-on: ubuntu-latest
+    needs: recon-scanner
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+      
+      - name: Install web mapper tools
+        run: |
+          go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+          sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Download setup artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: setup-artifacts
+          path: .
+      
+      - name: Download recon results
+        uses: actions/download-artifact@v3
+        with:
+          name: recon-results
+          path: output-temp
+      
+      - name: Move recon results to expected location
+        run: |
+          mkdir -p output
+          # Handle artifact path structure (artifact name creates subdirectory)
+          if [ -f output-temp/recon-results/subs.txt ]; then
+            cp output-temp/recon-results/subs.txt output/subs.txt
+          elif [ -f output-temp/subs.txt ]; then
+            cp output-temp/subs.txt output/subs.txt
+          else
+            touch output/subs.txt
+            echo "WARNING: No subs.txt found, creating empty file"
+          fi
+          # Copy logs if available
+          find output-temp -name "recon-run.log" -exec cp {} output/ \; 2>/dev/null || true
+      
+      - name: Verify input files
+        run: |
+          if [ ! -f output/subs.txt ]; then
+            echo "ERROR: subs.txt not available"
+            exit 1
+          fi
+          if [ ! -s output/subs.txt ]; then
+            echo "WARNING: subs.txt is empty, web mapper may have no targets"
+          fi
+      
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+      
+      - name: Run Web Mapper
+        run: ./scripts/run_httpx.sh
+        continue-on-error: true
+      
+      - name: Upload web mapper results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: web-mapper-results
+          path: |
+            output/http.json
+            output/recon-run.log
+          retention-days: 30
+
+  # Vulnerability Hunter Agent: Nuclei scanning
+  vulnerability-hunter:
+    runs-on: ubuntu-latest
+    needs: web-mapper
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+      
+      - name: Install vulnerability hunter tools
+        run: |
+          go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+          sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Download setup artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: setup-artifacts
+          path: .
+      
+      - name: Download web mapper results
+        uses: actions/download-artifact@v3
+        with:
+          name: web-mapper-results
+          path: output-temp
+      
+      - name: Move web mapper results to expected location
+        run: |
+          mkdir -p output
+          # Handle artifact path structure
+          if [ -f output-temp/web-mapper-results/http.json ]; then
+            cp output-temp/web-mapper-results/http.json output/http.json
+          elif [ -f output-temp/http.json ]; then
+            cp output-temp/http.json output/http.json
+          else
+            echo "[]" > output/http.json
+            echo "WARNING: No http.json found, creating empty array"
+          fi
+          find output-temp -name "recon-run.log" -exec cp {} output/ \; 2>/dev/null || true
+      
+      - name: Verify input files
+        run: |
+          if [ ! -f output/http.json ]; then
+            echo "ERROR: http.json not available"
+            exit 1
+          fi
+      
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+      
+      - name: Run Vulnerability Hunter
+        run: ./scripts/run_nuclei.sh
+        continue-on-error: true
+      
+      - name: Upload vulnerability results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: vulnerability-results
+          path: |
+            output/nuclei-findings.json
+            output/recon-run.log
+          retention-days: 30
+
+  # Specialized Bug Bounty Scans (run in parallel)
+  # API Endpoint Discovery
+  api-discovery:
+    runs-on: ubuntu-latest
+    needs: web-mapper
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+      
+      - name: Install tools
+        run: |
+          go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+          go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+          sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Download setup artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: setup-artifacts
+          path: .
+      
+      - name: Download web mapper results
+        uses: actions/download-artifact@v3
+        with:
+          name: web-mapper-results
+          path: output-temp
+      
+      - name: Move web mapper results to expected location
+        run: |
+          mkdir -p output
+          cp output-temp/web-mapper-results/http.json output/http.json 2>/dev/null || echo "[]" > output/http.json
+      
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+      
+      - name: Run API Discovery
+        run: ./scripts/run_api_discovery.sh
+        continue-on-error: true
+      
+      - name: Upload API discovery results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: api-discovery-results
+          path: |
+            output/api-endpoints.json
+          retention-days: 30
+
+  # Subdomain Takeover Scan
+  subdomain-takeover:
+    runs-on: ubuntu-latest
+    needs: recon-scanner
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+      
+      - name: Install tools
+        run: |
+          go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+          sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Download setup artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: setup-artifacts
+          path: .
+      
+      - name: Download recon results
+        uses: actions/download-artifact@v3
+        with:
+          name: recon-results
+          path: output-temp
+      
+      - name: Move recon results to expected location
+        run: |
+          mkdir -p output
+          cp output-temp/recon-results/subs.txt output/subs.txt 2>/dev/null || touch output/subs.txt
+      
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+      
+      - name: Run Subdomain Takeover Scan
+        run: ./scripts/run_subdomain_takeover.sh
+        continue-on-error: true
+      
+      - name: Upload takeover results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: takeover-results
+          path: |
+            output/subdomain-takeover.json
+          retention-days: 30
+
+  # Secrets & Credentials Scan
+  secrets-scan:
+    runs-on: ubuntu-latest
+    needs: web-mapper
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+      
+      - name: Install tools
+        run: |
+          go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+          sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Download setup artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: setup-artifacts
+          path: .
+      
+      - name: Download web mapper results
+        uses: actions/download-artifact@v3
+        with:
+          name: web-mapper-results
+          path: output-temp
+      
+      - name: Move web mapper results to expected location
+        run: |
+          mkdir -p output
+          cp output-temp/web-mapper-results/http.json output/http.json 2>/dev/null || echo "[]" > output/http.json
+      
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+      
+      - name: Run Secrets Scan
+        run: ./scripts/run_secrets_scan.sh
+        continue-on-error: true
+      
+      - name: Upload secrets scan results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: secrets-scan-results
+          path: |
+            output/secrets-found.json
+          retention-days: 30
+
+  # Cloud Misconfiguration Scan
+  cloud-scan:
+    runs-on: ubuntu-latest
+    needs: web-mapper
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+      
+      - name: Install tools
+        run: |
+          go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+          sudo apt-get update && sudo apt-get install -y jq
+      
+      - name: Download setup artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: setup-artifacts
+          path: .
+      
+      - name: Download web mapper results
+        uses: actions/download-artifact@v3
+        with:
+          name: web-mapper-results
+          path: output-temp
+      
+      - name: Move web mapper results to expected location
+        run: |
+          mkdir -p output
+          cp output-temp/web-mapper-results/http.json output/http.json 2>/dev/null || echo "[]" > output/http.json
+      
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+      
+      - name: Run Cloud Misconfiguration Scan
+        run: ./scripts/run_cloud_scan.sh
+        continue-on-error: true
+      
+      - name: Upload cloud scan results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cloud-scan-results
+          path: |
+            output/cloud-misconfigs.json
+          retention-days: 30
+
+  # Triage Agent: False positive filtering and scoring
+  triage-agent:
+    runs-on: ubuntu-latest
+    needs: vulnerability-hunter
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Download vulnerability results
+        uses: actions/download-artifact@v3
+        with:
+          name: vulnerability-results
+          path: output-temp
+      
+      - name: Move vulnerability results to expected location
+        run: |
+          mkdir -p output
+          # Handle artifact path structure
+          if [ -f output-temp/vulnerability-results/nuclei-findings.json ]; then
+            cp output-temp/vulnerability-results/nuclei-findings.json output/nuclei-findings.json
+          elif [ -f output-temp/nuclei-findings.json ]; then
+            cp output-temp/nuclei-findings.json output/nuclei-findings.json
+          else
+            echo "[]" > output/nuclei-findings.json
+            echo "WARNING: No nuclei-findings.json found, creating empty array"
+          fi
+          find output-temp -name "recon-run.log" -exec cp {} output/ \; 2>/dev/null || true
+      
+      - name: Verify input files
+        run: |
+          if [ ! -f output/nuclei-findings.json ]; then
+            echo "ERROR: nuclei-findings.json not available"
+            exit 1
+          fi
+      
+      - name: Run Triage
+        run: python3 scripts/triage.py
+        continue-on-error: true
+      
+      - name: Upload triage results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: triage-results
+          path: |
+            output/triage.json
+            output/triage.log
+          retention-days: 30
+
+  # Report Writer Agent: Generate markdown reports
+  report-writer:
+    runs-on: ubuntu-latest
+    needs: triage-agent
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Download triage results
+        uses: actions/download-artifact@v3
+        with:
+          name: triage-results
+          path: output-temp
+      
+      - name: Move triage results to expected location
+        run: |
+          mkdir -p output
+          # Handle artifact path structure
+          if [ -f output-temp/triage-results/triage.json ]; then
+            cp output-temp/triage-results/triage.json output/triage.json
+          elif [ -f output-temp/triage.json ]; then
+            cp output-temp/triage.json output/triage.json
+          else
+            echo "[]" > output/triage.json
+            echo "WARNING: No triage.json found, creating empty array"
+          fi
+          find output-temp -name "triage.log" -exec cp {} output/ \; 2>/dev/null || true
+      
+      - name: Verify input files
+        run: |
+          if [ ! -f output/triage.json ]; then
+            echo "ERROR: triage.json not available"
+            exit 1
+          fi
+      
+      - name: Generate Reports
+        run: python3 scripts/generate_report.py
+        continue-on-error: true
+      
+      - name: Upload report results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: report-results
+          path: |
+            output/reports/*.md
+            output/recon-run.log
+          retention-days: 30
+
+  # Summary Agent: Aggregates results from all agents
+  summary:
+    runs-on: ubuntu-latest
+    needs: [recon-scanner, web-mapper, vulnerability-hunter, triage-agent, report-writer]
+    if: always()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Download all results
+        uses: actions/download-artifact@v3
+        with:
+          path: output
+      
+      - name: Generate Summary
+        run: |
+          echo "## Recon Pipeline Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Pipeline Status**: All agents completed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Helper function to count lines or JSON items
+          count_file() {
+            local file="$1"
+            if [ -f "$file" ]; then
+              if [[ "$file" == *.json ]]; then
+                python3 -c "import json, sys; data=json.load(open('$file')); print(len(data) if isinstance(data, list) else 1)" 2>/dev/null || echo "0"
+              else
+                wc -l < "$file" | tr -d ' ' || echo "0"
+              fi
+            else
+              echo "0"
+            fi
+          }
+          
+          # Subdomain count
+          if [ -f output/recon-results/subs.txt ]; then
+            SUB_COUNT=$(count_file output/recon-results/subs.txt)
+            echo "### Subdomains Found" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            echo "Total: $SUB_COUNT" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # HTTP endpoints
+          if [ -f output/web-mapper-results/http.json ]; then
+            HTTP_COUNT=$(count_file output/web-mapper-results/http.json)
+            echo "### HTTP Endpoints Found" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            echo "Total: $HTTP_COUNT" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # Vulnerabilities
+          if [ -f output/vulnerability-results/nuclei-findings.json ]; then
+            VULN_COUNT=$(count_file output/vulnerability-results/nuclei-findings.json)
+            echo "### Vulnerabilities Found (Raw)" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            echo "Total: $VULN_COUNT" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # Triage results
+          if [ -f output/triage-results/triage.json ]; then
+            TRIAGE_COUNT=$(count_file output/triage-results/triage.json)
+            echo "### Vulnerabilities After Triage" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            echo "Total: $TRIAGE_COUNT" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # Specialized scan results
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Specialized Scans" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f output/api-discovery-results/api-endpoints.json ]; then
+            API_COUNT=$(count_file output/api-discovery-results/api-endpoints.json)
+            echo "- **API Endpoints**: $API_COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ -f output/takeover-results/subdomain-takeover.json ]; then
+            TAKEOVER_COUNT=$(count_file output/takeover-results/subdomain-takeover.json)
+            echo "- **Subdomain Takeover Issues**: $TAKEOVER_COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ -f output/secrets-scan-results/secrets-found.json ]; then
+            SECRETS_COUNT=$(count_file output/secrets-scan-results/secrets-found.json)
+            echo "- **Secrets Found**: $SECRETS_COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ -f output/cloud-scan-results/cloud-misconfigs.json ]; then
+            CLOUD_COUNT=$(count_file output/cloud-scan-results/cloud-misconfigs.json)
+            echo "- **Cloud Misconfigurations**: $CLOUD_COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "All results are available as downloadable artifacts from each agent job." >> $GITHUB_STEP_SUMMARY
+      
+      - name: Upload final results bundle
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: recon-results-final
+          path: output
+          retention-days: 30
+
