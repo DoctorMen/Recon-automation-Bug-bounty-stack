@@ -1,31 +1,7 @@
-# Tools (can be large binaries)
-tools/bin/*.exe
-tools/bin/*.dll
-tools/*.zip
-
-# Output files
-output/
+# ignore downloaded tools and temp
+tools/bin/
+tools/tmp/
 *.log
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-env/
-
-# IDE
+.env
 .vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Status files
-.pipeline_status
-
+__pycache__/
