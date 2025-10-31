@@ -1,0 +1,14 @@
+name: ExampleCorp
+slug: example
+allowed_domains:
+  - example.com
+exclude_domains: []
+concurrency: 1
+rate_limit: 0.5
+timeout: 10
+nuclei:
+  templates_dir: ./nuclei-templates
+  allowed_tags: ["info","tech","misconfiguration"]
+allow_intrusive: false
+permission_reference: "permission.txt (place proof here)"
+max_runtime_minutes: 120

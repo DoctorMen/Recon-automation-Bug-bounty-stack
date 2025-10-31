@@ -1,0 +1,20 @@
+name: Run Example Program (Manual)
+on:
+  workflow_dispatch:
+    inputs:
+      run: { type: boolean, default: false }
+jobs:
+  run:
+    if: github.event.inputs.run == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      - name: Run program (manual trigger)
+        env:
+          ENABLE_AUTO_RUN: "1"
+        run: |
+          ./workflows/run_program.sh example
