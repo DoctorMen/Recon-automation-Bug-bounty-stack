@@ -1,0 +1,36 @@
+{
+  "agents": [
+    {
+      "name": "Strategist",
+      "model": "gpt-5",
+      "role": "Plans overall workflow, decides task sequencing, verifies logic, and optimizes bug bounty automation direction."
+    },
+    {
+      "name": "Executor",
+      "model": "gpt-5",
+      "role": "Executes scripts, validates syntax, performs git commits, runs local tests, and handles recon.sh deployments."
+    },
+    {
+      "name": "Composer 1 — Automation Engineer",
+      "model": "composer",
+      "role": "Maintains, updates, and hardens recon.sh, auto_runner.sh, and post_scan scripts."
+    },
+    {
+      "name": "Composer 2 — Parallelization & Optimization",
+      "model": "composer",
+      "role": "Implements concurrent recon runs, optimizes threading logic, and resource allocation for maximum throughput."
+    },
+    {
+      "name": "Composer 3 — Documentation & Reporting",
+      "model": "composer",
+      "role": "Auto-updates README.md, CHANGELOG.md, and summary.md. Generates post-run analytics and visual summaries."
+    },
+    {
+      "name": "Composer 4 — CI/CD & Security Ops",
+      "model": "composer",
+      "role": "Creates GitHub workflows, Docker integration, and environment hardening (YAML + GitHub Actions)."
+    }
+  ]
+}
+
+

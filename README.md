@@ -22,3 +22,14 @@ make install
 \`\`\`
 
 Tools install into \`tools/bin/\` and are ignored by Git.
+
+## Multi-Agent Orchestration
+
+- Roles and mappings: see `AGENTS.md`
+- Quick usage:
+
+```bash
+python3 scripts/agent_orchestrator.py --list
+python3 scripts/agent_orchestrator.py --role Strategist --task plan
+python3 scripts/agent_orchestrator.py --role Executor --task full-run
+```
