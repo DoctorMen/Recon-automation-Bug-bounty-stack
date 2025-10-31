@@ -1,0 +1,15 @@
+Run this command to install all tools:
+
+python3 setup_tools.py
+
+This will automatically download and install:
+- httpx (required for HTTP mapping)
+- nuclei (required for vulnerability scanning)
+- subfinder (for subdomain enumeration)
+- amass (for subdomain enumeration)
+- dnsx (for DNS validation)
+
+All tools will be installed to: tools/bin/
+
+Then you can run: python3 start_scan.py
+
