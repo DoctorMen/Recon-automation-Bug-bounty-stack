@@ -1,0 +1,15 @@
+# TEMPLATE: fill in values only after obtaining written permission
+name: "<ORG_NAME>"
+slug: "<slug>"
+allowed_domains: []            # list domains you are authorized to test
+exclude_domains: []
+concurrency: 1
+rate_limit: 0.5
+timeout: 600
+nuclei:
+  templates_dir: ./nuclei-templates
+  allowed_tags: ["info","tech","misconfiguration"]
+allow_intrusive: false
+permission_reference: ""        # path: programs/<slug>/permission.txt (required)
+permission_checksum: ""         # computed SHA256 of permission.txt (set after you upload permission)
+max_runtime_minutes: 120

@@ -1,0 +1,2 @@
+# Put authorized domains here, one per line. First line is used for interactive confirmation.
+# EXAMPLE: myownedsite.example
