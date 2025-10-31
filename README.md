@@ -8,3 +8,17 @@ Local recon toolchain and automation for authorized security testing.
 - Do not run against targets you do not own.
 
 This repo contains my automated recon lab for offensive security research and bug bounty methodology testing.
+
+## 🛠 Local Tool Installation
+
+This project does **not** store recon binaries in Git.
+
+To install tools locally, run:
+
+\`\`\`bash
+./install.sh
+# or
+make install
+\`\`\`
+
+Tools install into \`tools/bin/\` and are ignored by Git.
