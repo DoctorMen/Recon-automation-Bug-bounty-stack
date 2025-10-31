@@ -5,3 +5,4 @@ tools/tmp/
 .env
 .vscode/
 __pycache__/
+tools/bin/
