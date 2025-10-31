@@ -1,0 +1,12 @@
+# Primary web assets
+domains:
+  - example.com
+  - api.example.com
+
+# Optional IP targets (CIDR or single IP)
+ip_ranges:
+  - 203.0.113.0/24
+
+# Track autonomous system numbers (ASN) for masscan sweeps
+asns:
+  - AS15169
