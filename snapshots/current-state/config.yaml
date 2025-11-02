@@ -1,0 +1,20 @@
+name: "Rapyd"
+slug: "rapyd"
+allowed_domains:
+  - "dashboard.rapyd.net"
+  - "verify.rapyd.net"
+  - "checkout.rapyd.net"
+  - "sandboxapi.rapyd.net"
+  - "api.rapyd.net"
+exclude_domains: []
+concurrency: 1
+rate_limit: 0.5
+timeout: 600
+nuclei:
+  templates_dir: ./nuclei-templates
+  allowed_tags: ["info","tech","misconfiguration"]
+allow_intrusive: false
+permission_reference: "programs/rapyd/permission.txt"
+permission_checksum: ""
+max_runtime_minutes: 120
+

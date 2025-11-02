@@ -1,0 +1,34 @@
+{
+  "created_at": "2025-11-01T19:08:56.005709",
+  "account_a": {
+    "status": "pending",
+    "email": "DoctorMen@bugcrowdninja.com",
+    "screenshot": "account_a_dashboard.png"
+  },
+  "account_b": {
+    "status": "pending",
+    "email": null,
+    "screenshot": "account_b_created.png"
+  },
+  "payment": {
+    "status": "pending",
+    "payment_id": null,
+    "screenshot": "account_b_payment_created.png",
+    "amount": null,
+    "currency": null
+  },
+  "idor_access": {
+    "status": "pending",
+    "screenshots": [
+      "idor_account_context.png",
+      "idor_payment_details.png",
+      "idor_url_bar.png",
+      "idor_full_page.png"
+    ],
+    "network_request": "idor_request_curl.txt",
+    "api_response_raw": "idor_response_raw.json",
+    "api_response_redacted": "idor_response_redacted.json",
+    "operation_id": null
+  },
+  "evidence_files": []
+}

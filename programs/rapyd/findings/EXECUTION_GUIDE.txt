@@ -1,0 +1,45 @@
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  EXECUTION GUIDE - Copy These Commands
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+STEP 1: Navigate to the correct directory
+------------------------------------------
+cd ~/Recon-automation-Bug-bounty-stack/programs/rapyd/findings
+
+
+STEP 2: Verify scripts exist
+-----------------------------
+ls -lh quick_api_test.py batch_api_test.py
+
+
+STEP 3: Run API IDOR test
+--------------------------
+python3 quick_api_test.py ACCOUNT_A_TOKEN ACCOUNT_B_TOKEN PAYMENT_ID
+
+Replace:
+  - ACCOUNT_A_TOKEN: Your account auth token
+  - ACCOUNT_B_TOKEN: Test victim account token  
+  - PAYMENT_ID: Payment created in Account B
+
+
+EXAMPLE:
+--------
+python3 quick_api_test.py eyJhbGc... eyJhbGc... payment_abc123
+
+
+HOW TO GET TOKENS:
+------------------
+1. Open browser: https://dashboard.rapyd.net/
+2. Press F12 (DevTools)
+3. Network tab
+4. Refresh page
+5. Click any request
+6. Copy Authorization header token
+
+
+SCRIPTS LOCATION:
+-----------------
+/home/ubuntu/Recon-automation-Bug-bounty-stack/programs/rapyd/findings/
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•

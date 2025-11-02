@@ -1,0 +1,37 @@
+# Payment Processors - Decimal Precision Bugs
+stripe.com
+square.com
+paypal.com
+adyen.com
+checkout.com
+braintreepayments.com
+paddle.com
+mollie.com
+
+# Fintech - Signature Replay
+coinbase.com
+binance.com
+kraken.com
+revolut.com
+wise.com
+cash.app
+
+# E-commerce - Checkout Logic
+shopify.com
+woocommerce.com
+bigcartel.com
+wix.com
+squarespace.com
+
+# SaaS - Billing Bugs
+github.com
+gitlab.com
+slack.com
+discord.com
+atlassian.com
+
+# Web3 - Direct Crypto Bugs
+opensea.io
+uniswap.org
+aave.com
+compound.finance

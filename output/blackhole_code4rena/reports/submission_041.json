@@ -1,0 +1,15 @@
+{
+  "title": "api_graphql_query_complexity",
+  "severity": "medium",
+  "impact": "Test GraphQL query complexity (deep nesting)",
+  "description": "Test GraphQL query complexity (deep nesting)",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "Manually test: Test GraphQL query complexity (deep nesting)",
+  "contract_address": "",
+  "vulnerability_type": "api_graphql_query_complexity",
+  "methodology": "hackingapis.pdf - GraphQL query complexity + penetrationtesting.pdf",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

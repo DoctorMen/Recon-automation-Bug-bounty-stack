@@ -1,0 +1,91 @@
+# Jason Haddix Methodology Configuration
+# Bug Bounty Application Analysis Framework
+
+targets:
+  rapyd_domains:
+    - dashboard.rapyd.net
+    - sandboxapi.rapyd.net
+    - api.rapyd.net
+    - verify.rapyd.net
+    - checkout.rapyd.net
+
+phases:
+  reconnaissance:
+    enabled: true
+    subdomain_enum:
+      tools: [subfinder, amass, findomain]
+      wordlists: [config/wordlists/subdomains.txt]
+      passive: true
+      active: false
+    port_scanning:
+      enabled: true
+      tools: [nmap, masscan]
+      ports: [80,443,8080,8443,3000,5000,8000,8888]
+      rate_limit: 1000
+    tech_fingerprinting:
+      enabled: true
+      tools: [httpx, wappalyzer, whatweb]
+  
+  content_discovery:
+    enabled: true
+    directory_discovery:
+      enabled: true
+      tools: [gobuster, ffuf, dirsearch]
+      wordlists: [config/wordlists/directories.txt]
+      recursive: true
+      depth: 3
+    api_discovery:
+      enabled: true
+      check_swagger: true
+      check_graphql: true
+      check_rest: true
+    js_analysis:
+      enabled: true
+      extract_endpoints: true
+      extract_secrets: true
+  
+  parameter_analysis:
+    enabled: true
+    enumeration:
+      tools: [ParamSpider, Arjun, Burp]
+      sources: [url, body, headers, cookies, json]
+    fuzzing:
+      enabled: true
+      wordlists: [config/wordlists/parameters.txt]
+  
+  testing_layers:
+    enabled: true
+    layer_1_auth:
+      enabled: true
+      tests: [login_bypass, session_management, idor, privilege_escalation]
+    layer_2_input:
+      enabled: true
+      tests: [sql_injection, xss, command_injection, path_traversal]
+    layer_3_logic:
+      enabled: true
+      tests: [race_conditions, workflow_bypass, state_manipulation, payment_manipulation]
+    layer_4_api:
+      enabled: true
+      tests: [rate_limit_bypass, auth_bypass, graphql_vulns, rest_vulns]
+  
+  heat_mapping:
+    enabled: true
+    high_priority:
+      - authentication
+      - payment
+      - admin
+      - user_data
+    medium_priority:
+      - profile
+      - upload
+      - search
+    low_priority:
+      - static
+      - public
+      - docs
+
+rapyd_specific:
+  api_base: sandboxapi.rapyd.net/v1
+  required_header: X-Bugcrowd
+  header_value: Bugcrowd-DoctorMen
+  account_email: DoctorMen@bugcrowdninja.com

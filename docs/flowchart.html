@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Same‑Day Security Surface Check — Flow</title>
+    <style>
+      :root { --bg:#0c0f14; --card:#121621; --text:#e8eefc; --muted:#aab3c5; }
+      html,body{height:100%}
+      body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+      .wrap{max-width:1100px;margin:0 auto;padding:20px}
+      h1{margin:6px 0 14px;font-size:28px}
+      .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px}
+      .note{color:var(--muted);font-size:14px;margin:10px 0}
+      .mermaid{background:#0e1420;border-radius:10px;padding:16px; overflow:auto}
+      .mermaid svg{width:100%; height:auto}
+      a{color:#66e0ff}
+      .row{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+      .btn{appearance:none;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 12px;color:var(--text);text-decoration:none}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({ startOnLoad: true, theme: 'dark', flowchart: { curve: 'basis' } });
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Same‑Day Security Surface Check — Visual Flow</h1>
+      <div class="card">
+        <div class="mermaid">
+flowchart LR
+  A[Landing + Stripe] -->|Pay| B[Consent & Scope Form]
+  B -->|PDF emailed to both| C[Kickoff]
+  C --> D[Run Recon Pipeline]
+  D --> E[HTTPx + Nuclei]
+  D --> F[Crypto Scanner]
+  E --> G[Aggregate Findings]
+  F --> G
+  G --> H[Report]
+  H --> I[Delivery]
+  I --> J{Within window?}
+  J -->|Yes| K[Complete]
+  J -->|No| L[Refund 100%]
+  B -.-> |Edit scope/rate limits| B
+  C -.-> |Adjust testing window| C
+        </div>
+        <p class="note">No subscriptions required. Local static file; open directly in your browser.</p>
+        <div class="row">
+          <a class="btn" href="./landing.html">Open landing page</a>
+          <a class="btn" href="./ceo_flows.html">CEO next‑phase flows</a>
+          <a class="btn" href="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" target="_blank" rel="noopener">Mermaid runtime</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+

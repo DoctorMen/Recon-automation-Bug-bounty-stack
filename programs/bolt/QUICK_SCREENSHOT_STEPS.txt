@@ -1,0 +1,10 @@
+========================================
+SCREENSHOT CAPTURE - STEP BY STEP
+========================================
+
+BUG 1: Admin Endpoint
+-----------------------
+1. In browser, navigate to: https://merchant.bolt.com/admin
+2. Switch to Network tab (not Elements)
+3. Refresh page (F5)
+4. Find request to 

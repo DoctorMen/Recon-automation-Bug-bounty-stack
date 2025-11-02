@@ -1,0 +1,544 @@
+{
+  "info": {
+    "name": "Rapyd Bug Bounty Testing",
+    "description": "Postman collection for Rapyd bug bounty testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "rapyd_base_url",
+      "value": "https://sandboxapi.rapyd.net",
+      "type": "string"
+    },
+    {
+      "key": "rapyd_api_key",
+      "value": "YOUR_API_KEY_HERE",
+      "type": "string"
+    },
+    {
+      "key": "rapyd_secret_key",
+      "value": "YOUR_SECRET_KEY_HERE",
+      "type": "string"
+    },
+    {
+      "key": "bugcrowd_header",
+      "value": "Bugcrowd-DoctorMen",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication Testing",
+      "item": [
+        {
+          "name": "Test - No Authorization Header",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 100,\n  \"currency\": \"USD\",\n  \"payment_method\": \"bank_transfer\"\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/create",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "create"]
+            },
+            "description": "Test if endpoint accepts requests without authorization header"
+          }
+        },
+        {
+          "name": "Test - Invalid Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer invalid_token_here",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 100,\n  \"currency\": \"USD\"\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/create",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "create"]
+            }
+          }
+        },
+        {
+          "name": "Test - Missing Bearer Prefix",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "YOUR_TOKEN_HERE",
+                "type": "text",
+                "description": "Token without Bearer prefix"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 100,\n  \"currency\": \"USD\"\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/create",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "create"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Business Logic Testing",
+      "item": [
+        {
+          "name": "Test - Negative Amount",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": -100,\n  \"currency\": \"USD\"\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/create",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "create"]
+            }
+          }
+        },
+        {
+          "name": "Test - Zero Amount",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 0,\n  \"currency\": \"USD\"\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/create",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "create"]
+            }
+          }
+        },
+        {
+          "name": "Test - Overflow Amount",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 999999999999999,\n  \"currency\": \"USD\"\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/create",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "create"]
+            }
+          }
+        },
+        {
+          "name": "Test - Invalid Currency",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 100,\n  \"currency\": \"INVALID\"\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/create",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "create"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "IDOR Testing",
+      "item": [
+        {
+          "name": "List Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/customers?limit=10",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "customers"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "List your customers to get customer IDs for IDOR testing"
+          }
+        },
+        {
+          "name": "Test IDOR - Access Other Customer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/customers/CUSTOMER_ID_HERE",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "customers", "CUSTOMER_ID_HERE"]
+            },
+            "description": "Replace CUSTOMER_ID_HERE with another user's customer ID to test IDOR"
+          }
+        },
+        {
+          "name": "List Payments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments?limit=10",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Test IDOR - Access Other Payment",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/PAYMENT_ID_HERE",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "PAYMENT_ID_HERE"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Refund Testing",
+      "item": [
+        {
+          "name": "Test - Refund More Than Original",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 200\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/PAYMENT_ID_HERE/refund",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "PAYMENT_ID_HERE", "refund"]
+            },
+            "description": "Test if you can refund more than the original payment amount"
+          }
+        },
+        {
+          "name": "Test - Double Refund",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 100\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/payments/PAYMENT_ID_HERE/refund",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "payments", "PAYMENT_ID_HERE", "refund"]
+            },
+            "description": "Send same refund request twice - test for double refund vulnerability"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Wallet Testing",
+      "item": [
+        {
+          "name": "List Wallets",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/wallets?limit=10",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "wallets"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Test - Transfer More Than Balance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 10000,\n  \"currency\": \"USD\",\n  \"destination_wallet\": \"WALLET_ID_HERE\"\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/wallets/WALLET_ID_HERE/transfer",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "wallets", "WALLET_ID_HERE", "transfer"]
+            },
+            "description": "Test if you can transfer more than your wallet balance"
+          }
+        },
+        {
+          "name": "Test - Negative Transfer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{rapyd_api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Bugcrowd",
+                "value": "{{bugcrowd_header}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": -100,\n  \"currency\": \"USD\",\n  \"destination_wallet\": \"WALLET_ID_HERE\"\n}"
+            },
+            "url": {
+              "raw": "{{rapyd_base_url}}/v1/wallets/WALLET_ID_HERE/transfer",
+              "host": ["{{rapyd_base_url}}"],
+              "path": ["v1", "wallets", "WALLET_ID_HERE", "transfer"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+

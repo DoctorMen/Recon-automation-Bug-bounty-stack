@@ -1,0 +1,29 @@
+# TIER 1: PAYMENT/FINTECH (Highest Payouts $$$)
+rapyd.net
+stripe.com
+square.com
+paypal.com
+coinbase.com
+revolut.com
+wise.com
+plaid.com
+
+# TIER 2: E-COMMERCE
+shopify.com
+bigcartel.com
+wix.com
+
+# TIER 3: DEVELOPER TOOLS
+gitlab.com
+github.com
+atlassian.com
+
+# TIER 4: SAAS
+slack.com
+zendesk.com
+notion.so
+
+# TIER 5: CRYPTO
+opensea.io
+metamask.io
+blockchain.com

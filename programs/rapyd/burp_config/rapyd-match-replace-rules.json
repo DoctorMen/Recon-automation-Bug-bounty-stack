@@ -1,0 +1,23 @@
+{
+  "match_replace_rules": [
+    {
+      "enabled": true,
+      "type": "request_header",
+      "match": "^X-Bugcrowd:.*",
+      "replace": "X-Bugcrowd: Bugcrowd-DoctorMen",
+      "comment": "Replace existing X-Bugcrowd header"
+    },
+    {
+      "enabled": true,
+      "type": "request_header",
+      "match": "",
+      "replace": "X-Bugcrowd: Bugcrowd-DoctorMen",
+      "comment": "Add X-Bugcrowd header if missing (only for Rapyd domains)",
+      "condition": {
+        "url_is_in_scope": true
+      }
+    }
+  ],
+  "notes": "Import these rules into Burp Suite Project Options > Match and Replace"
+}
+

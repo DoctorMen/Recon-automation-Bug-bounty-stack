@@ -1,0 +1,15 @@
+{
+  "title": "api_idor",
+  "severity": "medium",
+  "impact": "Test IDOR by accessing other users' resources",
+  "description": "Test IDOR by accessing other users' resources",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "Manually test: Test IDOR by accessing other users' resources",
+  "contract_address": "",
+  "vulnerability_type": "api_idor",
+  "methodology": "hackingapis.pdf - IDOR testing in API endpoints + penetrationtesting.pdf",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

@@ -1,0 +1,172 @@
+{
+  "project_file": {
+    "version": "1.0",
+    "name": "Rapyd Bug Bounty - DoctorMen",
+    "created": "2025-11-01"
+  },
+  "target": {
+    "scope": {
+      "include": [
+        {
+          "protocol": "https",
+          "host": "sandboxapi.rapyd.net",
+          "file": ""
+        },
+        {
+          "protocol": "https",
+          "host": "api.rapyd.net",
+          "file": ""
+        },
+        {
+          "protocol": "https",
+          "host": "dashboard.rapyd.net",
+          "file": ""
+        },
+        {
+          "protocol": "https",
+          "host": "verify.rapyd.net",
+          "file": ""
+        },
+        {
+          "protocol": "https",
+          "host": "checkout.rapyd.net",
+          "file": ""
+        }
+      ],
+      "exclude": [
+        {
+          "protocol": "https",
+          "host": "*.rapyd.net",
+          "file": ""
+        }
+      ],
+      "advanced_scope": {
+        "enabled": true,
+        "include": [
+          {
+            "prefix": "https://sandboxapi.rapyd.net/v1"
+          },
+          {
+            "prefix": "https://api.rapyd.net/v1"
+          },
+          {
+            "prefix": "https://dashboard.rapyd.net"
+          },
+          {
+            "prefix": "https://verify.rapyd.net"
+          },
+          {
+            "prefix": "https://checkout.rapyd.net"
+          }
+        ]
+      }
+    }
+  },
+  "proxy": {
+    "request_listeners": [
+      {
+        "address": "127.0.0.1",
+        "port": 8080,
+        "certificate": "automatic"
+      }
+    ],
+    "response_listeners": [],
+    "intercept_client_requests": true,
+    "intercept_server_responses": false,
+    "intercept_web_sockets": false,
+    "support_invisible_proxying": true,
+    "proxy_service_options": {
+      "use_http_proxy": false,
+      "use_user_options": false,
+      "proxy_authenticate": false
+    },
+    "match_replace_rules": [
+      {
+        "enabled": true,
+        "type": "request_header",
+        "match": "^X-Bugcrowd:.*",
+        "replace": "X-Bugcrowd: Bugcrowd-DoctorMen"
+      },
+      {
+        "enabled": true,
+        "type": "request_header",
+        "match": "",
+        "replace": "X-Bugcrowd: Bugcrowd-DoctorMen"
+      }
+    ]
+  },
+  "sessions": {
+    "cookie_jar": {
+      "scope": {
+        "enabled": true,
+        "include": [
+          {
+            "protocol": "https",
+            "host": "sandboxapi.rapyd.net"
+          },
+          {
+            "protocol": "https",
+            "host": "api.rapyd.net"
+          },
+          {
+            "protocol": "https",
+            "host": "dashboard.rapyd.net"
+          },
+          {
+            "protocol": "https",
+            "host": "verify.rapyd.net"
+          },
+          {
+            "protocol": "https",
+            "host": "checkout.rapyd.net"
+          }
+        ]
+      }
+    },
+    "session_handling_rules": [
+      {
+        "enabled": true,
+        "name": "Rapyd X-Bugcrowd Header",
+        "description": "Automatically adds X-Bugcrowd header to all Rapyd requests",
+        "action": {
+          "type": "run_macro",
+          "description": "Add X-Bugcrowd header"
+        },
+        "condition": {
+          "type": "url_is_in_scope",
+          "operator": "and"
+        }
+      }
+    ]
+  },
+  "http": {
+    "redirections": "follow",
+    "redirection_target": "in_scope_only",
+    "streaming_responses": true,
+    "response_queue_size": 100,
+    "request_timeout": 30000,
+    "use_user_options": false
+  },
+  "tls": {
+    "use_platform_trust_store": true,
+    "use_user_options": false,
+    "auto_client_certificates": []
+  },
+  "user_options": {
+    "user_agent": "Burp Suite Professional",
+    "connections": {
+      "connection_timeout": 30000,
+      "socket_timeout": 60000,
+      "keep_alive_connections": true,
+      "max_connections_per_host": 20
+    }
+  },
+  "platform_authentication": {
+    "use_platform_authentication": false,
+    "authentication_method": "none"
+  },
+  "notes": {
+    "project_notes": "Rapyd Bug Bounty Program - DoctorMen@bugcrowdninja.com\nRequired Header: X-Bugcrowd: Bugcrowd-DoctorMen\nScope: sandboxapi.rapyd.net, dashboard.rapyd.net, verify.rapyd.net, checkout.rapyd.net"
+  }
+}
+

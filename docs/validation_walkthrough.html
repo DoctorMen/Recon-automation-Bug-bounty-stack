@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Validation Walkthrough — Snapshot + Staging</title>
+    <style>
+      :root { --bg:#0c0f14; --card:#121621; --text:#e8eefc; --muted:#aab3c5 }
+      body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+      .wrap{max-width:1100px;margin:0 auto;padding:22px}
+      .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin:14px 0}
+      pre{background:#0e1420;border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:8px;overflow:auto}
+      code{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;color:#dbeafe}
+      a.btn{appearance:none;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:8px 12px;color:var(--text);text-decoration:none;display:inline-block;margin-right:8px}
+      .row{display:flex;gap:8px;margin:6px 0}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Validation Walkthrough — Snapshot + Staging</h1>
+      <div>
+        <a class="btn" href="./status.html">Status</a>
+        <a class="btn" href="./OPERATIONS_RUNBOOK.md">Runbook</a>
+        <a class="btn" href="./sample_report.html">Sample Report</a>
+      </div>
+
+      <div class="card">
+        <h3>Step 1 — Create a snapshot (WSL)</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyText('snap');return false;">Copy</a></div>
+<pre id="snap"><code>cd ~/Recon-automation-Bug-bounty-stack
+chmod +x scripts/*.sh
+bash scripts/snapshot_env.sh
+</code></pre>
+        <p class="muted">This prints a path like snapshots/2025MMDD-HHMMSS (and .tar.gz).</p>
+      </div>
+
+      <div class="card">
+        <h3>Step 2 — Staging dry‑run (no network impact)</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyText('stage');return false;">Copy</a></div>
+<pre id="stage"><code>cd ~/Recon-automation-Bug-bounty-stack
+bash scripts/run_staging.sh
+RUN_DIR=$(ls -1dt env/staging/output/* | head -1)
+echo "$RUN_DIR"
+cat "$RUN_DIR/reports/summary.md"
+</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>Step 3 — Restore a snapshot (optional)</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyText('restore');return false;">Copy</a></div>
+<pre id="restore"><code>cd ~/Recon-automation-Bug-bounty-stack
+bash scripts/restore_snapshot.sh snapshots/2025MMDD-HHMMSS
+</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>Step 4 — View proof in Windows browser</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyText('openwin');return false;">Copy</a></div>
+<pre id="openwin"><code>powershell.exe -NoProfile -Command "Start-Process '\\wsl$\\Ubuntu\\home\\ubuntu\\Recon-automation-Bug-bounty-stack\\docs\\sample_report.html'"
+powershell.exe -NoProfile -Command "Start-Process '\\wsl$\\Ubuntu\\home\\ubuntu\\Recon-automation-Bug-bounty-stack\\docs\\status.html'"
+</code></pre>
+        <p class="muted">WSL usually has no GUI; use Windows to open local HTML.</p>
+      </div>
+
+    </div>
+    <script>
+      function copyText(id){
+        var el=document.getElementById(id); if(!el) return;
+        var range=document.createRange(); range.selectNodeContents(el);
+        var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        try{document.execCommand('copy');}catch(e){}
+        sel.removeAllRanges();
+      }
+    </script>
+  </body>
+</html>

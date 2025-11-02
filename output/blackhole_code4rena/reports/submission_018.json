@@ -1,0 +1,15 @@
+{
+  "title": "api_mass_assignment",
+  "severity": "medium",
+  "impact": "Test mass assignment vulnerabilities",
+  "description": "Test mass assignment vulnerabilities",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "Manually test: Test mass assignment vulnerabilities",
+  "contract_address": "",
+  "vulnerability_type": "api_mass_assignment",
+  "methodology": "hackingapis.pdf - Mass assignment testing + penetrationtesting.pdf",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

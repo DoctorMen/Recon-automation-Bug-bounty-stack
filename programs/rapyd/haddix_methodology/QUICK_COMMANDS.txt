@@ -1,0 +1,21 @@
+# Quick Commands - Copy and Paste
+
+# Navigate to methodology directory
+cd ~/Recon-automation-Bug-bounty-stack/programs/rapyd/haddix_methodology
+
+# Run full methodology
+python3 scripts/run_full_methodology.py
+
+# Or run individual phases:
+python3 scripts/phase1_reconnaissance.py
+python3 scripts/phase2_content_discovery.py
+python3 scripts/phase3_parameter_analysis.py
+python3 scripts/phase4_testing_layers.py
+python3 scripts/phase5_heat_mapping.py
+
+# Quick check your location
+pwd
+# Should show: /home/ubuntu/Recon-automation-Bug-bounty-stack/programs/rapyd/haddix_methodology
+
+# List available scripts
+ls scripts/*.py

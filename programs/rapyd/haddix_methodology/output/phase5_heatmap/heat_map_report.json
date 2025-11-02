@@ -1,0 +1,46 @@
+{
+  "heat_map": {
+    "high_priority": [],
+    "medium_priority": [],
+    "low_priority": [
+      "https://dashboard.rapyd.net/api/v1",
+      "https://dashboard.rapyd.net/api/v2",
+      "https://dashboard.rapyd.net/v1",
+      "https://dashboard.rapyd.net/v2",
+      "https://dashboard.rapyd.net/swagger.json",
+      "https://dashboard.rapyd.net/openapi.json",
+      "https://dashboard.rapyd.net/graphql",
+      "https://sandboxapi.rapyd.net/api/v1",
+      "https://sandboxapi.rapyd.net/api/v2",
+      "https://sandboxapi.rapyd.net/v1",
+      "https://sandboxapi.rapyd.net/v2",
+      "https://sandboxapi.rapyd.net/swagger.json",
+      "https://sandboxapi.rapyd.net/openapi.json",
+      "https://sandboxapi.rapyd.net/graphql",
+      "https://api.rapyd.net/api/v1",
+      "https://api.rapyd.net/api/v2",
+      "https://api.rapyd.net/v1",
+      "https://api.rapyd.net/v2",
+      "https://api.rapyd.net/swagger.json",
+      "https://api.rapyd.net/openapi.json",
+      "https://api.rapyd.net/graphql",
+      "https://verify.rapyd.net/api/v1",
+      "https://verify.rapyd.net/api/v2",
+      "https://verify.rapyd.net/v1",
+      "https://verify.rapyd.net/v2",
+      "https://verify.rapyd.net/swagger.json",
+      "https://verify.rapyd.net/openapi.json",
+      "https://verify.rapyd.net/graphql",
+      "https://checkout.rapyd.net/api/v1",
+      "https://checkout.rapyd.net/api/v2",
+      "https://checkout.rapyd.net/v1",
+      "https://checkout.rapyd.net/v2",
+      "https://checkout.rapyd.net/swagger.json",
+      "https://checkout.rapyd.net/openapi.json",
+      "https://checkout.rapyd.net/graphql"
+    ]
+  },
+  "recommendations": {
+    "start_with": []
+  }
+}

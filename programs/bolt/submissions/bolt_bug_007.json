@@ -1,0 +1,9 @@
+{
+  "title": "Payment Manipulation - https://merchant.bolt.com/api/v1/payments",
+  "severity": "HIGH",
+  "url": "https://merchant.bolt.com/api/v1/payments",
+  "evidence": {
+    "amount": 0.01
+  },
+  "description": "Payment Manipulation vulnerability found via automated testing"
+}

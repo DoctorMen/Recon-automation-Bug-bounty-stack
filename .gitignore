@@ -6,3 +6,8 @@ tools/tmp/
 .vscode/
 __pycache__/
 tools/bin/
+.protection/
+.protection/
+.protection/
+.protection/
+node_modules

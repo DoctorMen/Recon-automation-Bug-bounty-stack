@@ -1,0 +1,344 @@
+{
+  "total_targets": 4,
+  "total_endpoints": 1326,
+  "total_confirmed": 18,
+  "total_value": 9000,
+  "results_by_target": {
+    "rapyd": {
+      "endpoints_tested": 408,
+      "confirmed_vulnerabilities": 3,
+      "estimated_value": 1500,
+      "findings": [
+        {
+          "endpoint": "https://rapyd.net/api",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "method": "GET",
+            "status_code": 200,
+            "response_length": 169003,
+            "headers": {
+              "Date": "Sun, 02 Nov 2025 07:40:30 GMT",
+              "Content-Type": "text/html; charset=UTF-8",
+              "Transfer-Encoding": "chunked",
+              "Connection": "keep-alive",
+              "Access-Control-Allow-Origin": "https://www.googletagmanager.com",
+              "Cache-Control": "public, max-age=604800",
+              "content-security-policy": "default-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdn.cookielaw.org https://www.googletagmanager.com https://addsearch.com https://*.addsearch.com https://*.searchcdn.com https://d20vwa69zln1wj.cloudfront.net https://www.google-analytics.com https://www.googleanalytics.com https://*.outbrain.com https://snap.licdn.com https://assets.apollo.io https://www.redditstatic.com https://googleads.g.doubleclick.net https://js.hs-scripts.com https://analytics.tiktok.com https://connect.facebook.net https://j.6sc.co https://amplify.outbrain.com https://tr.outbrain.com https://js.hs-analytics.net https://js.hsadspixel.net https://js.hs-banner.com https://js.hsleadflows.net https://js.hubspot.com https://js.hsforms.net https://www.google.com/recaptcha/enterprise.js https://www.gstatic.com/recaptcha/releases/ https://s8.searchcdn.com https://grid.is https://edge.fullstory.com https://www.comeet.co https://player.vimeo.com https://www.youtube.com https://apollo.io https://cdn.ampproject.org https://bugcrowd.com https://assets.bugcrowdusercontent.com https://www.google.com https://optimize.google.com https://www.googleoptimize.com https://*.visualwebsiteoptimizer.com https://app.vwo.com https://js.hscta.net https://js-eu1.hscta.net https://no-cache.hubspot.com https://*.hubspot.com https://*.hs-sites.com https://*.hs-sites-eu1.com https://cta-service-cms2.hubspot.com https://tagmanager.google.com https://www.gstatic.com https://bat.bing.com https://*.omappapi.com https://widget.manychat.com https://app.calculatorstudio.co https://cdn.userway.org https://static.oktopost.com https://okt.rapyd.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.addsearch.com https://*.searchcdn.com https://*.cloudfront.net https://optimize.google.com https://www.comeet.com https://tagmanager.google.com https://www.googletagmanager.com https://www.googleoptimize.com https://*.omappapi.com https://*.visualwebsiteoptimizer.com https://app.vwo.com https://cdn.userway.org; img-src 'self' https: data: blob:; connect-src 'self' https://googleads.g.doubleclick.net https://www.google.com https://px.ads.linkedin.com https://px.ads.linkedin.com https://aplo-evnt.com https://api.ipstack.com https://cdn.cookielaw.org https://geolocation.onetrust.com https://analytics.google.com https://www.google-analytics.com https://privacyportal-eu.onetrust.com https://stats.g.doubleclick.net https://ipv6.6sc.co https://analytics.tiktok.com https://dashboard.rapyd.net https://api.hubapi.com https://*.hubspot.com https://forms.hsforms.com https://hubspot-forms-static-embed.s3.amazonaws.com https://cdn.linkedin.oribi.io https://c.6sc.co https://edge.fullstory.com https://rs.fullstory.com https://secure.adnxs.com https://*.visualwebsiteoptimizer.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://*.omappapi.com https://app.vwo.com https://api.userway.org https://cdn.userway.org https://*.api.userway.org; font-src 'self' data: https://fonts.gstatic.com https://cdn.userway.org; frame-ancestors 'self' https://www.google.com https://grid.is https://www.rapyd.is; frame-src https://www.rapyd.net https://*.outbrain.com https://td.doubleclick.net https://aax-eu.amazon-adsystem.com https://www.facebook.com https://optimize.google.com https://www.google.com https://forms.hsforms.com https://grid.is https://www.rapyd.is https://www.comeet.co https://player.vimeo.com https://bugcrowd.com https://www.googleoptimize.com https://www.youtube.com https://apollo.io https://s-eu1.hscta.net https://no-cache.hubspot.com https://*.hs-sites-eu1.com https://*.hs-sites.com https://*.visualwebsiteoptimizer.com https://app.vwo.com https://www.googletagmanager.com https://app.calculatorstudio.co https://cdn.userway.org",
+              "cross-origin-opener-policy": "same-origin",
+              "feature-policy": "cookie 'self'; fullscreen 'self'; geolocation 'self'",
+              "Link": "<https://www.rapyd.net/wp-json/>; rel=\"https://api.w.org/\"",
+              "referrer-policy": "no-referrer-when-downgrade",
+              "Server": "cloudflare",
+              "strict-transport-security": "max-age=63072000",
+              "x-frame-options": "SAMEORIGIN",
+              "x-pantheon-styx-hostname": "styx-fe4-a-6dc589968d-2mttx",
+              "x-styx-req-id": "ea39ef2a-b4d0-11f0-b006-7edca956073a",
+              "x-served-by": "cache-chi-kigq8000084-CHI, cache-pdk-kfty8610088-PDK",
+              "x-cache": "HIT, HIT",
+              "x-cache-hits": "18, 0",
+              "x-timer": "S1762069230.343853,VS0,VE2",
+              "Vary": "Accept-Encoding, Cookie, Cookie",
+              "Age": "322245",
+              "Via": "1.1 varnish, 1.1 varnish",
+              "cf-cache-status": "DYNAMIC",
+              "Content-Encoding": "gzip",
+              "Set-Cookie": "__cf_bm=h81aFd8Ta7CPZEK44xBs9gnaUmQ6X2cxMMmW4Czkoo8-1762069230.3373613-1.0.1.1-LmG5mlV23d6lrl76clc5Eehg43Ig6rK.huf2JtZqH3lE4dhNkKY2R6STVm5ouPaRtASFeD7ZU_TXuO5h1ClekmVJJdA7O2h3m2a6FdVcJM3lLgBfJ5nHWHF.QyhaqSWK; HttpOnly; Secure; Path=/; Domain=rapyd.net; Expires=Sun, 02 Nov 2025 08:10:30 GMT",
+              "CF-RAY": "9981fbf19b4d1ecd-ATL"
+            }
+          },
+          "response_time": 1.796370506286621,
+          "value": 500
+        },
+        {
+          "endpoint": "https://rapyd.net/api",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "payload": {
+              "role": "admin",
+              "is_admin": true
+            },
+            "status_code": 200,
+            "response_length": 169003
+          },
+          "response_time": 0.4653007984161377,
+          "value": 500
+        },
+        {
+          "endpoint": "https://rapyd.net/api",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "status_code": 200,
+            "response_length": 169003,
+            "vulnerability": "information_disclosure"
+          },
+          "response_time": 0.46118807792663574,
+          "value": 500
+        }
+      ]
+    },
+    "kraken": {
+      "endpoints_tested": 306,
+      "confirmed_vulnerabilities": 0,
+      "estimated_value": 0,
+      "findings": []
+    },
+    "whitebit": {
+      "endpoints_tested": 306,
+      "confirmed_vulnerabilities": 2,
+      "estimated_value": 1000,
+      "findings": [
+        {
+          "endpoint": "https://whitebit.com/api/health",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "method": "GET",
+            "headers": {
+              "Authorization": "Bearer test"
+            },
+            "status_code": 200,
+            "response_length": 41
+          },
+          "response_time": 0.9650723934173584,
+          "value": 500
+        },
+        {
+          "endpoint": "https://whitebit.com/api/health",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "payload": {
+              "role": "admin",
+              "is_admin": true
+            },
+            "status_code": 200,
+            "response_length": 41
+          },
+          "response_time": 0.9928433895111084,
+          "value": 500
+        }
+      ]
+    },
+    "nicehash": {
+      "endpoints_tested": 306,
+      "confirmed_vulnerabilities": 13,
+      "estimated_value": 6500,
+      "findings": [
+        {
+          "endpoint": "https://nicehash.com/.well-known/openapi.json",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "method": "GET",
+            "headers": {
+              "X-Auth-Token": "test"
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 5.66402530670166,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/.well-known/openapi.json",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "payload": {
+              "role": "admin",
+              "is_admin": true
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 2.0943562984466553,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/.well-known/swagger.json",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "method": "GET",
+            "headers": {
+              "X-API-Key": "test"
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 5.378423452377319,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/.well-known/swagger.json",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "payload": {
+              "role": "admin",
+              "is_admin": true
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 2.0414721965789795,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/swagger",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "method": "GET",
+            "headers": {
+              "X-Auth-Token": "test"
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 5.1984734535217285,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/swagger",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "payload": {
+              "role": "admin",
+              "is_admin": true
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 2.0829830169677734,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/openapi",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "payload": {
+              "role": "admin",
+              "is_admin": true
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 2.1458311080932617,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/docs",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "method": "GET",
+            "status_code": 200,
+            "response_length": 1446,
+            "headers": {
+              "Server": "nginx",
+              "Date": "Sun, 02 Nov 2025 07:41:39 GMT",
+              "Content-Type": "text/html",
+              "Vary": "Accept-Encoding",
+              "X-Frame-Options": "SAMEORIGIN",
+              "Referrer-Policy": "strict-origin-when-cross-origin",
+              "X-Xss-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "Permissions-Policy": "camera=(self \"https://api.sumsub.com\"),microphone=(self \"https://api.sumsub.com\"),fullscreen=(self \"https://www.youtube.com\"),geolocation=(),gyroscope=(),magnetometer=(),midi=(),payment=(),sync-xhr=(),usb=()",
+              "Report-To": "{\"group\":\"active\",\"max_age\":31536000,\"endpoints\":[{\"url\":\"/__csp_\"}],\"include_subdomains\":true},{\"group\":\"passive\",\"max_age\":31536000,\"endpoints\":[{\"url\":\"/__csp\"}],\"include_subdomains\":true}",
+              "Content-Security-Policy": "upgrade-insecure-requests; object-src 'none'; default-src 'self' 'report-sample'; frame-ancestors 'self'; style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style; script-src 'self' 'report-sample' 'strict-dynamic' 'nonce-b0fc26a06ae8b7e00dc3c983428f5fd3'; connect-src 'self' https://api2.nicehash.com https://capture.trackjs.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.google.com/pagead https://www.google.com/pagead/landing https://adservice.google.com https://stats.g.doubleclick.net https://accounts.google.com/gsi/ https://www.google.com/ccm https://recaptcha.net wss://*.nicehash.com http://localhost:18000 http://localhost:18001; img-src 'self' 'report-sample' https://api2.nicehash.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://adservice.google.com https://stats.g.doubleclick.net https://usage.trackjs.com https://i.ytimg.com https://img.youtube.com https://www.gstatic.com https://www.google.com https://play-lh.googleusercontent.com https://static.nicehash.com https://nicehash.banxa.com/images/payment-providers/ https://nicex.banxa.com/images/payment-providers/ data:; base-uri 'self'; font-src 'self' https://fonts.gstatic.com data:; media-src 'self' https://static.nicehash.com data:; form-action 'self' https://api.nicehash.com; child-src 'self' https://recaptcha.net https://www.google.com https://youtube.com https://www.youtube.com https://api.sumsub.com https://widget.nicehash.com https://accounts.google.com/gsi/; report-uri /_csp_; report-to active",
+              "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
+              "Content-Encoding": "gzip",
+              "Via": "1.1 google",
+              "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+              "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "Transfer-Encoding": "chunked"
+            }
+          },
+          "response_time": 5.531367063522339,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/docs",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "payload": {
+              "role": "admin",
+              "is_admin": true
+            },
+            "status_code": 200,
+            "response_length": 1446
+          },
+          "response_time": 3.3141140937805176,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/v1",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "method": "GET",
+            "headers": {
+              "Authorization": "Bearer test"
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 3.475630760192871,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/v1",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "payload": {
+              "role": "admin",
+              "is_admin": true
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 2.1373353004455566,
+          "value": 500
+        },
+        {
+          "endpoint": "https://nicehash.com/v2",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "method": "GET",
+            "headers": {
+              "Authorization": "Bearer test"
+            },
+            "status_code": 200,
+            "response_length": 1890
+          },
+          "response_time": 3.628326892852783,
+          "value": 500
+        },
+        {
+          "endpoint": "http://www.nicehash.com/docs",
+          "exploited": true,
+          "confirmed": true,
+          "proof": {
+            "method": "GET",
+            "headers": {
+              "X-Auth-Token": "test"
+            },
+            "status_code": 200,
+            "response_length": 1446
+          },
+          "response_time": 5.4010655879974365,
+          "value": 500
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "auth_tests": 40,
+  "auth_test_cases": [
+    {
+      "endpoint": "https://dashboard.rapyd.net/api/v1",
+      "test_type": "login_bypass"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/api/v1",
+      "test_type": "session_management"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/api/v1",
+      "test_type": "idor"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/api/v1",
+      "test_type": "privilege_escalation"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/api/v2",
+      "test_type": "login_bypass"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/api/v2",
+      "test_type": "session_management"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/api/v2",
+      "test_type": "idor"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/api/v2",
+      "test_type": "privilege_escalation"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/v1",
+      "test_type": "login_bypass"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/v1",
+      "test_type": "session_management"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/v1",
+      "test_type": "idor"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/v1",
+      "test_type": "privilege_escalation"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/v2",
+      "test_type": "login_bypass"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/v2",
+      "test_type": "session_management"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/v2",
+      "test_type": "idor"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/v2",
+      "test_type": "privilege_escalation"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/swagger.json",
+      "test_type": "login_bypass"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/swagger.json",
+      "test_type": "session_management"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/swagger.json",
+      "test_type": "idor"
+    },
+    {
+      "endpoint": "https://dashboard.rapyd.net/swagger.json",
+      "test_type": "privilege_escalation"
+    }
+  ]
+}

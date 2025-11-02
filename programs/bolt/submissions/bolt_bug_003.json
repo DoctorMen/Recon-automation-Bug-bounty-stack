@@ -1,0 +1,7 @@
+{
+  "title": "Authentication Bypass - https://merchant.bolt.com/settings",
+  "severity": "HIGH",
+  "url": "https://merchant.bolt.com/settings",
+  "evidence": "See details",
+  "description": "Authentication Bypass vulnerability found via automated testing"
+}

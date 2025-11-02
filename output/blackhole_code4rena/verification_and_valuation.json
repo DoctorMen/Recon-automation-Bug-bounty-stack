@@ -1,0 +1,382 @@
+{
+  "verification_date": "2025-11-02T03:35:03.002727",
+  "total_findings": 41,
+  "critical_count": 3,
+  "high_count": 5,
+  "medium_count": 33,
+  "verification_status": {
+    "needs_manual_review": 41,
+    "known_issues": 0
+  },
+  "findings": [
+    {
+      "file": "finding_011_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_034_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_031_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_028_api_idor_put.md",
+      "severity": "medium",
+      "type": "api_idor_put",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_014_api_idor.md",
+      "severity": "medium",
+      "type": "api_idor",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_022_api_jwt_manipulation.md",
+      "severity": "medium",
+      "type": "api_jwt_manipulation",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_035_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_001_reentrancy.md",
+      "severity": "critical",
+      "type": "reentrancy",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual contract code review from GitHub",
+      "requires": "Contract code analysis from https://github.com/BlackHoleDEX/Contracts"
+    },
+    {
+      "file": "finding_032_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_025_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_005_integer_overflow.md",
+      "severity": "high",
+      "type": "integer_overflow",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual verification"
+    },
+    {
+      "file": "finding_016_api_idor_patch.md",
+      "severity": "medium",
+      "type": "api_idor_patch",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_027_api_idor.md",
+      "severity": "medium",
+      "type": "api_idor",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_017_api_idor_delete.md",
+      "severity": "medium",
+      "type": "api_idor_delete",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_002_flash_loan_attack.md",
+      "severity": "critical",
+      "type": "flash_loan_attack",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual contract code review from GitHub",
+      "requires": "Contract code analysis from https://github.com/BlackHoleDEX/Contracts"
+    },
+    {
+      "file": "finding_019_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_015_api_idor_put.md",
+      "severity": "medium",
+      "type": "api_idor_put",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_041_api_graphql_query_complexity.md",
+      "severity": "medium",
+      "type": "api_graphql_query_complexity",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_013_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_029_api_idor_patch.md",
+      "severity": "medium",
+      "type": "api_idor_patch",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_039_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_004_access_control.md",
+      "severity": "high",
+      "type": "access_control",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual verification"
+    },
+    {
+      "file": "finding_010_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_030_api_idor_delete.md",
+      "severity": "medium",
+      "type": "api_idor_delete",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_007_token_approval.md",
+      "severity": "high",
+      "type": "token_approval",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual verification"
+    },
+    {
+      "file": "finding_024_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_020_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_009_router_vulnerability.md",
+      "severity": "high",
+      "type": "router_vulnerability",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual verification"
+    },
+    {
+      "file": "finding_033_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_037_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_006_front_running.md",
+      "severity": "medium",
+      "type": "front_running",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual verification"
+    },
+    {
+      "file": "finding_008_liquidity_pool_exploit.md",
+      "severity": "critical",
+      "type": "liquidity_pool_exploit",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual contract code review from GitHub",
+      "requires": "Contract code analysis from https://github.com/BlackHoleDEX/Contracts"
+    },
+    {
+      "file": "finding_040_api_graphql_introspection.md",
+      "severity": "medium",
+      "type": "api_graphql_introspection",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_038_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_036_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_021_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_026_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_023_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_003_price_manipulation.md",
+      "severity": "high",
+      "type": "price_manipulation",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual verification"
+    },
+    {
+      "file": "finding_012_api_rate_limit_bypass.md",
+      "severity": "medium",
+      "type": "api_rate_limit_bypass",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    },
+    {
+      "file": "finding_018_api_mass_assignment.md",
+      "severity": "medium",
+      "type": "api_mass_assignment",
+      "verification_status": "needs_manual_review",
+      "verification_details": "Requires manual API testing and exploitation proof",
+      "requires": "Manual API testing with actual exploitation proof"
+    }
+  ],
+  "valuation": {
+    "below_50m": {
+      "total_estimated": 22000.0,
+      "critical": 7500.0,
+      "high": 6250.0,
+      "medium": 8250.0
+    },
+    "50m_to_125m": {
+      "total_estimated": 33000.0,
+      "critical": 11250.0,
+      "high": 9375.0,
+      "medium": 12375.0
+    },
+    "above_125m": {
+      "total_estimated": 44000.0,
+      "critical": 15000.0,
+      "high": 12500.0,
+      "medium": 16500.0
+    }
+  },
+  "payout_structure": {
+    "critical": {
+      "base": 10000,
+      "tvl_multiplier": {
+        "below_50m": 0.5,
+        "50m_to_125m": 0.75,
+        "above_125m": 1.0
+      }
+    },
+    "high": {
+      "base": 5000,
+      "tvl_multiplier": {
+        "below_50m": 0.5,
+        "50m_to_125m": 0.75,
+        "above_125m": 1.0
+      }
+    },
+    "medium": {
+      "base": 1000,
+      "tvl_multiplier": {
+        "below_50m": 0.5,
+        "50m_to_125m": 0.75,
+        "above_125m": 1.0
+      }
+    }
+  },
+  "note": "All findings require manual verification against actual contract code from GitHub"
+}

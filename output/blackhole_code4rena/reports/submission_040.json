@@ -1,0 +1,15 @@
+{
+  "title": "api_graphql_introspection",
+  "severity": "medium",
+  "impact": "Test GraphQL introspection query",
+  "description": "Test GraphQL introspection query",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "Manually test: Test GraphQL introspection query",
+  "contract_address": "",
+  "vulnerability_type": "api_graphql_introspection",
+  "methodology": "hackingapis.pdf - GraphQL introspection + penetrationtesting.pdf",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

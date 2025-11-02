@@ -1,0 +1,76 @@
+========================================================================
+API IDOR TESTING - ACTUATION PLAN
+========================================================================
+
+STATUS: âœ… READY TO EXECUTE
+
+SCRIPTS CREATED:
+----------------
+âœ… quick_api_test.py   - Fast single test (30 sec)
+âœ… batch_api_test.py   - Batch testing (scalable)
+âœ… Scripts validated and working
+
+LOCATION: programs/rapyd/findings/
+
+========================================================================
+EXECUTION PHASES
+========================================================================
+
+PHASE 1: QUICK VALIDATION
+--------------------------
+Purpose: Fast IDOR check on single payment
+Time: 30 seconds
+Command:
+  python3 quick_api_test.py ACCOUNT_A_TOKEN ACCOUNT_B_TOKEN PAYMENT_ID
+
+Output:
+  - Console: Real-time test results
+  - File: evidence/idor_api_PAYMENT_ID.json
+
+
+PHASE 2: SCALE TESTING (if Phase 1 finds vulnerability)
+--------------------------------------------------------
+Purpose: Test multiple payments to assess scope
+Time: 1-5 minutes
+Steps:
+  1. Create payment_ids.txt with payment IDs (one per line)
+  2. Run: python3 batch_api_test.py TOKEN_A TOKEN_B payment_ids.txt
+
+Output:
+  - Console: Progress and vulnerability count
+  - File: evidence/batch_test_TIMESTAMP.json
+
+
+PHASE 3: VISUAL EVIDENCE (for bug bounty submission)
+-----------------------------------------------------
+Purpose: Capture screenshots for compelling proof
+Time: 5-10 minutes
+Command:
+  python3 automated_browser_evidence_capture.py
+
+Output:
+  - Screenshots showing account context
+  - Browser-based evidence
+
+
+PHASE 4: PACKAGE & SUBMIT
+--------------------------
+Purpose: Submit to Bugcrowd
+Steps:
+  1. Review evidence/ directory
+  2. Package files
+  3. Submit with both API + visual proof
+
+========================================================================
+HOW TO GET TOKENS (Required for execution)
+========================================================================
+
+METHOD 1: Browser DevTools
+---------------------------
+1. Log into https://dashboard.rapyd.net/
+2. Press F12 (open DevTools)
+3. Go to Network tab
+4. Refresh page or make any action
+5. Click any API request
+6. Look for: Authorization: Bearer eyJhbGc...
+7. Copy the token (everything after 

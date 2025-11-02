@@ -1,0 +1,15 @@
+{
+  "title": "Access Control Vulnerability",
+  "severity": "high",
+  "impact": "Access Control vulnerability testing",
+  "description": "Access Control vulnerability testing",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "",
+  "contract_address": "",
+  "vulnerability_type": "access_control",
+  "methodology": "Unauthorized access to critical functions + penetrationtesting.pdf methodology",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

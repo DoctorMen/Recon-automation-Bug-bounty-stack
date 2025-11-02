@@ -1,0 +1,33 @@
+# Rapyd Bug Bounty Program Permission
+# Bugcrowd Program: https://bugcrowd.com/engagements/rapyd
+# Status: Active (In Progress)
+# Started: November 1, 2022
+# Testing Period: Ongoing
+# Safe Harbor: Yes
+
+## Program Scope
+The following domains are authorized for testing:
+- dashboard.rapyd.net (Dashboard - Tier 2)
+- verify.rapyd.net (Verification - Tier 2)
+- checkout.rapyd.net (Checkout - Tier 2)
+- sandboxapi.rapyd.net/v1 (API - Tier 3 Premium)
+- api.rapyd.net (API - Tier 3 Premium)
+
+## Testing Guidelines
+- Account: DoctorMen@bugcrowdninja.com
+- Required Header: X-Bugcrowd: Bugcrowd-DoctorMen
+- Sandbox API only for automated testing
+- Manual testing preferred
+- NO automation on form submissions
+- NO rate limit abuse
+
+## Reference
+- Program Page: https://bugcrowd.com/engagements/rapyd
+- API Documentation: https://docs.rapyd.net
+- Account Dashboard: https://dashboard.rapyd.net
+
+## Special Promotion
+- API Testing Promotion: October 29 - November 29, 2025
+- Bonus rewards available for high-impact findings
+- Focus: API endpoints (Tier 3 Premium rewards)
+

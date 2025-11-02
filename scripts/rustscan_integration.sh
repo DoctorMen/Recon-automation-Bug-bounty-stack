@@ -1,0 +1,9 @@
+#!/bin/bash
+# RustScan Integration - Ultra-fast port scanner
+# 65k ports in seconds
+
+set -euo pipefail
+
+TARGET=OUTPUT_DIR=../output/rustscan
+mkdir -p 
+echo " echo

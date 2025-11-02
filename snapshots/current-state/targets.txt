@@ -1,0 +1,6 @@
+dashboard.rapyd.net
+verify.rapyd.net
+checkout.rapyd.net
+sandboxapi.rapyd.net
+api.rapyd.net
+

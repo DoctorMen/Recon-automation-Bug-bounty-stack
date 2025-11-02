@@ -1,0 +1,15 @@
+{
+  "title": "api_jwt_manipulation",
+  "severity": "medium",
+  "impact": "Test JWT token manipulation (alg=none, weak secret, missing verification)",
+  "description": "Test JWT token manipulation (alg=none, weak secret, missing verification)",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "Manually test: Test JWT token manipulation (alg=none, weak secret, missing verification)",
+  "contract_address": "",
+  "vulnerability_type": "api_jwt_manipulation",
+  "methodology": "hackingapis.pdf - JWT vulnerabilities + penetrationtesting.pdf",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

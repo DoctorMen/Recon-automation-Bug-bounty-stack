@@ -1,0 +1,430 @@
+﻿{
+  "name": "Rapyd Hourly Monitor with Screenshots",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Cron Trigger - Hourly",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "screenshot_enabled",
+              "name": "screenshotEnabled",
+              "value": "={{ $env.ENABLE_SCREENSHOTS || 'true' }}",
+              "type": "string"
+            },
+            {
+              "id": "screenshot_targets",
+              "name": "screenshotTargets",
+              "value": "={{ $env.SCREENSHOT_TARGETS || 'dashboard.rapyd.net,verify.rapyd.net' }}",
+              "type": "string"
+            },
+            {
+              "id": "timestamp",
+              "name": "timestamp",
+              "value": "={{ $now }}",
+              "type": "string"
+            },
+            {
+              "id": "execution_id",
+              "name": "executionId",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "init-config",
+      "name": "Initialize Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [250, 500]
+    },
+    {
+      "parameters": {
+        "url": "https://sandboxapi.rapyd.net/v1/data/countries",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Bugcrowd",
+              "value": "Bugcrowd-DoctorMen"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "rapyd-api-check",
+      "name": "Check Rapyd API Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "1",
+          "name": "Rapyd API Credentials"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "screenshot-check",
+              "leftValue": "={{ $json.screenshotEnabled }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-screenshot-enabled",
+      "name": "Check Screenshot Enabled",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [650, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Polymorphic screenshot handler - handles multiple targets\nconst targets = $input.item.json.screenshotTargets.split(',').map(t => t.trim());\nconst timestamp = $input.item.json.timestamp;\nconst executionId = $input.item.json.executionId;\n\nconst screenshots = targets.map((target, index) => ({\n  url: `https://${target}`,\n  screenshotId: `rapyd-${target.replace(/[^a-zA-Z0-9]/g, '-')}-${timestamp.replace(/[^a-zA-Z0-9]/g, '-')}-${executionId}-${index}`,\n  filename: `screenshots/rapyd-${target.replace(/[^a-zA-Z0-9]/g, '-')}-${timestamp.replace(/[^a-zA-Z0-9]/g, '-')}-${executionId}-${index}.png`\n}));\n\nreturn screenshots.map(s => ({ json: s }));"
+      },
+      "id": "prepare-screenshots",
+      "name": "Prepare Screenshot Targets",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 400]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {
+          "waitForSelector": "body",
+          "waitUntil": "networkidle0",
+          "fullPage": true,
+          "type": "png",
+          "timeout": 30000
+        }
+      },
+      "id": "take-screenshot",
+      "name": "Take Screenshot",
+      "type": "n8n-nodes-base.browser",
+      "typeVersion": 1,
+      "position": [1050, 400]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $json.filename }}",
+        "data": "={{ $binary.data }}",
+        "options": {
+          "append": false
+        }
+      },
+      "id": "save-screenshot",
+      "name": "Save Screenshot",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [1250, 400]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "timestamp",
+              "name": "timestamp",
+              "value": "={{ $json.timestamp }}",
+              "type": "string"
+            },
+            {
+              "id": "status_code",
+              "name": "statusCode",
+              "value": "={{ $('Check Rapyd API Status').item.json.statusCode }}",
+              "type": "number"
+            },
+            {
+              "id": "screenshot_ids",
+              "name": "screenshotIds",
+              "value": "={{ $json.screenshotId }}",
+              "type": "string"
+            },
+            {
+              "id": "screenshot_paths",
+              "name": "screenshotPaths",
+              "value": "={{ $json.filename }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "aggregate-screenshots",
+      "name": "Aggregate Screenshots",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [1450, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "status-check",
+              "leftValue": "={{ $json.statusCode }}",
+              "rightValue": 200,
+              "operator": {
+                "type": "number",
+                "operation": "notEqual"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-status",
+      "name": "Check API Status",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $env.DISCORD_WEBHOOK_URL }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "ðŸš¨ Rapyd API Alert\n\nStatus Code: {{ $json.statusCode }}\nTime: {{ $json.timestamp }}\nScreenshots: {{ $json.screenshotIds }}\n\nAPI endpoint may be down or experiencing issues."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "discord-alert",
+      "name": "Send Discord Alert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [850, 200]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "log-entry",
+              "name": "timestamp",
+              "value": "={{ $json.timestamp }}",
+              "type": "string"
+            },
+            {
+              "id": "log-status",
+              "name": "status",
+              "value": "={{ $json.statusCode }}",
+              "type": "string"
+            },
+            {
+              "id": "log-screenshots",
+              "name": "screenshotIds",
+              "value": "={{ $json.screenshotIds }}",
+              "type": "string"
+            },
+            {
+              "id": "log-paths",
+              "name": "screenshotPaths",
+              "value": "={{ $json.screenshotPaths }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "log-result",
+      "name": "Log Result",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [850, 400]
+    }
+  ],
+  "connections": {
+    "Cron Trigger - Hourly": {
+      "main": [
+        [
+          {
+            "node": "Initialize Config",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Check Rapyd API Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initialize Config": {
+      "main": [
+        [
+          {
+            "node": "Check Screenshot Enabled",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Rapyd API Status": {
+      "main": [
+        [
+          {
+            "node": "Check API Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Screenshot Enabled": {
+      "main": [
+        [
+          {
+            "node": "Prepare Screenshot Targets",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Screenshot Targets": {
+      "main": [
+        [
+          {
+            "node": "Take Screenshot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Take Screenshot": {
+      "main": [
+        [
+          {
+            "node": "Save Screenshot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Screenshot": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Screenshots",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Screenshots": {
+      "main": [
+        [
+          {
+            "node": "Check API Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check API Status": {
+      "main": [
+        [
+          {
+            "node": "Send Discord Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-11-01T00:00:00.000Z",
+      "updatedAt": "2025-11-01T00:00:00.000Z",
+      "id": "rapyd-monitoring",
+      "name": "Rapyd Monitoring"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-01T00:00:00.000Z",
+  "versionId": "2"
+}

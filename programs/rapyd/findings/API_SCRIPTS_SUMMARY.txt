@@ -1,0 +1,46 @@
+
+================================================================================
+API-BASED IDOR TESTING SCRIPTS - READY TO USE
+================================================================================
+
+LOCATION: programs/rapyd/findings/
+
+FILES CREATED:
+--------------
+1. quick_api_test.py  (1.3 KB) - Single payment test
+2. batch_api_test.py  (1.6 KB) - Multiple payment test
+
+QUICK START:
+------------
+python3 quick_api_test.py ACCOUNT_A_TOKEN ACCOUNT_B_TOKEN PAYMENT_ID
+
+EXAMPLE:
+--------
+python3 quick_api_test.py eyJhbGc... eyJhbGc... payment_abc123
+
+ADVANTAGES OVER BROWSER:
+------------------------
+- Speed: 30 seconds vs 10 minutes
+- Scale: Test 100+ payments easily
+- Simple: No browser automation complexity
+- Evidence: Clean JSON responses
+
+WORKFLOW:
+---------
+1. Get tokens from DevTools (F12 -> Network -> Authorization header)
+2. Create payment in Account B
+3. Run: python3 quick_api_test.py TOKEN_A TOKEN_B PAYMENT_ID
+4. Check: ls evidence/
+
+EVIDENCE SAVED TO:
+------------------
+evidence/idor_api_PAYMENT_ID.json
+
+HYBRID APPROACH (RECOMMENDED):
+------------------------------
+1. API test first (30 sec) - Quick validation
+2. Browser capture (5 min) - Visual proof if vulnerable
+3. Submit both - Maximum impact
+
+STATUS: Ready to use!
+================================================================================

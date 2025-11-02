@@ -1,0 +1,137 @@
+[
+  {
+    "type": "reentrancy",
+    "severity": "critical",
+    "title": "Reentrancy Vulnerability",
+    "description": "Reentrancy vulnerability testing",
+    "methodology": "Reentrancy attacks in swap functions + penetrationtesting.pdf methodology",
+    "tests": [
+      "Check external calls before state changes",
+      "Test recursive calls in swap functions",
+      "Verify nonReentrant modifiers"
+    ],
+    "focus": "DEX-specific vulnerability",
+    "program": "blackhole",
+    "platform": "code4rena"
+  },
+  {
+    "type": "flash_loan_attack",
+    "severity": "critical",
+    "title": "Flash Loan Attack Vulnerability",
+    "description": "Flash Loan Attack vulnerability testing",
+    "methodology": "Flash loan price manipulation + penetrationtesting.pdf methodology",
+    "tests": [
+      "Test flash loan price manipulation",
+      "Verify oracle price validation",
+      "Check minimum liquidity requirements"
+    ],
+    "focus": "DEX-specific vulnerability",
+    "program": "blackhole",
+    "platform": "code4rena"
+  },
+  {
+    "type": "price_manipulation",
+    "severity": "high",
+    "title": "Price Manipulation Vulnerability",
+    "description": "Price Manipulation vulnerability testing",
+    "methodology": "Price oracle manipulation + penetrationtesting.pdf methodology",
+    "tests": [
+      "Test oracle price manipulation",
+      "Verify price calculation logic",
+      "Check TWAP (Time-Weighted Average Price) validation"
+    ],
+    "focus": "DEX-specific vulnerability",
+    "program": "blackhole",
+    "platform": "code4rena"
+  },
+  {
+    "type": "access_control",
+    "severity": "high",
+    "title": "Access Control Vulnerability",
+    "description": "Access Control vulnerability testing",
+    "methodology": "Unauthorized access to critical functions + penetrationtesting.pdf methodology",
+    "tests": [
+      "Test onlyOwner/onlyAdmin modifiers",
+      "Verify role-based access control",
+      "Check function visibility"
+    ],
+    "focus": "DEX-specific vulnerability",
+    "program": "blackhole",
+    "platform": "code4rena"
+  },
+  {
+    "type": "integer_overflow",
+    "severity": "high",
+    "title": "Integer Overflow Vulnerability",
+    "description": "Integer Overflow vulnerability testing",
+    "methodology": "Integer overflow/underflow in calculations + penetrationtesting.pdf methodology",
+    "tests": [
+      "Test overflow in swap calculations",
+      "Verify SafeMath usage",
+      "Check maximum value handling"
+    ],
+    "focus": "DEX-specific vulnerability",
+    "program": "blackhole",
+    "platform": "code4rena"
+  },
+  {
+    "type": "front_running",
+    "severity": "medium",
+    "title": "Front Running Vulnerability",
+    "description": "Front Running vulnerability testing",
+    "methodology": "Front-running vulnerabilities + penetrationtesting.pdf methodology",
+    "tests": [
+      "Test MEV exploitation",
+      "Verify transaction ordering",
+      "Check slippage protection"
+    ],
+    "focus": "DEX-specific vulnerability",
+    "program": "blackhole",
+    "platform": "code4rena"
+  },
+  {
+    "type": "token_approval",
+    "severity": "high",
+    "title": "Token Approval Vulnerability",
+    "description": "Token Approval vulnerability testing",
+    "methodology": "Unlimited token approval vulnerabilities + penetrationtesting.pdf methodology",
+    "tests": [
+      "Test unlimited approval risks",
+      "Verify approval amounts",
+      "Check approval revocation"
+    ],
+    "focus": "DEX-specific vulnerability",
+    "program": "blackhole",
+    "platform": "code4rena"
+  },
+  {
+    "type": "liquidity_pool_exploit",
+    "severity": "critical",
+    "title": "Liquidity Pool Exploit Vulnerability",
+    "description": "Liquidity Pool Exploit vulnerability testing",
+    "methodology": "Liquidity pool manipulation + penetrationtesting.pdf methodology",
+    "tests": [
+      "Test liquidity pool drainage",
+      "Verify pool balance validation",
+      "Check emergency withdrawal functions"
+    ],
+    "focus": "DEX-specific vulnerability",
+    "program": "blackhole",
+    "platform": "code4rena"
+  },
+  {
+    "type": "router_vulnerability",
+    "severity": "high",
+    "title": "Router Vulnerability Vulnerability",
+    "description": "Router Vulnerability vulnerability testing",
+    "methodology": "Router contract vulnerabilities + penetrationtesting.pdf methodology",
+    "tests": [
+      "Test swap path validation",
+      "Verify router security",
+      "Check multi-hop swap logic"
+    ],
+    "focus": "DEX-specific vulnerability",
+    "program": "blackhole",
+    "platform": "code4rena"
+  }
+]

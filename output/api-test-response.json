@@ -1,0 +1,1 @@
+{"status":{"error_code":"MISSING_AUTHENTICATION_HEADERS","status":"ERROR","message":"The request did not contain the required headers for authentication. The request was rejected. Corrective action: Add authentication headers.","response_code":"MISSING_AUTHENTICATION_HEADERS","operation_id":"08dbd3f9-c9c1-4b93-92e3-385ffb82c3c7"}}

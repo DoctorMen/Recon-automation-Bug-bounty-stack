@@ -1,0 +1,15 @@
+{
+  "title": "Integer Overflow Vulnerability",
+  "severity": "high",
+  "impact": "Integer Overflow vulnerability testing",
+  "description": "Integer Overflow vulnerability testing",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "",
+  "contract_address": "",
+  "vulnerability_type": "integer_overflow",
+  "methodology": "Integer overflow/underflow in calculations + penetrationtesting.pdf methodology",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

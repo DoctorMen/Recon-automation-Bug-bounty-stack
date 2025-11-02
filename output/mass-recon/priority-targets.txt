@@ -1,0 +1,12 @@
+https://devdashboard.rapyd.net
+https://payment-redirect-poc.rapyd.net
+https://ocbc-uat-tr.rapyd.net
+https://rap-career-publishing-dev.rapyd.net
+https://report.qa.eu.rapyd.net
+https://qacheckout-preview.rapyd.net
+https://checkout-preview.rapyd.net
+https://qacallbackservice-preview.rapyd.net
+https://qasfapi.rapyd.net
+https://ub-api.rapyd.net
+https://toolkit.rapyd.net
+https://serviceportal.rapyd.net

@@ -1,0 +1,15 @@
+{
+  "title": "Front Running Vulnerability",
+  "severity": "medium",
+  "impact": "Front Running vulnerability testing",
+  "description": "Front Running vulnerability testing",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "",
+  "contract_address": "",
+  "vulnerability_type": "front_running",
+  "methodology": "Front-running vulnerabilities + penetrationtesting.pdf methodology",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

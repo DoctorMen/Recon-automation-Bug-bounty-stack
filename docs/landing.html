@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Same‑Day Security Surface Check</title>
+    <meta name="description" content="Launch today: scoped, non-intrusive recon + findings report with refund guarantee.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta property="og:title" content="Same‑Day Security Surface Check">
+    <meta property="og:description" content="Scoped, non‑intrusive recon, same‑day report, refund guarantee.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121621'/%3E%3Cpath d='M18 34l10 10 18-24' stroke='%2366e0ff' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121621'/%3E%3Ctext x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='%2366e0ff' font-family='Segoe UI, Arial, sans-serif'%3ESS%3C/text%3E%3C/svg%3E">
+    <style>
+      :root {
+        --bg: #0c0f14;
+        --card: #121621;
+        --text: #e8eefc;
+        --muted: #aab3c5;
+        --accent: #66e0ff;
+        --accent2: #9a6bff;
+        --ok: #22c55e;
+        --danger: #ef4444;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        /* Use reliable system stack for consistent rendering across devices */
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+        color: var(--text);
+        background: radial-gradient(1200px 800px at 10% -10%, rgba(102,224,255,0.15), transparent 50%),
+                   radial-gradient(1000px 700px at 110% 10%, rgba(154,107,255,0.12), transparent 50%),
+                   var(--bg);
+      }
+      .container { max-width: 1100px; margin: 0 auto; padding: 28px; }
+      .nav { display:flex; justify-content:space-between; align-items:center; padding:10px 0 18px; }
+      .brand { font-weight:800; letter-spacing:0.2px; }
+      .navlinks { display:flex; gap:14px; align-items:center; }
+      .navlinks a { color: var(--muted); text-decoration:none; border:1px solid rgba(255,255,255,0.12); padding:8px 12px; border-radius:999px; }
+      .hero {
+        padding: 48px 28px;
+        /* Lighter glass to let the animated backdrop shine through */
+        background: linear-gradient(180deg, rgba(18,22,33,0.60), rgba(18,22,33,0.35));
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 16px;
+        backdrop-filter: blur(8px) saturate(120%);
+      }
+      .badge { display: inline-block; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; color: var(--muted); font-size: 12px; letter-spacing: 0.4px; }
+      h1 { font-size: 44px; line-height: 1.05; margin: 14px 0 10px; }
+      .sub { color: var(--muted); font-size: 18px; max-width: 720px; }
+      .cta { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+      .btn {
+        appearance: none; border: 0; cursor: pointer; text-decoration: none; color: #051017;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        padding: 14px 20px; border-radius: 12px; font-weight: 700; letter-spacing: 0.2px; box-shadow: 0 10px 30px rgba(102,224,255,0.18);
+        transition: transform .06s ease, box-shadow .2s ease;
+      }
+      .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 34px rgba(102,224,255,0.24); }
+      .btn.secondary { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.14); box-shadow: none; }
+      .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; margin-top: 28px; }
+      .card { background: rgba(18,22,33,0.45); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 20px; backdrop-filter: blur(6px) saturate(120%); }
+      .card h3 { margin: 0 0 8px; }
+      ul { margin: 0; padding-left: 18px; }
+      .price { font-size: 36px; font-weight: 800; margin: 10px 0 4px; }
+      .note { color: var(--muted); font-size: 14px; }
+      .kicker { color: var(--ok); font-weight: 700; }
+      .divider { height: 1px; background: rgba(255,255,255,0.08); margin: 16px 0; }
+      .footer { color: var(--muted); font-size: 14px; margin-top: 18px; }
+      a.inline { color: var(--accent); text-decoration: underline; }
+      a.inline:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+      .btn:focus-visible { outline: 3px solid rgba(102,224,255,0.6); outline-offset: 3px; }
+      .trust { display:flex; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:13px; align-items:center; margin-top:14px }
+      .pill { border:1px solid rgba(255,255,255,0.12); border-radius:999px; padding:6px 10px }
+      .list { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px }
+      .list li { list-style: none; padding-left:0 }
+      .list li::before{ content:'✓ '; color:var(--ok) }
+      .slots { display:flex; gap:8px; align-items:center; margin-top:10px; color:var(--muted) }
+      .cases { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px }
+      .case { border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px; background:rgba(18,22,33,0.6) }
+      .split { display:grid; grid-template-columns: 1fr 1fr; gap:16px }
+      .faq { display:grid; grid-template-columns: 1fr 1fr; gap:14px }
+      .q { border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px; background:rgba(18,22,33,0.6) }
+      .q strong { display:block; margin-bottom:6px }
+      .addons { display:grid; grid-template-columns: 1fr 1fr; gap:12px }
+      .addon { border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:12px }
+      @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 36px; } }
+    </style>
+  </head>
+  <body>
+    <canvas id="bgfx" aria-hidden="true"></canvas>
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="nav">
+        <div class="brand">Same‑Day Security</div>
+        <div class="navlinks">
+          <a href="#details">Scope</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="./TERMS_REFUND.html">Terms</a>
+        </div>
+      </div>
+      <div class="hero">
+        <span class="badge">Same‑Day Security Surface Check</span>
+        <h1>Ship safer today — a productized, non‑intrusive recon that pays for itself.</h1>
+        <p class="sub">Scope‑locked, read‑only checks with superior signal: our automation + crypto‑aware detection finds issues others miss. Fixed price, same‑day delivery, and a refund guarantee.</p>
+        <div class="cta">
+          <a class="btn" id="payLink" href="#" target="_blank" rel="noopener noreferrer">Pay & Start — Non‑intrusive</a>
+          <a class="btn secondary" id="formLink" href="#" target="_blank" rel="noopener noreferrer">Consent & scope form</a>
+          <a class="btn secondary" href="#details">See scope & deliverables</a>
+        </div>
+        <div class="trust">
+          <span class="pill">Refund guaranteed</span>
+          <span class="pill">Scope‑locked</span>
+          <span class="pill">Same‑day report</span>
+          <span class="pill">Crypto‑aware engine</span>
+        </div>
+        <div class="slots"><span class="pill" id="slotsPill">This week’s slots: 3</span><span id="slotsNote"></span></div>
+      </div>
+
+      <div class="grid" id="details">
+        <div class="card">
+          <h3>Scope (you control)</h3>
+          <ul>
+            <li>Assets: domains, subdomains, apps, API endpoints, IP ranges (you list)</li>
+            <li>Time window and rate‑limit preferences</li>
+            <li>Non‑intrusive techniques only (no auth bypass, no data exfil)</li>
+            <li>Read‑only recon using your approved scope statement</li>
+          </ul>
+          <div class="divider"></div>
+          <h3>Why this outperforms typical bounty recon</h3>
+          <ul class="list">
+            <li>Scope‑locked, non‑intrusive by default</li>
+            <li>Automation pipeline for breadth + consistency</li>
+            <li>Crypto vulnerability detection integrated</li>
+            <li>Classifier prioritizes high‑value issues</li>
+            <li>Owner‑ready issue list and evidence bundle</li>
+            <li>Same‑day delivery window you choose</li>
+          </ul>
+          <div class="divider"></div>
+          <h3>Deliverables (same‑day)</h3>
+          <ul>
+            <li>Summary with severity and affected assets</li>
+            <li>Reproduction steps + screenshots/command logs</li>
+            <li>Prioritized quick‑wins and ticket‑ready copy</li>
+            <li>Evidence zip for audit trail</li>
+          </ul>
+        </div>
+
+        <div class="card" id="pricing">
+          <h3>Pricing</h3>
+          <div class="divider"></div>
+          <p><strong>Standard — Same‑Day</strong></p>
+          <div class="price">$1,497</div>
+          <div class="note">Up to 5 domains or /16 block. Delivery by end of your selected day.</div>
+          <a class="btn" id="payStandard" href="#" target="_blank" rel="noopener noreferrer">Book Standard</a>
+          <div class="divider"></div>
+          <p><strong>Express — 4‑Hour Window</strong> <span class="pill">Limited slots</span></p>
+          <div class="price">$2,500</div>
+          <div class="note">Priority queue. Delivery within a 4‑hour window today.</div>
+          <a class="btn" id="payExpress" href="#" target="_blank" rel="noopener noreferrer">Book Express</a>
+          <div class="divider"></div>
+          <p><strong>Monthly Pack — 4 runs/mo</strong></p>
+          <div class="price">$5,000</div>
+          <div class="note">Weekly surface checks; best for active release teams.</div>
+          <a class="btn" id="payMonthly" href="#" target="_blank" rel="noopener noreferrer">Start Monthly</a>
+          <div class="divider"></div>
+          <p class="kicker">Refund Guarantee</p>
+          <p class="note">If we miss your delivery window after payment and a completed consent form (and prerequisites are met), we refund 100%.</p>
+          <div class="divider"></div>
+          <p><strong>Contact</strong><br>
+          Email: <a class="inline" href="mailto:security@yourcompany.com">security@yourcompany.com</a><br>
+          Phone/Signal: +1 (555) 123‑4567</p>
+          <p class="footer">By paying you agree to the <a class="inline" href="./TERMS_REFUND.html">Terms & Refund Policy</a>. After payment you’ll complete the consent & scope form.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h3>Trusted tooling & standards</h3>
+        <div class="trust" style="margin-top:8px">
+          <span class="pill">HTTPx</span>
+          <span class="pill">Nuclei</span>
+          <span class="pill">OWASP</span>
+          <span class="pill">TLS/SSL</span>
+          <span class="pill">AWS</span>
+        </div>
+        <p class="note">We cite versions and signatures in the evidence bundle for auditability.</p>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h3>How it works</h3>
+        <ol>
+          <li>Pay via Stripe checkout</li>
+          <li>Complete consent & scope form (auto‑emailed PDF to both parties)</li>
+          <li>We run the non‑intrusive recon pipeline and compile the report</li>
+          <li>You receive deliverables + remediation priorities the same day</li>
+        </ol>
+        <p class="note">Recon engine leverages our <a class="inline" href="./flowchart.html">auditable workflow</a> and crypto‑aware detections referenced in <a class="inline" href="../PDF_ENHANCEMENT_SUMMARY.md">PDF_ENHANCEMENT_SUMMARY.md</a>. Prefer a call? <a class="inline" href="mailto:security@yourcompany.com?subject=Testing%20Window&body=Proposed%20times:%20">Email testing window options</a>.</p>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h3>Who it’s for / Not for</h3>
+        <div class="split">
+          <div>
+            <p><strong>Best for</strong></p>
+            <ul>
+              <li>VC‑backed SaaS shipping weekly</li>
+              <li>Enterprise deal/security review deadlines</li>
+              <li>Teams needing audit‑ready proof fast</li>
+            </ul>
+          </div>
+          <div>
+            <p><strong>Not a fit</strong></p>
+            <ul>
+              <li>Annual pen‑test replacements</li>
+              <li>Intrusive testing or auth bypass</li>
+              <li>Slow, quarterly release cycles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h3>Recent anonymized wins</h3>
+        <div class="cases">
+          <div class="case"><strong>JWT misconfig → deal unblocked</strong><br><span class="note">Series B SaaS. Found weak token check in staging; shipped fix in 24h. Enterprise security approved.</span></div>
+          <div class="case"><strong>TLS misconfig → risk removed</strong><br><span class="note">Fintech. Deprecated ciphers detected; infra updated within 48h. SOC 2 evidence attached.</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h3>Add‑ons (optional)</h3>
+        <div class="addons">
+          <div class="addon"><strong>Extra domains / IP block</strong><br><span class="note">Add up to 10 domains or an extra /16. +$500.</span></div>
+          <div class="addon"><strong>Executive briefing (30 min)</strong><br><span class="note">CISO‑level summary and Q&A for leadership. +$750.</span></div>
+          <div class="addon"><strong>Red‑team lite discovery</strong><br><span class="note">Non‑intrusive discovery of likely exploit paths. +$1,200.</span></div>
+          <div class="addon"><strong>Continuous watch (add‑on)</strong><br><span class="note">Weekly delta checks for a month. +$1,500.</span></div>
+        </div>
+        <p class="note">Available for Standard and Express. All work remains scope‑locked & non‑intrusive.</p>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h3>Refund, step‑by‑step</h3>
+        <ol>
+          <li>You submit payment and a completed consent & scope with delivery window.</li>
+          <li>If we miss the window and prerequisites are met (accurate scope, allowlisting done, assets reachable, no Customer reschedule), we notify you and trigger a 100% refund.</li>
+          <li>Refund processes to your original payment method. See <a class="inline" href="./TERMS_REFUND.html">Terms & Refund Policy</a>.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:20px" id="faq">
+        <h3>FAQ</h3>
+        <div class="faq">
+          <div class="q"><strong>Is this safe for production?</strong><span class="note">Yes. Non‑intrusive, read‑only checks only. No auth bypass or data exfiltration.</span></div>
+          <div class="q"><strong>How do you handle scope?</strong><span class="note">You explicitly list assets and testing window in the consent form. We operate only within that list.</span></div>
+          <div class="q"><strong>What do we receive?</strong><span class="note">Summary, ticket‑ready issues, evidence zip, and optional executive briefing.</span></div>
+          <div class="q"><strong>What about sensitive data?</strong><span class="note">We avoid content extraction; evidence favors headers, metadata, and screenshots.</span></div>
+          <div class="q"><strong>How fast is Express?</strong><span class="note">Delivery within a 4‑hour window today, subject to availability.</span></div>
+          <div class="q"><strong>Can I talk to a human first?</strong><span class="note">Yes — book a 15‑min call to confirm fit and timing.</span></div>
+        </div>
+        <div class="cta" style="margin-top:10px">
+          <a class="btn secondary" id="callLink" href="#" target="_blank" rel="noopener noreferrer">Book 15‑min call</a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h3>What customers say</h3>
+        <div class="cases">
+          <div class="case"><strong>“Cleared our security review same day.”</strong><br><span class="note">VP Eng, Series A SaaS — “Got ticket‑ready issues by EOD and closed a blocker deal.”</span></div>
+          <div class="case"><strong>“Signal without the noise.”</strong><br><span class="note">Head of Security — “Clean evidence, no intrusive tests, and an easy retest letter.”</span></div>
+        </div>
+      </div>
+
+      <div class="footer" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>© <span id="y"></span> Same‑Day Security Surface Check.</div>
+        <div style="display:flex; gap:12px;">
+          <a class="inline" href="./TERMS_REFUND.html">Terms</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="./config.js"></script>
+    <script>
+      // Minimal, high-tech animated backdrop (no external deps; respects reduced motion)
+      (function(){
+        var c=document.getElementById('bgfx'); if(!c) return; var dpr=window.devicePixelRatio||1; var ctx=c.getContext('2d');
+        function size(){ c.width=innerWidth*dpr; c.height=innerHeight*dpr; c.style.position='fixed'; c.style.inset='0'; c.style.zIndex='0'; c.style.pointerEvents='none'; }
+        size(); addEventListener('resize', size);
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // Responsive particle count; add a slow parallax ribbon for depth
+        var particles=[]; var N=Math.min(110, Math.max(60, Math.floor(innerWidth/12)));
+        function init(){ particles=[]; for(var i=0;i<N;i++){ particles.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-0.5)*0.18*dpr,vy:(Math.random()-0.5)*0.18*dpr, r: 0.9+Math.random()*1.4}); } }
+        init();
+        var t=0;
+        function step(){
+          ctx.clearRect(0,0,c.width,c.height);
+          // soft vignette + gradient wash
+          var grd=ctx.createRadialGradient(c.width*0.2,c.height*0.15,0,c.width*0.2,c.height*0.15,Math.max(c.width,c.height));
+          grd.addColorStop(0,'rgba(102,224,255,0.05)'); grd.addColorStop(1,'rgba(10,14,20,0.0)');
+          ctx.fillStyle=grd; ctx.fillRect(0,0,c.width,c.height);
+
+          // parallax ribbon
+          ctx.save();
+          ctx.globalAlpha=0.12; ctx.translate(0, Math.sin(t*0.0015)*10*dpr);
+          ctx.beginPath();
+          for(var x=0;x<=c.width;x+=20*dpr){
+            var y=c.height*0.5 + Math.sin(t*0.004 + x*0.01)*18*dpr; if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+          }
+          ctx.strokeStyle='rgba(154,107,255,0.7)'; ctx.lineWidth=2*dpr; ctx.stroke(); ctx.restore();
+
+          // particles
+          for(var i=0;i<particles.length;i++){
+            var p=particles[i]; p.x+=p.vx; p.y+=p.vy;
+            if(p.x<0||p.x>c.width) p.vx*=-1; if(p.y<0||p.y>c.height) p.vy*=-1;
+            ctx.beginPath(); ctx.arc(p.x,p.y,p.r*dpr,0,Math.PI*2); ctx.fillStyle='rgba(232,238,252,0.7)'; ctx.fill();
+          }
+          // links
+          ctx.strokeStyle='rgba(102,224,255,0.12)'; ctx.lineWidth=0.8*dpr;
+          for(var i=0;i<particles.length;i++){
+            for(var j=i+1;j<particles.length;j++){
+              var a=particles[i], b=particles[j]; var dx=a.x-b.x, dy=a.y-b.y; var dist=dx*dx+dy*dy; var max=(110*dpr)*(110*dpr);
+              if(dist<max){ var alpha=1-dist/max; ctx.globalAlpha=alpha*0.55; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
+            }
+          }
+          ctx.globalAlpha=1; t+=1;
+          if(!prefersReduced) requestAnimationFrame(step);
+        }
+        if(!prefersReduced) requestAnimationFrame(step);
+      })();
+      // Set year
+      document.getElementById('y').textContent = new Date().getFullYear();
+      // Prefer values from config.js if present
+      var cfg = window.appConfig || {};
+      var stripeCheckoutUrl = cfg.stripeCheckoutUrl || 'https://buy.stripe.com/your-checkout-link';
+      var stripeExpressUrl = cfg.stripeExpressUrl || 'https://buy.stripe.com/your-express-checkout-link';
+      var stripeMonthlyUrl = cfg.stripeMonthlyUrl || 'https://buy.stripe.com/your-monthly-checkout-link';
+      var googleFormUrl = cfg.googleFormUrl || 'https://docs.google.com/forms/d/e/GOOGLE_FORM_URL_HERE/viewform';
+      document.getElementById('payLink').href = stripeCheckoutUrl;
+      document.getElementById('payStandard').href = stripeCheckoutUrl;
+      document.getElementById('payExpress').href = stripeExpressUrl;
+      document.getElementById('payMonthly').href = stripeMonthlyUrl;
+      document.getElementById('formLink').href = googleFormUrl;
+      var calendlyUrl = cfg.calendlyUrl || 'https://calendly.com/your-15min-link';
+      var callBtn = document.getElementById('callLink');
+      if (callBtn) callBtn.href = calendlyUrl;
+      // Simple editable slots indicator
+      var slotsRemaining = typeof cfg.slotsRemaining === 'number' ? cfg.slotsRemaining : 3; // change as needed
+      var slotsPill = document.getElementById('slotsPill');
+      var slotsNote = document.getElementById('slotsNote');
+      slotsPill.textContent = "This week’s slots: " + slotsRemaining;
+      slotsNote.textContent = slotsRemaining <= 2 ? "High demand — Express recommended" : "Book now to hold your window";
+    </script>
+  </body>
+  </html>
+
+

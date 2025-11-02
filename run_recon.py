@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 """
+Copyright (c) 2025 YOUR_NAME_HERE
+Proprietary and Confidential
+All Rights Reserved
+
+This software is proprietary and confidential.
+Unauthorized copying, modification, or distribution is prohibited.
+
+System ID: BB_20251102_5946
+Owner: YOUR_NAME_HERE
+"""
+
+"""
 Recon Scanner Agent - Windows Native
 Runs Subfinder + Amass to enumerate subdomains, validates with DNSx
 Output: output/subs.txt
@@ -70,9 +82,10 @@ def main():
     if not check_tool("subfinder") and subfinder_path == "subfinder":
         log("ERROR: subfinder not found. Run: python setup_tools.py")
         sys.exit(1)
+    amass_available = True
     if not check_tool("amass") and amass_path == "amass":
-        log("ERROR: amass not found. Run: python setup_tools.py")
-        sys.exit(1)
+        amass_available = False
+        log("WARNING: amass not found (will run subfinder-only). Run: python setup_tools.py to install amass for deeper coverage")
     
     dnsx_available = check_tool("dnsx")
     if not dnsx_available and dnsx_path == "dnsx":
@@ -123,27 +136,31 @@ def main():
         log(f"WARNING: Subfinder encountered errors: {e}")
         temp_subfinder.write_text("")
     
-    # Run Amass
-    log(f"Running Amass enum (timeout: {RECON_TIMEOUT}s)...")
-    try:
-        result = subprocess.run(
-            [amass_path, "enum", "-passive", "-df", str(TARGETS_FILE), "-o", str(temp_amass)],
-            timeout=RECON_TIMEOUT,
-            capture_output=True,
-            text=True,
-            check=False
-        )
-        if temp_amass.exists():
-            amass_count = len(temp_amass.read_text(encoding="utf-8").strip().splitlines())
-            log(f"Amass found {amass_count} subdomains")
-        else:
-            log("WARNING: Amass produced no output")
+    # Run Amass (optional)
+    if amass_available:
+        log(f"Running Amass enum (timeout: {RECON_TIMEOUT}s)...")
+        try:
+            result = subprocess.run(
+                [amass_path, "enum", "-passive", "-df", str(TARGETS_FILE), "-o", str(temp_amass)],
+                timeout=RECON_TIMEOUT,
+                capture_output=True,
+                text=True,
+                check=False
+            )
+            if temp_amass.exists():
+                amass_count = len(temp_amass.read_text(encoding="utf-8").strip().splitlines())
+                log(f"Amass found {amass_count} subdomains")
+            else:
+                log("WARNING: Amass produced no output")
+                temp_amass.write_text("")
+        except subprocess.TimeoutExpired:
+            log(f"WARNING: Amass timed out after {RECON_TIMEOUT}s")
             temp_amass.write_text("")
-    except subprocess.TimeoutExpired:
-        log(f"WARNING: Amass timed out after {RECON_TIMEOUT}s")
-        temp_amass.write_text("")
-    except Exception as e:
-        log(f"WARNING: Amass encountered errors: {e}")
+        except Exception as e:
+            log(f"WARNING: Amass encountered errors: {e}")
+            temp_amass.write_text("")
+    else:
+        # Ensure file exists for downstream combine step
         temp_amass.write_text("")
     
     # Combine and deduplicate
@@ -209,3 +226,7 @@ def main():
 if __name__ == "__main__":
     main()
 
+
+# System ID: BB_20251102_5946
+# Owner: YOUR_NAME_HERE
+# Build Date: 2025-11-02 02:45:55

@@ -1,0 +1,15 @@
+{
+  "title": "Liquidity Pool Exploit Vulnerability",
+  "severity": "critical",
+  "impact": "Liquidity Pool Exploit vulnerability testing",
+  "description": "Liquidity Pool Exploit vulnerability testing",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "",
+  "contract_address": "",
+  "vulnerability_type": "liquidity_pool_exploit",
+  "methodology": "Liquidity pool manipulation + penetrationtesting.pdf methodology",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

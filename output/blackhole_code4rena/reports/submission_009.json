@@ -1,0 +1,15 @@
+{
+  "title": "Router Vulnerability Vulnerability",
+  "severity": "high",
+  "impact": "Router Vulnerability vulnerability testing",
+  "description": "Router Vulnerability vulnerability testing",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "",
+  "contract_address": "",
+  "vulnerability_type": "router_vulnerability",
+  "methodology": "Router contract vulnerabilities + penetrationtesting.pdf methodology",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

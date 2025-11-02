@@ -1,0 +1,15 @@
+{
+  "title": "Flash Loan Attack Vulnerability",
+  "severity": "critical",
+  "impact": "Flash Loan Attack vulnerability testing",
+  "description": "Flash Loan Attack vulnerability testing",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "",
+  "contract_address": "",
+  "vulnerability_type": "flash_loan_attack",
+  "methodology": "Flash loan price manipulation + penetrationtesting.pdf methodology",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

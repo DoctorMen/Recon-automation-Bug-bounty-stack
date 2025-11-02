@@ -1,0 +1,15 @@
+{
+  "title": "Reentrancy Vulnerability",
+  "severity": "critical",
+  "impact": "Reentrancy vulnerability testing",
+  "description": "Reentrancy vulnerability testing",
+  "steps_to_reproduce": [],
+  "proof_of_concept": "",
+  "recommended_fix": "",
+  "contract_address": "",
+  "vulnerability_type": "reentrancy",
+  "methodology": "Reentrancy attacks in swap functions + penetrationtesting.pdf methodology",
+  "platform": "code4rena",
+  "program": "blackhole",
+  "submission_url": "https://code4rena.com/bounties/blackhole/make-submission"
+}

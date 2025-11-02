@@ -1,0 +1,72 @@
+═══════════════════════════════════════════════════════════
+  RAPYD BUG BOUNTY - FINDINGS SUMMARY
+═══════════════════════════════════════════════════════════
+
+Date: $(date)
+Target: Rapyd Payment Gateway
+Scope: *.rapyd.net
+
+═══════════════════════════════════════════════════════════
+FINDING #1: Configuration File Exposure (HIGH)
+═══════════════════════════════════════════════════════════
+
+URL: https://checkout-preview.rapyd.net/config.json
+Status: CONFIRMED
+
+Exposed Data:
+✓ Sift Fraud Detection Key: 0082c41146
+✓ FullStory Org ID: o-1AXR1W-na1
+✓ Captcha Site Key: 0x4AAAAAABm2PKF5GPH_A_Kw
+✓ API Base URLs (including port 9443)
+✓ 7 Google Analytics tracking IDs
+✓ Internal environment mappings
+
+Impact:
+- Bypass fraud detection systems
+- Access session replay data
+- Enumerate internal infrastructure
+- Target specific environments
+
+Severity: HIGH
+CWE: CWE-200 (Information Disclosure)
+
+═══════════════════════════════════════════════════════════
+FINDING #2: Subdomain Enumeration Results
+═══════════════════════════════════════════════════════════
+
+Total Subdomains: 936
+Live Hosts: 12
+
+High-Value Targets:
+✓ devdashboard.rapyd.net (DEV environment)
+✓ payment-redirect-poc.rapyd.net (POC endpoint)
+✓ checkout-preview.rapyd.net (200 OK - LIVE)
+✓ toolkit.rapyd.net (200 OK - LIVE)
+✓ Multiple QA/UAT environments
+
+═══════════════════════════════════════════════════════════
+FINDING #3: Toolkit JavaScript Mapping Exposure
+═══════════════════════════════════════════════════════════
+
+URL: https://toolkit.rapyd.net/
+Status: CONFIRMED
+
+Exposed Mappings:
+- Production: checkout.rapyd.net
+- Sandbox: sandboxcheckout.rapyd.net
+- QA: qacheckout.rapyd.net
+- Integration: intgcheckout.rapyd.net
+
+Impact: Full environment mapping disclosed
+
+═══════════════════════════════════════════════════════════
+NEXT STEPS
+═══════════════════════════════════════════════════════════
+
+1. Complete JS analysis for additional secrets
+2. Test API port 9443
+3. Test all QA/dev environments
+4. Create formal Bugcrowd report
+5. Submit for bounty
+
+═══════════════════════════════════════════════════════════
