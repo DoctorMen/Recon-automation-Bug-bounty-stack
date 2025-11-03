@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upwork Project Catalog — Templates (Standard / Express / Monthly)</title>
+    <style>
+      :root { --bg:#0c0f14; --card:#121621; --text:#e8eefc; --muted:#aab3c5; }
+      body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+      .wrap{max-width:1100px;margin:0 auto;padding:22px}
+      .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin:14px 0}
+      textarea{width:100%;min-height:180px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:#0e1420;color:var(--text);padding:10px;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+      .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+      a.btn{appearance:none;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:8px 12px;color:var(--text);text-decoration:none;display:inline-block;margin-right:8px}
+      .k{color:var(--muted);font-size:13px}
+      ul{margin:8px 0 0 18px}
+      .row{display:flex;gap:8px;margin:6px 0}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Upwork Project Catalog — Ready‑to‑Paste Templates</h1>
+      <div>
+        <a class="btn" href="./landing.html">Landing</a>
+        <a class="btn" href="./TERMS_REFUND.html">Terms</a>
+        <a class="btn" href="./upwork_playbook.html">Playbook</a>
+      </div>
+
+      <div class="card">
+        <h2>Cover images (download as SVG)</h2>
+        <ul>
+          <li><a class="btn" href="./assets/upwork/standard.svg" download>Standard — Same‑Day AppSec Signal</a></li>
+          <li><a class="btn" href="./assets/upwork/express.svg" download>Express — 4‑Hour AppSec Signal</a></li>
+          <li><a class="btn" href="./assets/upwork/monthly.svg" download>Monthly Pack — 4 runs/mo</a></li>
+        </ul>
+        <div class="k">Tip: Upwork accepts PNG/JPG; you can upload these SVGs directly or export to PNG.</div>
+      </div>
+
+      <div class="card">
+        <h2>Standard — Same‑Day AppSec Signal ($1,497)</h2>
+        <h3>What you get</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>Scope‑locked, non‑intrusive Web/API checks from a fixed IP with auditable logs. You receive:
+- Ticket‑ready issues (severity + reproduction steps)
+- Evidence bundle (screenshots/headers/commands)
+- Optional executive summary (on request)
+- Retest letter after fixes (included)
+Refund: If we miss your delivery window and prerequisites are met, 100% refund.</textarea>
+        <h3>Requirements from client</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>Authorized signer; explicit assets (domains/subdomains/API base URLs/IP ranges); testing window and rate‑limit preference; allowlisting contact (CDN/WAF/host) if needed; primary delivery email.</textarea>
+        <h3>FAQs</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>Is this safe for production?
+Yes — non‑intrusive, read‑only. No auth bypass, exploitation, or DoS.
+
+What frameworks/tools do you use?
+HTTPx + Nuclei + crypto‑aware checks (JWT/weak ciphers/timing) and manual verification where safe.
+
+Terms?
+By purchasing, you agree to our Terms & Refund Policy: <LINK_TO_TERMS></textarea>
+      </div>
+
+      <div class="card">
+        <h2>Express — 4‑Hour AppSec Signal ($2,500)</h2>
+        <h3>What you get</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>Everything in Standard, prioritized. Delivery within a 4‑hour window today (subject to slot availability). Refund applies if we miss your window and prerequisites are met.</textarea>
+        <h3>Requirements from client</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>Same as Standard. Please confirm your 4‑hour window (timezone) and ensure allowlisting is in place before the window starts.</textarea>
+        <h3>FAQs</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>Can we reschedule?
+Yes, subject to availability. Refund applies only if we miss the agreed 4‑hour window and prerequisites were met.</textarea>
+      </div>
+
+      <div class="card">
+        <h2>Monthly Pack — 4 runs/mo ($5,000)</h2>
+        <h3>What you get</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>Weekly surface checks (4 per month) with a monthly summary. Each run includes ticket‑ready issues, evidence bundle, and optional exec brief. Great for teams shipping weekly or under recurring reviews.</textarea>
+        <h3>Requirements from client</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>Standard requirements plus preferred weekly day/time; change window anytime with 48h notice.</textarea>
+        <h3>FAQs</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>Can we swap assets mid‑month?
+Yes, within the same scope size. Larger scope may require an add‑on.
+
+Cancellation?
+Month‑to‑month. Cancel before next cycle.</textarea>
+      </div>
+    </div>
+    <script>
+      function copyNext(el){
+        var ta = el.parentElement.nextElementSibling;
+        if(!ta) return;
+        ta.select();
+        try{ document.execCommand('copy'); el.textContent='Copied'; setTimeout(()=>el.textContent='Copy',1000); }catch(e){}
+      }
+    </script>
+  </body>
+  </html>
+
+

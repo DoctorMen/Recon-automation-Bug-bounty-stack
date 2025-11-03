@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Copyright (c) 2025 YOUR_NAME_HERE
+Copyright (c) 2025 DoctorMen
 Proprietary and Confidential
 All Rights Reserved
 
@@ -8,7 +8,7 @@ This software is proprietary and confidential.
 Unauthorized copying, modification, or distribution is prohibited.
 
 System ID: BB_20251102_5946
-Owner: YOUR_NAME_HERE
+Owner: DoctorMen
 """
 
 """
@@ -22,6 +22,16 @@ import sys
 import os
 from pathlib import Path
 from datetime import datetime
+
+# License protection - must be first
+try:
+    from license_check import check_license
+    check_license()
+except ImportError:
+    print("⚠️  Warning: License check module not found")
+except SystemExit:
+    # License check failed, exit
+    raise
 
 # Import tools manager for local tool paths
 sys.path.insert(0, str(Path(__file__).parent))

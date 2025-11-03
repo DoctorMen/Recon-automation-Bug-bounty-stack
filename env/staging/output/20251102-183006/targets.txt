@@ -1,0 +1,4 @@
+# Example targets for staging (sanitized)
+example.com
+api.example.com
+

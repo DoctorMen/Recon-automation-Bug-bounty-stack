@@ -5,9 +5,9 @@ tools/tmp/
 .env
 .vscode/
 __pycache__/
-tools/bin/
-.protection/
-.protection/
-.protection/
 .protection/
 node_modules
+
+# License protection (never commit!)
+.license
+.license.*

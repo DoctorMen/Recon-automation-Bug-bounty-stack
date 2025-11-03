@@ -155,3 +155,5 @@ When testing IDOR, capture:
 
 Simply modify the payment ID in the URL bar and check if unauthorized data is accessible.
 
+
+

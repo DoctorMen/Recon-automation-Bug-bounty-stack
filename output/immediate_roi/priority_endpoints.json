@@ -1,0 +1,752 @@
+[
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/checkout",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/checkout",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/checkout",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/checkout)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/orders",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/orders",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/orders",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/order)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/payments",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/payments",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/payments",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/payment)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/transactions",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/transactions",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/transactions",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/transaction)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/payments",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/payments",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/v1/payments",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/payment)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v2/payments",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v2/payments",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/v2/payments",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/payment)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/checkout",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/checkout",
+    "domain": "16695532.paypal.com",
+    "path": "/api/checkout",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/checkout)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/orders",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/orders",
+    "domain": "16695532.paypal.com",
+    "path": "/api/orders",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/order)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/payments",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/payments",
+    "domain": "16695532.paypal.com",
+    "path": "/api/payments",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/payment)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/transactions",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/transactions",
+    "domain": "16695532.paypal.com",
+    "path": "/api/transactions",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/transaction)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/v1/payments",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/v1/payments",
+    "domain": "16695532.paypal.com",
+    "path": "/api/v1/payments",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/payment)"
+    ]
+  },
+  {
+    "score": 130,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/v2/payments",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/v2/payments",
+    "domain": "16695532.paypal.com",
+    "path": "/api/v2/payments",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/payment)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/checkout",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/checkout",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/checkout",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/checkout)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/orders",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/orders",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/orders",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/order)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/payments",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/payments",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/payments",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/payment)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/transactions",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/transactions",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/transactions",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/transaction)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/payments",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/payments",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/v1/payments",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/payment)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v2/payments",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/v2/payments",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/v2/payments",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Payment endpoint (/payment)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/auth",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/auth",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/auth",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/auth)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/login",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/login",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/login",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/login)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/oauth",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/oauth",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/oauth",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/oauth)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/session",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/session",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/session",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/session)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/token",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/token",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/token",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/token)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/auth",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/auth",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/v1/auth",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/auth)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/login",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/login",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/v1/login",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/login)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v2/auth",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v2/auth",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/v2/auth",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/auth)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/auth",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/auth",
+    "domain": "16695532.paypal.com",
+    "path": "/api/auth",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/auth)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/login",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/login",
+    "domain": "16695532.paypal.com",
+    "path": "/api/login",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/login)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/oauth",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/oauth",
+    "domain": "16695532.paypal.com",
+    "path": "/api/oauth",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/oauth)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/session",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/session",
+    "domain": "16695532.paypal.com",
+    "path": "/api/session",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/session)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/token",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/token",
+    "domain": "16695532.paypal.com",
+    "path": "/api/token",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/token)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/v1/auth",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/v1/auth",
+    "domain": "16695532.paypal.com",
+    "path": "/api/v1/auth",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/auth)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/v1/login",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/v1/login",
+    "domain": "16695532.paypal.com",
+    "path": "/api/v1/login",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/login)"
+    ]
+  },
+  {
+    "score": 125,
+    "endpoint": {
+      "url": "https://16695532.paypal.com/api/v2/auth",
+      "source": "api_paths.txt"
+    },
+    "url": "https://16695532.paypal.com/api/v2/auth",
+    "domain": "16695532.paypal.com",
+    "path": "/api/v2/auth",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/auth)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/auth",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/auth",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/auth",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/auth)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/login",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/login",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/login",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/login)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/oauth",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/oauth",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/oauth",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/oauth)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/session",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/session",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/session",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/session)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/token",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/token",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/token",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/token)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/auth",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/auth",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/v1/auth",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/auth)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/login",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/login",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/v1/login",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/login)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v2/auth",
+      "source": "api_paths.txt"
+    },
+    "url": "http://2b4a6b31ca2273bb.apple.com/api/v2/auth",
+    "domain": "2b4a6b31ca2273bb.apple.com",
+    "path": "/api/v2/auth",
+    "reasons": [
+      "High-value domain (apple)",
+      "API endpoint (/api/)",
+      "Authentication endpoint (/auth)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/accounts",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/accounts",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/accounts",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "User endpoint (/account)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/admin",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/admin",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/admin",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "User endpoint (/admin)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/graphql",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/graphql",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/graphql",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "GraphQL endpoint"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/user",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/user",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/user",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "User endpoint (/user)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/users",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/users",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/users",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "User endpoint (/user)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/admin",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/admin",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/v1/admin",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "User endpoint (/admin)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/users",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v1/users",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/v1/users",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "User endpoint (/user)"
+    ]
+  },
+  {
+    "score": 120,
+    "endpoint": {
+      "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v2/users",
+      "source": "api_paths.txt"
+    },
+    "url": "https://0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com/api/v2/users",
+    "domain": "0cd20b6fe61233e4a24bf70f30c9ba46.paypal.com",
+    "path": "/api/v2/users",
+    "reasons": [
+      "High-value domain (paypal)",
+      "API endpoint (/api/)",
+      "User endpoint (/user)"
+    ]
+  }
+]

@@ -109,3 +109,5 @@ Based on typical dashboard implementations:
 
 **Next Step:** Log in, navigate to payments, click on a payment, and check the URL bar to find the exact endpoint path!
 
+
+

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; color:#111; }
+      h1 { margin: 0 0 8px; font-size: 18px; }
+      .meta { color:#555; font-size:12px; margin-bottom:12px }
+      table { width:100%; border-collapse: collapse; }
+      th, td { text-align:left; padding:8px; border:1px solid #e5e7eb; font-size: 12px; }
+      th { background:#f3f4f6; }
+    </style>
+  </head>
+  <body>
+    <h1>Scope & Consent Receipt</h1>
+    <div class="meta">Generated: %%DATE%%</div>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Response</th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <script>
+      (function(){
+        var rows = JSON.parse('%%ROWS_JSON%%');
+        var tbody = document.getElementById('rows');
+        rows.forEach(function(r){
+          var tr = document.createElement('tr');
+          var td1 = document.createElement('td'); td1.textContent = r.key;
+          var td2 = document.createElement('td'); td2.textContent = r.value;
+          tr.appendChild(td1); tr.appendChild(td2); tbody.appendChild(tr);
+        });
+      })();
+    </script>
+  </body>
+  </html>
+
+

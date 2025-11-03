@@ -1,0 +1,339 @@
+{
+  "original_count": 40,
+  "verified_count": 40,
+  "unique_count": 22,
+  "consolidated_count": 4,
+  "high_value_count": 0,
+  "medium_value_count": 0,
+  "low_value_count": 4,
+  "high_value": [],
+  "medium_value": [],
+  "low_value": [
+    {
+      "endpoint": "https://whitebit.com/api/health",
+      "exploited": true,
+      "confirmed": true,
+      "proof": {
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer test"
+        },
+        "status_code": 200,
+        "response_length": 41
+      },
+      "response_time": 1.9763178825378418,
+      "value": 500,
+      "verification": {
+        "verified": true,
+        "exploitable": false,
+        "impact": "low",
+        "confidence": 30,
+        "verification_details": {
+          "endpoint": "https://whitebit.com/api/health",
+          "test_type": "",
+          "verification_time": 1762075631.4474072,
+          "verification_method": "automated"
+        }
+      }
+    },
+    {
+      "endpoint": "https://nicehash.com/.well-known/openapi.json",
+      "exploited": true,
+      "confirmed": true,
+      "proof": {
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer test"
+        },
+        "status_code": 200,
+        "response_length": 1890
+      },
+      "response_time": 4.07847785949707,
+      "value": 500,
+      "verification": {
+        "verified": true,
+        "exploitable": false,
+        "impact": "low",
+        "confidence": 30,
+        "verification_details": {
+          "endpoint": "https://nicehash.com/.well-known/openapi.json",
+          "test_type": "",
+          "verification_time": 1762075631.447412,
+          "verification_method": "automated"
+        }
+      },
+      "consolidated": true,
+      "similar_endpoints": [
+        "https://nicehash.com/.well-known/openapi.json",
+        "https://nicehash.com/.well-known/swagger.json",
+        "https://nicehash.com/swagger",
+        "https://nicehash.com/openapi",
+        "https://nicehash.com/docs",
+        "http://nicehash.com/.well-known/openapi.json",
+        "http://nicehash.com/.well-known/swagger.json",
+        "http://nicehash.com/swagger",
+        "http://nicehash.com/openapi",
+        "http://nicehash.com/docs"
+      ],
+      "count": 10
+    },
+    {
+      "endpoint": "https://www.nicehash.com/.well-known/openapi.json",
+      "exploited": true,
+      "confirmed": true,
+      "proof": {
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer test"
+        },
+        "status_code": 200,
+        "response_length": 1890
+      },
+      "response_time": 2.144963264465332,
+      "value": 500,
+      "verification": {
+        "verified": true,
+        "exploitable": false,
+        "impact": "low",
+        "confidence": 30,
+        "verification_details": {
+          "endpoint": "https://www.nicehash.com/.well-known/openapi.json",
+          "test_type": "",
+          "verification_time": 1762075631.4474592,
+          "verification_method": "automated"
+        }
+      },
+      "consolidated": true,
+      "similar_endpoints": [
+        "https://www.nicehash.com/.well-known/openapi.json",
+        "https://www.nicehash.com/.well-known/swagger.json",
+        "https://www.nicehash.com/swagger",
+        "https://www.nicehash.com/openapi",
+        "https://www.nicehash.com/docs",
+        "http://www.nicehash.com/.well-known/openapi.json",
+        "http://www.nicehash.com/.well-known/swagger.json",
+        "http://www.nicehash.com/swagger",
+        "http://www.nicehash.com/openapi",
+        "http://www.nicehash.com/docs"
+      ],
+      "count": 10
+    },
+    {
+      "endpoint": "https://rapyd.net/api",
+      "exploited": true,
+      "confirmed": true,
+      "proof": {
+        "method": "GET",
+        "status_code": 200,
+        "response_length": 169003,
+        "headers": {
+          "Date": "Sun, 02 Nov 2025 08:09:44 GMT",
+          "Content-Type": "text/html; charset=UTF-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "keep-alive",
+          "Access-Control-Allow-Origin": "https://www.googletagmanager.com",
+          "Cache-Control": "public, max-age=604800",
+          "content-security-policy": "default-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdn.cookielaw.org https://www.googletagmanager.com https://addsearch.com https://*.addsearch.com https://*.searchcdn.com https://d20vwa69zln1wj.cloudfront.net https://www.google-analytics.com https://www.googleanalytics.com https://*.outbrain.com https://snap.licdn.com https://assets.apollo.io https://www.redditstatic.com https://googleads.g.doubleclick.net https://js.hs-scripts.com https://analytics.tiktok.com https://connect.facebook.net https://j.6sc.co https://amplify.outbrain.com https://tr.outbrain.com https://js.hs-analytics.net https://js.hsadspixel.net https://js.hs-banner.com https://js.hsleadflows.net https://js.hubspot.com https://js.hsforms.net https://www.google.com/recaptcha/enterprise.js https://www.gstatic.com/recaptcha/releases/ https://s8.searchcdn.com https://grid.is https://edge.fullstory.com https://www.comeet.co https://player.vimeo.com https://www.youtube.com https://apollo.io https://cdn.ampproject.org https://bugcrowd.com https://assets.bugcrowdusercontent.com https://www.google.com https://optimize.google.com https://www.googleoptimize.com https://*.visualwebsiteoptimizer.com https://app.vwo.com https://js.hscta.net https://js-eu1.hscta.net https://no-cache.hubspot.com https://*.hubspot.com https://*.hs-sites.com https://*.hs-sites-eu1.com https://cta-service-cms2.hubspot.com https://tagmanager.google.com https://www.gstatic.com https://bat.bing.com https://*.omappapi.com https://widget.manychat.com https://app.calculatorstudio.co https://cdn.userway.org https://static.oktopost.com https://okt.rapyd.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.addsearch.com https://*.searchcdn.com https://*.cloudfront.net https://optimize.google.com https://www.comeet.com https://tagmanager.google.com https://www.googletagmanager.com https://www.googleoptimize.com https://*.omappapi.com https://*.visualwebsiteoptimizer.com https://app.vwo.com https://cdn.userway.org; img-src 'self' https: data: blob:; connect-src 'self' https://googleads.g.doubleclick.net https://www.google.com https://px.ads.linkedin.com https://px.ads.linkedin.com https://aplo-evnt.com https://api.ipstack.com https://cdn.cookielaw.org https://geolocation.onetrust.com https://analytics.google.com https://www.google-analytics.com https://privacyportal-eu.onetrust.com https://stats.g.doubleclick.net https://ipv6.6sc.co https://analytics.tiktok.com https://dashboard.rapyd.net https://api.hubapi.com https://*.hubspot.com https://forms.hsforms.com https://hubspot-forms-static-embed.s3.amazonaws.com https://cdn.linkedin.oribi.io https://c.6sc.co https://edge.fullstory.com https://rs.fullstory.com https://secure.adnxs.com https://*.visualwebsiteoptimizer.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://*.omappapi.com https://app.vwo.com https://api.userway.org https://cdn.userway.org https://*.api.userway.org; font-src 'self' data: https://fonts.gstatic.com https://cdn.userway.org; frame-ancestors 'self' https://www.google.com https://grid.is https://www.rapyd.is; frame-src https://www.rapyd.net https://*.outbrain.com https://td.doubleclick.net https://aax-eu.amazon-adsystem.com https://www.facebook.com https://optimize.google.com https://www.google.com https://forms.hsforms.com https://grid.is https://www.rapyd.is https://www.comeet.co https://player.vimeo.com https://bugcrowd.com https://www.googleoptimize.com https://www.youtube.com https://apollo.io https://s-eu1.hscta.net https://no-cache.hubspot.com https://*.hs-sites-eu1.com https://*.hs-sites.com https://*.visualwebsiteoptimizer.com https://app.vwo.com https://www.googletagmanager.com https://app.calculatorstudio.co https://cdn.userway.org",
+          "cross-origin-opener-policy": "same-origin",
+          "feature-policy": "cookie 'self'; fullscreen 'self'; geolocation 'self'",
+          "Link": "<https://www.rapyd.net/wp-json/>; rel=\"https://api.w.org/\"",
+          "referrer-policy": "no-referrer-when-downgrade",
+          "Server": "cloudflare",
+          "strict-transport-security": "max-age=63072000",
+          "x-frame-options": "SAMEORIGIN",
+          "x-pantheon-styx-hostname": "styx-fe4-a-6dc589968d-2mttx",
+          "x-styx-req-id": "ea39ef2a-b4d0-11f0-b006-7edca956073a",
+          "x-served-by": "cache-chi-kigq8000084-CHI, cache-pdk-kfty8610089-PDK",
+          "x-cache": "HIT, HIT",
+          "x-cache-hits": "18, 2",
+          "x-timer": "S1762070985.681253,VS0,VE1",
+          "Vary": "Accept-Encoding, Cookie, Cookie",
+          "Age": "323999",
+          "Via": "1.1 varnish, 1.1 varnish",
+          "cf-cache-status": "DYNAMIC",
+          "Content-Encoding": "gzip",
+          "Set-Cookie": "__cf_bm=xG1jj2P8r3t.gEHQLcB4sdZTqUTOElVNDgZEhcJ9KBs-1762070984.6721158-1.0.1.1-gQFXxl5MqSmjx.KS2XwOK1DNB3tUAfkv_0KGqQa9HY.Nue9ib.NqqP38qSDQQQbyNKM8g_EGkXpPQ04Ll73Rt6BQH5RRCMeYQumiMFuJ.gUVBESJVii0tylXa6oOFbQq; HttpOnly; Secure; Path=/; Domain=rapyd.net; Expires=Sun, 02 Nov 2025 08:39:44 GMT",
+          "CF-RAY": "998226c63b15cf6c-ATL"
+        }
+      },
+      "response_time": 1.7170178890228271,
+      "value": 500,
+      "verification": {
+        "verified": true,
+        "exploitable": false,
+        "impact": "low",
+        "confidence": 30,
+        "verification_details": {
+          "endpoint": "https://rapyd.net/api",
+          "test_type": "",
+          "verification_time": 1762075631.4474745,
+          "verification_method": "automated"
+        }
+      }
+    }
+  ],
+  "all_findings": [
+    {
+      "endpoint": "https://whitebit.com/api/health",
+      "exploited": true,
+      "confirmed": true,
+      "proof": {
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer test"
+        },
+        "status_code": 200,
+        "response_length": 41
+      },
+      "response_time": 1.9763178825378418,
+      "value": 500,
+      "verification": {
+        "verified": true,
+        "exploitable": false,
+        "impact": "low",
+        "confidence": 30,
+        "verification_details": {
+          "endpoint": "https://whitebit.com/api/health",
+          "test_type": "",
+          "verification_time": 1762075631.4474072,
+          "verification_method": "automated"
+        }
+      }
+    },
+    {
+      "endpoint": "https://nicehash.com/.well-known/openapi.json",
+      "exploited": true,
+      "confirmed": true,
+      "proof": {
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer test"
+        },
+        "status_code": 200,
+        "response_length": 1890
+      },
+      "response_time": 4.07847785949707,
+      "value": 500,
+      "verification": {
+        "verified": true,
+        "exploitable": false,
+        "impact": "low",
+        "confidence": 30,
+        "verification_details": {
+          "endpoint": "https://nicehash.com/.well-known/openapi.json",
+          "test_type": "",
+          "verification_time": 1762075631.447412,
+          "verification_method": "automated"
+        }
+      },
+      "consolidated": true,
+      "similar_endpoints": [
+        "https://nicehash.com/.well-known/openapi.json",
+        "https://nicehash.com/.well-known/swagger.json",
+        "https://nicehash.com/swagger",
+        "https://nicehash.com/openapi",
+        "https://nicehash.com/docs",
+        "http://nicehash.com/.well-known/openapi.json",
+        "http://nicehash.com/.well-known/swagger.json",
+        "http://nicehash.com/swagger",
+        "http://nicehash.com/openapi",
+        "http://nicehash.com/docs"
+      ],
+      "count": 10
+    },
+    {
+      "endpoint": "https://www.nicehash.com/.well-known/openapi.json",
+      "exploited": true,
+      "confirmed": true,
+      "proof": {
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer test"
+        },
+        "status_code": 200,
+        "response_length": 1890
+      },
+      "response_time": 2.144963264465332,
+      "value": 500,
+      "verification": {
+        "verified": true,
+        "exploitable": false,
+        "impact": "low",
+        "confidence": 30,
+        "verification_details": {
+          "endpoint": "https://www.nicehash.com/.well-known/openapi.json",
+          "test_type": "",
+          "verification_time": 1762075631.4474592,
+          "verification_method": "automated"
+        }
+      },
+      "consolidated": true,
+      "similar_endpoints": [
+        "https://www.nicehash.com/.well-known/openapi.json",
+        "https://www.nicehash.com/.well-known/swagger.json",
+        "https://www.nicehash.com/swagger",
+        "https://www.nicehash.com/openapi",
+        "https://www.nicehash.com/docs",
+        "http://www.nicehash.com/.well-known/openapi.json",
+        "http://www.nicehash.com/.well-known/swagger.json",
+        "http://www.nicehash.com/swagger",
+        "http://www.nicehash.com/openapi",
+        "http://www.nicehash.com/docs"
+      ],
+      "count": 10
+    },
+    {
+      "endpoint": "https://rapyd.net/api",
+      "exploited": true,
+      "confirmed": true,
+      "proof": {
+        "method": "GET",
+        "status_code": 200,
+        "response_length": 169003,
+        "headers": {
+          "Date": "Sun, 02 Nov 2025 08:09:44 GMT",
+          "Content-Type": "text/html; charset=UTF-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "keep-alive",
+          "Access-Control-Allow-Origin": "https://www.googletagmanager.com",
+          "Cache-Control": "public, max-age=604800",
+          "content-security-policy": "default-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdn.cookielaw.org https://www.googletagmanager.com https://addsearch.com https://*.addsearch.com https://*.searchcdn.com https://d20vwa69zln1wj.cloudfront.net https://www.google-analytics.com https://www.googleanalytics.com https://*.outbrain.com https://snap.licdn.com https://assets.apollo.io https://www.redditstatic.com https://googleads.g.doubleclick.net https://js.hs-scripts.com https://analytics.tiktok.com https://connect.facebook.net https://j.6sc.co https://amplify.outbrain.com https://tr.outbrain.com https://js.hs-analytics.net https://js.hsadspixel.net https://js.hs-banner.com https://js.hsleadflows.net https://js.hubspot.com https://js.hsforms.net https://www.google.com/recaptcha/enterprise.js https://www.gstatic.com/recaptcha/releases/ https://s8.searchcdn.com https://grid.is https://edge.fullstory.com https://www.comeet.co https://player.vimeo.com https://www.youtube.com https://apollo.io https://cdn.ampproject.org https://bugcrowd.com https://assets.bugcrowdusercontent.com https://www.google.com https://optimize.google.com https://www.googleoptimize.com https://*.visualwebsiteoptimizer.com https://app.vwo.com https://js.hscta.net https://js-eu1.hscta.net https://no-cache.hubspot.com https://*.hubspot.com https://*.hs-sites.com https://*.hs-sites-eu1.com https://cta-service-cms2.hubspot.com https://tagmanager.google.com https://www.gstatic.com https://bat.bing.com https://*.omappapi.com https://widget.manychat.com https://app.calculatorstudio.co https://cdn.userway.org https://static.oktopost.com https://okt.rapyd.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.addsearch.com https://*.searchcdn.com https://*.cloudfront.net https://optimize.google.com https://www.comeet.com https://tagmanager.google.com https://www.googletagmanager.com https://www.googleoptimize.com https://*.omappapi.com https://*.visualwebsiteoptimizer.com https://app.vwo.com https://cdn.userway.org; img-src 'self' https: data: blob:; connect-src 'self' https://googleads.g.doubleclick.net https://www.google.com https://px.ads.linkedin.com https://px.ads.linkedin.com https://aplo-evnt.com https://api.ipstack.com https://cdn.cookielaw.org https://geolocation.onetrust.com https://analytics.google.com https://www.google-analytics.com https://privacyportal-eu.onetrust.com https://stats.g.doubleclick.net https://ipv6.6sc.co https://analytics.tiktok.com https://dashboard.rapyd.net https://api.hubapi.com https://*.hubspot.com https://forms.hsforms.com https://hubspot-forms-static-embed.s3.amazonaws.com https://cdn.linkedin.oribi.io https://c.6sc.co https://edge.fullstory.com https://rs.fullstory.com https://secure.adnxs.com https://*.visualwebsiteoptimizer.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://*.omappapi.com https://app.vwo.com https://api.userway.org https://cdn.userway.org https://*.api.userway.org; font-src 'self' data: https://fonts.gstatic.com https://cdn.userway.org; frame-ancestors 'self' https://www.google.com https://grid.is https://www.rapyd.is; frame-src https://www.rapyd.net https://*.outbrain.com https://td.doubleclick.net https://aax-eu.amazon-adsystem.com https://www.facebook.com https://optimize.google.com https://www.google.com https://forms.hsforms.com https://grid.is https://www.rapyd.is https://www.comeet.co https://player.vimeo.com https://bugcrowd.com https://www.googleoptimize.com https://www.youtube.com https://apollo.io https://s-eu1.hscta.net https://no-cache.hubspot.com https://*.hs-sites-eu1.com https://*.hs-sites.com https://*.visualwebsiteoptimizer.com https://app.vwo.com https://www.googletagmanager.com https://app.calculatorstudio.co https://cdn.userway.org",
+          "cross-origin-opener-policy": "same-origin",
+          "feature-policy": "cookie 'self'; fullscreen 'self'; geolocation 'self'",
+          "Link": "<https://www.rapyd.net/wp-json/>; rel=\"https://api.w.org/\"",
+          "referrer-policy": "no-referrer-when-downgrade",
+          "Server": "cloudflare",
+          "strict-transport-security": "max-age=63072000",
+          "x-frame-options": "SAMEORIGIN",
+          "x-pantheon-styx-hostname": "styx-fe4-a-6dc589968d-2mttx",
+          "x-styx-req-id": "ea39ef2a-b4d0-11f0-b006-7edca956073a",
+          "x-served-by": "cache-chi-kigq8000084-CHI, cache-pdk-kfty8610089-PDK",
+          "x-cache": "HIT, HIT",
+          "x-cache-hits": "18, 2",
+          "x-timer": "S1762070985.681253,VS0,VE1",
+          "Vary": "Accept-Encoding, Cookie, Cookie",
+          "Age": "323999",
+          "Via": "1.1 varnish, 1.1 varnish",
+          "cf-cache-status": "DYNAMIC",
+          "Content-Encoding": "gzip",
+          "Set-Cookie": "__cf_bm=xG1jj2P8r3t.gEHQLcB4sdZTqUTOElVNDgZEhcJ9KBs-1762070984.6721158-1.0.1.1-gQFXxl5MqSmjx.KS2XwOK1DNB3tUAfkv_0KGqQa9HY.Nue9ib.NqqP38qSDQQQbyNKM8g_EGkXpPQ04Ll73Rt6BQH5RRCMeYQumiMFuJ.gUVBESJVii0tylXa6oOFbQq; HttpOnly; Secure; Path=/; Domain=rapyd.net; Expires=Sun, 02 Nov 2025 08:39:44 GMT",
+          "CF-RAY": "998226c63b15cf6c-ATL"
+        }
+      },
+      "response_time": 1.7170178890228271,
+      "value": 500,
+      "verification": {
+        "verified": true,
+        "exploitable": false,
+        "impact": "low",
+        "confidence": 30,
+        "verification_details": {
+          "endpoint": "https://rapyd.net/api",
+          "test_type": "",
+          "verification_time": 1762075631.4474745,
+          "verification_method": "automated"
+        }
+      }
+    }
+  ]
+}

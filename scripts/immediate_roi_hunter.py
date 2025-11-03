@@ -28,6 +28,17 @@ from typing import List, Dict, Any, Optional
 import os
 import re
 
+# License protection - must be first
+try:
+    sys.path.insert(0, str(Path(__file__).parent.parent))
+    from license_check import check_license
+    check_license()
+except ImportError:
+    print("⚠️  Warning: License check module not found")
+except SystemExit:
+    # License check failed, exit
+    raise
+
 # Paths
 SCRIPT_DIR = Path(__file__).parent
 REPO_ROOT = SCRIPT_DIR.parent
@@ -738,6 +749,7 @@ def stage_5_api_discovery(resume: bool = False) -> bool:
         api_results_file = ROI_OUTPUT_DIR / "api_endpoints.json"
         log("Probing API endpoints...")
         
+        # Use os module that's already imported at top of file
         cmd = [
             "httpx",
             "-l", str(api_paths_file),
@@ -759,7 +771,7 @@ def stage_5_api_discovery(resume: bool = False) -> bool:
             log("Scanning API endpoints for vulnerabilities...")
             api_vulns_file = ROI_OUTPUT_DIR / "api_vulnerabilities.json"
             
-            import os
+            # os is already imported at top of file
             cmd = [
                 "nuclei",
                 "-l", str(api_paths_file),
@@ -818,33 +830,52 @@ def stage_6_5_exploit_discoveries(resume: bool = False) -> bool:
             log("WARNING: Ultra-fast exploiter not available. Skipping exploitation stage.", "WARNING")
             return True
         
-        # Load discovered endpoints
-        endpoints_file = OUTPUT_DIR / "blackhole_code4rena" / "discovered_endpoints.json"
-        if not endpoints_file.exists():
-            # Try alternative locations
-            alt_paths = [
-                ROI_OUTPUT_DIR / "api_vulnerabilities.json",
-                OUTPUT_DIR / "http.json"
-            ]
-            endpoints = []
-            for alt_path in alt_paths:
-                if alt_path.exists():
-                    with open(alt_path) as f:
+        # Load discovered endpoints from all sources (not just one program)
+        endpoints = []
+        
+        # Try multiple locations for endpoints
+        endpoint_sources = [
+            ROI_OUTPUT_DIR / "api_vulnerabilities.json",
+            ROI_OUTPUT_DIR / "api_endpoints.json",
+            OUTPUT_DIR / "http.json",
+            OUTPUT_DIR / "api-endpoints.json"
+        ]
+        
+        # Also check program-specific directories
+        if OUTPUT_DIR.exists():
+            for program_dir in OUTPUT_DIR.iterdir():
+                if program_dir.is_dir():
+                    program_endpoints = program_dir / "discovered_endpoints.json"
+                    if program_endpoints.exists():
+                        endpoint_sources.append(program_endpoints)
+        
+        for endpoint_file in endpoint_sources:
+            if endpoint_file.exists():
+                try:
+                    with open(endpoint_file) as f:
                         data = json.load(f)
                         if isinstance(data, list):
-                            endpoints = [item.get("url") or item.get("input") or item for item in data if isinstance(item, str) or item.get("url") or item.get("input")]
+                            for item in data:
+                                if isinstance(item, dict):
+                                    url = item.get("url") or item.get("input") or item.get("endpoint")
+                                    if url:
+                                        endpoints.append(url)
+                                elif isinstance(item, str):
+                                    endpoints.append(item)
                         elif isinstance(data, dict):
-                            endpoints = data.get("endpoints", [])
-                    break
-        else:
-            with open(endpoints_file) as f:
-                endpoints = json.load(f)
+                            endpoint_list = data.get("endpoints", []) or data.get("data", [])
+                            endpoints.extend(endpoint_list)
+                except Exception as e:
+                    log(f"WARNING: Failed to load endpoints from {endpoint_file}: {e}", "WARNING")
+        
+        # Deduplicate endpoints
+        endpoints = list(set(endpoints))
         
         if not endpoints:
             log("No endpoints found to exploit. Skipping exploitation stage.", "WARNING")
             return True
         
-        log(f"Found {len(endpoints)} endpoints to exploit")
+        log(f"Found {len(endpoints)} endpoints to exploit from all programs")
         
         # Generate test cases
         test_cases = [
@@ -855,8 +886,9 @@ def stage_6_5_exploit_discoveries(resume: bool = False) -> bool:
             {"type": "generic"}
         ]
         
-        # Create exploiter
-        output_dir = OUTPUT_DIR / "blackhole_code4rena"
+        # Create exploiter - use universal output directory
+        output_dir = OUTPUT_DIR / "exploitation"
+        output_dir.mkdir(parents=True, exist_ok=True)
         exploiter = UltraFastExploiter(output_dir, max_concurrent=100)
         
         # Run exploitation (async, falls back to sync)

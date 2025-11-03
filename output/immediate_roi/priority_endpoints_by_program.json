@@ -1,0 +1,214 @@
+{
+  "apple": [
+    {
+      "score": 125,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/checkout",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/checkout",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/checkout",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Payment endpoint (/checkout)"
+      ]
+    },
+    {
+      "score": 125,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/orders",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/orders",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/orders",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Payment endpoint (/order)"
+      ]
+    },
+    {
+      "score": 125,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/payments",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/payments",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/payments",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Payment endpoint (/payment)"
+      ]
+    },
+    {
+      "score": 125,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/transactions",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/transactions",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/transactions",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Payment endpoint (/transaction)"
+      ]
+    },
+    {
+      "score": 125,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/payments",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/payments",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/v1/payments",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Payment endpoint (/payment)"
+      ]
+    },
+    {
+      "score": 125,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/v2/payments",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v2/payments",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/v2/payments",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Payment endpoint (/payment)"
+      ]
+    },
+    {
+      "score": 120,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/auth",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/auth",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/auth",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Authentication endpoint (/auth)"
+      ]
+    },
+    {
+      "score": 120,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/login",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/login",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/login",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Authentication endpoint (/login)"
+      ]
+    },
+    {
+      "score": 120,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/oauth",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/oauth",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/oauth",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Authentication endpoint (/oauth)"
+      ]
+    },
+    {
+      "score": 120,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/session",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/session",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/session",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Authentication endpoint (/session)"
+      ]
+    },
+    {
+      "score": 120,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/token",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/token",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/token",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Authentication endpoint (/token)"
+      ]
+    },
+    {
+      "score": 120,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/auth",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/auth",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/v1/auth",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Authentication endpoint (/auth)"
+      ]
+    },
+    {
+      "score": 120,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/login",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v1/login",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/v1/login",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Authentication endpoint (/login)"
+      ]
+    },
+    {
+      "score": 120,
+      "endpoint": {
+        "url": "http://2b4a6b31ca2273bb.apple.com/api/v2/auth",
+        "source": "api_paths.txt"
+      },
+      "url": "http://2b4a6b31ca2273bb.apple.com/api/v2/auth",
+      "domain": "2b4a6b31ca2273bb.apple.com",
+      "path": "/api/v2/auth",
+      "reasons": [
+        "High-value domain (apple)",
+        "API endpoint (/api/)",
+        "Authentication endpoint (/auth)"
+      ]
+    }
+  ]
+}

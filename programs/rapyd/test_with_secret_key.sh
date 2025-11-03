@@ -37,3 +37,5 @@ curl -X POST "$RAPYD_BASE_URL/v1/payments/create" \
 echo ""
 echo "=== Test Complete ==="
 
+
+

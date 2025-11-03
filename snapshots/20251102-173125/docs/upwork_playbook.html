@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upwork Playbook — Same‑Day Security Surface Check</title>
+    <style>
+      :root { --bg:#0c0f14; --card:#121621; --text:#e8eefc; --muted:#aab3c5; --ok:#22c55e; }
+      body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+      .wrap{max-width:1100px;margin:0 auto;padding:22px}
+      h1{margin:6px 0 10px}
+      .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin:14px 0}
+      .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+      .k{color:var(--muted);font-size:13px}
+      .pill{border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 8px}
+      textarea{width:100%;min-height:140px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:#0e1420;color:var(--text);padding:10px;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+      code{background:#0e1420;border:1px solid rgba(255,255,255,.1);padding:2px 6px;border-radius:6px}
+      a.btn{appearance:none;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:8px 12px;color:var(--text);text-decoration:none;display:inline-block;margin-right:8px}
+      ul{margin:8px 0 0 18px}
+      .row{display:flex;gap:8px;margin:6px 0}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Upwork Playbook — Problems, Differentiators, Templates</h1>
+      <div>
+        <a class="btn" href="./landing.html">Landing</a>
+        <a class="btn" href="./TERMS_REFUND.html">Terms</a>
+        <span class="pill k">Use these snippets directly in proposals or messages</span>
+      </div>
+
+      <div class="card">
+        <h3>Common buyer requests (from Upwork briefs)</h3>
+        <div class="grid">
+          <div>
+            <ul>
+              <li>“Web app/API pentest with report by <em>this week</em>.”</li>
+              <li>“SOC 2/ISO evidence of external testing.”</li>
+              <li>“Cloud (AWS/GCP) misconfig assessment + IAM review.”</li>
+              <li>“Continuous vuln monitoring with monthly report.”</li>
+              <li>“Fix/verify critical finding; provide retest letter.”</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>“OWASP API/ASVS coverage with repro steps.”</li>
+              <li>“Proof for security questionnaire/blocker deal.”</li>
+              <li>“Budget capped, need fast, low‑risk checks.”</li>
+              <li>“No prod impact; need allowlist + NDA.”</li>
+              <li>“Ticket‑ready issues for engineering.”</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>How we differentiate (paste into proposals)</h3>
+        <ul>
+          <li>Same‑day or 4‑hour Express delivery; refund‑backed SLA.</li>
+          <li>Scope‑locked, non‑intrusive consent workflow; fixed IP + auditable logs.</li>
+          <li>Crypto‑aware detection in addition to HTTPx/Nuclei recon.</li>
+          <li>Ticket‑ready issues, evidence zip, and optional exec briefing.</li>
+          <li>Retest letter included; add‑ons for extra domains or monthly checks.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Proposal opener</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>
+Hi <Client>,
+
+We specialize in same‑day, non‑intrusive security checks for SaaS teams under deadline. You’ll get:
+- Scope‑locked consent + fixed IP testing
+- Findings with severity, repro steps, and ticket‑ready copy
+- Evidence bundle and optional exec summary
+
+Delivery: same day (or 4‑hour Express). If we miss your window and prerequisites are met, we refund 100%.
+
+If helpful, we can start with a quick scope sanity check (domains/APIs, window, rate limits) and share a sample report excerpt.
+
+— <Your Name>
+</textarea>
+      </div>
+
+      <div class="card">
+        <h3>Discovery questions (paste to client)</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>
+1) Assets in scope (domains, subdomains, API base URLs, IP ranges)?
+2) Testing window and rate‑limit preferences?
+3) Must‑have checks (e.g., SOC 2 evidence, OWASP API/ASVS, cloud misconfig)?
+4) Any environments to avoid (prod endpoints that cannot be touched)?
+5) Allowlisting contact (CDN/WAF/host), if needed?
+6) Due date and acceptance criteria (who signs off)?
+7) Do you want a retest letter after fixes (included)?
+</textarea>
+      </div>
+
+      <div class="card">
+        <h3>Scope/SOW bullets (non‑intrusive)</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>
+Activities include: subdomain/asset discovery, HTTP fingerprinting, TLS/cert review, Nuclei template runs (non‑intrusive), crypto‑aware checks for weak tokens/algorithms/timing issues, and manual verification where safe. Excludes: auth bypass, exploitation, data exfiltration, stress/DoS. Logs kept; fixed IP; immediate halt on instability.
+</textarea>
+      </div>
+
+      <div class="card">
+        <h3>Pricing framing (Upwork context)</h3>
+        <ul>
+          <li><strong>Standard</strong> — Same‑day signal for 1–5 domains or /16 — anchor at <code>$1,497</code>.</li>
+          <li><strong>Express</strong> — Delivery inside 4‑hour window — anchor at <code>$2,500</code>.</li>
+          <li><strong>Monthly Pack</strong> — 4 runs/month — anchor at <code>$5,000</code>.</li>
+          <li>Add‑ons: extra domains/IP block, exec briefing, continuous watch.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Close message (after acceptance)</h3>
+        <div class="row"><a class="btn" href="#" onclick="copyNext(this);return false;">Copy</a></div>
+        <textarea readonly>
+Amazing — I’ll send the consent & scope form immediately. Once received, we run during your window from a fixed IP and deliver the report the same day (4‑hour for Express). If we miss and prerequisites are met, you’re covered by a 100% refund.
+You’ll get: summary, ticket‑ready issues, evidence zip, optional exec brief. Shall I send the form to <email> and kick off at <time zone>?
+</textarea>
+      </div>
+
+      <div class="k">Tip: Keep one primary CTA — “Book a slot today.” Link to your landing <code>docs/landing.html</code>.</div>
+    </div>
+    <script>
+      function copyNext(el){
+        var ta = el.parentElement.nextElementSibling;
+        if(!ta) return;
+        ta.select();
+        try{ document.execCommand('copy'); el.textContent='Copied'; setTimeout(()=>el.textContent='Copy',1000); }catch(e){}
+      }
+    </script>
+  </body>
+  </html>
+
+

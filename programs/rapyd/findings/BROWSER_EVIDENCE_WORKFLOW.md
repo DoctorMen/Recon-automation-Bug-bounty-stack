@@ -442,3 +442,5 @@ PYEOF
 **Estimated Time:** 30-60 minutes for complete capture  
 **Difficulty:** Medium (requires two accounts and manual browser work)
 
+
+

@@ -1,0 +1,71 @@
+Title: Potential Security Issue in Apple CDN Endpoint - Scope Verification Requested
+
+IMPORTANT DISCLOSURE:
+This endpoint appears to be a CDN subdomain (hash prefix: 2b4a6b31ca2273bb).
+Please verify if CDN endpoints are within the scope of the Apple Security Bounty program.
+If this is out of scope, please let me know and I will not pursue further testing.
+
+DETAILED DESCRIPTION:
+
+Endpoint: http://2b4a6b31ca2273bb.apple.com/api/checkout
+
+During automated security testing, I discovered this endpoint that responds with:
+- HTTP Status: 301 (Moved Permanently)
+- Server Header: Apple
+- Redirect Location: https://d425438857f7719a.apple.com/api/checkout
+
+BEHAVIOR OBSERVED:
+The endpoint responds with a 301 redirect to HTTPS. The hash prefix in the subdomain 
+(2b4a6b31ca2273bb) suggests this is a Content Delivery Network (CDN) endpoint, which 
+may be out of scope for the bug bounty program.
+
+EXPECTED BEHAVIOR:
+If this is an Apple-owned web server, proper authentication and authorization should 
+be in place. However, since this appears to be a CDN endpoint, I wanted to verify 
+scope before conducting further testing.
+
+STEPS TO REPRODUCE:
+1. Send GET request to: http://2b4a6b31ca2273bb.apple.com/api/checkout
+2. Observe response headers and status code
+3. Follow redirect if applicable
+
+HTTP Request:
+GET /api/checkout HTTP/1.1
+Host: 2b4a6b31ca2273bb.apple.com
+
+HTTP Response:
+HTTP/1.1 301 Moved Permanently
+Server: Apple
+Location: https://d425438857f7719a.apple.com/api/checkout
+Content-Type: text/html
+Content-Length: 162
+
+Response Body:
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>Apple</center>
+</body>
+</html>
+
+IMPACT ASSESSMENT:
+Since this appears to be a CDN endpoint, the security impact may be limited.
+However, if this endpoint is in scope and contains vulnerabilities, it could 
+potentially affect users accessing Apple services through the CDN.
+
+SCOPE VERIFICATION REQUEST:
+Please confirm:
+1. Is this CDN endpoint in scope?
+2. Should I conduct further security testing?
+3. Are there specific testing guidelines for CDN endpoints?
+
+Thank you for your time and consideration.
+
+---
+Researcher Information:
+- Submitted through official Apple Security Bounty portal
+- Following responsible disclosure practices
+- Willing to provide additional information if needed
+
+

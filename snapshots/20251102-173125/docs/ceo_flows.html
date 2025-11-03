@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CEO Next‑Phase Flows</title>
+    <style>
+      :root { --bg:#0c0f14; --card:#121621; --text:#e8eefc; --muted:#aab3c5; }
+      html,body{height:100%}
+      body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+      .wrap{max-width:1200px;margin:0 auto;padding:20px}
+      h1{margin:6px 0 14px;font-size:28px}
+      h2{margin:18px 0 10px;font-size:20px}
+      .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;margin-bottom:16px}
+      .mermaid{background:#0e1420;border-radius:10px;padding:16px;overflow:auto}
+      .mermaid svg{width:100%;height:auto}
+      .row{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0 18px}
+      a.btn{appearance:none;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 12px;color:var(--text);text-decoration:none}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({ startOnLoad: true, theme: 'dark', flowchart: { curve: 'basis' } });
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>CEO Next‑Phase Flows</h1>
+      <div class="row">
+        <a class="btn" href="./landing.html">Landing</a>
+        <a class="btn" href="./flowchart.html">Execution Flow</a>
+      </div>
+
+      <div class="card">
+        <h2>30‑Day GTM Plan</h2>
+        <div class="mermaid">
+flowchart LR
+  A[Positioning] --> B[Website + Offers]
+  B --> C[Outbound List]
+  C --> D[Warm Intros]
+  D --> E[Discovery Calls]
+  E --> F[Trials: Standard / Express]
+  F --> G[Case Studies]
+  G --> H[Referrals]
+  H --> I[Monthly Packs]
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Sales Pipeline</h2>
+        <div class="mermaid">
+flowchart LR
+  L[Lead] --> Q[Qualified]
+  Q --> P[Proposal]
+  P --> S[Signed & Paid]
+  S --> K[Consent & Scope]
+  K --> R[Run]
+  R --> W[Report Delivered]
+  W --> M[Monthly Pack]
+  Q --> X[Disqualified]
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Marketing Funnel</h2>
+        <div class="mermaid">
+flowchart LR
+  T[Top: Content & Social] --> M1[Middle: Case Studies]
+  M1 --> M2[Bottom: Book Standard]
+  M2 --> N[Onboarding]
+  M1 --> E1[Book Express]
+  T --> P1[Partnerships]
+  P1 --> N
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Fulfillment & Scale</h2>
+        <div class="mermaid">
+flowchart LR
+  S1[Slot Calendar] --> S2[Assign Operator]
+  S2 --> S3[Recon Run]
+  S3 --> S4[QA Review]
+  S4 --> S5[Report Send]
+  S5 --> S6[Ticket Handoff]
+  S3 --> B1[Backlog of Findings]
+  B1 --> C1[Case Study Candidates]
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Hiring & Roles (Lean)</h2>
+        <div class="mermaid">
+flowchart LR
+  CEO --- AE[Account Exec]
+  CEO --- OP[Operator]
+  CEO --- CS[Customer Success]
+  AE --> CAL[Calendar + Pricing]
+  OP --> RUN[Run & Evidence]
+  CS --> REF[Referrals & Renewals]
+        </div>
+      </div>
+
+    </div>
+  </body>
+  </html>
+
+
