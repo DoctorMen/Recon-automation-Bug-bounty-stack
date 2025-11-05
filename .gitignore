@@ -11,3 +11,12 @@ node_modules
 # License protection (never commit!)
 .license
 .license.*
+
+# Recovery vault (never commit!)
+.recovery/
+.SHADOWSTEP_RECOVERY_VAULT
+*RECOVERY_VAULT*
+*.pyc
+*.key
+*.pem
+ai_defense/
