@@ -83,7 +83,7 @@ class AdvancedDuplicateFilter:
         Consolidate similar bugs (e.g., multiple swagger endpoints)
         Uses defaultdict for cleaner grouping code
         """
-        grouped: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+        grouped = defaultdict(list)
         
         for finding in findings:
             endpoint = finding.get("endpoint", "")
