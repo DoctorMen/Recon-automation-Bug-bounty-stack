@@ -71,7 +71,7 @@
     "security": [
       {"name": "Product Security", "aliases": ["Application Security", "AppSec", "Product & Platform Security", "Software Security"]},
       {"name": "Offensive Security", "aliases": ["Red Team", "Red Teaming", "Penetration Testing", "Pentest", "Adversary Simulation"]},
-      {"name": "Bug Bounty", "aliases": ["Vulnerability Management", "Product Security Response", "PSIRT", "VRM"]},
+      {"name": "Bug Bounty", "aliases": ["Vulnerability Management", "Product Security Response", "PSIRT", "VRM", "Vuln & Risk Management"]},
       {"name": "Cloud Security", "aliases": ["Infrastructure Security", "Cloud & Platform Security", "Cloud & Infra Sec"]},
       {"name": "Identity & Access Management", "aliases": ["IAM", "Identity Platform", "AuthN/AuthZ", "Access Management"]},
       {"name": "Security Operations Center", "aliases": ["SOC", "Security Operations", "Detection & Response", "Blue Team"]},

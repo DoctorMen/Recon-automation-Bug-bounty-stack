@@ -82,7 +82,7 @@ This document provides a comprehensive taxonomy of teams and departments, includ
 - **Aliases**: Red Team / Red Teaming / Penetration Testing / Pentest / Adversary Simulation
 
 ### Bug Bounty
-- **Aliases**: Vulnerability Management / Product Security Response / PSIRT / VRM (Vuln & Risk Management)
+- **Aliases**: Vulnerability Management / Product Security Response / PSIRT / VRM / Vuln & Risk Management
 
 ### Cloud Security
 - **Aliases**: Infrastructure Security / Cloud & Platform Security / Cloud & Infra Sec
