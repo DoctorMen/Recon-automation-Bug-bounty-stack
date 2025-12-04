@@ -88,7 +88,7 @@
       {"name": "Content Design", "aliases": ["UX Writing", "Content Strategy", "Product Content"]}
     ],
     "customer_support": [
-      {"name": "Customer Support", "aliases": ["Customer Service", "Support", "Customer Experience"]},
+      {"name": "Customer Support", "aliases": ["Customer Service", "Support", "Customer Experience", "CX"]},
       {"name": "Support Engineering", "aliases": ["Support Tools", "Support Tooling", "Internal Tools for Support", "Agent Tools"]},
       {"name": "Solutions Engineering", "aliases": ["Sales Engineering", "Field Engineering", "Customer Engineering", "Solutions Architecture"]}
     ],

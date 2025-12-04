@@ -126,7 +126,7 @@ This document provides a comprehensive taxonomy of teams and departments, includ
 ## Customer & Support
 
 ### Customer Support
-- **Aliases**: Customer Service / Support / Customer Experience (CX)
+- **Aliases**: Customer Service / Support / Customer Experience / CX
 
 ### Support Engineering
 - **Aliases**: Support Tools / Support Tooling / Internal Tools for Support / Agent Tools
