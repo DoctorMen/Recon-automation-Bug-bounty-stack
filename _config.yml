@@ -1,0 +1,6 @@
+exclude:
+  - archived/
+  - report_*.md
+  - 05_BUSINESS_DOCUMENTATION/
+  - TECHNICAL_DOCUMENTATION.md
+  - "*.md"
