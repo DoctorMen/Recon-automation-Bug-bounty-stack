@@ -11,7 +11,9 @@ import click
 from rich.console import Console
 from rich.table import Table
 
-from recon_bounty_stack import __version__
+# Import version from package init
+__version__ = "2.0.0"  # Duplicated here to avoid circular import
+
 from recon_bounty_stack.core.config import Config
 from recon_bounty_stack.core.pipeline import Pipeline
 from recon_bounty_stack.utils.legal import LegalAuthorizationShield

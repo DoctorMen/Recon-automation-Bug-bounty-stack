@@ -75,14 +75,14 @@ class NucleiScanner(BaseScanner):
                 "-o", str(temp_output),
                 "-rate-limit", str(self.config.scan.rate_limit),
                 "-concurrency", str(self.config.scan.threads),
-                "-timeout", "10",
+                "-timeout", str(self.config.scan.timeout // 60),  # Convert to minutes
                 "-retries", str(self.config.scan.retries),
                 "-severity", self.config.scan.severity_filter,
                 "-exclude-tags", "dos,fuzzing,malware",
                 "-silent",
                 "-follow-redirects",
             ]
-            self.run_command(cmd, timeout=3600)  # 1 hour timeout for nuclei
+            self.run_command(cmd, timeout=self.config.scan.timeout)
 
         except Exception as e:
             self.logger.error(f"Nuclei failed: {e}")
