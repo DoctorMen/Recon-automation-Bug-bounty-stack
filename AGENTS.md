@@ -77,4 +77,20 @@ The taxonomy covers the following domains:
 | Customer & Support | Customer Support, Support Engineering, Solutions Engineering |
 | Business Operations | Legal, Marketing, Revenue Operations |
 
+---
+
+## Governance & Training
+
+### HR & Talent Management
+- **[Agent Skill Requirements](AGENT_SKILL_REQUIREMENTS.md)**: Formal skill requirements, competencies, and qualifications for each agent role
+
+### Change Management & Governance
+- **[Change Management Policy](CHANGE_MANAGEMENT.md)**: Formal change control procedures, approval workflows, and deployment guidelines
+
+### Compliance
+- **[Compliance Framework Mapping](COMPLIANCE_MAPPING.md)**: SOC 2, ISO 27001, NIST CSF, and GDPR compliance mappings
+
+### Training & Certification
+- **[Operator Certification Program](OPERATOR_CERTIFICATION.md)**: Three-level certification path for system operators
+
 
