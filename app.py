@@ -224,6 +224,7 @@ custom_swagger_css = """
 
 app = FastAPI(
     title="Recon Automation API",
+    docs_url=None,  # Disable default docs to allow custom route
     description="""
     ## 🚀 Professional Security Scanning API
     
