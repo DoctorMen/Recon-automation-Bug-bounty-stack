@@ -182,7 +182,7 @@ These team taxonomies map to the agent system defined in `agents.json`:
 - **Executor Agent** → Aligns with Full-Stack Engineering, DevOps
 - **Composer 1 (Automation)** → Aligns with Platform Engineering, Release Engineering
 - **Composer 2 (Optimization)** → Aligns with Performance Engineering, Data Engineering
-- **Composer 3 (Documentation)** → Aligns with Content Design, UX Writing
+- **Composer 3 (Documentation)** → Aligns with Content Design, Analytics
 - **Composer 4 (CI/CD & Security)** → Aligns with DevOps, Product Security
 - **Divergent Thinker** → Aligns with Offensive Security, Red Team
 
