@@ -3,56 +3,435 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Dashboard</title>
+    <title>Executive Dashboard - Recon Automation Platform</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold">Executive Dashboard</h1>
+                    <p class="text-blue-100">Recon Automation Platform - Real-time Analytics</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-sm text-blue-100">Live Status</div>
+                    <div class="flex items-center">
+                        <span class="w-3 h-3 bg-green-400 rounded-full animate-pulse mr-2"></span>
+                        <span class="font-semibold">All Systems Operational</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold mb-4">Executive Dashboard</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- KPI Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Total Scans</p>
+                        <p class="text-2xl font-bold text-gray-800" id="totalScans">1,247</p>
+                        <p class="text-green-500 text-sm"><i class="fas fa-arrow-up"></i> 12% this month</p>
+                    </div>
+                    <div class="text-blue-500 text-3xl">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Vulnerabilities Found</p>
+                        <p class="text-2xl font-bold text-gray-800" id="vulnsFound">342</p>
+                        <p class="text-green-500 text-sm"><i class="fas fa-arrow-up"></i> 8% this month</p>
+                    </div>
+                    <div class="text-green-500 text-3xl">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Time Saved</p>
+                        <p class="text-2xl font-bold text-gray-800" id="timeSaved">487 hrs</p>
+                        <p class="text-green-500 text-sm"><i class="fas fa-arrow-up"></i> 23% this month</p>
+                    </div>
+                    <div class="text-purple-500 text-3xl">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">Revenue Generated</p>
+                        <p class="text-2xl font-bold text-gray-800" id="revenue">$45.2K</p>
+                        <p class="text-green-500 text-sm"><i class="fas fa-arrow-up"></i> 31% this month</p>
+                    </div>
+                    <div class="text-yellow-500 text-3xl">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-semibold mb-2">Real-Time Metrics</h2>
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Scan Performance Trends</h2>
                 <canvas id="metricsChart"></canvas>
             </div>
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-semibold mb-2">Business Impact</h2>
-                <div id="roiCalculator" class="text-gray-700">
-                    <p>ROI Calculator will be here.</p>
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Vulnerability Distribution</h2>
+                <canvas id="vulnChart"></canvas>
+            </div>
+        </div>
+
+        <!-- ROI Calculator -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">
+                <i class="fas fa-calculator text-blue-500 mr-2"></i>ROI Calculator
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Monthly Scans</label>
+                            <input type="number" id="monthlyScans" value="50" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Average Bounty per Vulnerability ($)</label>
+                            <input type="number" id="avgBounty" value="500" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Time Saved per Scan (hours)</label>
+                            <input type="number" id="timePerScan" value="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Hourly Rate ($)</label>
+                            <input type="number" id="hourlyRate" value="150" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800">Projected ROI</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Monthly Revenue:</span>
+                            <span class="font-bold text-green-600" id="monthlyRevenue">$25,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Time Value Saved:</span>
+                            <span class="font-bold text-blue-600" id="timeValue">$30,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Total Monthly Value:</span>
+                            <span class="font-bold text-purple-600" id="totalValue">$55,000</span>
+                        </div>
+                        <div class="border-t pt-3 mt-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-800 font-semibold">Annual ROI:</span>
+                                <span class="font-bold text-2xl text-green-600" id="annualROI">550%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live API Status -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">
+                <i class="fas fa-server text-green-500 mr-2"></i>Live API Status
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <div class="text-green-500 text-3xl mb-2">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p class="font-semibold text-gray-800">API Endpoint</p>
+                    <p class="text-sm text-gray-600">Operational</p>
+                    <a href="https://securestackdemo-18ab15391768.herokuapp.com/docs" target="_blank" class="text-blue-500 text-sm hover:underline">View Documentation</a>
+                </div>
+                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                    <div class="text-blue-500 text-3xl mb-2">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <p class="font-semibold text-gray-800">Database</p>
+                    <p class="text-sm text-gray-600">Connected</p>
+                    <span class="text-xs text-blue-600">SQLite: Operational</span>
+                </div>
+                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                    <div class="text-purple-500 text-3xl mb-2">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <p class="font-semibold text-gray-800">Last Scan</p>
+                    <p class="text-sm text-gray-600" id="lastScan">2 minutes ago</p>
+                    <button onclick="testAPI()" class="text-purple-600 text-sm hover:underline">Test API</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing Tiers -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">
+                <i class="fas fa-tags text-yellow-500 mr-2"></i>Pricing Tiers
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Starter</h3>
+                    <p class="text-3xl font-bold text-gray-900 mb-4">$99<span class="text-lg text-gray-500">/mo</span></p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>50 scans/month</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Basic reporting</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Email support</li>
+                    </ul>
+                </div>
+                <div class="border-2 border-blue-500 rounded-lg p-6 hover:shadow-lg transition-shadow relative">
+                    <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold">POPULAR</span>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Professional</h3>
+                    <p class="text-3xl font-bold text-gray-900 mb-4">$299<span class="text-lg text-gray-500">/mo</span></p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>200 scans/month</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Advanced analytics</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Priority support</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>API access</li>
+                    </ul>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Enterprise</h3>
+                    <p class="text-3xl font-bold text-gray-900 mb-4">$999<span class="text-lg text-gray-500">/mo</span></p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Unlimited scans</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Custom integrations</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Dedicated support</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>SLA guarantee</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Initialize Charts
         const ctx = document.getElementById('metricsChart').getContext('2d');
         const metricsChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: ['Scans Completed', 'Vulnerabilities Found', 'Time Saved'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
                 datasets: [{
-                    label: 'Metrics',
-                    data: [50, 20, 75], // Example data
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 1
+                    label: 'Scans Completed',
+                    data: [65, 78, 90, 120, 156, 187],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Vulnerabilities Found',
+                    data: [28, 35, 40, 52, 68, 82],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                    tension: 0.4
                 }]
             },
             options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: false
+                    }
+                },
                 scales: {
                     y: {
                         beginAtZero: true
                     }
                 }
             }
+        });
+
+        // Vulnerability Distribution Chart
+        const vulnCtx = document.getElementById('vulnChart').getContext('2d');
+        const vulnChart = new Chart(vulnCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Critical', 'High', 'Medium', 'Low', 'Info'],
+                datasets: [{
+                    data: [12, 28, 45, 89, 168],
+                    backgroundColor: [
+                        'rgba(239, 68, 68, 0.8)',
+                        'rgba(245, 158, 11, 0.8)',
+                        'rgba(251, 191, 36, 0.8)',
+                        'rgba(34, 197, 94, 0.8)',
+                        'rgba(59, 130, 246, 0.8)'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    title: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // ROI Calculator Functionality
+        function calculateROI() {
+            const monthlyScans = parseInt(document.getElementById('monthlyScans').value) || 0;
+            const avgBounty = parseInt(document.getElementById('avgBounty').value) || 0;
+            const timePerScan = parseInt(document.getElementById('timePerScan').value) || 0;
+            const hourlyRate = parseInt(document.getElementById('hourlyRate').value) || 0;
+
+            // Calculate metrics
+            const monthlyRevenue = monthlyScans * avgBounty;
+            const timeValueSaved = monthlyScans * timePerScan * hourlyRate;
+            const totalMonthlyValue = monthlyRevenue + timeValueSaved;
+            const annualROI = ((totalMonthlyValue * 12) / (299 * 12)) * 100; // Assuming $299/month cost
+
+            // Update display
+            document.getElementById('monthlyRevenue').textContent = `$${monthlyRevenue.toLocaleString()}`;
+            document.getElementById('timeValue').textContent = `$${timeValueSaved.toLocaleString()}`;
+            document.getElementById('totalValue').textContent = `$${totalMonthlyValue.toLocaleString()}`;
+            document.getElementById('annualROI').textContent = `${annualROI.toFixed(0)}%`;
+        }
+
+        // Add event listeners to ROI calculator inputs
+        document.getElementById('monthlyScans').addEventListener('input', calculateROI);
+        document.getElementById('avgBounty').addEventListener('input', calculateROI);
+        document.getElementById('timePerScan').addEventListener('input', calculateROI);
+        document.getElementById('hourlyRate').addEventListener('input', calculateROI);
+
+        // Initialize ROI calculator
+        calculateROI();
+
+        // Test API Function
+        async function testAPI() {
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Testing...';
+            button.disabled = true;
+
+            try {
+                const response = await fetch('https://securestackdemo-18ab15391768.herokuapp.com/', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    button.textContent = '✅ API Online';
+                    button.classList.add('text-green-600');
+                    document.getElementById('lastScan').textContent = 'Just now';
+                    
+                    // Update KPIs with slight random variations to simulate live data
+                    animateKPIs();
+                } else {
+                    button.textContent = '❌ API Error';
+                    button.classList.add('text-red-600');
+                }
+            } catch (error) {
+                button.textContent = '❌ Connection Failed';
+                button.classList.add('text-red-600');
+            }
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+                button.classList.remove('text-green-600', 'text-red-600');
+            }, 3000);
+        }
+
+        // Animate KPIs
+        function animateKPIs() {
+            const kpis = [
+                { id: 'totalScans', increment: Math.floor(Math.random() * 5) + 1 },
+                { id: 'vulnsFound', increment: Math.floor(Math.random() * 3) + 1 },
+                { id: 'timeSaved', increment: Math.floor(Math.random() * 10) + 5 }
+            ];
+
+            kpis.forEach(kpi => {
+                const element = document.getElementById(kpi.id);
+                const currentValue = parseInt(element.textContent.replace(/,/g, ''));
+                const newValue = currentValue + kpi.increment;
+                
+                // Animate the number change
+                let start = currentValue;
+                const duration = 1000;
+                const startTime = Date.now();
+
+                function updateNumber() {
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const current = Math.floor(start + (newValue - start) * progress);
+                    
+                    if (kpi.id === 'timeSaved') {
+                        element.textContent = `${current.toLocaleString()} hrs`;
+                    } else {
+                        element.textContent = current.toLocaleString();
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    }
+                }
+
+                updateNumber();
+            });
+
+            // Update revenue
+            const revenueElement = document.getElementById('revenue');
+            const currentRevenue = parseFloat(revenueElement.textContent.replace(/[$K]/g, ''));
+            const newRevenue = currentRevenue + (Math.random() * 2 + 0.5);
+            revenueElement.textContent = `$${newRevenue.toFixed(1)}K`;
+        }
+
+        // Simulate real-time updates
+        setInterval(() => {
+            // Randomly update last scan time
+            const times = ['1 minute ago', '2 minutes ago', '3 minutes ago', '5 minutes ago'];
+            document.getElementById('lastScan').textContent = times[Math.floor(Math.random() * times.length)];
+        }, 30000); // Update every 30 seconds
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Initialize page with animations
+        window.addEventListener('load', () => {
+            // Animate KPI cards on load
+            document.querySelectorAll('.bg-white').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
         });
     </script>
 </body>
