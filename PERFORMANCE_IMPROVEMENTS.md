@@ -188,7 +188,7 @@ severity_counts = Counter(
 
 **Issue:** File was being read multiple times for different operations (writing, then re-reading to count lines).
 
-**Solution:** Store intermediate results in variables to avoid re-reading files.
+**Solution:** Track the final list of subdomains in memory to completely avoid re-reading the file.
 
 **Before:**
 ```python
@@ -204,14 +204,14 @@ sub_count = len(final_subs.read_text().strip().splitlines())  # Re-reads the fil
 ```python
 combined_list = sorted(s for s in combined if s)
 temp_combined.write_text("\n".join(combined_list))
+# Track the final list to avoid re-reading
+final_subdomain_list = combined_list  # or validated list after DNSx
+final_subs.write_text("\n".join(final_subdomain_list))
 # ... later ...
-final_subs.write_text("\n".join(combined_list))
-# ... later ...
-final_content = final_subs.read_text().strip()
-sub_count = len(final_content.splitlines()) if final_content else 0  # Single read
+sub_count = len(final_subdomain_list)  # No file I/O needed!
 ```
 
-**Impact:** Fewer I/O operations, more predictable performance.
+**Impact:** Zero file re-read operations for counting, more predictable performance.
 
 ---
 

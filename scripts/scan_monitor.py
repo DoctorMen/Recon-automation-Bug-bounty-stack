@@ -28,6 +28,9 @@ from collections import deque
 REPO_ROOT = Path(__file__).parent.parent
 OUTPUT_DIR = REPO_ROOT / "output"
 
+# Buffer size for efficient file reading (1MB chunks)
+FILE_READ_BUFFER_SIZE = 1024 * 1024
+
 def format_size(size_bytes: int) -> str:
     """Format file size"""
     for unit in ['B', 'KB', 'MB', 'GB']:
@@ -47,9 +50,8 @@ def get_file_info(file_path: Path) -> Dict:
         # Optimized line counting using buffer reading (faster for large files)
         with open(file_path, "rb") as f:
             # Read file in chunks and count newlines
-            buffer_size = 1024 * 1024  # 1MB chunks
             while True:
-                chunk = f.read(buffer_size)
+                chunk = f.read(FILE_READ_BUFFER_SIZE)
                 if not chunk:
                     break
                 lines += chunk.count(b'\n')

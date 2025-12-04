@@ -10,6 +10,7 @@ Intelligently filters duplicates and consolidates similar bugs
 import json
 from typing import List, Dict, Any, Set, Optional
 from urllib.parse import urlparse
+from collections import defaultdict
 import hashlib
 
 class AdvancedDuplicateFilter:
@@ -82,8 +83,6 @@ class AdvancedDuplicateFilter:
         Consolidate similar bugs (e.g., multiple swagger endpoints)
         Uses defaultdict for cleaner grouping code
         """
-        from collections import defaultdict
-        
         grouped: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
         
         for finding in findings:

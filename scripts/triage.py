@@ -66,24 +66,27 @@ def is_false_positive(finding: Dict[str, Any]) -> bool:
     """Check if a finding might be a false positive"""
     url = finding.get("matched-at", finding.get("host", ""))
     info = finding.get("info", {})
-    description = info.get("description", "").lower()
+    # Keep description original (not lowercased) since regex patterns are case-insensitive
+    description = info.get("description", "")
     
     # Check against pre-compiled FP indicator patterns (performance optimization)
+    # Note: patterns use re.IGNORECASE so both url and description matching is case-insensitive
     for pattern in FP_INDICATORS:
         if pattern.search(url):
             return True
         if pattern.search(description):
             return True
     
-    # Check for common false positive patterns
+    # Check for common false positive patterns (these use lowercase comparison)
+    description_lower = description.lower()
     name = finding.get("name", "").lower()
-    if "test" in name and ("environment" in description or "staging" in description):
+    if "test" in name and ("environment" in description_lower or "staging" in description_lower):
         # Might be intentional test endpoints
         pass
     
     # Skip very low severity info findings that are often noise
     severity = info.get("severity", "info").lower()
-    if severity == "info" and "exposed" not in description and "leak" not in description:
+    if severity == "info" and "exposed" not in description_lower and "leak" not in description_lower:
         # Many info-level findings are informational only
         pass
     

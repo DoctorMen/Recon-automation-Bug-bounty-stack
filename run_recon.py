@@ -194,6 +194,9 @@ def main():
     log(f"Combined results: {len(combined_list)} unique subdomains")
     
     # Validate with DNSx if available - OPTIMIZED
+    # Track the final list of subdomains to avoid re-reading the file
+    final_subdomain_list = None
+    
     if dnsx_available and combined_list:
         log(f"Validating subdomains with DNSx (threads: {DNSX_THREADS})...")
         try:
@@ -212,25 +215,28 @@ def main():
                 validated_count = len(validated)
                 log(f"DNSx validated {validated_count} subdomains")
                 if validated:
+                    final_subdomain_list = validated
                     final_subs.write_text("\n".join(validated), encoding="utf-8")
                 else:
                     log("WARNING: DNSx validation found no live subdomains, using raw results")
+                    final_subdomain_list = combined_list
                     final_subs.write_text("\n".join(combined_list), encoding="utf-8")
             else:
                 log("WARNING: DNSx validation failed, using raw results")
+                final_subdomain_list = combined_list
                 final_subs.write_text("\n".join(combined_list), encoding="utf-8")
         except Exception as e:
             log(f"WARNING: DNSx validation failed: {e}, using raw results")
+            final_subdomain_list = combined_list
             final_subs.write_text("\n".join(combined_list), encoding="utf-8")
     else:
         # No DNSx, use raw results
+        final_subdomain_list = combined_list
         final_subs.write_text("\n".join(combined_list), encoding="utf-8")
     
-    # Final count - avoid re-reading file by using the data we already have
+    # Final count - use the tracked list directly instead of re-reading file
     if final_subs.exists():
-        # Read file once to get content and count lines
-        final_content = final_subs.read_text(encoding="utf-8").strip()
-        sub_count = len(final_content.splitlines()) if final_content else 0
+        sub_count = len(final_subdomain_list) if final_subdomain_list else 0
         log(f"Final result: {sub_count} validated subdomains")
         if sub_count == 0:
             log("WARNING: No subdomains discovered. Check your targets and network connectivity.")
