@@ -20,13 +20,12 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
-*.log
 
 # Virtual environments
 venv/
 env/
 ENV/
-.venv
+.venv/
 
 # IDE
 .vscode/
@@ -34,9 +33,30 @@ ENV/
 *.swp
 *.swo
 *~
-.DS_Store
 
-# Sensitive data
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Environment
+.env
+.env.local
+*.env
+
+# Logs and outputs
+*.log
+output/
+results/
+*.auto_copyright_log.txt
+
+# Security - never commit
 *.key
 *.pem
 *.p12
@@ -44,19 +64,16 @@ ENV/
 *.crt
 *.cer
 *.der
-*.env
-.env.local
 secrets/
 credentials/
 authorizations/*.json
 !authorizations/example_auth.json
 
-# Large binaries (use Git LFS if needed)
+# Large binaries
 *.tar.gz
 *.zip
 *.exe
 *.dll
-*.so
 *.dylib
 node_modules/
 package-lock.json
@@ -70,23 +87,21 @@ pnpm-lock.yaml
 tmp/
 temp/
 
-# Output and results
-output/*/
-results/
-runs/
-logs/*.log
-*.db
-*.sqlite
-*.sqlite3
-
 # OS files
 Thumbs.db
 .DS_Store
 desktop.ini
 
-# Git LFS
+# Project specific
+nuclei-templates/
+wordlists/
+*.json.bak
+tools/bin/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# PDF files (use Git LFS if needed)
 *.pdf
-tools/bin/nuclei
-tools/bin/httpx
-tools/bin/subfinder
-programs/*/go*.tar.gz
