@@ -3,39 +3,101 @@
     {
       "name": "Strategist",
       "model": "gpt-5",
-      "role": "Plans overall workflow, decides task sequencing, verifies logic, and optimizes bug bounty automation direction."
+      "role": "Plans overall workflow, decides task sequencing, verifies logic, and optimizes bug bounty automation direction.",
+      "team_categories": ["Product Management", "Business Strategy"]
     },
     {
       "name": "Executor",
       "model": "gpt-5",
-      "role": "Executes scripts, validates syntax, performs git commits, runs local tests, and handles recon.sh deployments."
+      "role": "Executes scripts, validates syntax, performs git commits, runs local tests, and handles recon.sh deployments.",
+      "team_categories": ["Full-Stack Engineering", "DevOps"]
     },
     {
       "name": "Composer 1 — Automation Engineer",
       "model": "composer",
-      "role": "Maintains, updates, and hardens recon.sh, auto_runner.sh, and post_scan scripts."
+      "role": "Maintains, updates, and hardens recon.sh, auto_runner.sh, and post_scan scripts.",
+      "team_categories": ["Platform Engineering", "Release Engineering"]
     },
     {
       "name": "Composer 2 — Parallelization & Optimization",
       "model": "composer",
-      "role": "Implements concurrent recon runs, optimizes threading logic, and resource allocation for maximum throughput."
+      "role": "Implements concurrent recon runs, optimizes threading logic, and resource allocation for maximum throughput.",
+      "team_categories": ["Performance Engineering", "Data Engineering"]
     },
     {
       "name": "Composer 3 — Documentation & Reporting",
       "model": "composer",
-      "role": "Auto-updates README.md, CHANGELOG.md, and summary.md. Generates post-run analytics and visual summaries."
+      "role": "Auto-updates README.md, CHANGELOG.md, and summary.md. Generates post-run analytics and visual summaries.",
+      "team_categories": ["Content Design", "Analytics"]
     },
     {
       "name": "Composer 4 — CI/CD & Security Ops",
       "model": "composer",
-      "role": "Creates GitHub workflows, Docker integration, and environment hardening (YAML + GitHub Actions)."
+      "role": "Creates GitHub workflows, Docker integration, and environment hardening (YAML + GitHub Actions).",
+      "team_categories": ["DevOps", "Product Security"]
     },
     {
       "name": "Divergent Thinker",
       "model": "gpt-5",
-      "role": "Generates creative exploration paths using 7 thinking modes (lateral, parallel, associative, generative, combinatorial, perspective, constraint-free) to discover novel vulnerabilities and alternative attack approaches."
+      "role": "Generates creative exploration paths using 7 thinking modes (lateral, parallel, associative, generative, combinatorial, perspective, constraint-free) to discover novel vulnerabilities and alternative attack approaches.",
+      "team_categories": ["Offensive Security", "Bug Bounty"]
     }
-  ]
+  ],
+  "team_taxonomy": {
+    "product_strategy": [
+      {"name": "Product Management", "aliases": ["Product", "PM", "Product Strategy", "Product Leadership"]},
+      {"name": "Business Strategy", "aliases": ["Strategy", "Corporate Strategy", "BizOps", "Business Operations"]},
+      {"name": "Corporate Development", "aliases": ["Corp Dev", "M&A", "Strategic Partnerships"]}
+    ],
+    "engineering": [
+      {"name": "Frontend Engineering", "aliases": ["Front-End", "Web Engineering", "UI Engineering", "Client Engineering", "Web UI"]},
+      {"name": "Mobile Engineering", "aliases": ["Mobile Apps", "iOS Team", "Android Team", "Native Apps", "Mobile Client"]},
+      {"name": "Backend Engineering", "aliases": ["Back-End", "Services Engineering", "API Engineering", "Service Platform", "Core Services"]},
+      {"name": "Full-Stack Engineering", "aliases": ["Full Stack", "Feature Teams", "Feature Squads", "Product Squads", "Cross-Functional Squads", "Pods"]}
+    ],
+    "platform_infrastructure": [
+      {"name": "Platform Engineering", "aliases": ["Core Platform", "Developer Platform", "Internal Platform", "Platform Services"]},
+      {"name": "DevOps", "aliases": ["SRE", "Site Reliability Engineering", "Production Engineering", "Reliability Engineering", "Infra Ops"]},
+      {"name": "Developer Experience", "aliases": ["Developer Productivity", "DX", "Dev Productivity", "Developer Tools", "Dev Tools"]},
+      {"name": "Release Engineering", "aliases": ["Build & Release", "Build Engineering", "Release Management", "Release Ops"]}
+    ],
+    "data_analytics": [
+      {"name": "Data Engineering", "aliases": ["Data Platform", "Data Infra", "Data Infrastructure"]},
+      {"name": "Analytics", "aliases": ["Product Analytics", "Data Analytics", "BI", "Business Intelligence", "Insights", "Decision Science"]},
+      {"name": "Data Science", "aliases": ["Applied Data Science", "Quant", "Decision Science"]},
+      {"name": "ML Engineering", "aliases": ["Machine Learning Engineering", "Applied ML", "AI Engineering", "AI Platform", "ML Platform"]},
+      {"name": "Experimentation Platform", "aliases": ["Experimentation & Personalization", "A/B Testing Platform", "Growth Platform", "Growth Engineering"]}
+    ],
+    "security": [
+      {"name": "Product Security", "aliases": ["Application Security", "AppSec", "Product & Platform Security", "Software Security"]},
+      {"name": "Offensive Security", "aliases": ["Red Team", "Red Teaming", "Penetration Testing", "Pentest", "Adversary Simulation"]},
+      {"name": "Bug Bounty", "aliases": ["Vulnerability Management", "Product Security Response", "PSIRT", "VRM"]},
+      {"name": "Cloud Security", "aliases": ["Infrastructure Security", "Cloud & Platform Security", "Cloud & Infra Sec"]},
+      {"name": "Identity & Access Management", "aliases": ["IAM", "Identity Platform", "AuthN/AuthZ", "Access Management"]},
+      {"name": "Security Operations Center", "aliases": ["SOC", "Security Operations", "Detection & Response", "Blue Team"]},
+      {"name": "Governance, Risk & Compliance", "aliases": ["GRC", "Security Governance", "Risk & Compliance", "Trust & Security"]},
+      {"name": "Privacy Engineering", "aliases": ["Data Privacy", "Privacy & Data Protection", "Privacy & Compliance"]}
+    ],
+    "quality_performance": [
+      {"name": "Quality Assurance", "aliases": ["QA", "Test Engineering", "Software Testing", "SDET", "Quality Engineering"]},
+      {"name": "Performance Engineering", "aliases": ["Performance & Load Testing", "Scalability Engineering", "Performance & Reliability"]}
+    ],
+    "design_research": [
+      {"name": "UX Design", "aliases": ["Product Design", "Experience Design", "Interaction Design", "UI/UX"]},
+      {"name": "UX Research", "aliases": ["User Research", "Design Research", "Customer Research"]},
+      {"name": "Content Design", "aliases": ["UX Writing", "Content Strategy", "Product Content"]}
+    ],
+    "customer_support": [
+      {"name": "Customer Support", "aliases": ["Customer Service", "Support", "Customer Experience"]},
+      {"name": "Support Engineering", "aliases": ["Support Tools", "Support Tooling", "Internal Tools for Support", "Agent Tools"]},
+      {"name": "Solutions Engineering", "aliases": ["Sales Engineering", "Field Engineering", "Customer Engineering", "Solutions Architecture"]}
+    ],
+    "business_operations": [
+      {"name": "Legal", "aliases": ["Legal Counsel", "Product Counsel", "Commercial Legal", "Privacy & Product Legal"]},
+      {"name": "Marketing", "aliases": ["Growth", "Growth Marketing", "Demand Generation", "Demand Gen", "Product Marketing", "Performance Marketing"]},
+      {"name": "Revenue Operations", "aliases": ["RevOps", "Sales Operations", "GTM Operations", "Commercial Operations"]}
+    ]
+  }
 }
 
 
