@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.security import APIKeyHeader
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from typing import Optional
 import uvicorn
@@ -266,6 +267,137 @@ app = FastAPI(
 
 # Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Custom docs route with inline CSS
+@app.get("/docs", include_in_schema=False)
+async def custom_swagger_ui_html():
+    return HTMLResponse("""
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recon Automation API | Professional Security Scanning Platform</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.52.5/swagger-ui.css" />
+    <style>
+        /* Top Bar Styling */
+        .topbar-wrapper img {
+            content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZDEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMzY0MkY1O3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM5MzMzRUE7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0idXJsKCNncmFkMSkiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+');
+            height: 40px;
+            width: 40px;
+        }
+
+        /* Header styling */
+        .swagger-ui .topbar {
+            background: linear-gradient(135deg, #3642F5 0%, #9333EA 100%) !important;
+            border-bottom: none !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+        }
+
+        .swagger-ui .topbar-wrapper .link {
+            color: white !important;
+            font-weight: 600 !important;
+            font-size: 18px !important;
+        }
+
+        /* Info section styling */
+        .swagger-ui .info {
+            margin: 20px 0 !important;
+            background: linear-gradient(135deg, #3642F5 0%, #9333EA 100%) !important;
+            border-radius: 12px !important;
+            padding: 30px !important;
+            color: white !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+        }
+
+        .swagger-ui .info .title {
+            color: white !important;
+            font-size: 32px !important;
+            font-weight: 700 !important;
+            margin-bottom: 10px !important;
+        }
+
+        .swagger-ui .info .description {
+            color: rgba(255,255,255,0.9) !important;
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+        }
+
+        /* Button styling */
+        .swagger-ui .btn {
+            background: linear-gradient(135deg, #3642F5 0%, #9333EA 100%) !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            padding: 12px 24px !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 2px 8px rgba(54, 66, 245, 0.3) !important;
+        }
+
+        .swagger-ui .btn:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 16px rgba(54, 66, 245, 0.4) !important;
+        }
+
+        .swagger-ui .btn.authorize {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+        }
+
+        /* Operation styling */
+        .swagger-ui .opblock.opblock-post {
+            border-color: #3642F5 !important;
+            background: linear-gradient(135deg, rgba(54, 66, 245, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%) !important;
+        }
+
+        .swagger-ui .opblock.opblock-post .opblock-summary-method {
+            background: linear-gradient(135deg, #3642F5 0%, #9333EA 100%) !important;
+            color: white !important;
+            border-radius: 6px 0 0 6px !important;
+        }
+
+        .swagger-ui .opblock.opblock-get {
+            border-color: #10B981 !important;
+            background: rgba(16, 185, 129, 0.05) !important;
+        }
+
+        .swagger-ui .opblock.opblock-get .opblock-summary-method {
+            background: #10B981 !important;
+            color: white !important;
+            border-radius: 6px 0 0 6px !important;
+        }
+
+        /* Try it out styling */
+        .swagger-ui .execute-wrapper {
+            background: linear-gradient(135deg, rgba(54, 66, 245, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%) !important;
+            border-radius: 8px !important;
+            padding: 16px !important;
+            margin-top: 16px !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="https://unpkg.com/swagger-ui-dist@3.52.5/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist@3.52.5/swagger-ui-standalone-preset.js"></script>
+    <script>
+        window.onload = function() {
+            const ui = SwaggerUIBundle({
+                url: '/openapi.json',
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
+                ],
+                layout: "StandaloneLayout",
+                tryItOutEnabled: true
+            });
+        };
+    </script>
+</body>
+</html>
+    """)
 
 # API Key authentication
 API_KEY_NAME = "api_key"
