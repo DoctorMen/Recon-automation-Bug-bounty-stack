@@ -7,7 +7,7 @@ import os
 import requests
 from sqlalchemy import create_engine, Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session
 import datetime
 
 app = FastAPI(title="Recon Automation API", description="API for remote scanning requests", version="1.0")
@@ -56,8 +56,11 @@ class Scan(Base):
     status = Column(String)
     timestamp = Column(DateTime, default=datetime.datetime.utcnow)
 
-# Create the database tables
-Base.metadata.create_all(bind=engine)
+# Create the database tables (check if exists first)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"Database tables may already exist: {e}")
 
 # Dependency to get DB session
 def get_db():
