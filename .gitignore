@@ -90,3 +90,4 @@ tools/bin/nuclei
 tools/bin/httpx
 tools/bin/subfinder
 programs/*/go*.tar.gz
+.gitmodules
