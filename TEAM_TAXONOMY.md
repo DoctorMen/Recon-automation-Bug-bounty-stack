@@ -184,7 +184,7 @@ These team taxonomies map to the agent system defined in `agents.json`:
 - **Composer 2 (Optimization)** → Aligns with Performance Engineering, Data Engineering
 - **Composer 3 (Documentation)** → Aligns with Content Design, Analytics
 - **Composer 4 (CI/CD & Security)** → Aligns with DevOps, Product Security
-- **Divergent Thinker** → Aligns with Offensive Security, Red Team
+- **Divergent Thinker** → Aligns with Offensive Security, Bug Bounty
 
 ---
 
