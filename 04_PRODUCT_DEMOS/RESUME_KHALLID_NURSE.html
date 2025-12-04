@@ -1,0 +1,431 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+KHALLID HAKEEM NURSE - AI Automation Engineer Resume
+Neo-Glass + Plasma-morphism + Hologram UI Design
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khallid Hakeem Nurse | AI Automation Engineer & Security Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#00ff88;--cyan:#00d4ff;--magenta:#ff0080;--gold:#f59e0b;--dark:#0a0e1a;--darker:#050810}
+@media print{.plasma-bg,.plasma-grid,.no-print{display:none!important}body{background:#fff!important;color:#000!important}.neo-glass{background:#fff!important;border:1px solid #ddd!important;box-shadow:none!important}.section-title,.role-title,.company,.skill-tag{color:#000!important;-webkit-text-fill-color:#000!important}}
+body{font-family:Inter,sans-serif;background:var(--darker);color:#fff;line-height:1.6;min-height:100vh}
+
+/* PLASMA-MORPHISM BACKGROUND */
+.plasma-bg{position:fixed;inset:0;overflow:hidden;z-index:0}
+.plasma-blob{position:absolute;border-radius:50%;filter:blur(150px);mix-blend-mode:screen;animation:plasmaFloat 30s ease-in-out infinite}
+.plasma-blob:nth-child(1){width:800px;height:800px;background:radial-gradient(circle,rgba(99,102,241,.4),transparent 70%);top:-20%;left:-20%}
+.plasma-blob:nth-child(2){width:700px;height:700px;background:radial-gradient(circle,rgba(0,255,136,.3),transparent 70%);bottom:-15%;right:-15%;animation-delay:10s}
+.plasma-blob:nth-child(3){width:600px;height:600px;background:radial-gradient(circle,rgba(139,92,246,.35),transparent 70%);top:40%;left:50%;animation-delay:20s}
+.plasma-blob:nth-child(4){width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,255,.3),transparent 70%);top:60%;left:20%;animation-delay:15s}
+@keyframes plasmaFloat{0%,100%{transform:translate(0,0) scale(1) rotate(0deg);opacity:.5}25%{transform:translate(60px,-40px) scale(1.1) rotate(90deg);opacity:.7}50%{transform:translate(-30px,60px) scale(.95) rotate(180deg);opacity:.4}75%{transform:translate(-60px,-60px) scale(1.05) rotate(270deg);opacity:.6}}
+.plasma-grid{position:fixed;inset:0;background:linear-gradient(rgba(99,102,241,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.015) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:1}
+
+/* NEO-GLASS UI */
+.neo-glass{background:linear-gradient(135deg,rgba(10,14,26,.8),rgba(99,102,241,.08),rgba(10,14,26,.85));backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border:1px solid rgba(99,102,241,.15);box-shadow:0 8px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden}
+.neo-glass::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(99,102,241,.1),transparent 50%);opacity:0;transition:opacity .3s;pointer-events:none}
+.neo-glass:hover::before{opacity:1}
+.neo-glass::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(99,102,241,.5),rgba(0,255,136,.3),transparent);animation:refractionShift 4s ease-in-out infinite}
+@keyframes refractionShift{0%,100%{opacity:.3;transform:scaleX(.6)}50%{opacity:1;transform:scaleX(1)}}
+
+/* HOLOGRAM EFFECTS */
+.holo-panel::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(99,102,241,.06) 0%,transparent 50%,rgba(0,255,136,.03) 100%);pointer-events:none;animation:holoScan 4s linear infinite}
+@keyframes holoScan{0%{background-position:0 -100%}100%{background-position:0 200%}}
+.holo-depth:hover{transform:translateY(-5px) scale(1.01);box-shadow:0 20px 60px rgba(99,102,241,.3)}
+
+/* CONTAINER */
+.resume-container{max-width:1100px;margin:0 auto;padding:40px 30px;position:relative;z-index:10}
+
+/* HEADER */
+.header{padding:50px;border-radius:28px;margin-bottom:35px;text-align:center;position:relative}
+.avatar{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary),var(--accent));display:flex;align-items:center;justify-content:center;margin:0 auto 25px;font-size:4rem;box-shadow:0 0 60px rgba(99,102,241,.4);animation:avatarPulse 3s ease-in-out infinite}
+@keyframes avatarPulse{0%,100%{box-shadow:0 0 40px rgba(99,102,241,.4)}50%{box-shadow:0 0 80px rgba(99,102,241,.6)}}
+.name{font-family:Orbitron,sans-serif;font-size:3rem;font-weight:900;background:linear-gradient(135deg,#fff 0%,var(--primary) 50%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;letter-spacing:2px}
+.title{font-size:1.4rem;color:var(--accent);font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:3px}
+.tagline{font-size:1.1rem;color:rgba(255,255,255,.7);max-width:700px;margin:0 auto 30px;line-height:1.7}
+.contact-row{display:flex;justify-content:center;gap:25px;flex-wrap:wrap}
+.contact-item{display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:30px;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);font-size:.9rem;transition:all .3s}
+.contact-item:hover{background:rgba(99,102,241,.2);transform:translateY(-2px)}
+.contact-icon{font-size:1.1rem}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:35px}
+.stat-card{padding:25px;border-radius:18px;text-align:center;transition:all .4s}
+.stat-card:hover{transform:translateY(-5px)}
+.stat-value{font-family:Orbitron,sans-serif;font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:5px}
+.stat-label{font-size:.85rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px}
+
+/* SECTIONS */
+.section{padding:40px;border-radius:24px;margin-bottom:30px}
+.section-title{font-family:Orbitron,sans-serif;font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:25px;display:flex;align-items:center;gap:12px}
+.section-icon{font-size:1.8rem}
+
+/* EXPERIENCE */
+.experience-item{padding:25px;border-radius:16px;background:rgba(0,0,0,.2);margin-bottom:20px;border-left:4px solid var(--primary);transition:all .3s}
+.experience-item:hover{background:rgba(99,102,241,.1);border-left-color:var(--accent)}
+.experience-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;flex-wrap:wrap;gap:10px}
+.role-title{font-family:Orbitron,sans-serif;font-size:1.15rem;font-weight:700;color:var(--accent)}
+.company{font-size:1rem;color:var(--cyan);font-weight:600}
+.date-range{font-size:.85rem;color:rgba(255,255,255,.5);background:rgba(99,102,241,.1);padding:5px 15px;border-radius:20px}
+.experience-desc{color:rgba(255,255,255,.75);font-size:.95rem;margin-bottom:15px;line-height:1.7}
+.achievements{list-style:none}
+.achievements li{padding:8px 0;padding-left:25px;position:relative;color:rgba(255,255,255,.8);font-size:.9rem}
+.achievements li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-weight:bold}
+
+/* PRODUCTS SHOWCASE */
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.product-card{padding:25px;border-radius:16px;background:rgba(0,0,0,.2);transition:all .4s;border:1px solid transparent}
+.product-card:hover{background:rgba(99,102,241,.1);border-color:rgba(99,102,241,.3);transform:translateY(-3px)}
+.product-icon{font-size:2.5rem;margin-bottom:12px}
+.product-name{font-family:Orbitron,sans-serif;font-size:1.1rem;color:var(--accent);margin-bottom:8px}
+.product-desc{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:12px;line-height:1.6}
+.product-tech{display:flex;flex-wrap:wrap;gap:6px}
+.tech-tag{font-size:.7rem;padding:4px 10px;background:rgba(0,255,136,.1);border:1px solid rgba(0,255,136,.2);border-radius:12px;color:var(--accent)}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-category{padding:20px;border-radius:14px;background:rgba(0,0,0,.2)}
+.skill-category-title{font-family:Orbitron,sans-serif;font-size:.95rem;color:var(--cyan);margin-bottom:15px;display:flex;align-items:center;gap:8px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{font-size:.8rem;padding:6px 14px;background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(139,92,246,.1));border:1px solid rgba(99,102,241,.2);border-radius:20px;color:rgba(255,255,255,.85);transition:all .3s}
+.skill-tag:hover{background:linear-gradient(135deg,rgba(99,102,241,.3),rgba(139,92,246,.2));transform:translateY(-2px)}
+
+/* CERTIFICATIONS */
+.certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.cert-item{display:flex;align-items:center;gap:15px;padding:18px;border-radius:12px;background:rgba(0,0,0,.2);transition:all .3s}
+.cert-item:hover{background:rgba(99,102,241,.1)}
+.cert-icon{font-size:2rem}
+.cert-name{font-weight:600;color:rgba(255,255,255,.9);font-size:.95rem}
+.cert-issuer{font-size:.8rem;color:rgba(255,255,255,.5)}
+
+/* VALUE PROPOSITION */
+.value-section{text-align:center;padding:50px}
+.value-title{font-family:Orbitron,sans-serif;font-size:2rem;margin-bottom:20px;background:linear-gradient(135deg,#fff,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:30px}
+.value-item{padding:30px;border-radius:16px;background:rgba(0,0,0,.2)}
+.value-number{font-family:Orbitron,sans-serif;font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+.value-label{font-size:.9rem;color:rgba(255,255,255,.7)}
+
+/* FOOTER */
+.footer{text-align:center;padding:40px;margin-top:20px}
+.footer-text{color:rgba(255,255,255,.5);font-size:.85rem}
+.download-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 40px;background:linear-gradient(135deg,var(--primary),var(--secondary));border:none;border-radius:12px;color:#fff;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s;margin-top:20px;text-decoration:none}
+.download-btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(99,102,241,.4)}
+
+/* RESPONSIVE */
+@media(max-width:900px){.stats-bar{grid-template-columns:repeat(2,1fr)}.products-grid,.skills-grid,.value-grid{grid-template-columns:1fr}.certs-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.name{font-size:2rem}.title{font-size:1rem}.contact-row{flex-direction:column;align-items:center}}
+</style>
+</head>
+<body>
+<div class="plasma-bg no-print">
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+</div>
+<div class="plasma-grid no-print"></div>
+
+<div class="resume-container">
+    <!-- HEADER -->
+    <header class="header neo-glass holo-panel">
+        <div class="avatar">👨‍💻</div>
+        <h1 class="name">KHALLID HAKEEM NURSE</h1>
+        <div class="title">AI Automation Engineer & Security Architect</div>
+        <p class="tagline">Building autonomous AI systems that generate revenue while you sleep. Creator of 10+ proprietary platforms including multi-agent orchestration systems, divergent thinking engines, and enterprise security automation frameworks.</p>
+        <div class="contact-row">
+            <div class="contact-item"><span class="contact-icon">📍</span>Remote / Global</div>
+            <div class="contact-item"><span class="contact-icon">📧</span>contact@doctormen.com</div>
+            <div class="contact-item"><span class="contact-icon">🔗</span>github.com/DoctorMen</div>
+            <div class="contact-item"><span class="contact-icon">💼</span>Available Immediately</div>
+        </div>
+    </header>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat-card neo-glass holo-panel holo-depth">
+            <div class="stat-value">10+</div>
+            <div class="stat-label">AI Systems Built</div>
+        </div>
+        <div class="stat-card neo-glass holo-panel holo-depth">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Automation Scripts</div>
+        </div>
+        <div class="stat-card neo-glass holo-panel holo-depth">
+            <div class="stat-value">7</div>
+            <div class="stat-label">Thinking Modes</div>
+        </div>
+        <div class="stat-card neo-glass holo-panel holo-depth">
+            <div class="stat-value">$475K</div>
+            <div class="stat-label">Revenue Potential</div>
+        </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section class="section neo-glass holo-panel">
+        <h2 class="section-title"><span class="section-icon">🎯</span>Executive Summary</h2>
+        <p style="color:rgba(255,255,255,.8);font-size:1rem;line-height:1.8">
+            <strong style="color:var(--accent)">AI Automation Engineer</strong> with deep expertise in building autonomous multi-agent systems, security automation platforms, and revenue-generating AI products. Architected and deployed <strong style="color:var(--cyan)">10+ proprietary AI systems</strong> including the Divergent Thinking Engine™ (7 creative thinking modes), NEXUS ENGINE™ (10-agent game development platform), and SecureStack™ (CFAA-compliant security automation). Proven ability to transform complex technical challenges into scalable, production-ready solutions that deliver measurable business value.
+        </p>
+    </section>
+
+    <!-- PROPRIETARY PRODUCTS -->
+    <section class="section neo-glass holo-panel">
+        <h2 class="section-title"><span class="section-icon">🚀</span>Proprietary AI Products (Portfolio)</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-icon">🧠</div>
+                <div class="product-name">Divergent Thinking Engine™</div>
+                <div class="product-desc">Proprietary AI system implementing 7 creative thinking modes (lateral, parallel, associative, generative, combinatorial, perspective, constraint-free) for automated problem-solving and vulnerability discovery.</div>
+                <div class="product-tech"><span class="tech-tag">Python</span><span class="tech-tag">Async</span><span class="tech-tag">AI/ML</span><span class="tech-tag">Creative AI</span></div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🎮</div>
+                <div class="product-name">NEXUS ENGINE™</div>
+                <div class="product-desc">Web-native game engine with integrated 10-agent AI development team. Each agent specializes in graphics, physics, UI/UX, performance, AI, audio, networking, tools, assets, and QA.</div>
+                <div class="product-tech"><span class="tech-tag">Three.js</span><span class="tech-tag">Cannon.js</span><span class="tech-tag">Multi-Agent</span><span class="tech-tag">WebGL</span></div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🛡️</div>
+                <div class="product-name">SecureStack™</div>
+                <div class="product-desc">Enterprise security automation platform with CFAA-compliant legal authorization system, automated vulnerability scanning, and professional PDF report generation.</div>
+                <div class="product-tech"><span class="tech-tag">Python</span><span class="tech-tag">Security</span><span class="tech-tag">Compliance</span><span class="tech-tag">Automation</span></div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">👻</div>
+                <div class="product-name">Ghost Protocol™</div>
+                <div class="product-desc">Elite security framework using nation-state methodology for sophisticated vulnerability research. Includes anonymous operations framework and supply chain attack playbook.</div>
+                <div class="product-tech"><span class="tech-tag">OPSEC</span><span class="tech-tag">Bug Bounty</span><span class="tech-tag">Methodology</span><span class="tech-tag">Framework</span></div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">💰</div>
+                <div class="product-name">ParallelProfit™</div>
+                <div class="product-desc">3D revenue visualization and automation system for managing multiple income streams. Real-time tracking, AI optimization, and 50+ platform integrations.</div>
+                <div class="product-tech"><span class="tech-tag">3D Viz</span><span class="tech-tag">Analytics</span><span class="tech-tag">Automation</span><span class="tech-tag">API</span></div>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🤖</div>
+                <div class="product-name">SENTINEL Agent</div>
+                <div class="product-desc">Autonomous security assessment agent with neural network brain integration, learned prioritization, and hybrid AI decision-making for vulnerability analysis.</div>
+                <div class="product-tech"><span class="tech-tag">Neural Net</span><span class="tech-tag">Agent AI</span><span class="tech-tag">Ollama</span><span class="tech-tag">Hybrid</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section neo-glass holo-panel">
+        <h2 class="section-title"><span class="section-icon">💼</span>Professional Experience</h2>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="role-title">Founder & AI Automation Architect</div>
+                    <div class="company">DoctorMen Technologies</div>
+                </div>
+                <div class="date-range">2023 - Present</div>
+            </div>
+            <div class="experience-desc">Leading development of proprietary AI automation platforms and security systems. Building enterprise-grade solutions that combine multi-agent orchestration, creative AI, and bleeding-edge UI/UX.</div>
+            <ul class="achievements">
+                <li>Architected 10+ proprietary AI systems generating $475K+ annual revenue potential</li>
+                <li>Built multi-agent orchestration system with 7 specialized AI roles (Strategist, Executor, 4 Composers, Divergent Thinker)</li>
+                <li>Developed Divergent Thinking Engine™ with 7 creative modes valued at $350K-$950K</li>
+                <li>Created NEXUS ENGINE™ - the only game engine with integrated 10-agent AI development team</li>
+                <li>Implemented Neo-Glass + Plasma-morphism + Hologram UI design system across all products</li>
+                <li>Established SOC 2, ISO 27001, NIST CSF, and GDPR compliance frameworks</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="role-title">Security Automation Engineer</div>
+                    <div class="company">Independent Consultant</div>
+                </div>
+                <div class="date-range">2021 - 2023</div>
+            </div>
+            <div class="experience-desc">Developed automated security assessment pipelines and bug bounty automation systems. Specialized in reconnaissance automation and vulnerability discovery at scale.</div>
+            <ul class="achievements">
+                <li>Built comprehensive recon automation stack processing 1000+ targets/day</li>
+                <li>Developed CFAA-compliant legal authorization system for security testing</li>
+                <li>Created vulnerability chaining engine for combining low-severity bugs into critical exploits</li>
+                <li>Implemented parallel scanning infrastructure with real-time monitoring</li>
+                <li>Designed professional PDF report generation with risk quantification</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="role-title">Full-Stack Developer & AI Integration Specialist</div>
+                    <div class="company">Freelance / Contract</div>
+                </div>
+                <div class="date-range">2019 - 2021</div>
+            </div>
+            <div class="experience-desc">Delivered custom software solutions integrating AI/ML capabilities for diverse clients. Focused on automation, data processing, and intelligent system design.</div>
+            <ul class="achievements">
+                <li>Delivered 30+ client projects with 95% satisfaction rate</li>
+                <li>Integrated AI capabilities into legacy systems for 10x efficiency gains</li>
+                <li>Built custom automation pipelines reducing manual work by 80%</li>
+                <li>Developed real-time dashboards and analytics platforms</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section class="section neo-glass holo-panel">
+        <h2 class="section-title"><span class="section-icon">⚡</span>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-category-title">🤖 AI & Automation</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Multi-Agent Systems</span>
+                    <span class="skill-tag">LLM Integration</span>
+                    <span class="skill-tag">Ollama</span>
+                    <span class="skill-tag">GPT-4/5</span>
+                    <span class="skill-tag">Claude</span>
+                    <span class="skill-tag">Cursor AI</span>
+                    <span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag">Agentic Workflows</span>
+                    <span class="skill-tag">Neural Networks</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">💻 Languages & Frameworks</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Bash</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Three.js</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Async/Await</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">🛡️ Security & DevOps</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">OWASP Top 10</span>
+                    <span class="skill-tag">Penetration Testing</span>
+                    <span class="skill-tag">Bug Bounty</span>
+                    <span class="skill-tag">Nuclei</span>
+                    <span class="skill-tag">Burp Suite</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                    <span class="skill-tag">Linux</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">🎨 UI/UX & Design</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Neo-Glass UI</span>
+                    <span class="skill-tag">Plasma-morphism</span>
+                    <span class="skill-tag">Hologram Effects</span>
+                    <span class="skill-tag">WebGL</span>
+                    <span class="skill-tag">CSS Animations</span>
+                    <span class="skill-tag">Tailwind</span>
+                    <span class="skill-tag">Responsive Design</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">📊 Data & Analytics</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Data Visualization</span>
+                    <span class="skill-tag">Chart.js</span>
+                    <span class="skill-tag">Real-time Dashboards</span>
+                    <span class="skill-tag">JSON/API</span>
+                    <span class="skill-tag">ETL Pipelines</span>
+                    <span class="skill-tag">Metrics & KPIs</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">🏢 Business & Strategy</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Product Development</span>
+                    <span class="skill-tag">Revenue Optimization</span>
+                    <span class="skill-tag">Systems Thinking</span>
+                    <span class="skill-tag">Technical Writing</span>
+                    <span class="skill-tag">Compliance (SOC2/GDPR)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS & FRAMEWORKS -->
+    <section class="section neo-glass holo-panel">
+        <h2 class="section-title"><span class="section-icon">🏆</span>Certifications & Compliance</h2>
+        <div class="certs-grid">
+            <div class="cert-item">
+                <div class="cert-icon">🛡️</div>
+                <div><div class="cert-name">OWASP Top 10 Expert</div><div class="cert-issuer">Web Application Security</div></div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">📋</div>
+                <div><div class="cert-name">SOC 2 Compliance</div><div class="cert-issuer">Security Framework Implementation</div></div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🌐</div>
+                <div><div class="cert-name">ISO 27001</div><div class="cert-issuer">Information Security Management</div></div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🔒</div>
+                <div><div class="cert-name">NIST CSF</div><div class="cert-issuer">Cybersecurity Framework</div></div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🇪🇺</div>
+                <div><div class="cert-name">GDPR Compliance</div><div class="cert-issuer">Data Protection Regulation</div></div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">💳</div>
+                <div><div class="cert-name">PCI-DSS</div><div class="cert-issuer">Payment Card Industry Standards</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE PROPOSITION -->
+    <section class="section neo-glass holo-panel value-section">
+        <h2 class="value-title">What I Bring to Your Team</h2>
+        <p style="color:rgba(255,255,255,.7);max-width:700px;margin:0 auto">I don't just write code—I build autonomous systems that multiply team output and generate measurable business value.</p>
+        <div class="value-grid">
+            <div class="value-item">
+                <div class="value-number">10x</div>
+                <div class="value-label">Development Velocity with AI-Augmented Workflows</div>
+            </div>
+            <div class="value-item">
+                <div class="value-number">90%</div>
+                <div class="value-label">Operational Overhead Reduction via Automation</div>
+            </div>
+            <div class="value-item">
+                <div class="value-number">5x</div>
+                <div class="value-label">Team Output from Single Engineer (Multi-Agent Systems)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <a href="javascript:window.print()" class="download-btn no-print">📄 Download PDF Resume</a>
+        <p class="footer-text" style="margin-top:25px">© 2025 Khallid Hakeem Nurse. All Rights Reserved.<br>Building the future of AI automation, one system at a time.</p>
+    </footer>
+</div>
+
+<script>
+// Mouse tracking for neo-glass effect
+document.addEventListener('mousemove',e=>{document.querySelectorAll('.neo-glass').forEach(el=>{const r=el.getBoundingClientRect();el.style.setProperty('--mouse-x',((e.clientX-r.left)/r.width*100)+'%');el.style.setProperty('--mouse-y',((e.clientY-r.top)/r.height*100)+'%')})});
+
+// Intersection observer for animations
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
+document.querySelectorAll('.section,.stat-card,.product-card,.experience-item,.skill-category,.cert-item,.value-item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='all .6s cubic-bezier(.4,0,.2,1)';obs.observe(el)});
+
+// Animate stat values
+function animateValue(el,end){let start=0;const duration=2000;const startTime=performance.now();const step=t=>{const progress=Math.min((t-startTime)/duration,1);const eased=1-Math.pow(1-progress,3);if(typeof end==='number'){el.textContent=Math.floor(end*eased).toLocaleString()}else{el.textContent=end}if(progress<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+</script>
+</body>
+</html>
