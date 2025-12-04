@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.security import APIKeyHeader
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional
 import uvicorn
@@ -258,10 +259,13 @@ app = FastAPI(
         "showExtensions": True,
         "showCommonExtensions": True,
         "tryItOutEnabled": True,
-        "customCss": custom_swagger_css,
+        "customCssUrl": "/static/swagger-custom.css",
         "customSiteTitle": "Recon Automation API | Professional Security Scanning Platform"
     }
 )
+
+# Mount static files
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # API Key authentication
 API_KEY_NAME = "api_key"
