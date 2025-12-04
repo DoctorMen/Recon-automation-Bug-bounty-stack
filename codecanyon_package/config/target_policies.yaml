@@ -1,0 +1,23 @@
+targets:
+  bolt.eu:
+    allowed_issue_types:
+      - misconfiguration
+      - sensitive-data
+      - auth
+      - access-control
+      - xss
+    preferred_nuclei_tags:
+      - misconfiguration
+      - exposure
+      - auth
+      - access-control
+      - xss
+# default can be used for other targets
+default:
+  allowed_issue_types:
+    - info
+    - misconfiguration
+    - sensitive-data
+  preferred_nuclei_tags:
+    - misconfiguration
+    - exposure

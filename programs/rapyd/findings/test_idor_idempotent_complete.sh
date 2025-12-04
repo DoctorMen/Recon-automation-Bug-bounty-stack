@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Idempotent IDOR Testing Script - Payments & Customers
 # Can be run multiple times safely, resumes from last checkpoint
 
@@ -251,6 +253,8 @@ main() {
 
 # Run main function
 main "$@"
+
+
 
 
 

@@ -1,0 +1,82 @@
+USAGE GUIDE
+===========
+
+BASIC COMMANDS:
+--------------
+
+1. Simple Scan:
+   python3 run_pipeline.py --target example.com
+
+2. Full Assessment:
+   python3 SENTINEL_AGENT.py example.com
+
+3. One-Click Assessment:
+   python3 ONE_CLICK_ASSESSMENT.py --target example.com
+
+4. Bug Bounty Mode:
+   python3 BUG_HUNT_TONIGHT.py
+
+
+ADVANCED OPTIONS:
+----------------
+
+Scan with custom tier:
+  python3 smart_pipeline.py --target example.com --tier advanced
+
+Scan multiple targets:
+  python3 run_pipeline.py --targets targets.txt
+
+Custom output directory:
+  python3 run_pipeline.py --target example.com --output /path/to/output
+
+Quiet mode:
+  python3 run_pipeline.py --target example.com --quiet
+
+
+WORKFLOW EXAMPLES:
+-----------------
+
+E-commerce Security Audit:
+  python3 SENTINEL_AGENT.py shopify-store.com --tier comprehensive
+
+Bug Bounty Hunting:
+  python3 BUG_HUNT_TONIGHT.py
+  # Follow prompts to select program
+
+Quick Security Check:
+  python3 ONE_CLICK_ASSESSMENT.py --target client-site.com
+
+
+OUTPUT FILES:
+------------
+
+All results saved to: output/[target]/
+
+- recon.json - Reconnaissance data
+- subdomains.txt - Discovered subdomains
+- live_hosts.txt - Active hosts
+- vulnerabilities.json - Found issues
+- scan_summary.txt - Quick overview
+
+
+BEST PRACTICES:
+--------------
+
+1. Always get written authorization
+2. Start with basic scans
+3. Review results before advanced scans
+4. Keep detailed notes
+5. Report responsibly
+
+
+TIPS:
+----
+
+- Use --quiet for automated scans
+- Check output/ directory for results
+- Review JSON files for detailed data
+- Generate reports for clients
+- Keep tools updated (nuclei -update)
+
+
+For commercial use and client work, see LICENSE.txt

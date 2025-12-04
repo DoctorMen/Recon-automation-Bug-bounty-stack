@@ -1,0 +1,309 @@
+{
+  "seed_target": "example.com",
+  "timestamp": "2025-12-01T20:42:39.964108",
+  "duration_minutes": 0.011349866666666668,
+  "ai_strategy": {
+    "total_decisions": 11,
+    "successful_decisions": 1,
+    "success_rate": 0.09090909090909091,
+    "most_successful_patterns": [
+      {
+        "pattern": "subdomain_patterns",
+        "success_rate": 0.8,
+        "typical_findings": [
+          "admin_panels",
+          "exposed_credentials",
+          "internal_tools"
+        ]
+      },
+      {
+        "pattern": "staging_debug",
+        "success_rate": 0.75,
+        "typical_findings": [
+          "information_disclosure",
+          "debug_endpoints",
+          "weak_auth"
+        ]
+      },
+      {
+        "pattern": "api_versioning",
+        "success_rate": 0.7,
+        "typical_findings": [
+          "deprecated_endpoints",
+          "missing_auth",
+          "information_disclosure"
+        ]
+      },
+      {
+        "pattern": "recent_acquisition",
+        "success_rate": 0.65,
+        "typical_findings": [
+          "config_differences",
+          "outdated_systems",
+          "integration_bugs"
+        ]
+      },
+      {
+        "pattern": "error_patterns",
+        "success_rate": 0.6,
+        "typical_findings": [
+          "information_disclosure",
+          "path_traversal",
+          "version_disclosure"
+        ]
+      }
+    ],
+    "decision_history": [
+      {
+        "timestamp": "2025-12-01T20:42:39.962248",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      },
+      {
+        "timestamp": "2025-12-01T20:42:39.962446",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      },
+      {
+        "timestamp": "2025-12-01T20:42:39.962671",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      },
+      {
+        "timestamp": "2025-12-01T20:42:39.962842",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      },
+      {
+        "timestamp": "2025-12-01T20:42:39.963044",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      },
+      {
+        "timestamp": "2025-12-01T20:42:39.963185",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      },
+      {
+        "timestamp": "2025-12-01T20:42:39.963371",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      },
+      {
+        "timestamp": "2025-12-01T20:42:39.963542",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      },
+      {
+        "timestamp": "2025-12-01T20:42:39.963726",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      },
+      {
+        "timestamp": "2025-12-01T20:42:39.963958",
+        "context_summary": "Target: example.com, Degree: 1, Nodes: 1, Vulns: 4, Tech: ",
+        "decision": "exploit_chain",
+        "reasoning": "Build on existing vulnerabilities for impact",
+        "outcome": {
+          "success": false,
+          "findings": 0,
+          "new_nodes": 0
+        }
+      }
+    ]
+  },
+  "graph_statistics": {
+    "total_nodes": 7,
+    "total_edges": 6,
+    "nodes_by_type": {
+      "domain": 1,
+      "ip_address": 6
+    },
+    "nodes_by_degree": {
+      "0": 1,
+      "1": 6
+    },
+    "explored": 1,
+    "unexplored": 6,
+    "in_scope": 7,
+    "out_of_scope": 0,
+    "vulnerabilities_found": 4
+  },
+  "total_findings": 4,
+  "findings_by_severity": {
+    "critical": [],
+    "high": [],
+    "medium": [
+      {
+        "type": "missing_security_header",
+        "header": "x-frame-options",
+        "purpose": "Clickjacking Protection",
+        "severity": "medium",
+        "target": "example.com",
+        "evidence": "Header 'x-frame-options' not found in HTTP response"
+      },
+      {
+        "type": "missing_security_header",
+        "header": "content-security-policy",
+        "purpose": "XSS Protection",
+        "severity": "medium",
+        "target": "example.com",
+        "evidence": "Header 'content-security-policy' not found in HTTP response"
+      },
+      {
+        "type": "missing_security_header",
+        "header": "strict-transport-security",
+        "purpose": "HTTPS Enforcement",
+        "severity": "medium",
+        "target": "example.com",
+        "evidence": "Header 'strict-transport-security' not found in HTTP response"
+      }
+    ],
+    "low": [
+      {
+        "type": "missing_security_header",
+        "header": "x-content-type-options",
+        "purpose": "MIME Sniffing Protection",
+        "severity": "low",
+        "target": "example.com",
+        "evidence": "Header 'x-content-type-options' not found in HTTP response"
+      }
+    ],
+    "info": []
+  },
+  "successful_patterns": [
+    {
+      "pattern": "subdomain_patterns",
+      "success_rate": 0.8,
+      "typical_findings": [
+        "admin_panels",
+        "exposed_credentials",
+        "internal_tools"
+      ]
+    },
+    {
+      "pattern": "staging_debug",
+      "success_rate": 0.75,
+      "typical_findings": [
+        "information_disclosure",
+        "debug_endpoints",
+        "weak_auth"
+      ]
+    },
+    {
+      "pattern": "api_versioning",
+      "success_rate": 0.7,
+      "typical_findings": [
+        "deprecated_endpoints",
+        "missing_auth",
+        "information_disclosure"
+      ]
+    },
+    {
+      "pattern": "recent_acquisition",
+      "success_rate": 0.65,
+      "typical_findings": [
+        "config_differences",
+        "outdated_systems",
+        "integration_bugs"
+      ]
+    },
+    {
+      "pattern": "error_patterns",
+      "success_rate": 0.6,
+      "typical_findings": [
+        "information_disclosure",
+        "path_traversal",
+        "version_disclosure"
+      ]
+    }
+  ],
+  "all_findings": [
+    {
+      "type": "missing_security_header",
+      "header": "x-frame-options",
+      "purpose": "Clickjacking Protection",
+      "severity": "medium",
+      "target": "example.com",
+      "evidence": "Header 'x-frame-options' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "x-content-type-options",
+      "purpose": "MIME Sniffing Protection",
+      "severity": "low",
+      "target": "example.com",
+      "evidence": "Header 'x-content-type-options' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "content-security-policy",
+      "purpose": "XSS Protection",
+      "severity": "medium",
+      "target": "example.com",
+      "evidence": "Header 'content-security-policy' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "strict-transport-security",
+      "purpose": "HTTPS Enforcement",
+      "severity": "medium",
+      "target": "example.com",
+      "evidence": "Header 'strict-transport-security' not found in HTTP response"
+    }
+  ]
+}

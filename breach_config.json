@@ -1,0 +1,20 @@
+{
+  "discord_webhook": "",
+  "email": {
+    "enabled": false,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "from_email": "",
+    "to_email": "",
+    "password": ""
+  },
+  "sms": {
+    "enabled": false,
+    "twilio_sid": "",
+    "twilio_token": "",
+    "twilio_from": "",
+    "to_number": ""
+  },
+  "check_interval": 5,
+  "alert_cooldown": 60
+}

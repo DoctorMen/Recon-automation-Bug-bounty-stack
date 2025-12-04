@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+ParallelProfit™ 3D Interactive Mindmap - Professional Controlled Version
+Google Maps-style controls: Pan, Zoom, Rotate
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParallelProfit™ - 3D Interactive Mindmap</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        /* Container */
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Canvas */
+        #canvas3d {
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+        
+        #canvas3d:active {
+            cursor: grabbing;
+        }
+        
+        /* Header */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 20px 40px;
+            z-index: 1000;
+        }
+        
+        .title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+        
+        /* Controls Panel */
+        .controls-panel {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 20px;
+            z-index: 1000;
+            min-width: 200px;
+        }
+        
+        .control-group {
+            margin-bottom: 20px;
+        }
+        
+        .control-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .control-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .control-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+        }
+        
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+        
+        .control-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Zoom Controls */
+        .zoom-controls {
+            position: absolute;
+            bottom: 40px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .zoom-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .zoom-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        /* Legend */
+        .legend {
+            position: absolute;
+            bottom: 40px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 20px;
+            z-index: 1000;
+            max-width: 300px;
+        }
+        
+        .legend-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid white;
+        }
+        
+        /* Instructions */
+        .instructions {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 20px;
+            z-index: 1000;
+            max-width: 280px;
+        }
+        
+        .instructions-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .instruction-item {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .instruction-item strong {
+            color: var(--accent);
+        }
+        
+        /* Loading */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="title">ParallelProfit™ 3D Mindmap</div>
+        <div class="subtitle">Professional Interactive Visualization - Full Control</div>
+    </div>
+    
+    <!-- Main Container -->
+    <div id="container">
+        <canvas id="canvas3d"></canvas>
+        <div class="loading" id="loading">Loading 3D Mindmap...</div>
+    </div>
+    
+    <!-- Instructions -->
+    <div class="instructions">
+        <div class="instructions-title">🎮 Controls</div>
+        <div class="instruction-item"><strong>Left Click + Drag:</strong> Rotate view</div>
+        <div class="instruction-item"><strong>Right Click + Drag:</strong> Pan view</div>
+        <div class="instruction-item"><strong>Scroll Wheel:</strong> Zoom in/out</div>
+        <div class="instruction-item"><strong>Touch (2 fingers):</strong> Pinch to zoom</div>
+        <div class="instruction-item"><strong>Click Node:</strong> View details</div>
+    </div>
+    
+    <!-- Controls Panel -->
+    <div class="controls-panel">
+        <div class="control-group">
+            <span class="control-label">Quick Actions</span>
+            <button class="control-btn" onclick="resetView()">🔄 Reset View</button>
+            <button class="control-btn" onclick="toggleAutoRotate()">⚡ Auto-Rotate</button>
+            <button class="control-btn" onclick="focusCenter()">🎯 Center View</button>
+        </div>
+        
+        <div class="control-group">
+            <span class="control-label">Presets</span>
+            <button class="control-btn" onclick="viewTop()">⬆️ Top View</button>
+            <button class="control-btn" onclick="viewSide()">➡️ Side View</button>
+            <button class="control-btn" onclick="viewFront()">👁️ Front View</button>
+        </div>
+    </div>
+    
+    <!-- Zoom Controls -->
+    <div class="zoom-controls">
+        <button class="zoom-btn" onclick="zoomIn()">+</button>
+        <button class="zoom-btn" onclick="zoomOut()">−</button>
+    </div>
+    
+    <!-- Legend -->
+    <div class="legend">
+        <div class="legend-title">💡 Node Types</div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #10b981;"></div>
+            <span>Discovery & Input</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #6366f1;"></div>
+            <span>Processing & AI</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #ec4899;"></div>
+            <span>Actions & Output</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #f59e0b;"></div>
+            <span>Revenue & Results</span>
+        </div>
+    </div>
+    
+    <script>
+        'use strict';
+        
+        // Canvas setup
+        const canvas = document.getElementById('canvas3d');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // 3D Camera system
+        const camera = {
+            x: 0,
+            y: 0,
+            z: 800,
+            rotationX: 0,
+            rotationY: 0,
+            targetZ: 800,
+            autoRotate: false
+        };
+        
+        // Mouse/Touch controls
+        let isDragging = false;
+        let isPanning = false;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+        let touchStartDistance = 0;
+        
+        // Mouse events
+        canvas.addEventListener('mousedown', (e) => {
+            if (e.button === 0) { // Left click - rotate
+                isDragging = true;
+                isPanning = false;
+            } else if (e.button === 2) { // Right click - pan
+                isPanning = true;
+                isDragging = false;
+            }
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+            e.preventDefault();
+        });
+        
+        canvas.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const deltaX = e.clientX - lastMouseX;
+                const deltaY = e.clientY - lastMouseY;
+                camera.rotationY += deltaX * 0.005;
+                camera.rotationX += deltaY * 0.005;
+                camera.rotationX = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, camera.rotationX));
+            } else if (isPanning) {
+                const deltaX = e.clientX - lastMouseX;
+                const deltaY = e.clientY - lastMouseY;
+                camera.x -= deltaX;
+                camera.y -= deltaY;
+            }
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+        });
+        
+        canvas.addEventListener('mouseup', () => {
+            isDragging = false;
+            isPanning = false;
+        });
+        
+        canvas.addEventListener('mouseleave', () => {
+            isDragging = false;
+            isPanning = false;
+        });
+        
+        // Prevent context menu on right click
+        canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+        
+        // Zoom with mouse wheel
+        canvas.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const zoomSpeed = 50;
+            camera.targetZ += e.deltaY > 0 ? zoomSpeed : -zoomSpeed;
+            camera.targetZ = Math.max(300, Math.min(1500, camera.targetZ));
+        });
+        
+        // Touch events for mobile
+        canvas.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 2) {
+                const dx = e.touches[0].clientX - e.touches[1].clientX;
+                const dy = e.touches[0].clientY - e.touches[1].clientY;
+                touchStartDistance = Math.sqrt(dx * dx + dy * dy);
+            } else if (e.touches.length === 1) {
+                isDragging = true;
+                lastMouseX = e.touches[0].clientX;
+                lastMouseY = e.touches[0].clientY;
+            }
+        });
+        
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (e.touches.length === 2) {
+                const dx = e.touches[0].clientX - e.touches[1].clientX;
+                const dy = e.touches[0].clientY - e.touches[1].clientY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const delta = distance - touchStartDistance;
+                camera.targetZ -= delta * 2;
+                camera.targetZ = Math.max(300, Math.min(1500, camera.targetZ));
+                touchStartDistance = distance;
+            } else if (e.touches.length === 1 && isDragging) {
+                const deltaX = e.touches[0].clientX - lastMouseX;
+                const deltaY = e.touches[0].clientY - lastMouseY;
+                camera.rotationY += deltaX * 0.005;
+                camera.rotationX += deltaY * 0.005;
+                camera.rotationX = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, camera.rotationX));
+                lastMouseX = e.touches[0].clientX;
+                lastMouseY = e.touches[0].clientY;
+            }
+        });
+        
+        canvas.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+        
+        // 3D Node class
+        class Node3D {
+            constructor(x, y, z, label, icon, color, description) {
+                this.x = x;
+                this.y = y;
+                this.z = z;
+                this.label = label;
+                this.icon = icon;
+                this.color = color;
+                this.description = description;
+                this.hovered = false;
+            }
+            
+            project() {
+                // Apply camera rotation
+                let x = this.x - camera.x;
+                let y = this.y - camera.y;
+                let z = this.z;
+                
+                // Rotate around Y axis
+                const cosY = Math.cos(camera.rotationY);
+                const sinY = Math.sin(camera.rotationY);
+                const x1 = x * cosY - z * sinY;
+                const z1 = x * sinY + z * cosY;
+                
+                // Rotate around X axis
+                const cosX = Math.cos(camera.rotationX);
+                const sinX = Math.sin(camera.rotationX);
+                const y1 = y * cosX - z1 * sinX;
+                const z2 = y * sinX + z1 * cosX;
+                
+                // Perspective projection
+                const scale = camera.z / (camera.z + z2);
+                
+                return {
+                    x: canvas.width / 2 + x1 * scale,
+                    y: canvas.height / 2 + y1 * scale,
+                    scale: scale,
+                    depth: z2
+                };
+            }
+            
+            draw() {
+                const pos = this.project();
+                if (pos.depth < -camera.z) return; // Behind camera
+                
+                const size = 60 * pos.scale;
+                
+                ctx.save();
+                ctx.translate(pos.x, pos.y);
+                
+                // Glow effect if hovered
+                if (this.hovered) {
+                    const gradient = ctx.createRadialGradient(0, 0, size * 0.5, 0, 0, size * 1.5);
+                    gradient.addColorStop(0, this.color + '60');
+                    gradient.addColorStop(1, 'transparent');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(-size * 1.5, -size * 1.5, size * 3, size * 3);
+                }
+                
+                // Node circle
+                ctx.beginPath();
+                ctx.arc(0, 0, size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.strokeStyle = this.hovered ? '#fff' : 'rgba(255,255,255,0.5)';
+                ctx.lineWidth = this.hovered ? 4 * pos.scale : 3 * pos.scale;
+                ctx.stroke();
+                
+                // Icon
+                ctx.font = `${30 * pos.scale}px Arial`;
+                ctx.fillStyle = 'white';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(this.icon, 0, -5 * pos.scale);
+                
+                // Label
+                ctx.font = `bold ${12 * pos.scale}px Inter`;
+                ctx.fillText(this.label, 0, 25 * pos.scale);
+                
+                ctx.restore();
+            }
+            
+            isHovered(mouseX, mouseY) {
+                const pos = this.project();
+                const size = 60 * pos.scale;
+                const dx = mouseX - pos.x;
+                const dy = mouseY - pos.y;
+                return Math.sqrt(dx * dx + dy * dy) < size;
+            }
+        }
+        
+        // Create nodes - ParallelProfit System
+        const nodes = [
+            // Discovery layer (green)
+            new Node3D(0, -200, 0, 'Discovery', '🔍', '#10b981', 'Job Discovery Engine'),
+            new Node3D(-250, -100, 100, 'Upwork', '💼', '#10b981', 'Upwork Jobs'),
+            new Node3D(250, -100, 100, 'Fiverr', '🎯', '#10b981', 'Fiverr Gigs'),
+            new Node3D(-250, -100, -100, 'Freelancer', '🌐', '#10b981', 'Freelancer.com'),
+            new Node3D(250, -100, -100, 'Bug Bounty', '🐛', '#10b981', 'Bug Bounty Programs'),
+            
+            // Processing layer (blue)
+            new Node3D(0, 0, 0, 'AI Engine', '🤖', '#6366f1', 'AI Processing Core'),
+            new Node3D(-200, 50, 0, 'Proposals', '📝', '#6366f1', 'Proposal Generator'),
+            new Node3D(200, 50, 0, 'Matching', '🎯', '#6366f1', 'Job Matching AI'),
+            
+            // Action layer (pink)
+            new Node3D(0, 150, 0, 'Applications', '📤', '#ec4899', 'Auto-Apply System'),
+            new Node3D(-150, 200, 100, 'Delivery', '⚡', '#ec4899', 'Work Delivery'),
+            new Node3D(150, 200, 100, 'Reports', '📊', '#ec4899', 'Report Generation'),
+            
+            // Revenue layer (orange)
+            new Node3D(0, 300, 0, 'Revenue', '💰', '#f59e0b', 'Revenue Tracking'),
+            new Node3D(-120, 350, 0, 'Analytics', '📈', '#f59e0b', 'Performance Analytics'),
+            new Node3D(120, 350, 0, 'Growth', '🚀', '#f59e0b', 'Growth Optimization')
+        ];
+        
+        // Connections
+        const connections = [
+            [0, 1], [0, 2], [0, 3], [0, 4], // Discovery to platforms
+            [1, 5], [2, 5], [3, 5], [4, 5], // Platforms to AI
+            [5, 6], [5, 7], // AI to processing
+            [6, 8], [7, 8], // Processing to applications
+            [8, 9], [8, 10], // Applications to delivery
+            [9, 11], [10, 11], // Delivery to revenue
+            [11, 12], [11, 13] // Revenue to analytics
+        ];
+        
+        // Animation loop
+        function animate() {
+            // Smooth zoom
+            camera.z += (camera.targetZ - camera.z) * 0.1;
+            
+            // Auto-rotate if enabled
+            if (camera.autoRotate) {
+                camera.rotationY += 0.003;
+            }
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw connections
+            connections.forEach(([from, to]) => {
+                const fromPos = nodes[from].project();
+                const toPos = nodes[to].project();
+                
+                if (fromPos.depth > -camera.z && toPos.depth > -camera.z) {
+                    const gradient = ctx.createLinearGradient(fromPos.x, fromPos.y, toPos.x, toPos.y);
+                    gradient.addColorStop(0, nodes[from].color + '80');
+                    gradient.addColorStop(1, nodes[to].color + '80');
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(fromPos.x, fromPos.y);
+                    ctx.lineTo(toPos.x, toPos.y);
+                    ctx.strokeStyle = gradient;
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                }
+            });
+            
+            // Sort nodes by depth
+            const sortedNodes = [...nodes].sort((a, b) => {
+                return b.project().depth - a.project().depth;
+            });
+            
+            // Draw nodes
+            sortedNodes.forEach(node => node.draw());
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // Mouse hover detection
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            nodes.forEach(node => {
+                node.hovered = node.isHovered(mouseX, mouseY);
+            });
+        });
+        
+        // Control functions
+        function resetView() {
+            camera.x = 0;
+            camera.y = 0;
+            camera.targetZ = 800;
+            camera.rotationX = 0;
+            camera.rotationY = 0;
+            camera.autoRotate = false;
+        }
+        
+        function toggleAutoRotate() {
+            camera.autoRotate = !camera.autoRotate;
+        }
+        
+        function focusCenter() {
+            camera.x = 0;
+            camera.y = 0;
+        }
+        
+        function viewTop() {
+            camera.rotationX = -Math.PI / 2;
+            camera.rotationY = 0;
+        }
+        
+        function viewSide() {
+            camera.rotationX = 0;
+            camera.rotationY = Math.PI / 2;
+        }
+        
+        function viewFront() {
+            camera.rotationX = 0;
+            camera.rotationY = 0;
+        }
+        
+        function zoomIn() {
+            camera.targetZ = Math.max(300, camera.targetZ - 100);
+        }
+        
+        function zoomOut() {
+            camera.targetZ = Math.min(1500, camera.targetZ + 100);
+        }
+        
+        // Start animation
+        setTimeout(() => {
+            document.getElementById('loading').style.display = 'none';
+            animate();
+        }, 500);
+        
+    </script>
+</body>
+</html>

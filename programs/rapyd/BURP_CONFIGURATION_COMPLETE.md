@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Burp Suite Configuration - Quick Reference
 
 **Current Status:** ✅ Scope configured (5 domains added)

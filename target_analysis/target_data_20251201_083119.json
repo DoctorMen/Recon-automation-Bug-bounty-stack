@@ -1,0 +1,238 @@
+{
+  "analysis_timestamp": "2025-12-01T08:31:19.164159",
+  "total_targets": 13,
+  "top_tier_targets": 10,
+  "high_value_targets": [
+    {
+      "domain": "api.paypal.com",
+      "company": "PayPal",
+      "industry": "financial_services",
+      "market_cap": 130.0,
+      "customer_count": 400000000,
+      "revenue_exposure": 13.0,
+      "strategic_importance": 0.98,
+      "vulnerability_potential": 0.85,
+      "estimated_bounty_range": "$58,800-$176,400",
+      "attack_categories": [
+        "authentication_bypass_chains",
+        "privilege_escalation_paths",
+        "data_exfiltration_highways",
+        "api_abuse_automation",
+        "business_logic_flaws"
+      ]
+    },
+    {
+      "domain": "connect.squareup.com",
+      "company": "Square",
+      "industry": "financial_services",
+      "market_cap": 100.0,
+      "customer_count": 70000000,
+      "revenue_exposure": 10.0,
+      "strategic_importance": 0.98,
+      "vulnerability_potential": 0.85,
+      "estimated_bounty_range": "$58,800-$176,400",
+      "attack_categories": [
+        "authentication_bypass_chains",
+        "privilege_escalation_paths",
+        "data_exfiltration_highways",
+        "api_abuse_automation",
+        "business_logic_flaws"
+      ]
+    },
+    {
+      "domain": "api.paypal.com",
+      "company": "PayPal",
+      "industry": "payment_gateways",
+      "market_cap": 130.0,
+      "customer_count": 400000000,
+      "revenue_exposure": 13.0,
+      "strategic_importance": 0.968,
+      "vulnerability_potential": 0.88,
+      "estimated_bounty_range": "$61,952-$185,856",
+      "attack_categories": [
+        "authentication_bypass_chains",
+        "privilege_escalation_paths",
+        "api_abuse_automation",
+        "business_logic_flaws",
+        "data_exfiltration_highways"
+      ]
+    },
+    {
+      "domain": "connect.squareup.com",
+      "company": "Square",
+      "industry": "payment_gateways",
+      "market_cap": 100.0,
+      "customer_count": 70000000,
+      "revenue_exposure": 10.0,
+      "strategic_importance": 0.968,
+      "vulnerability_potential": 0.88,
+      "estimated_bounty_range": "$61,952-$185,856",
+      "attack_categories": [
+        "authentication_bypass_chains",
+        "privilege_escalation_paths",
+        "api_abuse_automation",
+        "business_logic_flaws",
+        "data_exfiltration_highways"
+      ]
+    },
+    {
+      "domain": "aws.amazon.com",
+      "company": "AWS",
+      "industry": "cloud_infrastructure",
+      "market_cap": 1500.0,
+      "customer_count": 10000000,
+      "revenue_exposure": 150.0,
+      "strategic_importance": 0.96,
+      "vulnerability_potential": 0.8,
+      "estimated_bounty_range": "$48,000-$144,000",
+      "attack_categories": [
+        "infrastructure_takeover",
+        "privilege_escalation_paths",
+        "multi_platform_persistence",
+        "credential_harvesting_systems",
+        "supply_chain_compromise"
+      ]
+    },
+    {
+      "domain": "console.aws.amazon.com/cloudfront",
+      "company": "CloudFront",
+      "industry": "cdn_networks",
+      "market_cap": 1500.0,
+      "customer_count": 10000000,
+      "revenue_exposure": 150.0,
+      "strategic_importance": 0.952,
+      "vulnerability_potential": 0.82,
+      "estimated_bounty_range": "$53,312-$159,936",
+      "attack_categories": [
+        "supply_chain_compromise",
+        "infrastructure_takeover",
+        "customer_mass_compromise",
+        "data_exfiltration_highways"
+      ]
+    },
+    {
+      "domain": "api.bitbucket.org",
+      "company": "Bitbucket",
+      "industry": "development_tools",
+      "market_cap": 1500.0,
+      "customer_count": 15000000,
+      "revenue_exposure": 150.0,
+      "strategic_importance": 0.9200000000000002,
+      "vulnerability_potential": 0.78,
+      "estimated_bounty_range": "$40,480-$121,440",
+      "attack_categories": [
+        "supply_chain_compromise",
+        "infrastructure_takeover",
+        "privilege_escalation_paths",
+        "multi_platform_persistence"
+      ]
+    },
+    {
+      "domain": "portal.azure.com",
+      "company": "Azure",
+      "industry": "cloud_infrastructure",
+      "market_cap": 2500.0,
+      "customer_count": 8000000,
+      "revenue_exposure": 250.0,
+      "strategic_importance": 0.9,
+      "vulnerability_potential": 0.8,
+      "estimated_bounty_range": "$45,000-$135,000",
+      "attack_categories": [
+        "infrastructure_takeover",
+        "privilege_escalation_paths",
+        "multi_platform_persistence",
+        "credential_harvesting_systems",
+        "supply_chain_compromise"
+      ]
+    },
+    {
+      "domain": "analytics.google.com",
+      "company": "Google Analytics",
+      "industry": "analytics_platforms",
+      "market_cap": 2000.0,
+      "customer_count": 50000000,
+      "revenue_exposure": 200.0,
+      "strategic_importance": 0.8799999999999999,
+      "vulnerability_potential": 0.65,
+      "estimated_bounty_range": "$26,399-$79,197",
+      "attack_categories": [
+        "data_exfiltration_highways",
+        "api_abuse_automation",
+        "business_logic_flaws",
+        "credential_harvesting_systems"
+      ]
+    },
+    {
+      "domain": "console.cloud.google.com",
+      "company": "GCP",
+      "industry": "cloud_infrastructure",
+      "market_cap": 2000.0,
+      "customer_count": 5000000,
+      "revenue_exposure": 200.0,
+      "strategic_importance": 0.81,
+      "vulnerability_potential": 0.8,
+      "estimated_bounty_range": "$40,500-$121,500",
+      "attack_categories": [
+        "infrastructure_takeover",
+        "privilege_escalation_paths",
+        "multi_platform_persistence",
+        "credential_harvesting_systems",
+        "supply_chain_compromise"
+      ]
+    },
+    {
+      "domain": "login.microsoftonline.com",
+      "company": "Azure AD",
+      "industry": "identity_management",
+      "market_cap": 2500.0,
+      "customer_count": 5000000,
+      "revenue_exposure": 250.0,
+      "strategic_importance": 0.79,
+      "vulnerability_potential": 0.75,
+      "estimated_bounty_range": "$31,600-$94,800",
+      "attack_categories": [
+        "authentication_bypass_chains",
+        "credential_harvesting_systems",
+        "customer_mass_compromise",
+        "business_logic_flaws",
+        "api_abuse_automation"
+      ]
+    },
+    {
+      "domain": "api.stripe.com",
+      "company": "Stripe",
+      "industry": "financial_services",
+      "market_cap": 95.0,
+      "customer_count": 3000000,
+      "revenue_exposure": 9.5,
+      "strategic_importance": 0.755,
+      "vulnerability_potential": 0.85,
+      "estimated_bounty_range": "$45,300-$135,900",
+      "attack_categories": [
+        "authentication_bypass_chains",
+        "privilege_escalation_paths",
+        "data_exfiltration_highways",
+        "api_abuse_automation",
+        "business_logic_flaws"
+      ]
+    },
+    {
+      "domain": "api.stripe.com",
+      "company": "Stripe",
+      "industry": "payment_gateways",
+      "market_cap": 95.0,
+      "customer_count": 3000000,
+      "revenue_exposure": 9.5,
+      "strategic_importance": 0.743,
+      "vulnerability_potential": 0.88,
+      "estimated_bounty_range": "$47,552-$142,656",
+      "attack_categories": [
+        "authentication_bypass_chains",
+        "privilege_escalation_paths",
+        "api_abuse_automation",
+        "business_logic_flaws",
+        "data_exfiltration_highways"
+      ]
+    }
+  ]
+}

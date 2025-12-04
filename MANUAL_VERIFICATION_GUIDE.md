@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Manual Verification Guide - Quick Reference
 
 ## ✅ YES - ALL VERIFICATION METHODS ARE WITHIN SCOPE

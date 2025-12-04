@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # What Do We Actually Have? - Reality Check
 
 ## ❌ CRITICAL CLARIFICATION

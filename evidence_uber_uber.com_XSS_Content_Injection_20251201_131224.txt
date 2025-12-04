@@ -1,0 +1,30 @@
+# XSS/Content Injection Evidence - uber.com
+# Generated: 2025-12-01T13:12:24.051694
+# Program: Uber (HackerOne)
+
+Command: curl -I https://uber.com
+
+Output:
+HTTP/1.1 301 Moved Permanently
+date: Mon, 01 Dec 2025 18:12:23 GMT
+content-type: text/html
+Content-Length: 166
+location: https://www.uber.com/
+x-frame-options: SAMEORIGIN
+cache-control: max-age=0
+x-envoy-upstream-service-time: 0
+strict-transport-security: max-age=31536000
+x-content-type-options: nosniff
+vary: Accept-Encoding
+server: ufe
+via: 1.1 google
+x-uber-edge: e4-dca24:w:1270678733,ufe:production-gcp:compute-0:dca23,gcp:production:default
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0   166    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

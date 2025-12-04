@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🎯 Can Your System Put You in Top 0.1%? - Brutal Honest Assessment
 
 ## ⚠️ THE BRUTAL TRUTH

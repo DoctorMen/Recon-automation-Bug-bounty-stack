@@ -1,0 +1,514 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI SIEM Dashboard - Real-time Security Monitoring</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            opacity: 0.8;
+            font-size: 1.1em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-card h3 {
+            font-size: 0.9em;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .change {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .stat-card.critical .value { color: #ff4444; }
+        .stat-card.warning .value { color: #ffaa00; }
+        .stat-card.good .value { color: #00ff88; }
+        .stat-card.info .value { color: #00d4ff; }
+
+        .ai-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-thinking {
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .threat-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .threat-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+
+        .threat-item:hover {
+            transform: translateX(5px);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .threat-item.critical { border-color: #ff4444; }
+        .threat-item.high { border-color: #ffaa00; }
+        .threat-item.medium { border-color: #ffd700; }
+
+        .threat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .threat-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .confidence-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .threat-description {
+            opacity: 0.8;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .threat-action {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 3px solid #00d4ff;
+            font-size: 0.9em;
+        }
+
+        .ai-reasoning {
+            background: rgba(138, 92, 246, 0.1);
+            border: 1px solid rgba(138, 92, 246, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .ai-reasoning h3 {
+            color: #a78bfa;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reasoning-step {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            opacity: 0.9;
+        }
+
+        .reasoning-step:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #a78bfa;
+            font-weight: bold;
+        }
+
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .chart-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            justify-content: space-around;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, #00d4ff, #00ff88);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .chart-bar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .chart-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8em;
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+
+        .sellable-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #00d4ff, #00ff88);
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sellable-badge:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI SIEM Dashboard</h1>
+            <p>Real-time Security Monitoring with Visible AI Reasoning</p>
+            <div class="live-indicator" style="margin-top: 15px;">
+                <div class="live-dot"></div>
+                <span>LIVE MONITORING</span>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card critical">
+                <h3>Active Threats</h3>
+                <div class="value">3</div>
+                <div class="change">▲ 2 in last hour</div>
+            </div>
+
+            <div class="stat-card warning">
+                <h3>Events (24h)</h3>
+                <div class="value">1,247</div>
+                <div class="change">▲ 18% vs yesterday</div>
+            </div>
+
+            <div class="stat-card info">
+                <h3>AI Confidence</h3>
+                <div class="value">94%</div>
+                <div class="change">Industry-leading accuracy</div>
+            </div>
+
+            <div class="stat-card good">
+                <h3>Response Time</h3>
+                <div class="value">&lt;5min</div>
+                <div class="change">Real-time detection</div>
+            </div>
+        </div>
+
+        <div class="ai-section">
+            <h2>
+                <span class="ai-thinking">🧠</span>
+                AI Threat Correlation
+            </h2>
+
+            <div class="ai-reasoning">
+                <h3>
+                    <span>🤔</span>
+                    AI Reasoning Process
+                </h3>
+                <div class="reasoning-step">Analyzed 1,247 security events across multiple sources</div>
+                <div class="reasoning-step">Identified pattern: Coordinated attack from 3 IPs</div>
+                <div class="reasoning-step">Cross-referenced with MITRE ATT&CK framework</div>
+                <div class="reasoning-step">Correlated with known APT behavior patterns</div>
+                <div class="reasoning-step">Confidence level: 94% (based on 12 matching indicators)</div>
+                <div class="reasoning-step">Conclusion: Active multi-vector attack campaign detected</div>
+            </div>
+
+            <div class="threat-list">
+                <div class="threat-item critical">
+                    <div class="threat-header">
+                        <div class="threat-title">⚠️ Coordinated Attack Campaign</div>
+                        <div class="confidence-badge">94% Confidence</div>
+                    </div>
+                    <div class="threat-description">
+                        Pattern matches APT (Advanced Persistent Threat) behavior. Simultaneous 
+                        credential attacks and vulnerability mapping indicates sophisticated attacker. 
+                        Multiple IPs (203.0.113.42, 203.0.113.87) conducting reconnaissance.
+                    </div>
+                    <div class="threat-action">
+                        <strong>Recommended Action:</strong> IMMEDIATE - Block attacking IPs, enable MFA, 
+                        patch all high/critical vulnerabilities, alert security team
+                    </div>
+                </div>
+
+                <div class="threat-item high">
+                    <div class="threat-header">
+                        <div class="threat-title">🔍 SQL Injection Campaign</div>
+                        <div class="confidence-badge">92% Confidence</div>
+                    </div>
+                    <div class="threat-description">
+                        14 SQL injection attempts detected across login and search endpoints. 
+                        Pattern analysis shows systematic testing of input fields. Database 
+                        breach imminent if vulnerable endpoint exists.
+                    </div>
+                    <div class="threat-action">
+                        <strong>Recommended Action:</strong> Deploy WAF rules, review database queries 
+                        for parameterization, enable SQL injection protection
+                    </div>
+                </div>
+
+                <div class="threat-item medium">
+                    <div class="threat-header">
+                        <div class="threat-title">🕵️ Active Reconnaissance</div>
+                        <div class="confidence-badge">87% Confidence</div>
+                    </div>
+                    <div class="threat-description">
+                        47 vulnerabilities detected in 24 hours exceeds normal baseline by 340%. 
+                        High volume suggests automated scanning or targeted attack preparation. 
+                        Attacker is mapping attack surface.
+                    </div>
+                    <div class="threat-action">
+                        <strong>Recommended Action:</strong> Enable rate limiting, monitor for 
+                        exploitation attempts, patch critical vulnerabilities immediately
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-section">
+            <h2>📊 Threat Activity (Last 24 Hours)</h2>
+            <div class="chart-container">
+                <div class="chart-bar" style="height: 45%;">
+                    <div class="chart-label">SQL Inj.</div>
+                </div>
+                <div class="chart-bar" style="height: 78%;">
+                    <div class="chart-label">Port Scan</div>
+                </div>
+                <div class="chart-bar" style="height: 92%;">
+                    <div class="chart-label">Brute Force</div>
+                </div>
+                <div class="chart-bar" style="height: 34%;">
+                    <div class="chart-label">XSS</div>
+                </div>
+                <div class="chart-bar" style="height: 56%;">
+                    <div class="chart-label">Dir. Trav.</div>
+                </div>
+                <div class="chart-bar" style="height: 23%;">
+                    <div class="chart-label">Cmd Inj.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-section">
+            <h2>💡 AI Insights & Predictions</h2>
+            <div style="padding: 20px; line-height: 1.8; opacity: 0.9;">
+                <p style="margin-bottom: 15px;">
+                    <strong>Attack Pattern Analysis:</strong> The observed attack patterns suggest 
+                    this is not random scanning. The coordination between reconnaissance, credential 
+                    attacks, and SQL injection attempts indicates a targeted campaign.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    <strong>Predicted Next Steps:</strong> Based on MITRE ATT&CK correlation, the 
+                    attacker will likely attempt privilege escalation within 2-4 hours if any 
+                    vulnerability is found.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    <strong>Risk Assessment:</strong> Current security posture is CRITICAL. Without 
+                    immediate action, successful breach probability is 78% within 24 hours.
+                </p>
+                <p>
+                    <strong>Recommended Strategy:</strong> Implement defense-in-depth approach - 
+                    block at network level, harden at application level, monitor at all levels.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sellable-badge">
+        💰 Sell this: $500-2K/month
+    </div>
+
+    <script>
+        // Simulate real-time updates
+        function updateStats() {
+            // Randomly update some numbers to show "live" monitoring
+            const threats = document.querySelector('.stat-card.critical .value');
+            const events = document.querySelector('.stat-card.warning .value');
+            
+            // Subtle changes to show activity
+            if (Math.random() > 0.7) {
+                let currentThreats = parseInt(threats.textContent);
+                threats.textContent = Math.max(1, currentThreats + (Math.random() > 0.5 ? 1 : -1));
+            }
+            
+            if (Math.random() > 0.8) {
+                let currentEvents = parseInt(events.textContent.replace(',', ''));
+                currentEvents += Math.floor(Math.random() * 10) - 5;
+                events.textContent = currentEvents.toLocaleString();
+            }
+        }
+
+        // Update every 5 seconds
+        setInterval(updateStats, 5000);
+
+        // Animate chart bars on load
+        window.addEventListener('load', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach((bar, index) => {
+                bar.style.opacity = '0';
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.transition = 'all 1s ease';
+                    bar.style.opacity = '1';
+                    bar.style.height = bar.getAttribute('style').match(/height: (\d+%)/)[1];
+                }, index * 100);
+            });
+        });
+
+        // Sellable badge click
+        document.querySelector('.sellable-badge').addEventListener('click', () => {
+            alert(`AI SIEM Service Pricing:
+
+Monthly Monitoring: $500-$2,000/month
+- 24/7 AI threat detection
+- Real-time alerts
+- Weekly security reports
+- Compliance logging
+
+Setup + Monthly: $1,500 + $500-1,000/month
+- Custom integration
+- Tailored rules
+- Team training
+
+Enterprise: $3,000-$10,000/month
+- Multi-site monitoring
+- Dedicated analyst
+- Incident response
+- SLA guarantees
+
+Target: 5-10 clients = $2,500-$20,000/month recurring`);
+        });
+    </script>
+</body>
+</html>

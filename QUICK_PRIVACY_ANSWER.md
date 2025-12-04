@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🔒 Quick Answer: Use Your Bug Bounty Handle, NOT Real Name
 
 ## ⚠️ DON'T Use Real Name - Use Handle Instead

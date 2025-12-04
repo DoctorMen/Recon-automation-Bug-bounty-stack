@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bolt Technologies - Bug Hunting Complete
 
 ## Final Status
@@ -14,7 +17,8 @@ All submission-ready JSON files are in: submissions/
 
 ## Findings
 
-Check econ/output/findings.json for all findings.
+Check 
+econ/output/findings.json for all findings.
 
 ## Next Steps
 

@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Secrets & Credentials Scanner
 # Scans for exposed secrets, API keys, credentials, and sensitive data
 # Uses nuclei templates and checks for common secret patterns

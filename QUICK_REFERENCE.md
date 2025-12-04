@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Quick Reference Card - Bug Bounty Testing
 
 ## 🎯 Your Top 2 Programs (Confirmed & Ready)

@@ -1,0 +1,28 @@
+{
+  "program": "Exodus Crypto Wallet",
+  "title": "Baseline: Cardano UTXO lookup via /api/v2/txs/utxoForAddresses",
+  "severity": "info",
+  "asset": "Exodus desktop wallet - Cardano UTXO backend (cardano.a.exodus.io)",
+  "endpoint": "POST /api/v2/txs/utxoForAddresses",
+  "endpoint_host": "cardano.a.exodus.io",
+  "object_type": "cardano_utxo",
+  "object_id_parameter": "addresses[]",
+  "privileged_role": "Wallet A - Exodus Cardano account that owns the addresses being queried (test wallet you control)",
+  "unprivileged_role": "Wallet B - Separate Exodus Cardano account you also control, used only for safe A/B testing",
+  "summary": "Baseline description for how the Exodus desktop wallet queries Cardano UTXOs for a list of user-controlled addresses via /api/v2/txs/utxoForAddresses. This file is NOT a confirmed vulnerability; it documents expected behavior and provides a structure for future BOLA/IDOR or privacy tests using two wallets you control.",
+  "impact": [
+    "Currently baseline only: demonstrates how Exodus resolves Cardano UTXOs for specific wallet addresses.",
+    "If a future test showed that Wallet B can query or obtain private metadata about Wallet A's addresses beyond what is public on-chain, this could become a BOLA/IDOR-style privacy issue (CWE-200 / CWE-639)."
+  ],
+  "steps": [
+    "Create two Exodus Cardano wallets you control: Wallet A and Wallet B (each with its own seed and addresses).",
+    "With Wallet A selected in the Exodus desktop wallet, perform an action that triggers a balance refresh for Cardano (e.g., open the Cardano asset view). Capture the POST /api/v2/txs/utxoForAddresses request in Burp and note the addresses[] values.",
+    "Repeat the same with Wallet B and capture its own utxoForAddresses request. Confirm that addresses[] contains only Wallet B's addresses.",
+    "Offline, compare the two captured requests and responses and document which fields are wallet-specific (addresses, any metadata) and which are generic.",
+    "If you ever discover that a Wallet B session can successfully query Wallet A's addresses in a way that returns non-public metadata or unexpected fields, clone this baseline file into a high-severity Exodus BOLA finding JSON and populate privileged/unprivileged request/response fields for report generation."
+  ],
+  "requests": {
+    "example_request": "POST /api/v2/txs/utxoForAddresses HTTP/1.1\r\nHost: cardano.a.exodus.io\r\nCookie: _cfuvid=q3s.EkIK7rwo5PyyvsVDFUmoLy.RebokoC4ADDWM5Ko-1763695744484-0.0.1.1-604800000; _cfuvid=so03URfQvF7lcSuGW02KtLMCS_aX8RbxZolgpDVuP4A-1763695745418-0.0.1.1-604800000\r\nContent-Length: 182\r\nSec-Ch-Ua-Platform: \"Windows\"\r\nSec-Ch-Ua: \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\"\r\nX-Exodus-Version: 25.46.5\r\nX-Exodus-App-Id: exodus\r\nX-Exodus-Dev: false\r\nSec-Ch-Ua-Mobile: ?0\r\nX-Exodus-Os-Version: 10.0.26100\r\nX-Exodus-Build: exodus\r\nX-Requested-With: exodus 25.46.5 desktop\r\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Exodus/25.46.5 Chrome/138.0.7204.235 Electron/37.3.1 Safari/537.36\r\nAccept: application/json\r\nContent-Type: application/json\r\nX-Exodus-Os: win32\r\nSec-Fetch-Site: cross-site\r\nSec-Fetch-Mode: cors\r\nSec-Fetch-Dest: empty\r\nAccept-Encoding: gzip, deflate, br\r\nAccept-Language: en-US\r\nPriority: u=1, i\r\nConnection: keep-alive\r\n\r\n{\"addresses\":[\"addr1v86pjw9m06r65dfuect74xjzryfc9gkl2mv9ypkmpz8jgmgv06cp0\",\"addr1q86pjw9m06r65dfuect74xjzryfc9gkl2mv9ypkmpz8jgm05ryutkl584g6nensha2dyyxgns23d74kc2grdkzy0y3kst5t0h5\"]}",
+    "example_response": "HTTP/2 200 OK\r\nDate: Fri, 21 Nov 2025 03:29:10 GMT\r\nContent-Type: application/json\r\nCf-Ray: 9a1d19e7add0672b-ATL\r\nVary: Accept-Encoding\r\nCf-Cache-Status: DYNAMIC\r\nExpect-Ct: max-age=86400, enforce\r\nReferrer-Policy: same-origin\r\nX-Xss-Protection: 1; mode=block\r\nContent-Security-Policy: default-src 'self' exodus.com *.exodus.com exodus.io *.exodus.io *.a.exodus.io;\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nCross-Origin-Opener-Policy: same-origin\r\nServer: cloudflare\r\n\r\n[]"
+  }
+}

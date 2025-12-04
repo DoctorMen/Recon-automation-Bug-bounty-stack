@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bolt Technologies - Bug Submission Guide
 
 ## Bugs Found: 8 HIGH Severity

@@ -1,0 +1,17 @@
+HTML_FILE_PATTERN:
+  Issue: User tries http://filename.html → fails
+  Fix: ALWAYS USE SERVER - never recommend direct file opening
+  
+  Steps (30s):
+  1. Fix CSS: Add standard property alongside -webkit- prefix
+  2. Create scripts/start_[name]_server.sh + start_[name]_server.bat
+  3. Create [NAME]_README.md with server instructions
+  4. Verify: read_lints + test server
+  
+  Server Command: python3 -m http.server 8000
+  URL: http://localhost:8000/[filename].html
+  
+  Pattern Found: securityscore/start.sh uses server approach
+  NEVER recommend: Direct file opening, xdg-open, double-click
+  ALWAYS use: Python HTTP server on port 8000
+

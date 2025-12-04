@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Browser-Based Evidence Capture - Idempotent Workflow
 # This script guides you through browser-based evidence capture
 
@@ -286,6 +288,8 @@ PYEOF
 }
 
 main "$@"
+
+
 
 
 

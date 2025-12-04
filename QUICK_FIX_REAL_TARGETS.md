@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🚨 PROBLEM DETECTED - Quick Fix Guide
 
 ## Issue Found

@@ -1,0 +1,721 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Sales Pipeline - Professional Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            font-size: 24px;
+            animation: float 20s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(100px, -100px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-50px, -200px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-150px, -100px) rotate(270deg);
+            }
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 40px 60px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 60px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Pipeline Section */
+        .pipeline-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .pipeline-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pipeline-stage {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .stage-icon {
+            font-size: 40px;
+            margin-right: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .stage-content {
+            flex: 1;
+        }
+
+        .stage-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .stage-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Companies Grid */
+        .companies-section {
+            margin-bottom: 50px;
+        }
+
+        .companies-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .company-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .company-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .company-card.contacted {
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .company-card.demo-booked {
+            border-color: rgba(118, 75, 162, 0.5);
+        }
+
+        .company-card.closed {
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+
+        .company-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .company-status {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .company-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #22c55e;
+            margin-top: 10px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Floating Emojis */
+        .floating-emoji {
+            position: fixed;
+            font-size: 32px;
+            pointer-events: none;
+            z-index: 1000;
+            animation: floatAround 15s infinite ease-in-out;
+        }
+
+        @keyframes floatAround {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.8;
+            }
+            25% {
+                transform: translate(200px, -150px) rotate(90deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-100px, -300px) rotate(180deg);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translate(-250px, -150px) rotate(270deg);
+                opacity: 1;
+            }
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #667eea;
+        }
+
+        .week-label {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header, .container {
+                padding: 20px 30px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 60px;
+            }
+
+            .timeline-icon {
+                left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Enterprise Sales Pipeline Dashboard</h1>
+        <p>Direct-to-Enterprise Strategy | Target: $250K in 90 Days</p>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-value" id="totalProspects">20</div>
+                <div class="stat-label">Total Prospects</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📧</div>
+                <div class="stat-value" id="emailsSent">0</div>
+                <div class="stat-label">Emails Sent</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📞</div>
+                <div class="stat-value" id="demosBooked">0</div>
+                <div class="stat-label">Demos Booked</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-value" id="revenue">$0</div>
+                <div class="stat-label">Revenue Generated</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="pipelineValue">$3.2M</div>
+                <div class="stat-label">Pipeline Value</div>
+            </div>
+        </div>
+
+        <!-- Pipeline Stages -->
+        <div class="pipeline-section">
+            <h2><span>🚀</span> Sales Pipeline Progress</h2>
+            
+            <div class="pipeline-stage">
+                <div class="stage-icon">🔍</div>
+                <div class="stage-content">
+                    <div class="stage-title">Week 1: Research & Preparation</div>
+                    <div class="stage-description">Find 20 decision makers, get emails, customize templates</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%" id="progress1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pipeline-stage">
+                <div class="stage-icon">📨</div>
+                <div class="stage-content">
+                    <div class="stage-title">Week 2: Outreach Campaign</div>
+                    <div class="stage-description">Send 20 personalized emails, track responses</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%" id="progress2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pipeline-stage">
+                <div class="stage-icon">🎤</div>
+                <div class="stage-content">
+                    <div class="stage-title">Week 3: Demo Presentations</div>
+                    <div class="stage-description">Conduct 2-3 demos, close 1 deal</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%" id="progress3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pipeline-stage">
+                <div class="stage-icon">✅</div>
+                <div class="stage-content">
+                    <div class="stage-title">Week 4-12: Delivery & Close</div>
+                    <div class="stage-description">Integrate product, convert to full license</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%" id="progress4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Target Companies -->
+        <div class="companies-section">
+            <h2><span>🏢</span> Target Companies (Priority Order)</h2>
+            <div class="companies-grid" id="companiesGrid"></div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="pipeline-section">
+            <h2><span>📅</span> 90-Day Execution Timeline</h2>
+            <div class="timeline" id="timeline"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="openTracker()">
+                <span>📊</span> Open Sales Tracker
+            </button>
+            <button class="btn btn-secondary" onclick="openOutreachPlan()">
+                <span>📋</span> View Outreach Plan
+            </button>
+            <button class="btn btn-secondary" onclick="openDemoScript()">
+                <span>🎯</span> Demo Script
+            </button>
+            <button class="btn btn-secondary" onclick="updateProgress()">
+                <span>🔄</span> Update Progress
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Companies Data
+        const companies = [
+            { name: 'Notion', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'Miro', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'Airtable', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'Monday.com', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'Linear', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'ClickUp', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'Figma', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'Obsidian', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'Roam Research', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'Coda', product: '3D Visualization', value: 250000, priority: 1 },
+            { name: 'Roblox', product: 'NEXUS ENGINE', value: 100000, priority: 2 },
+            { name: 'Playcanvas', product: 'NEXUS ENGINE', value: 100000, priority: 2 },
+            { name: 'Construct', product: 'NEXUS ENGINE', value: 100000, priority: 2 },
+            { name: 'GDevelop', product: 'NEXUS ENGINE', value: 100000, priority: 2 },
+            { name: 'HackerOne', product: 'Recon Automation', value: 50000, priority: 3 },
+            { name: 'Bugcrowd', product: 'Recon Automation', value: 50000, priority: 3 },
+            { name: 'Synack', product: 'Recon Automation', value: 50000, priority: 3 },
+            { name: 'Cobalt', product: 'Recon Automation', value: 50000, priority: 3 },
+            { name: 'YesWeHack', product: 'Recon Automation', value: 50000, priority: 3 },
+            { name: 'Intigriti', product: 'Recon Automation', value: 50000, priority: 3 }
+        ];
+
+        // Timeline Data
+        const timeline = [
+            { week: 'Week 1', icon: '🔍', title: 'Research & Preparation', description: 'Find 20 decision makers, get emails, customize templates' },
+            { week: 'Week 2', icon: '📧', title: 'Outreach Campaign', description: 'Send 20 personalized emails (4 per day)' },
+            { week: 'Week 3', icon: '🎤', title: 'Demo Presentations', description: 'Conduct 2-3 demos, close 1 deal' },
+            { week: 'Week 4-5', icon: '⚙️', title: 'Pilot Delivery', description: 'Integrate product, get feedback' },
+            { week: 'Week 6-8', icon: '💼', title: 'Upsell to Full License', description: 'Convert pilot to $250K license' },
+            { week: 'Week 9-12', icon: '🎯', title: 'Scale & Repeat', description: 'Get testimonial, start next round' }
+        ];
+
+        // Initialize Dashboard
+        function initDashboard() {
+            renderCompanies();
+            renderTimeline();
+            createFloatingEmojis();
+            createParticles();
+            animateStats();
+        }
+
+        // Render Companies
+        function renderCompanies() {
+            const grid = document.getElementById('companiesGrid');
+            companies.forEach(company => {
+                const card = document.createElement('div');
+                card.className = 'company-card';
+                card.innerHTML = `
+                    <div class="company-name">${company.name}</div>
+                    <div class="company-status">Not Contacted</div>
+                    <div class="company-value">$${(company.value / 1000).toFixed(0)}K</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Timeline
+        function renderTimeline() {
+            const timelineEl = document.getElementById('timeline');
+            timeline.forEach(item => {
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item';
+                timelineItem.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="week-label">${item.week}</div>
+                        <div class="timeline-title">${item.title}</div>
+                        <div class="timeline-description">${item.description}</div>
+                    </div>
+                    <div class="timeline-icon">${item.icon}</div>
+                `;
+                timelineEl.appendChild(timelineItem);
+            });
+        }
+
+        // Create Floating Emojis
+        function createFloatingEmojis() {
+            const emojis = ['💰', '🎯', '📈', '🚀', '💼', '📊', '✨', '⭐'];
+            emojis.forEach((emoji, index) => {
+                const floatingEmoji = document.createElement('div');
+                floatingEmoji.className = 'floating-emoji';
+                floatingEmoji.textContent = emoji;
+                floatingEmoji.style.left = `${Math.random() * 100}%`;
+                floatingEmoji.style.top = `${Math.random() * 100}%`;
+                floatingEmoji.style.animationDelay = `${index * 2}s`;
+                document.body.appendChild(floatingEmoji);
+            });
+        }
+
+        // Create Background Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleEmojis = ['💎', '⚡', '🌟', '💫', '✨'];
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.textContent = particleEmojis[Math.floor(Math.random() * particleEmojis.length)];
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${15 + Math.random() * 10}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Animate Stats
+        function animateStats() {
+            setTimeout(() => {
+                document.getElementById('progress1').style.width = '100%';
+            }, 500);
+        }
+
+        // Button Actions
+        function openTracker() {
+            window.open('output/enterprise_sales/sales_tracker.csv', '_blank');
+        }
+
+        function openOutreachPlan() {
+            window.open('output/enterprise_sales/OUTREACH_PLAN.md', '_blank');
+        }
+
+        function openDemoScript() {
+            window.open('output/enterprise_sales/DEMO_SCRIPT.md', '_blank');
+        }
+
+        function updateProgress() {
+            const emails = parseInt(prompt('How many emails have you sent? (0-20)') || '0');
+            const demos = parseInt(prompt('How many demos have you booked? (0-5)') || '0');
+            const revenue = parseInt(prompt('Revenue generated? (enter number, e.g., 10000)') || '0');
+
+            document.getElementById('emailsSent').textContent = emails;
+            document.getElementById('demosBooked').textContent = demos;
+            document.getElementById('revenue').textContent = `$${(revenue / 1000).toFixed(0)}K`;
+
+            // Update progress bars
+            document.getElementById('progress1').style.width = '100%';
+            document.getElementById('progress2').style.width = `${(emails / 20) * 100}%`;
+            document.getElementById('progress3').style.width = `${(demos / 3) * 100}%`;
+            document.getElementById('progress4').style.width = `${(revenue / 250000) * 100}%`;
+
+            alert('Progress updated! Keep going! 🚀');
+        }
+
+        // Initialize on load
+        window.addEventListener('load', initDashboard);
+    </script>
+</body>
+</html>

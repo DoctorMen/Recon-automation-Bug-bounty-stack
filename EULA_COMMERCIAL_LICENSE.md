@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Commercial License Agreement (EULA)
 
 Effective date: 2025-11-02
@@ -43,6 +46,12 @@ Licensing inquiries: doctormen131@outlook.com
 ---
 
 By installing/using the Software you agree to this Agreement.
+
+
+
+
+
+
 
 
 

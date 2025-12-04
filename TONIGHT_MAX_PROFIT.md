@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🚀 TONIGHT'S MAXIMUM PROFIT STRATEGY
 ## Immediate Execution Plan - 3 Day Serious Returns
 

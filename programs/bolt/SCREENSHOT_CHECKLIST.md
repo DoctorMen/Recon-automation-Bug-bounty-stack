@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bugcrowd Submission Screenshot Checklist
 
 ## BUG 1: Authentication Bypass - Admin Endpoint

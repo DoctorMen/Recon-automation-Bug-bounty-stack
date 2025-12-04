@@ -1,0 +1,28 @@
+# Privacy Leakage Evidence - atlassian.com
+# Generated: 2025-12-01T13:12:51.426510
+# Program: Atlassian (Bugcrowd)
+
+Command: curl -I https://atlassian.com
+
+Output:
+HTTP/1.1 301 Moved Permanently
+Server: CloudFront
+Date: Mon, 01 Dec 2025 18:12:51 GMT
+Content-Length: 0
+Connection: keep-alive
+Location: https://www.atlassian.com/
+X-Cache: FunctionGeneratedResponse from cloudfront
+Via: 1.1 a4e8e638122b83a5760355a0dba23666.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: ATL58-P11
+X-Amz-Cf-Id: S5JAu7MTv96vVpuIZE33pU0rX_HlXkmYyohnj4prDbEyrF4Po6vh1g==
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000; preload
+Server-Timing: cdn-cache-hit,cdn-pop;desc="ATL58-P11",cdn-rid;desc="S5JAu7MTv96vVpuIZE33pU0rX_HlXkmYyohnj4prDbEyrF4Po6vh1g==",cdn-hit-layer;desc="EDGE",cdn-downstream-fbl;dur=3
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

@@ -1,0 +1,41 @@
+{
+  "programs": [
+    {
+      "name": "Program A",
+      "domains": [
+        "example.com",
+        "api.example.com"
+      ]
+    },
+    {
+      "name": "Program B",
+      "domains": [
+        "app.example.org"
+      ]
+    }
+  ],
+  "scoring_weights": {
+    "recent_activity": 0.3,
+    "scope_clarity": 0.2,
+    "strength_fit": 0.25,
+    "competition_level": 0.25
+  },
+  "monitoring": {
+    "method": "webhook",
+    "webhook_port": 8080,
+    "polling_interval_seconds": 3600
+  },
+  "automation": {
+    "max_parallel_programs": 3,
+    "fast_check_timeout_seconds": 30,
+    "report_templates": [
+      "idor",
+      "ssrf",
+      "xss"
+    ]
+  },
+  "performance": {
+    "batch_interval_hours": 24,
+    "auto_update_scores": true
+  }
+}

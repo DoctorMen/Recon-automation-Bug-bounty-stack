@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # ✅ Automation Strengthened with PDF Knowledge Integration
 
 ## 🎯 What We've Done

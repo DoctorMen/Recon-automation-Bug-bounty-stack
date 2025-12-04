@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bug Bounty Report Quality & Payouts: Industry Standards & Facts
 
 ## Industry Standards & Frameworks

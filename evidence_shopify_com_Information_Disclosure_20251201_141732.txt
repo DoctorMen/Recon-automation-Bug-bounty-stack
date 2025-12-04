@@ -1,0 +1,36 @@
+# Evidence File - Information Disclosure
+# Target: shopify.com
+# Generated: 2025-12-01T14:17:32.299135
+
+# PRIMARY PROOF - Direct Evidence
+# Target: shopify.com
+# Vulnerability: Information Disclosure
+# Timestamp: 2025-12-01T14:17:14.787797
+
+## Command Executed:
+curl -I https://shopify.com
+
+## Response Headers Analysis:
+Date: Mon, 01 Dec 2025 19:17:14 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+CF-Ray: 9a74ec6d19cfbfa9-ATL
+CF-Cache-Status: HIT
+Age: 495
+Cache-Control: max-age=900, stale-while-revalidate=86400
+Last-Modified: Mon, 01 Dec 2025 19:08:59 GMT
+Set-Cookie: _shopify_essential_=acf2b098-866c-4a52-ac72-1be2f9ab4a2f; Domain=shopify.com; Path=/; Expires=Tue, 01 Dec 2026 19:17:14 GMT; Secure; SameSite=Lax, _shopify_s=93ab8d71-695b-48bb-bdb6-e3e77736e7fd; Domain=shopify.com; Path=/; Expires=Mon, 01 Dec 2025 19:47:14 GMT; Secure; SameSite=Lax, _shopify_y=f03d812b-5af6-469e-9ec0-4c150721c181; Domain=shopify.com; Path=/; Expires=Tue, 01 Dec 2026 19:17:14 GMT; Secure; SameSite=Lax
+Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
+Server-Timing: ipv6
+X-Content-Type-Options: nosniff
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=xq1GcP6TmqoAJ1H9faW7d9fn62VW6j92ZZkWgWMOmEQkTBdpRfoPqRL%2BFUQC0ZaCyr6U9sAnC2bO2vu0WbmXx3%2B88EpTsRrn2xFOkC9SF2MDQgufw53uVuhqzMUvFkhsqA%3D%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}
+Vary: Accept-Encoding
+Server: cloudflare
+Content-Encoding: gzip
+alt-svc: h3=":443"; ma=86400
+
+## Vulnerability Confirmed:
+❌ Server header DISCLOSES: cloudflare
+✅ INFORMATION DISCLOSURE CONFIRMED

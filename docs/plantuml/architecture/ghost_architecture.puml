@@ -1,0 +1,59 @@
+@startuml GHOST Architecture
+!define GHOST_ORANGE #FF6B35
+!define GHOST_BLUE #004E89
+!define GHOST_DARK #0A0A0A
+
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Arial
+
+' Define components
+rectangle "GHOST Framework" as ghost {
+    package "Core Engine" {
+        [GHOST API] as api #GHOST_ORANGE
+        [AI Orchestrator] as ai #GHOST_BLUE
+        [Security Modules] as sec #GHOST_ORANGE
+        [Automation Engine] as auto #GHOST_BLUE
+    }
+    
+    package "Interfaces" {
+        [Web Interface] as web #GHOST_ORANGE
+        [CLI] as cli #GHOST_BLUE
+        [API Gateway] as gateway #GHOST_ORANGE
+    }
+    
+    package "Data" {
+        [Knowledge Base] as kb #GHOST_BLUE
+        [Scan Results] as results #GHOST_ORANGE
+        [Audit Logs] as logs #GHOST_BLUE
+    }
+}
+
+' Define external systems
+[External Services] as ext #GHOST_DARK
+[Client Applications] as clients #GHOST_DARK
+[Security Tools] as tools #GHOST_DARK
+
+' Define relationships
+api -right-> ai : "processes"
+ai -down-> sec : "leverages"
+ai -down-> auto : "orchestrates"
+web -up-> api : "interacts with"
+cli -up-> api : "commands"
+gateway -up-> api : "API calls"
+api -down-> kb : "reads/writes"
+api -down-> results : "stores"
+api -down-> logs : "maintains"
+
+ext --> gateway : "API integrations"
+clients --> web : "accesses"
+tools <--> api : "integrates with"
+
+' Add legend
+legend right
+  <b>GHOST Framework Architecture</b>\n
+  <color:#FF6B35>▉</color> Core Components\n  <color:#004E89>▉</color> Support Systems\n  <color:#0A0A0A>▉</color> External Systems\n  
+  © 2025 Khallid Hakeem Nurse\n  All Rights Reserved
+end legend
+
+@enduml

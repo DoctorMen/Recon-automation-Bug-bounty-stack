@@ -1,0 +1,97 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Reference Portal - Upwork Master</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0066FF; --accent: #10B981; --dark: #0A0E27;
+            --dark-card: #1A2332; --dark-border: #2D3748;
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #7C3AED 100%);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: #FFFFFF; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5em; margin-bottom: 10px; }
+        .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .quick-card { background: var(--dark-card); padding: 24px; border-radius: 16px; border: 1px solid var(--dark-border); cursor: pointer; transition: all 0.3s; }
+        .quick-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+        .quick-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2em; margin-bottom: 12px; color: var(--primary); }
+        .keyword { display: inline-block; padding: 4px 12px; background: rgba(0,102,255,0.2); border-radius: 12px; font-size: 0.85em; margin: 4px 4px 4px 0; }
+        .price { color: var(--accent); font-weight: 700; font-size: 1.1em; }
+        .search-box { max-width: 600px; margin: 0 auto 40px; }
+        .search-box input { width: 100%; padding: 16px 24px; background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 12px; color: white; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ Quick Reference Portal</h1>
+            <p>10-Second Template Matching | Instant Deployment</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search by keyword (ASAP, API, Pentest, etc.)..." id="searchInput">
+        </div>
+
+        <div class="quick-grid" id="templateGrid">
+            <div class="quick-card" data-keywords="asap emergency urgent today">
+                <h3>🚨 Template 1: Emergency</h3>
+                <div><span class="keyword">ASAP</span><span class="keyword">Emergency</span><span class="keyword">Urgent</span></div>
+                <p style="margin: 12px 0;"><span class="price">$200-$500</span> | 2h | <strong>90% Win Rate</strong></p>
+            </div>
+            <div class="quick-card" data-keywords="api rest graphql endpoints">
+                <h3>🔌 Template 2: API Security</h3>
+                <div><span class="keyword">API</span><span class="keyword">REST</span><span class="keyword">GraphQL</span></div>
+                <p style="margin: 12px 0;"><span class="price">$400-$2,000</span> | 24-48h | <strong>75% Win Rate</strong></p>
+            </div>
+            <div class="quick-card" data-keywords="pentest owasp penetration">
+                <h3>🛡️ Template 3: Penetration Test</h3>
+                <div><span class="keyword">Pentest</span><span class="keyword">OWASP</span><span class="keyword">PT</span></div>
+                <p style="margin: 12px 0;"><span class="price">$800-$5,000</span> | 48-72h | <strong>70% Win Rate</strong></p>
+            </div>
+            <div class="quick-card" data-keywords="monthly recurring monitoring">
+                <h3>📅 Template 4: Monthly</h3>
+                <div><span class="keyword">Monthly</span><span class="keyword">Recurring</span><span class="keyword">Monitoring</span></div>
+                <p style="margin: 12px 0;"><span class="price">$500-$2,000/mo</span> | Ongoing | <strong>75% Win Rate</strong></p>
+            </div>
+            <div class="quick-card" data-keywords="pci hipaa compliance soc2">
+                <h3>✅ Template 5: Compliance</h3>
+                <div><span class="keyword">PCI</span><span class="keyword">HIPAA</span><span class="keyword">SOC 2</span></div>
+                <p style="margin: 12px 0;"><span class="price">$1,500-$5,000</span> | 1-2 weeks | <strong>65% Win Rate</strong></p>
+            </div>
+            <div class="quick-card" data-keywords="wordpress wp cms">
+                <h3>📝 Template 6: WordPress</h3>
+                <div><span class="keyword">WordPress</span><span class="keyword">WP</span><span class="keyword">CMS</span></div>
+                <p style="margin: 12px 0;"><span class="price">$200-$800</span> | 2-4h | <strong>80% Win Rate</strong></p>
+            </div>
+            <div class="quick-card" data-keywords="ecommerce shop store payment">
+                <h3>🛒 Template 7: E-commerce</h3>
+                <div><span class="keyword">E-commerce</span><span class="keyword">Shop</span><span class="keyword">Payment</span></div>
+                <p style="margin: 12px 0;"><span class="price">$300-$1,500</span> | 4-8h | <strong>75% Win Rate</strong></p>
+            </div>
+            <div class="quick-card" data-keywords="cloud aws azure gcp infrastructure">
+                <h3>☁️ Template 8: Cloud</h3>
+                <div><span class="keyword">Cloud</span><span class="keyword">AWS</span><span class="keyword">Azure</span></div>
+                <p style="margin: 12px 0;"><span class="price">$500-$3,000</span> | 24-48h | <strong>70% Win Rate</strong></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const search = e.target.value.toLowerCase();
+            document.querySelectorAll('.quick-card').forEach(card => {
+                const keywords = card.dataset.keywords;
+                card.style.display = keywords.includes(search) || !search ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+

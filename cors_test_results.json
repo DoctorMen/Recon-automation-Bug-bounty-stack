@@ -1,0 +1,157 @@
+{
+  "test_timestamp": "2025-11-29T18:25:19.598787",
+  "test_type": "Manual CORS Verification",
+  "target": "GitLab API",
+  "results": [
+    {
+      "endpoint": "https://gitlab.com/api/v4/user",
+      "origin": "https://evil.com",
+      "status_code": 401,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/user",
+      "origin": "https://attacker-site.com",
+      "status_code": 401,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/user",
+      "origin": "https://malicious.com",
+      "status_code": 401,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/user",
+      "origin": "https://fake-bank.com",
+      "status_code": 401,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/projects",
+      "origin": "https://evil.com",
+      "status_code": 200,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/projects",
+      "origin": "https://attacker-site.com",
+      "status_code": 200,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/projects",
+      "origin": "https://malicious.com",
+      "status_code": 200,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/projects",
+      "origin": "https://fake-bank.com",
+      "status_code": 200,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/version",
+      "origin": "https://evil.com",
+      "status_code": 401,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/version",
+      "origin": "https://attacker-site.com",
+      "status_code": 401,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/version",
+      "origin": "https://malicious.com",
+      "status_code": 401,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    },
+    {
+      "endpoint": "https://gitlab.com/api/v4/version",
+      "origin": "https://fake-bank.com",
+      "status_code": 401,
+      "cors_headers": {
+        "Access-Control-Allow-Origin": "*",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id, X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag",
+        "access-control-max-age": "7200"
+      },
+      "vulnerable": true
+    }
+  ],
+  "summary": {
+    "total_tests": 12,
+    "vulnerable_count": 12,
+    "safe_count": 0,
+    "vulnerability_confirmed": true
+  }
+}

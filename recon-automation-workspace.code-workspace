@@ -1,0 +1,60 @@
+{
+  "folders": [
+    {
+      "name": "Core Systems",
+      "path": "./01_CORE_SYSTEMS"
+    },
+    {
+      "name": "Security Automation",
+      "path": "./02_SECURITY_AUTOMATION"
+    },
+    {
+      "name": "AI Workflow",
+      "path": "./ai-workflow-automation"
+    },
+    {
+      "name": "SafeGuard Fusion",
+      "path": "./safeguard-fusion"
+    },
+    {
+      "name": "Bug Bounty Tools",
+      "path": "./scripts"
+    },
+    {
+      "name": "Business Automation",
+      "path": "./03_ENTERPRISE_SALES"
+    },
+    {
+      "name": "Legal Protection",
+      "path": "./06_LEGAL_COMPLIANCE"
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "./.venv/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/node_modules": true,
+      "**/.git": true,
+      "**/venv": true,
+      "**/.venv": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/venv": true,
+      "**/.venv": true,
+      "**/__pycache__": true
+    }
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.black-formatter",
+    "ms-python.pylint",
+    "github.copilot",
+    "github.copilot-chat",
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml"
+  ]
+}

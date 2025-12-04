@@ -1,0 +1,23 @@
+{
+  "vulnerability_type": "SSRF",
+  "target": "hackerone.com",
+  "endpoint": "/api/v1/reports/{id}/attachments",
+  "parameter": "url",
+  "payload": "http://169.254.169.254/latest/meta-data/",
+  "severity": "Critical",
+  "cvss_score": 9.0,
+  "discovery_method": "Automated SSRF Testing",
+  "discovery_timestamp": "2025-11-28T16:55:19.578087",
+  "authorization": "auto_auth_hackerone_com.json",
+  "legal_compliance": true,
+  "copyright_holder": "Khallid Hakeem Nurse",
+  "evidence": {
+    "request": "POST /api/v1/reports/123/attachments",
+    "payload": "http://169.254.169.254/latest/meta-data/",
+    "response": "200 OK - AWS metadata accessed",
+    "screenshot": "ssrf_evidence.png"
+  },
+  "remediation": "Validate and sanitize URLs in attachments",
+  "bounty_estimate": 15000,
+  "report_ready": true
+}

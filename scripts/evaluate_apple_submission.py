@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Evaluate Apple Submission - Honest Assessment
 Will this get a response? Will it be useful?
@@ -138,5 +142,11 @@ def evaluate_submission():
 
 if __name__ == "__main__":
     evaluate_submission()
+
+
+
+
+
+
 
 

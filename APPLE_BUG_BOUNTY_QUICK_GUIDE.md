@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Apple Bug Bounty - Quick Reference Guide
 
 ## ✅ You Have an Account - What's Next?
@@ -123,5 +126,11 @@ curl -L http://2b4a6b31ca2273bb.apple.com/api/checkout
 3. ✅ If out of scope: Focus on Rapyd instead (safer, higher ROI)
 
 **Good luck! 🎯**
+
+
+
+
+
+
 
 

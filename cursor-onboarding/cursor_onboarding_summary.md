@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 Project: Recon-Automation Bug Bounty Stack  
 Goal: Run a 5-agent pipeline for recon, mapping, nuclei scanning, triage, and reporting.
 

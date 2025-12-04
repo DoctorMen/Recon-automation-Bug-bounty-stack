@@ -1,0 +1,103 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Library - Upwork Master</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0066FF; --accent: #10B981; --dark: #0A0E27;
+            --dark-card: #1A2332; --dark-border: #2D3748;
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #7C3AED 100%);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: #FFFFFF; padding: 40px; }
+        .library { max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 60px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5em; margin-bottom: 10px; }
+        .category { margin-bottom: 60px; }
+        .category h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2em; margin-bottom: 30px; color: var(--primary); }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .resource-card { background: var(--dark-card); padding: 32px; border-radius: 16px; border: 1px solid var(--dark-border); transition: all 0.3s; }
+        .resource-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+        .resource-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.3em; margin-bottom: 12px; color: var(--primary); }
+        .resource-card .type { display: inline-block; padding: 4px 12px; background: rgba(0,102,255,0.2); border-radius: 12px; font-size: 0.8em; margin-top: 12px; }
+    </style>
+</head>
+<body>
+    <div class="library">
+        <div class="header">
+            <h1>📚 Resource Library</h1>
+            <p>All Templates, Strategies, and Knowledge Files</p>
+        </div>
+
+        <div class="category">
+            <h2>Templates</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>UPWORK_FAST_DEPLOY.md</h3>
+                    <p>Complete template library with 10 ready-to-use proposal templates</p>
+                    <span class="type">Template Library</span>
+                </div>
+                <div class="resource-card">
+                    <h3>POLYMORPHIC_UPWORK_TEMPLATES.md</h3>
+                    <p>Adaptive templates that morph to match any job posting</p>
+                    <span class="type">Adaptive Templates</span>
+                </div>
+                <div class="resource-card">
+                    <h3>UPWORK_PROJECT_LISTING_TEMPLATE.md</h3>
+                    <p>Ready-to-post project listings for Upwork</p>
+                    <span class="type">Project Listings</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Strategies</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>AI_UPWORK_MASTER_KNOWLEDGE_BASE.md</h3>
+                    <p>Master knowledge base with all strategies, patterns, and tactics</p>
+                    <span class="type">Master Reference</span>
+                </div>
+                <div class="resource-card">
+                    <h3>ADVANCED_UPWORK_STRATEGIES.md</h3>
+                    <p>Master-level tactics and client psychology patterns</p>
+                    <span class="type">Advanced</span>
+                </div>
+                <div class="resource-card">
+                    <h3>UPWORK_CHALLENGE_DATABASE.md</h3>
+                    <p>50+ pre-solved scenarios with win rates</p>
+                    <span class="type">Solutions</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Frameworks</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>UPWORK_PROFILE_C_L_I_E_N_T_FRAMEWORK.md</h3>
+                    <p>C.L.I.E.N.T framework for profile optimization</p>
+                    <span class="type">Framework</span>
+                </div>
+                <div class="resource-card">
+                    <h3>MASTER_QUICK_REFERENCE.md</h3>
+                    <p>One-page instant reference for quick decisions</p>
+                    <span class="type">Quick Reference</span>
+                </div>
+                <div class="resource-card">
+                    <h3>UPWORK_QUICK_REFERENCE_CARD.md</h3>
+                    <p>10-second lookup card for template matching</p>
+                    <span class="type">Cheat Sheet</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

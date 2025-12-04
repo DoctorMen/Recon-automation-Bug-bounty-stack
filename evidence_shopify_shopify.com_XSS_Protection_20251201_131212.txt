@@ -1,0 +1,33 @@
+# XSS Protection Evidence - shopify.com
+# Generated: 2025-12-01T13:12:12.084300
+# Program: Shopify (HackerOne)
+
+Command: curl -I https://shopify.com
+
+Output:
+HTTP/1.1 301 Moved Permanently
+Date: Mon, 01 Dec 2025 18:12:11 GMT
+Content-Type: text/html
+Content-Length: 167
+Connection: keep-alive
+Cache-Control: max-age=3600
+Expires: Mon, 01 Dec 2025 19:12:11 GMT
+Location: https://www.shopify.com/
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=JiIZDuLDvBkUXIcbnUkkmtIW0cX3AGBGgvCNyeoeupXGllKF0oMX%2BlVA5KwOiraaxg3zqyD9R5LCU7XTXxIhsyaNuzEk%2FRIgcJDsG94008Bpx%2FgdUIFdSa8EYqAC"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}
+Server-Timing: cfRequestDuration;dur=26.999950
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Permitted-Cross-Domain-Policies: none
+X-Download-Options: noopen
+Server: cloudflare
+CF-RAY: 9a748d26497a457c-ATL
+alt-svc: h3=":443"; ma=86400
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0   167    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

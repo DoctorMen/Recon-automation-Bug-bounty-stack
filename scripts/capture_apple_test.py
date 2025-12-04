@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Capture Apple Test Results
 Use this to record what you tested and what you found
@@ -91,5 +95,11 @@ def capture_result():
 
 if __name__ == "__main__":
     capture_result()
+
+
+
+
+
+
 
 

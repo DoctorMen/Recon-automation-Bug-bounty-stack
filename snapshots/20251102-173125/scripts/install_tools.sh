@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Simple tool installation script for post_scan_processor
 # Install missing tools needed for the pipeline
 

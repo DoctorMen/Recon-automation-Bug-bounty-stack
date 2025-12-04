@@ -1,0 +1,271 @@
+{
+  "generated_at": "2025-11-30T20:43:27.365269",
+  "scale_info": {
+    "total_programs": 52,
+    "total_targets_tested": 141,
+    "discovery_rate": "100.0%"
+  },
+  "total_discoveries": 141,
+  "total_reports": 141,
+  "estimated_bounty_total": 171000,
+  "reputation_points_total": 1528,
+  "platforms": [
+    "HACKERONE_GOOGLE",
+    "HACKERONE_ROBINHOOD",
+    "HACKERONE_SLACK",
+    "HACKERONE_TESLA",
+    "HACKERONE_TWITTER",
+    "HACKERONE_MICROSOFT",
+    "HACKERONE_ZOOM",
+    "HACKERONE_REDDIT",
+    "SCOPES",
+    "HACKERONE_GODADDY",
+    "HACKERONE_INSTACART",
+    "HACKERONE_WOOCOMMERCE",
+    "HACKERONE_BIGCOMMERCE",
+    "HACKERONE_APPLE",
+    "HACKERONE_SQUARESPACE",
+    "HACKERONE_INVISION",
+    "HACKERONE_SALESFORCE",
+    "HACKERONE_DISCORD",
+    "HACKERONE_WEBFLOW",
+    "HACKERONE_GITHUB",
+    "HACKERONE_FIGMA",
+    "HACKERONE_AIRBNB",
+    "HACKERONE_ADOBE_XD",
+    "HACKERONE_VULTR",
+    "HACKERONE_Framer",
+    "HACKERONE_SKETCH",
+    "HACKERONE_DOORDASH",
+    "HACKERONE_STRIPE",
+    "HACKERONE_CLOUDFLARE",
+    "HACKERONE_DROPBOX",
+    "HACKERONE_WIX",
+    "HACKERONE_NETFLIX",
+    "HACKERONE_LINKEDIN",
+    "HACKERONE_PAYPAL",
+    "HACKERONE_TWILIO",
+    "HACKERONE_ADOBE",
+    "HACKERONE_SQUARE",
+    "HACKERONE_BINANCE",
+    "HACKERONE_LINODE",
+    "HACKERONE_DIGITALOCEAN",
+    "HACKERONE_META",
+    "HACKERONE_SHOPIFY",
+    "HACKERONE_SPOTIFY"
+  ],
+  "bounty_breakdown": {
+    "bounty_eligible_discoveries": 135,
+    "reputation_building_discoveries": 6,
+    "high_value_discoveries": 6,
+    "medium_value_discoveries": 129
+  },
+  "severity_breakdown": {
+    "critical": 0,
+    "high": 6,
+    "medium": 135,
+    "low": 0
+  },
+  "top_discoveries": [
+    {
+      "domain": "tomtom.com",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": false,
+      "report_file": "./scaling_reports/massive_reputation_report_SCOPES_tomtom_com_20251130_204326.md"
+    },
+    {
+      "domain": "tomtom.com",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": false,
+      "report_file": "./scaling_reports/massive_reputation_report_SCOPES_tomtom_com_20251130_204326.md"
+    },
+    {
+      "domain": "tomtomgroup.com",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": false,
+      "report_file": "./scaling_reports/massive_reputation_report_SCOPES_tomtomgroup_com_20251130_204326.md"
+    },
+    {
+      "domain": "tomtomgroup.com",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": false,
+      "report_file": "./scaling_reports/massive_reputation_report_SCOPES_tomtomgroup_com_20251130_204326.md"
+    },
+    {
+      "domain": "vectra.ai",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": false,
+      "report_file": "./scaling_reports/massive_reputation_report_SCOPES_vectra_ai_20251130_204326.md"
+    },
+    {
+      "domain": "vectra.ai",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": false,
+      "report_file": "./scaling_reports/massive_reputation_report_SCOPES_vectra_ai_20251130_204326.md"
+    },
+    {
+      "domain": "google.com",
+      "platform": "HACKERONE_GOOGLE",
+      "type": "missing_security_headers",
+      "severity": "high",
+      "estimated_bounty": 5000,
+      "reputation_value": 20,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_GOOGLE_google_com_20251130_204326.md"
+    },
+    {
+      "domain": "google.com",
+      "platform": "HACKERONE_GOOGLE",
+      "type": "missing_security_headers",
+      "severity": "high",
+      "estimated_bounty": 5000,
+      "reputation_value": 20,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_GOOGLE_google_com_20251130_204326.md"
+    },
+    {
+      "domain": "youtube.com",
+      "platform": "HACKERONE_GOOGLE",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_GOOGLE_youtube_com_20251130_204326.md"
+    },
+    {
+      "domain": "youtube.com",
+      "platform": "HACKERONE_GOOGLE",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_GOOGLE_youtube_com_20251130_204326.md"
+    },
+    {
+      "domain": "gmail.com",
+      "platform": "HACKERONE_GOOGLE",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_GOOGLE_gmail_com_20251130_204326.md"
+    },
+    {
+      "domain": "gmail.com",
+      "platform": "HACKERONE_GOOGLE",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_GOOGLE_gmail_com_20251130_204326.md"
+    },
+    {
+      "domain": "facebook.com",
+      "platform": "HACKERONE_META",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_META_facebook_com_20251130_204326.md"
+    },
+    {
+      "domain": "facebook.com",
+      "platform": "HACKERONE_META",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_META_facebook_com_20251130_204326.md"
+    },
+    {
+      "domain": "instagram.com",
+      "platform": "HACKERONE_META",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_META_instagram_com_20251130_204326.md"
+    },
+    {
+      "domain": "instagram.com",
+      "platform": "HACKERONE_META",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_META_instagram_com_20251130_204326.md"
+    },
+    {
+      "domain": "whatsapp.com",
+      "platform": "HACKERONE_META",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_META_whatsapp_com_20251130_204326.md"
+    },
+    {
+      "domain": "whatsapp.com",
+      "platform": "HACKERONE_META",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 1000,
+      "reputation_value": 10,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_META_whatsapp_com_20251130_204326.md"
+    },
+    {
+      "domain": "microsoft.com",
+      "platform": "HACKERONE_MICROSOFT",
+      "type": "missing_security_headers",
+      "severity": "high",
+      "estimated_bounty": 5000,
+      "reputation_value": 20,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_MICROSOFT_microsoft_com_20251130_204326.md"
+    },
+    {
+      "domain": "microsoft.com",
+      "platform": "HACKERONE_MICROSOFT",
+      "type": "missing_security_headers",
+      "severity": "high",
+      "estimated_bounty": 5000,
+      "reputation_value": 20,
+      "bounty_eligible": true,
+      "report_file": "./scaling_reports/massive_bounty_report_HACKERONE_MICROSOFT_microsoft_com_20251130_204326.md"
+    }
+  ]
+}

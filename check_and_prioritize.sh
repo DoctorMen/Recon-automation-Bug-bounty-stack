@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Quick fix - Check what files exist and help prioritize
 
 cd ~/Recon-automation-Bug-bounty-stack
@@ -47,5 +49,11 @@ echo "============================================================"
 echo ""
 
 python3 scripts/prioritize_endpoints.py
+
+
+
+
+
+
 
 

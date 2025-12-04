@@ -1,0 +1,14 @@
+{
+  "scan_metadata": {
+    "scanner": "Smart Contract Vulnerability Scanner",
+    "scan_date": "2025-12-01T21:17:38.994538",
+    "targets_scanned": 5,
+    "focus": "DeFi smart contracts"
+  },
+  "findings": [],
+  "summary": {
+    "total_findings": 0,
+    "high_value_findings": 0,
+    "total_bounty_potential": 0
+  }
+}

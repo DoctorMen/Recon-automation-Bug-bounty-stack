@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Duplicate Check & Payout Risk Analysis
 
 ## 1. HOW TO CHECK IF ALREADY SUBMITTED

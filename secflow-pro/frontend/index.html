@@ -1,0 +1,234 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecFlow Pro - Instant Security Scans | 100% Automated</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a202c;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        .subtitle {
+            font-size: 24px;
+            opacity: 0.9;
+        }
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .tier {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .tier:hover {
+            transform: translateY(-5px);
+        }
+        .tier.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+        .tier-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .tier-price {
+            font-size: 48px;
+            font-weight: 900;
+            color: #667eea;
+            margin: 20px 0;
+        }
+        .tier-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+        .tier-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .tier-features li:before {
+            content: "✅ ";
+            margin-right: 10px;
+        }
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: transform 0.2s;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        .features {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        .features h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-item {
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .testimonial {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .pricing { grid-template-columns: 1fr; }
+            .tier.featured { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ SecFlow Pro</h1>
+            <p class="subtitle">Instant Security Scans | 100% Automated | 2-Hour Delivery</p>
+        </header>
+
+        <div class="pricing">
+            <div class="tier">
+                <div class="tier-name">Starter</div>
+                <div class="tier-price">$29<span style="font-size: 20px">/month</span></div>
+                <ul class="tier-features">
+                    <li>1 domain</li>
+                    <li>Weekly automated scans</li>
+                    <li>Security score report</li>
+                    <li>Critical issues flagged</li>
+                    <li>Email alerts</li>
+                    <li>7-day free trial</li>
+                </ul>
+                <a href="#" class="cta-button" onclick="alert('Add your Stripe Payment Link here')">Start Free Trial</a>
+            </div>
+
+            <div class="tier featured">
+                <div class="tier-name">Pro ⭐</div>
+                <div class="tier-price">$99<span style="font-size: 20px">/month</span></div>
+                <ul class="tier-features">
+                    <li>5 domains</li>
+                    <li>Daily automated scans</li>
+                    <li>Full vulnerability reports</li>
+                    <li>Priority support</li>
+                    <li>SMS alerts</li>
+                    <li>API access</li>
+                    <li>7-day free trial</li>
+                </ul>
+                <a href="#" class="cta-button" onclick="alert('Add your Stripe Payment Link here')">Start Free Trial</a>
+            </div>
+
+            <div class="tier">
+                <div class="tier-name">Enterprise</div>
+                <div class="tier-price">$199<span style="font-size: 20px">/month</span></div>
+                <ul class="tier-features">
+                    <li>Unlimited domains</li>
+                    <li>Real-time monitoring</li>
+                    <li>Full technical reports</li>
+                    <li>White-glove support</li>
+                    <li>Custom integrations</li>
+                    <li>Dedicated account manager</li>
+                    <li>7-day free trial</li>
+                </ul>
+                <a href="#" class="cta-button" onclick="alert('Add your Stripe Payment Link here')">Start Free Trial</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>🚀 Why SecFlow Pro?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>2-Hour Delivery</h3>
+                    <p>Industry standard is 5-7 days. We deliver in 2 hours.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤖</div>
+                    <h3>100% Automated</h3>
+                    <p>No manual work. Runs 24/7 with zero human intervention.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>80-240x Faster</h3>
+                    <p>Automated scanning vs manual methods. Same quality.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Enterprise Tools</h3>
+                    <p>Nuclei, Nmap, HTTPx - professional security tools.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <h2>What Customers Say</h2>
+            <p style="font-size: 18px; margin: 20px 0; font-style: italic;">
+                "Got my security report in 2 hours. Found 15 critical issues I didn't know about. 
+                Fixed them immediately. Best $99 I've spent this month."
+            </p>
+            <p><strong>- Startup Founder</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Add Stripe Payment Links here
+        // Replace '#' with your Stripe Payment Links
+        
+        // Example:
+        // document.querySelectorAll('.cta-button').forEach(btn => {
+        //     btn.href = 'YOUR_STRIPE_PAYMENT_LINK';
+        // });
+    </script>
+</body>
+</html>
+

@@ -1,13 +1,18 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Next Steps - Complete Bug Hunting Workflow
 
 ## Step 1: Automated Exploitation Testing âœ… (DONE)
 - Run: python3 automated_exploitation_test.py
 - Tests: Sensitive data, auth bypass, payment manipulation, privilege escalation
-- Output: econ/output/confirmed_exploitable_bugs.json
+- Output: 
+econ/output/confirmed_exploitable_bugs.json
 - Submissions: submissions/confirmed_bug_*.json
 
 ## Step 2: Review Automated Findings
-- Check econ/output/confirmed_exploitable_bugs.json
+- Check 
+econ/output/confirmed_exploitable_bugs.json
 - Verify each bug has evidence
 - Confirm they're exploitable
 

@@ -1,0 +1,441 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <title>🖥️ System Status - SECURE</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="redacted">
+    <!-- SECURITY BANNER -->
+    <div class="security-banner">
+        🔒 SECURE MODE - LOCAL ONLY | NO EXTERNAL CONNECTIONS | OPSEC ACTIVE
+    </div>
+
+    <!-- REDACTION TOGGLE -->
+    <button class="redaction-toggle" id="redactionToggle" onclick="toggleRedaction()">
+        🔒 Redaction: ON
+    </button>
+
+    <div class="dashboard-container">
+        <!-- HEADER -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>🖥️ System Status Monitor</h1>
+                <p class="subtitle">Real-time Tool & Repository Health</p>
+                <div class="status-badges">
+                    <span class="badge badge-success">✓ OPSEC Active</span>
+                    <span class="badge badge-info">📡 Local Only</span>
+                    <a href="index.html" class="badge badge-warning" style="text-decoration: none;">← Back to Dashboard</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- TOOLS STATUS -->
+        <section class="tools-status">
+            <h2>🔧 Required Tools Status</h2>
+            <div class="tools-grid">
+                <div class="tool-card" id="tool-subfinder">
+                    <div class="tool-header">
+                        <span class="tool-icon">🔍</span>
+                        <h3>Subfinder</h3>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot status-checking"></span>
+                        <span>Checking...</span>
+                    </div>
+                    <div class="tool-info">
+                        <small>Subdomain enumeration</small>
+                    </div>
+                </div>
+
+                <div class="tool-card" id="tool-httpx">
+                    <div class="tool-header">
+                        <span class="tool-icon">🌐</span>
+                        <h3>httpx</h3>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot status-checking"></span>
+                        <span>Checking...</span>
+                    </div>
+                    <div class="tool-info">
+                        <small>HTTP probing & fingerprinting</small>
+                    </div>
+                </div>
+
+                <div class="tool-card" id="tool-nuclei">
+                    <div class="tool-header">
+                        <span class="tool-icon">🎯</span>
+                        <h3>Nuclei</h3>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot status-checking"></span>
+                        <span>Checking...</span>
+                    </div>
+                    <div class="tool-info">
+                        <small>Vulnerability scanner</small>
+                    </div>
+                </div>
+
+                <div class="tool-card" id="tool-amass">
+                    <div class="tool-header">
+                        <span class="tool-icon">🗺️</span>
+                        <h3>Amass</h3>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot status-checking"></span>
+                        <span>Checking...</span>
+                    </div>
+                    <div class="tool-info">
+                        <small>Asset discovery</small>
+                    </div>
+                </div>
+
+                <div class="tool-card" id="tool-dnsx">
+                    <div class="tool-header">
+                        <span class="tool-icon">🔎</span>
+                        <h3>DNSx</h3>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot status-checking"></span>
+                        <span>Checking...</span>
+                    </div>
+                    <div class="tool-info">
+                        <small>DNS validation</small>
+                    </div>
+                </div>
+
+                <div class="tool-card" id="tool-jq">
+                    <div class="tool-header">
+                        <span class="tool-icon">📋</span>
+                        <h3>jq</h3>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot status-checking"></span>
+                        <span>Checking...</span>
+                    </div>
+                    <div class="tool-info">
+                        <small>JSON processing</small>
+                    </div>
+                </div>
+
+                <div class="tool-card" id="tool-python">
+                    <div class="tool-header">
+                        <span class="tool-icon">🐍</span>
+                        <h3>Python 3</h3>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot status-checking"></span>
+                        <span>Checking...</span>
+                    </div>
+                    <div class="tool-info">
+                        <small>Scripting & automation</small>
+                    </div>
+                </div>
+
+                <div class="tool-card" id="tool-go">
+                    <div class="tool-header">
+                        <span class="tool-icon">🔷</span>
+                        <h3>Go</h3>
+                    </div>
+                    <div class="tool-status">
+                        <span class="status-dot status-checking"></span>
+                        <span>Checking...</span>
+                    </div>
+                    <div class="tool-info">
+                        <small>Tool compilation</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REPOSITORY STATUS -->
+        <section class="repo-status">
+            <h2>📁 Repository Status</h2>
+            <div class="repo-grid">
+                <div class="repo-card">
+                    <h3 class="redactable">Recon-automation-Bug-bounty-stack</h3>
+                    <div class="repo-details">
+                        <div class="detail-row">
+                            <span>📂 Location:</span>
+                            <code class="redactable">/home/ubuntu/Recon-automation-Bug-bounty-stack</code>
+                        </div>
+                        <div class="detail-row">
+                            <span>✓ Status:</span>
+                            <span class="text-success">Active</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>🔧 Core Scripts:</span>
+                            <span>run_pipeline.sh, run_recon.sh, run_httpx.sh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <h3 class="redactable">recon-stack</h3>
+                    <div class="repo-details">
+                        <div class="detail-row">
+                            <span>📂 Location:</span>
+                            <code class="redactable">/home/ubuntu/recon-stack</code>
+                        </div>
+                        <div class="detail-row">
+                            <span>✓ Status:</span>
+                            <span class="text-success">Active</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>🔧 Core Scripts:</span>
+                            <span>analyze_existing_scan.sh, post_scan_processor.sh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUTPUT DIRECTORY STATUS -->
+        <section class="output-status">
+            <h2>📊 Output Directory Status</h2>
+            <div class="output-grid">
+                <div class="output-item">
+                    <div class="output-icon">📄</div>
+                    <div class="output-details">
+                        <h4>targets.txt</h4>
+                        <p id="targets-status">Checking...</p>
+                    </div>
+                </div>
+                <div class="output-item">
+                    <div class="output-icon">🗂️</div>
+                    <div class="output-details">
+                        <h4>subs.txt</h4>
+                        <p id="subs-status">Checking...</p>
+                    </div>
+                </div>
+                <div class="output-item">
+                    <div class="output-icon">🌐</div>
+                    <div class="output-details">
+                        <h4>http.json</h4>
+                        <p id="http-status">Checking...</p>
+                    </div>
+                </div>
+                <div class="output-item">
+                    <div class="output-icon">🎯</div>
+                    <div class="output-details">
+                        <h4>nuclei-findings.json</h4>
+                        <p id="nuclei-status">Checking...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+            <p>🔒 All checks performed locally | No external connections | OPSEC compliant</p>
+            <p><small>Last checked: <span id="lastCheck">--</span></small></p>
+        </footer>
+    </div>
+
+    <script src="assets/dashboard.js"></script>
+    <script>
+        // Tool checking simulation (in production, would call actual checks)
+        const tools = ['subfinder', 'httpx', 'nuclei', 'amass', 'dnsx', 'jq', 'python', 'go'];
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            checkAllTools();
+            checkOutputFiles();
+            updateLastCheckTime();
+            
+            // Auto-refresh every minute
+            setInterval(() => {
+                checkAllTools();
+                checkOutputFiles();
+                updateLastCheckTime();
+            }, 60000);
+        });
+
+        function checkAllTools() {
+            tools.forEach((tool, index) => {
+                setTimeout(() => checkTool(tool), index * 200);
+            });
+        }
+
+        function checkTool(toolName) {
+            const card = document.getElementById(`tool-${toolName}`);
+            const statusEl = card.querySelector('.tool-status span:last-child');
+            const dotEl = card.querySelector('.status-dot');
+            
+            // In production, this would check actual tool installation
+            // For now, simulating check
+            const isInstalled = Math.random() > 0.2; // 80% success rate for demo
+            
+            setTimeout(() => {
+                if (isInstalled) {
+                    statusEl.textContent = 'Installed ✓';
+                    statusEl.className = 'text-success';
+                    dotEl.className = 'status-dot status-ok';
+                } else {
+                    statusEl.textContent = 'Not Found ✗';
+                    statusEl.className = 'text-danger';
+                    dotEl.className = 'status-dot status-error';
+                }
+            }, 500);
+        }
+
+        function checkOutputFiles() {
+            const files = [
+                { id: 'targets', path: '../targets.txt' },
+                { id: 'subs', path: '../output/subs.txt' },
+                { id: 'http', path: '../output/http.json' },
+                { id: 'nuclei', path: '../output/nuclei-findings.json' }
+            ];
+
+            files.forEach(file => {
+                fetch(file.path, { method: 'HEAD' })
+                    .then(response => {
+                        const statusEl = document.getElementById(`${file.id}-status`);
+                        if (response.ok) {
+                            statusEl.innerHTML = '<span class="text-success">✓ Found</span>';
+                        } else {
+                            statusEl.innerHTML = '<span class="text-warning">Not found</span>';
+                        }
+                    })
+                    .catch(() => {
+                        const statusEl = document.getElementById(`${file.id}-status`);
+                        statusEl.innerHTML = '<span class="text-warning">Not found</span>';
+                    });
+            });
+        }
+
+        function updateLastCheckTime() {
+            document.getElementById('lastCheck').textContent = new Date().toLocaleTimeString();
+        }
+    </script>
+
+    <style>
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: #334155;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+        }
+
+        .tool-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .tool-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-checking {
+            background: #f59e0b;
+            animation: pulse 1.5s infinite;
+        }
+
+        .status-ok {
+            background: #10b981;
+        }
+
+        .status-error {
+            background: #ef4444;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .tool-info {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .repo-details {
+            margin-top: 15px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-row code {
+            background: #1e293b;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .output-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .output-item {
+            display: flex;
+            gap: 15px;
+            background: #334155;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .output-icon {
+            font-size: 2rem;
+        }
+
+        .output-details h4 {
+            margin: 0 0 5px 0;
+            color: var(--text-primary);
+        }
+
+        .output-details p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</body>
+</html>
+

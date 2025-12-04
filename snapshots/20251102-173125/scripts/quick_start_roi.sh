@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Quick Start - Immediate ROI Bug Bounty Hunter
 # One-command deployment for tonight's bug hunting
 

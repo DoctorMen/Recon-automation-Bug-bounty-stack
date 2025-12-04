@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Evidence Capture Helper Script
 # Helps save HTTP requests/responses and organize screenshots
 
@@ -60,6 +62,8 @@ fi
 
 log "Evidence capture complete!"
 log "Check: $EVIDENCE_DIR/"
+
+
 
 
 

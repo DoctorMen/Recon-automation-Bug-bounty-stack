@@ -1,0 +1,8 @@
+[
+  {
+    "threat_type": "coordinated_attack",
+    "confidence": 0.94,
+    "analysis": "Pattern matches APT (Advanced Persistent Threat) behavior. Simultaneous credential attacks and vulnerability mapping indicates sophisticated attacker. 94% confidence based on MITRE ATT&CK patterns.",
+    "action": "IMMEDIATE: Block attacking IPs. Enable MFA. Patch all high/critical vulnerabilities. Alert security team. Consider engaging incident response."
+  }
+]

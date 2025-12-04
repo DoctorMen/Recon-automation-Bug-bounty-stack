@@ -1,0 +1,89 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal - Upwork Master</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0066FF; --accent: #10B981; --dark: #0A0E27;
+            --dark-card: #1A2332; --dark-border: #2D3748;
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #7C3AED 100%);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: #FFFFFF; }
+        .portal { max-width: 1200px; margin: 0 auto; padding: 40px; }
+        .header { background: var(--gradient-primary); padding: 60px 40px; border-radius: 24px; margin-bottom: 40px; text-align: center; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5em; margin-bottom: 10px; }
+        .tabs { display: flex; gap: 12px; margin-bottom: 32px; border-bottom: 2px solid var(--dark-border); }
+        .tab { padding: 16px 24px; background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1em; font-weight: 600; border-bottom: 3px solid transparent; transition: all 0.3s; }
+        .tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .project-card { background: var(--dark-card); padding: 32px; border-radius: 16px; border: 1px solid var(--dark-border); margin-bottom: 24px; }
+        .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.4em; margin-bottom: 16px; color: var(--primary); }
+        .status { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 0.85em; font-weight: 600; }
+        .status.active { background: rgba(16,185,129,0.2); color: var(--accent); }
+        .status.completed { background: rgba(0,102,255,0.2); color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="portal">
+        <div class="header">
+            <h1>Client Portal</h1>
+            <p>Track Your Projects & Results</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('active')">Active Projects</button>
+            <button class="tab" onclick="showTab('completed')">Completed</button>
+            <button class="tab" onclick="showTab('reports')">Reports</button>
+            <button class="tab" onclick="showTab('support')">Support</button>
+        </div>
+
+        <div id="active" class="tab-content active">
+            <div class="project-card">
+                <h3>Security Assessment - [Client Name]</h3>
+                <p><span class="status active">In Progress</span></p>
+                <p style="margin-top: 16px; color: rgba(255,255,255,0.7);">Started: [Date] | Expected Delivery: [Date]</p>
+            </div>
+        </div>
+
+        <div id="completed" class="tab-content">
+            <div class="project-card">
+                <h3>Completed: [Project Name]</h3>
+                <p><span class="status completed">Delivered</span></p>
+                <p style="margin-top: 16px;">Report available for download</p>
+            </div>
+        </div>
+
+        <div id="reports" class="tab-content">
+            <div class="project-card">
+                <h3>Download Reports</h3>
+                <p>All completed project reports available here</p>
+            </div>
+        </div>
+
+        <div id="support" class="tab-content">
+            <div class="project-card">
+                <h3>30-Day Support Included</h3>
+                <p>Need help implementing fixes? Contact support here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+    </script>
+</body>
+</html>
+

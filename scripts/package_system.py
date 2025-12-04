@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Packaging Utility for Licensing (Model #2)
 
@@ -81,6 +85,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
 
 
 

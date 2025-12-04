@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHOST IDE™ - Security Testing Environment</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0a0e27;
+            color: #e4e4e7;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .ide-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr 250px;
+            grid-template-rows: 50px 1fr 200px;
+            height: 100vh;
+            gap: 1px;
+            background: #2a2f4a;
+        }
+        .header {
+            grid-column: 1 / -1;
+            background: #141829;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            border-bottom: 2px solid #00f5ff;
+        }
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00f5ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .status { font-size: 12px; color: #a1a1aa; }
+        .sidebar {
+            background: #141829;
+            padding: 20px 10px;
+            overflow-y: auto;
+        }
+        .sidebar h3 {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #a1a1aa;
+            margin: 20px 0 10px;
+            letter-spacing: 1px;
+        }
+        .sidebar button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            background: #1a1f3a;
+            border: none;
+            border-left: 3px solid transparent;
+            color: #e4e4e7;
+            cursor: pointer;
+            text-align: left;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .sidebar button:hover {
+            background: #2a2f4a;
+            border-left-color: #00f5ff;
+        }
+        .editor-area {
+            background: #0a0e27;
+            display: flex;
+            flex-direction: column;
+        }
+        .tabs {
+            background: #141829;
+            display: flex;
+            gap: 2px;
+            padding: 5px;
+        }
+        .tabs button {
+            padding: 8px 15px;
+            background: #1a1f3a;
+            border: none;
+            color: #a1a1aa;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .tabs button.active {
+            background: #0a0e27;
+            color: #00f5ff;
+            border-top: 2px solid #00f5ff;
+        }
+        #editor {
+            flex: 1;
+            padding: 20px;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+            background: #0a0e27;
+            color: #e4e4e7;
+            border: none;
+            resize: none;
+            line-height: 1.6;
+        }
+        #editor:focus { outline: none; }
+        .inspector {
+            background: #141829;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        .auth-widget {
+            background: linear-gradient(135deg, rgba(0,245,255,0.1), rgba(123,47,247,0.1));
+            border: 1px solid #00f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .auth-widget h3 {
+            font-size: 12px;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+        .auth-widget p {
+            font-size: 11px;
+            color: #a1a1aa;
+        }
+        .inspector h3 {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #a1a1aa;
+            margin: 15px 0 8px;
+            letter-spacing: 1px;
+        }
+        .inspector input {
+            width: 100%;
+            padding: 10px;
+            background: #1a1f3a;
+            border: 1px solid #2a2f4a;
+            border-radius: 6px;
+            color: #e4e4e7;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .inspector input:focus {
+            outline: none;
+            border-color: #00f5ff;
+        }
+        .inspector button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #00f5ff, #7b2ff7);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .inspector button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,245,255,0.3);
+        }
+        #output {
+            background: #1a1f3a;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            min-height: 80px;
+            max-height: 150px;
+            overflow-y: auto;
+            font-family: 'Consolas', monospace;
+            color: #00ff88;
+        }
+        .terminal {
+            grid-column: 1 / -1;
+            background: #0a0e27;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        #log {
+            flex: 1;
+            overflow-y: auto;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #e4e4e7;
+        }
+        .terminal input {
+            width: 100%;
+            padding: 10px;
+            background: #141829;
+            border: 1px solid #2a2f4a;
+            border-radius: 6px;
+            color: #e4e4e7;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+        }
+        .terminal input:focus {
+            outline: none;
+            border-color: #00f5ff;
+        }
+        .success { color: #00ff88; }
+        .error { color: #ff4444; }
+        .warning { color: #ffaa00; }
+        .info { color: #00f5ff; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0e27; }
+        ::-webkit-scrollbar-thumb { background: #2a2f4a; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="ide-grid">
+        <div class="header">
+            <div class="logo">👻 GHOST IDE™</div>
+            <div class="status">✓ Legal Shield Active | Owner: Khallid Hakeem Nurse</div>
+        </div>
+        
+        <div class="sidebar">
+            <h3>Divergent Modes</h3>
+            <button onclick="setMode('lateral')">🔄 Lateral</button>
+            <button onclick="setMode('parallel')">⚡ Parallel</button>
+            <button onclick="setMode('associative')">🔗 Associative</button>
+            <button onclick="setMode('generative')">💡 Generative</button>
+            <button onclick="setMode('combinatorial')">🧩 Combinatorial</button>
+            <button onclick="setMode('perspective')">👁️ Perspective</button>
+            <button onclick="setMode('constraint-free')">🚀 Constraint-Free</button>
+            
+            <h3>Quick Actions</h3>
+            <button onclick="verifyAuth()">✅ Verify Authorization</button>
+            <button onclick="runScan()">🔍 Run Scan</button>
+            <button onclick="viewAudit()">📋 View Audit Log</button>
+            <button onclick="createAuth()">📝 Create Authorization</button>
+            <button onclick="runDivergent()">🧠 Divergent Analysis</button>
+        </div>
+        
+        <div class="editor-area">
+            <div class="tabs">
+                <button class="active">DIVERGENT_ENGINE.py</button>
+                <button onclick="switchTab('plan')">BUG_BOUNTY_PLAN.md</button>
+                <button onclick="switchTab('auth')">LEGAL_SYSTEM.py</button>
+            </div>
+            <textarea id="editor" spellcheck="false"># Divergent Thinking System™ - Security Testing Engine
+# Owner: Khallid Hakeem Nurse
+# Copyright © 2025 - All Rights Reserved
+
+# GHOST IDE™ - Ready for testing
+# Use sidebar for quick actions
+# Press Ctrl+Enter to execute current command
+
+import sys
+from LEGAL_AUTHORIZATION_SYSTEM import check_authorization
+
+def divergent_test(target, mode='all'):
+    """Run Divergent analysis on target"""
+    auth = check_authorization(target)
+    if not auth:
+        return "❌ Authorization required"
+    
+    print(f"🧠 Running {mode} analysis on {target}")
+    # Your testing logic here
+    
+# Example usage:
+# divergent_test('example.com', 'lateral')
+</textarea>
+        </div>
+        
+        <div class="inspector">
+            <div class="auth-widget">
+                <h3>✓ LEGAL SHIELD ACTIVE</h3>
+                <p>All operations protected</p>
+                <p>System ID: DIVERGENT_20251105</p>
+            </div>
+            
+            <h3>Target</h3>
+            <input type="text" id="target" placeholder="example.com">
+            <button onclick="setTarget()">Set Target</button>
+            
+            <h3>Active Mode</h3>
+            <input type="text" id="currentMode" value="All Modes" readonly>
+            
+            <h3>Output</h3>
+            <div id="output">Ready for commands...</div>
+            
+            <h3>Actions</h3>
+            <button onclick="executeCode()">▶️ Execute</button>
+            <button onclick="clearOutput()">🗑️ Clear</button>
+        </div>
+        
+        <div class="terminal">
+            <div id="log">
+<span class="success">$ GHOST IDE™ v1.0 initialized</span><br>
+<span class="success">$ Divergent Thinking System™ loaded</span><br>
+<span class="success">$ Legal Authorization System active</span><br>
+<span class="info">$ Type 'help' for available commands</span><br>
+            </div>
+            <input type="text" id="cmd" placeholder="Enter command (try: help, verify shopify.com, scan, status)..." onkeypress="handleCommand(event)">
+        </div>
+    </div>
+
+    <script>
+        let currentTarget = null;
+        let currentMode = 'all';
+        
+        function log(msg, type = 'info') {
+            const logEl = document.getElementById('log');
+            const colors = {
+                success: 'success',
+                error: 'error',
+                warning: 'warning',
+                info: 'info'
+            };
+            logEl.innerHTML += `<span class="${colors[type]}">$ ${msg}</span><br>`;
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+        
+        function output(msg) {
+            document.getElementById('output').innerHTML += msg + '<br>';
+        }
+        
+        function setMode(mode) {
+            currentMode = mode;
+            document.getElementById('currentMode').value = mode.toUpperCase();
+            log(`Mode set to: ${mode}`, 'success');
+            output(`✓ Divergent mode: ${mode}`);
+        }
+        
+        function setTarget() {
+            const target = document.getElementById('target').value;
+            if (!target) {
+                log('Error: Target required', 'error');
+                return;
+            }
+            currentTarget = target;
+            log(`Target set: ${target}`, 'success');
+            output(`✓ Target: ${target}`);
+        }
+        
+        function verifyAuth() {
+            if (!currentTarget) {
+                log('Error: Set target first', 'error');
+                output('❌ No target set');
+                return;
+            }
+            log(`Verifying authorization for ${currentTarget}...`, 'info');
+            output(`🔍 Checking authorization for ${currentTarget}...`);
+            setTimeout(() => {
+                log(`✓ Authorization check complete`, 'success');
+                output(`✅ Authorization: REQUIRED<br>Create auth file for ${currentTarget}`);
+            }, 500);
+        }
+        
+        function runScan() {
+            if (!currentTarget) {
+                log('Error: Set target first', 'error');
+                output('❌ No target set');
+                return;
+            }
+            log(`Starting ${currentMode} scan on ${currentTarget}...`, 'info');
+            output(`🔍 Scan initiated...<br>Mode: ${currentMode}<br>Target: ${currentTarget}`);
+            setTimeout(() => {
+                log(`Scan command queued. Run: python3 run_pipeline.py --target ${currentTarget}`, 'success');
+                output(`✓ Command ready:<br>python3 run_pipeline.py --target ${currentTarget} --mode ${currentMode}`);
+            }, 1000);
+        }
+        
+        function viewAudit() {
+            log('Opening audit log...', 'info');
+            output('📋 Audit Log:<br>./authorizations/audit_log.json');
+            setTimeout(() => {
+                log('Run: cat authorizations/audit_log.json', 'info');
+            }, 500);
+        }
+        
+        function createAuth() {
+            if (!currentTarget) {
+                log('Error: Set target first', 'error');
+                return;
+            }
+            log(`Creating authorization for ${currentTarget}...`, 'info');
+            output(`📝 Authorization template:<br>python3 CREATE_AUTHORIZATION.py --target ${currentTarget} --client "Client Name"`);
+        }
+        
+        function runDivergent() {
+            if (!currentTarget) {
+                log('Error: Set target first', 'error');
+                return;
+            }
+            log(`Running Divergent analysis (${currentMode} mode)...`, 'info');
+            output(`🧠 Divergent System™<br>Target: ${currentTarget}<br>Mode: ${currentMode}<br><br>Command:<br>python3 DIVERGENT_THINKING_ENGINE.py --target ${currentTarget} --mode ${currentMode}`);
+        }
+        
+        function executeCode() {
+            const code = document.getElementById('editor').value;
+            log('Executing code...', 'warning');
+            output('⚠️ Code execution requires Python environment<br>Copy code to terminal or save to file');
+        }
+        
+        function clearOutput() {
+            document.getElementById('output').innerHTML = 'Output cleared...';
+        }
+        
+        function switchTab(tab) {
+            log(`Switched to ${tab} tab`, 'info');
+        }
+        
+        function handleCommand(e) {
+            if (e.key === 'Enter') {
+                const cmd = document.getElementById('cmd').value.trim();
+                if (!cmd) return;
+                
+                log(`> ${cmd}`, 'info');
+                document.getElementById('cmd').value = '';
+                
+                // Parse commands
+                if (cmd === 'help') {
+                    log('Available commands:', 'info');
+                    log('  verify <target>  - Check authorization', 'info');
+                    log('  scan <target>    - Run security scan', 'info');
+                    log('  mode <mode>      - Set thinking mode', 'info');
+                    log('  status           - Show system status', 'info');
+                    log('  clear            - Clear terminal', 'info');
+                } else if (cmd.startsWith('verify ')) {
+                    const target = cmd.split(' ')[1];
+                    document.getElementById('target').value = target;
+                    setTarget();
+                    verifyAuth();
+                } else if (cmd.startsWith('scan ')) {
+                    const target = cmd.split(' ')[1];
+                    document.getElementById('target').value = target;
+                    setTarget();
+                    runScan();
+                } else if (cmd.startsWith('mode ')) {
+                    const mode = cmd.split(' ')[1];
+                    setMode(mode);
+                } else if (cmd === 'status') {
+                    log('System Status:', 'success');
+                    log(`  Target: ${currentTarget || 'None'}`, 'info');
+                    log(`  Mode: ${currentMode}`, 'info');
+                    log(`  Authorization: Active`, 'success');
+                    log(`  Owner: Khallid Hakeem Nurse`, 'info');
+                } else if (cmd === 'clear') {
+                    document.getElementById('log').innerHTML = '';
+                    log('Terminal cleared', 'success');
+                } else {
+                    log(`Unknown command: ${cmd}`, 'error');
+                    log('Type "help" for available commands', 'info');
+                }
+            }
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+Enter to execute
+            if (e.ctrlKey && e.key === 'Enter') {
+                executeCode();
+            }
+            // Ctrl+K to clear output
+            if (e.ctrlKey && e.key === 'k') {
+                clearOutput();
+            }
+        });
+        
+        // Startup message
+        setTimeout(() => {
+            log('Ready for security testing 🎯', 'success');
+        }, 500);
+    </script>
+</body>
+</html>

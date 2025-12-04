@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Apple Bug Bounty - Real Vulnerability Testing
 Fix false positives - 200 on public site is NOT a vulnerability
@@ -135,5 +139,11 @@ def analyze_findings():
 
 if __name__ == "__main__":
     analyze_findings()
+
+
+
+
+
+
 
 

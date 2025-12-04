@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Apple Endpoint Test Results Capture
 Helps document what you tested and what you found
@@ -108,5 +112,11 @@ def capture_test_results():
 
 if __name__ == "__main__":
     capture_test_results()
+
+
+
+
+
+
 
 

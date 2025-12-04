@@ -1,0 +1,16 @@
+{
+  "target": "CDCETH Smart Contract",
+  "address": "0xfe18ae03741a5b84e39c295ac9c856e791c38e",
+  "url": "https://etherscan.io/token/0xfe18ae03741a5b84e39c295ac9c856e791c38e",
+  "bounty_range": "$50,000 - $1,000,000",
+  "scan_timestamp": "2025-11-05T01:52:10.008188",
+  "crypto_findings": [],
+  "status": "Manual verification required",
+  "next_steps": [
+    "Get contract source code from Etherscan",
+    "Analyze with CASCADE IDE GUARDIAN agent",
+    "Check for reentrancy, access control, overflows",
+    "Prepare PoC if vulnerability found",
+    "Submit to Etherscan bug bounty program"
+  ]
+}

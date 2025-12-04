@@ -1,0 +1,240 @@
+{
+  "intent_patterns": [
+    {
+      "intent": "start_scan",
+      "triggers": ["scan", "run", "start", "test", "check", "hunt", "recon"],
+      "entities": ["domain", "target", "url", "website"],
+      "examples": [
+        "Scan example.com",
+        "Run bug bounty on target.com",
+        "Start reconnaissance for acme.org",
+        "Test security of website.com"
+      ],
+      "command_template": "echo '{domain}' > targets.txt && python3 run_pipeline.py",
+      "preconditions": ["opsec_check", "verify_authorization"],
+      "confidence": 0.95
+    },
+    {
+      "intent": "check_status",
+      "triggers": ["status", "progress", "how", "done", "finished", "running"],
+      "examples": [
+        "What's the status?",
+        "How is it going?",
+        "Is it done yet?",
+        "Show progress"
+      ],
+      "command_template": "python3 scripts/scan_monitor.py",
+      "confidence": 0.90
+    },
+    {
+      "intent": "view_results",
+      "triggers": ["show", "display", "results", "findings", "vulnerabilities", "summary"],
+      "examples": [
+        "Show me the results",
+        "What did you find?",
+        "Display vulnerabilities",
+        "Give me a summary"
+      ],
+      "command_template": "cat output/reports/summary.md",
+      "fallback": "python3 -c \"import json; print(json.load(open('output/triage.json')))\"",
+      "confidence": 0.92
+    },
+    {
+      "intent": "resume_scan",
+      "triggers": ["resume", "continue", "restart", "pick up"],
+      "examples": [
+        "Resume the scan",
+        "Continue where it left off",
+        "Pick up from last checkpoint"
+      ],
+      "command_template": "RESUME=true python3 run_pipeline.py",
+      "confidence": 0.93
+    },
+    {
+      "intent": "fast_scan",
+      "triggers": ["fast", "quick", "speed", "rapid", "urgent"],
+      "examples": [
+        "Quick scan",
+        "Fast mode",
+        "Speed priority"
+      ],
+      "command_template": "RECON_TIMEOUT=600 SUBFINDER_THREADS=100 NUCLEI_RATE_LIMIT=300 NUCLEI_SEVERITY=high,critical python3 run_pipeline.py",
+      "confidence": 0.88
+    },
+    {
+      "intent": "thorough_scan",
+      "triggers": ["thorough", "deep", "comprehensive", "complete", "detailed"],
+      "examples": [
+        "Deep scan",
+        "Thorough analysis",
+        "Comprehensive check"
+      ],
+      "command_template": "RECON_TIMEOUT=3600 AMASS_MAX_DNS=20000 NUCLEI_RATE_LIMIT=50 NUCLEI_SEVERITY=low,medium,high,critical NUCLEI_RETRIES=5 python3 run_pipeline.py",
+      "confidence": 0.89
+    },
+    {
+      "intent": "opsec_check",
+      "triggers": ["security", "opsec", "vpn", "privacy", "safe"],
+      "examples": [
+        "Check security",
+        "Is VPN active?",
+        "Verify OPSEC"
+      ],
+      "command_template": "bash scripts/opsec_check_all.sh",
+      "confidence": 0.94
+    },
+    {
+      "intent": "emergency_stop",
+      "triggers": ["stop", "halt", "emergency", "panic", "abort"],
+      "examples": [
+        "Emergency stop!",
+        "Stop everything",
+        "Panic mode"
+      ],
+      "command_template": "bash scripts/opsec_system_panic.sh",
+      "priority": "critical",
+      "confirmation_required": true,
+      "confidence": 0.98
+    },
+    {
+      "intent": "filter_severity",
+      "triggers": ["critical", "high", "medium", "low", "severity"],
+      "examples": [
+        "Show only critical vulnerabilities",
+        "Filter high severity",
+        "Just the important stuff"
+      ],
+      "command_template": "python3 -c \"import json; data=json.load(open('output/triage.json')); filtered=[f for f in data if f.get('info',{}).get('severity')=='{severity}']; print(json.dumps(filtered, indent=2))\"",
+      "confidence": 0.91
+    },
+    {
+      "intent": "run_specific_stage",
+      "triggers": ["only", "just", "specific", "stage"],
+      "stage_mapping": {
+        "recon": "python3 run_recon.py",
+        "http": "python3 run_httpx.py",
+        "scan": "python3 run_nuclei.py",
+        "nuclei": "python3 run_nuclei.py",
+        "triage": "python3 scripts/triage.py",
+        "report": "python3 scripts/generate_report.py"
+      },
+      "examples": [
+        "Just run recon",
+        "Only scan for vulnerabilities",
+        "Generate reports only"
+      ],
+      "confidence": 0.87
+    },
+    {
+      "intent": "use_agent",
+      "triggers": ["agent", "strategist", "executor", "composer"],
+      "role_mapping": {
+        "strategist": "Strategist",
+        "executor": "Executor",
+        "automation": "Composer 1 — Automation Engineer",
+        "parallelization": "Composer 2 — Parallelization & Optimization",
+        "documentation": "Composer 3 — Documentation & Reporting",
+        "cicd": "Composer 4 — CI/CD & Security Ops"
+      },
+      "command_template": "python3 scripts/agent_orchestrator.py --role '{role}' --task '{task}'",
+      "examples": [
+        "Use the strategist agent",
+        "Have executor run it",
+        "Get composer 1 to handle automation"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "intent": "troubleshoot",
+      "triggers": ["error", "problem", "issue", "stuck", "not working", "failed"],
+      "diagnostic_steps": [
+        "cat output/recon-run.log | tail -n 50",
+        "python3 setup_tools.py --check",
+        "bash scripts/opsec_check_all.sh",
+        "ps aux | grep -E '(subfinder|amass|nuclei|httpx)'"
+      ],
+      "examples": [
+        "It's not working",
+        "Error occurred",
+        "Scan is stuck"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "intent": "compare_scans",
+      "triggers": ["compare", "difference", "new", "changed", "delta"],
+      "examples": [
+        "Compare with last scan",
+        "Show new vulnerabilities",
+        "What changed?"
+      ],
+      "requires": ["previous_scan_results"],
+      "confidence": 0.82
+    },
+    {
+      "intent": "export_results",
+      "triggers": ["export", "download", "save", "submit", "prepare"],
+      "examples": [
+        "Export results",
+        "Prepare for submission",
+        "Save findings"
+      ],
+      "command_template": "bash scripts/opsec_secrets_manager.sh && mkdir -p submission && cp output/reports/* submission/",
+      "confidence": 0.89
+    },
+    {
+      "intent": "configure_settings",
+      "triggers": ["set", "configure", "change", "adjust", "modify"],
+      "examples": [
+        "Increase speed",
+        "Use less memory",
+        "Make it faster",
+        "Reduce concurrency"
+      ],
+      "setting_mappings": {
+        "speed": {"NUCLEI_RATE_LIMIT": 300, "NUCLEI_THREADS": 100},
+        "memory": {"AMASS_MAX_DNS": 5000, "NUCLEI_THREADS": 25},
+        "thorough": {"NUCLEI_RETRIES": 5, "NUCLEI_RATE_LIMIT": 50}
+      },
+      "confidence": 0.84
+    }
+  ],
+  "entity_extraction": {
+    "domain": {
+      "patterns": [
+        "[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*",
+        "(?:https?://)?([a-zA-Z0-9.-]+)(?:/.*)?$"
+      ],
+      "examples": ["example.com", "test.example.org", "https://sub.domain.com"]
+    },
+    "severity": {
+      "values": ["critical", "high", "medium", "low", "info"],
+      "aliases": {
+        "important": "high",
+        "serious": "critical",
+        "minor": "low"
+      }
+    },
+    "stage": {
+      "values": ["recon", "httpx", "nuclei", "triage", "report"],
+      "aliases": {
+        "reconnaissance": "recon",
+        "mapping": "httpx",
+        "scanning": "nuclei",
+        "reporting": "report"
+      }
+    }
+  },
+  "context_awareness": {
+    "check_previous_commands": true,
+    "check_existing_files": true,
+    "check_running_processes": true,
+    "suggest_next_steps": true
+  },
+  "safety_checks": {
+    "always_verify_authorization": true,
+    "check_opsec_before_scan": true,
+    "confirm_destructive_operations": true,
+    "sanitize_outputs": true
+  }
+}

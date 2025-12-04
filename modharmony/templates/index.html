@@ -1,0 +1,368 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModHarmony™ - Mod Compatibility Testing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .mod-input-group {
+            margin-bottom: 20px;
+        }
+        
+        .mod-input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .mod-input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .mod-input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .results {
+            display: none;
+        }
+        
+        .results.show {
+            display: block;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .status-compatible {
+            background: #10b981;
+            color: white;
+        }
+        
+        .status-conflicts {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .conflict-list {
+            list-style: none;
+        }
+        
+        .conflict-item {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        
+        .conflict-item.low {
+            background: #fef9c3;
+            border-left-color: #eab308;
+        }
+        
+        .conflict-item.medium {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+        }
+        
+        .conflict-item.high {
+            background: #fef2f2;
+            border-left-color: #ef4444;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+        
+        .loading.show {
+            display: block;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-box h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .stat-box p {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ModHarmony™</h1>
+            <p>Automated Mod Compatibility Testing</p>
+        </div>
+        
+        <div class="card">
+            <h2>Test Mod Compatibility</h2>
+            <form id="scanForm">
+                <div id="modInputs">
+                    <div class="mod-input-group">
+                        <label>Mod 1 Name:</label>
+                        <input type="text" name="mod1_name" placeholder="e.g., SkyUI" required>
+                    </div>
+                    <div class="mod-input-group">
+                        <label>Mod 1 Path:</label>
+                        <input type="text" name="mod1_path" placeholder="/path/to/mod1" required>
+                    </div>
+                    
+                    <div class="mod-input-group">
+                        <label>Mod 2 Name:</label>
+                        <input type="text" name="mod2_name" placeholder="e.g., USSEP">
+                    </div>
+                    <div class="mod-input-group">
+                        <label>Mod 2 Path:</label>
+                        <input type="text" name="mod2_path" placeholder="/path/to/mod2">
+                    </div>
+                    
+                    <div class="mod-input-group">
+                        <label>Mod 3 Name:</label>
+                        <input type="text" name="mod3_name" placeholder="e.g., Frostfall">
+                    </div>
+                    <div class="mod-input-group">
+                        <label>Mod 3 Path:</label>
+                        <input type="text" name="mod3_path" placeholder="/path/to/mod3">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn" id="scanBtn">Scan for Conflicts</button>
+            </form>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Scanning mods for conflicts...</p>
+        </div>
+        
+        <div class="card results" id="results">
+            <h2>Compatibility Report</h2>
+            <div id="reportContent"></div>
+        </div>
+    </div>
+    
+    <script>
+        const form = document.getElementById('scanForm');
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+        const reportContent = document.getElementById('reportContent');
+        const scanBtn = document.getElementById('scanBtn');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Collect mod data
+            const formData = new FormData(form);
+            const mods = {};
+            
+            for (let i = 1; i <= 3; i++) {
+                const name = formData.get(`mod${i}_name`);
+                const path = formData.get(`mod${i}_path`);
+                
+                if (name && path) {
+                    mods[name] = path;
+                }
+            }
+            
+            if (Object.keys(mods).length === 0) {
+                alert('Please enter at least one mod');
+                return;
+            }
+            
+            // Show loading
+            loading.classList.add('show');
+            results.classList.remove('show');
+            scanBtn.disabled = true;
+            
+            try {
+                // Call API
+                const response = await fetch('/api/scan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ mods })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayReport(data.report);
+                } else {
+                    reportContent.innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
+                    results.classList.add('show');
+                }
+            } catch (error) {
+                reportContent.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+                results.classList.add('show');
+            } finally {
+                loading.classList.remove('show');
+                scanBtn.disabled = false;
+            }
+        });
+        
+        function displayReport(report) {
+            let html = '';
+            
+            // Status badge
+            const statusClass = report.status === 'compatible' ? 'status-compatible' : 'status-conflicts';
+            const statusText = report.status === 'compatible' ? '✓ Compatible' : '⚠ Conflicts Detected';
+            html += `<div class="status-badge ${statusClass}">${statusText}</div>`;
+            
+            // Stats
+            html += '<div class="stats">';
+            html += `<div class="stat-box"><h3>${report.mods_scanned}</h3><p>Mods Scanned</p></div>`;
+            html += `<div class="stat-box"><h3>${report.total_conflicts}</h3><p>Total Conflicts</p></div>`;
+            html += `<div class="stat-box"><h3>${report.critical_conflicts}</h3><p>Critical</p></div>`;
+            html += `<div class="stat-box"><h3>${report.warnings}</h3><p>Warnings</p></div>`;
+            html += '</div>';
+            
+            // Recommendations
+            if (report.recommendations && report.recommendations.length > 0) {
+                html += '<h3 style="margin-top: 30px;">Recommendations</h3>';
+                html += '<ul>';
+                report.recommendations.forEach(rec => {
+                    html += `<li>${rec}</li>`;
+                });
+                html += '</ul>';
+            }
+            
+            // Conflicts
+            if (report.conflicts && report.conflicts.length > 0) {
+                html += '<h3 style="margin-top: 30px;">Detected Conflicts</h3>';
+                html += '<ul class="conflict-list">';
+                
+                report.conflicts.forEach(conflict => {
+                    html += `<li class="conflict-item ${conflict.severity}">`;
+                    html += `<strong>${conflict.file}</strong><br>`;
+                    html += `Type: ${conflict.conflict_type}<br>`;
+                    html += `Severity: ${conflict.severity}<br>`;
+                    html += `Affected mods: ${conflict.mods.join(', ')}`;
+                    html += '</li>';
+                });
+                
+                html += '</ul>';
+            }
+            
+            reportContent.innerHTML = html;
+            results.classList.add('show');
+        }
+    </script>
+</body>
+</html>

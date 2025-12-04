@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Install Tools - Quick Guide
 
 You're in a **WSL/Linux environment**. Here are your options to install the required tools:

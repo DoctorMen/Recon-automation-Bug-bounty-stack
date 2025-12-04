@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Apple Bug Bounty - Better Testing Strategy
 Find protected endpoints and test them properly
@@ -149,5 +153,11 @@ def test_endpoint_properly(url: str) -> dict:
 
 if __name__ == "__main__":
     test_protected_endpoints()
+
+
+
+
+
+
 
 

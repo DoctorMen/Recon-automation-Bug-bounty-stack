@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # ⚠️ REALITY CHECK: Are These Findings Actually Exploitable?
 
 ## Current Status: **POTENTIAL VULNERABILITIES** (Not Proven Yet)

@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 
 # SecureStack Pro - One-Command Deployment Script
 # This script deploys the entire SecureStack Pro platform with zero manual configuration
@@ -765,4 +767,10 @@ main() {
 
 # Run main function
 main "$@"
+
+
+
+
+
+
 

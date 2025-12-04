@@ -1,0 +1,14 @@
+{
+  "generated_at": "2025-11-30T20:32:07.953802",
+  "total_discoveries": 0,
+  "total_reports": 0,
+  "estimated_bounty_total": 0,
+  "platforms": [],
+  "severity_breakdown": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "discovered_vulnerabilities": []
+}

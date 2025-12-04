@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Parallel Tasks Guide
 
 While tools are downloading, you can run these tasks in parallel to prepare for scanning and reduce downtime.

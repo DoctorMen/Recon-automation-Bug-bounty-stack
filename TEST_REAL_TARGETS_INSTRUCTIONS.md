@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Test Real Bug Bounty Targets - Instructions
 
 ## ✅ Script Ready!

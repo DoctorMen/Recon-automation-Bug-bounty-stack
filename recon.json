@@ -1,0 +1,35 @@
+{
+  "assets": [
+    {
+      "host": "app.example.com",
+      "type": "web_app",
+      "auth_required": true,
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/{id}",
+          "auth_required": true,
+          "notes": "User profile"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/organizations/{org_id}/members",
+          "auth_required": true,
+          "notes": "Org members"
+        },
+        {
+          "method": "PATCH",
+          "path": "/api/v1/projects/{project_id}",
+          "auth_required": true,
+          "notes": "Update project"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/teams",
+          "auth_required": true,
+          "notes": "List teams (no ID in path)"
+        }
+      ]
+    }
+  ]
+}

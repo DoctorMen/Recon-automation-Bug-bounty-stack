@@ -1,0 +1,265 @@
+{
+  "scan_metadata": {
+    "orchestrator": "Production MCP Orchestrator",
+    "scan_date": "2025-12-01T21:14:07.828241",
+    "total_targets": 4,
+    "total_findings": 13,
+    "total_bounty_potential": 6200.0
+  },
+  "executive_summary": {
+    "high_value_targets": [
+      {
+        "target": "example.com",
+        "finding": "clickjacking",
+        "bounty": 1500.0
+      },
+      {
+        "target": "kiln.fi",
+        "finding": "clickjacking",
+        "bounty": 1500.0
+      },
+      {
+        "target": "kiln.fi",
+        "finding": "content_security_policy",
+        "bounty": 1000.0
+      }
+    ],
+    "critical_findings": [],
+    "submission_readiness": "PRODUCTION_READY"
+  },
+  "target_analysis": {
+    "example.com": {
+      "target": "example.com",
+      "total_findings": 3,
+      "high_value_findings": 1,
+      "estimated_bounty": 1800.0,
+      "findings": [
+        {
+          "vulnerability_type": "clickjacking",
+          "severity": "medium",
+          "confidence": 0.8,
+          "bounty_estimate": 1500.0,
+          "evidence": {
+            "missing_xfo": true,
+            "missing_csp": true
+          },
+          "exploit_potential": 0.6,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        },
+        {
+          "vulnerability_type": "technology_detected",
+          "severity": "info",
+          "confidence": 0.9,
+          "bounty_estimate": 200.0,
+          "evidence": {
+            "technologies": [
+              "nginx",
+              "cloudflare"
+            ]
+          },
+          "exploit_potential": 0.2,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        },
+        {
+          "vulnerability_type": "dns_resolution",
+          "severity": "info",
+          "confidence": 1.0,
+          "bounty_estimate": 100.0,
+          "evidence": {
+            "ips": [
+              "93.184.216.34"
+            ],
+            "count": 1
+          },
+          "exploit_potential": 0.1,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        }
+      ]
+    },
+    "kiln.fi": {
+      "target": "kiln.fi",
+      "total_findings": 6,
+      "high_value_findings": 2,
+      "estimated_bounty": 3600.0,
+      "findings": [
+        {
+          "vulnerability_type": "clickjacking",
+          "severity": "medium",
+          "confidence": 0.9,
+          "bounty_estimate": 1500.0,
+          "evidence": {
+            "missing_header": "x-frame-options",
+            "url": "https://kiln.fi"
+          },
+          "exploit_potential": 0.4,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        },
+        {
+          "vulnerability_type": "content_security_policy",
+          "severity": "medium",
+          "confidence": 0.9,
+          "bounty_estimate": 1000.0,
+          "evidence": {
+            "missing_header": "content-security-policy",
+            "url": "https://kiln.fi"
+          },
+          "exploit_potential": 0.4,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        },
+        {
+          "vulnerability_type": "mime_sniffing",
+          "severity": "medium",
+          "confidence": 0.9,
+          "bounty_estimate": 500.0,
+          "evidence": {
+            "missing_header": "x-content-type-options",
+            "url": "https://kiln.fi"
+          },
+          "exploit_potential": 0.4,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        },
+        {
+          "vulnerability_type": "subdomains_found",
+          "severity": "info",
+          "confidence": 0.9,
+          "bounty_estimate": 300.0,
+          "evidence": {
+            "subdomains": [
+              "www.kiln.fi",
+              "api.kiln.fi"
+            ],
+            "count": 2
+          },
+          "exploit_potential": 0.3,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        },
+        {
+          "vulnerability_type": "technology_detected",
+          "severity": "info",
+          "confidence": 0.8,
+          "bounty_estimate": 200.0,
+          "evidence": {
+            "technologies": [
+              "cloudflare",
+              "php",
+              "docker"
+            ]
+          },
+          "exploit_potential": 0.2,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        },
+        {
+          "vulnerability_type": "dns_resolution",
+          "severity": "info",
+          "confidence": 1.0,
+          "bounty_estimate": 100.0,
+          "evidence": {
+            "ips": [
+              "99.83.190.102",
+              "75.2.70.75"
+            ],
+            "count": 2
+          },
+          "exploit_potential": 0.1,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        }
+      ]
+    },
+    "liquity.org": {
+      "target": "liquity.org",
+      "total_findings": 2,
+      "high_value_findings": 0,
+      "estimated_bounty": 400.0,
+      "findings": [
+        {
+          "vulnerability_type": "subdomains_found",
+          "severity": "info",
+          "confidence": 0.9,
+          "bounty_estimate": 300.0,
+          "evidence": {
+            "subdomains": [
+              "www.liquity.org",
+              "api.liquity.org"
+            ],
+            "count": 2
+          },
+          "exploit_potential": 0.3,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        },
+        {
+          "vulnerability_type": "dns_resolution",
+          "severity": "info",
+          "confidence": 1.0,
+          "bounty_estimate": 100.0,
+          "evidence": {
+            "ips": [
+              "76.223.27.102",
+              "75.2.70.75",
+              "99.83.190.102",
+              "13.248.155.104"
+            ],
+            "count": 4
+          },
+          "exploit_potential": 0.1,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        }
+      ]
+    },
+    "usdai.com": {
+      "target": "usdai.com",
+      "total_findings": 2,
+      "high_value_findings": 0,
+      "estimated_bounty": 400.0,
+      "findings": [
+        {
+          "vulnerability_type": "subdomains_found",
+          "severity": "info",
+          "confidence": 0.9,
+          "bounty_estimate": 300.0,
+          "evidence": {
+            "subdomains": [
+              "www.usdai.com",
+              "api.usdai.com",
+              "admin.usdai.com",
+              "dev.usdai.com",
+              "staging.usdai.com",
+              "test.usdai.com",
+              "blog.usdai.com",
+              "shop.usdai.com"
+            ],
+            "count": 8
+          },
+          "exploit_potential": 0.3,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        },
+        {
+          "vulnerability_type": "dns_resolution",
+          "severity": "info",
+          "confidence": 1.0,
+          "bounty_estimate": 100.0,
+          "evidence": {
+            "ips": [
+              "208.98.40.208"
+            ],
+            "count": 1
+          },
+          "exploit_potential": 0.1,
+          "discovered_by": "MCP Orchestrator",
+          "verification_status": "READY_FOR_TRIAGE"
+        }
+      ]
+    }
+  }
+}

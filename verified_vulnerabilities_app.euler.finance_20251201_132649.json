@@ -1,0 +1,66 @@
+{
+  "target": "https://app.euler.finance",
+  "scan_date": "2025-12-01T13:26:49.368181",
+  "total_findings": 2,
+  "verified_findings": 2,
+  "findings": [
+    {
+      "type": "missing_security_header",
+      "header": "Permissions-Policy",
+      "description": "Feature policy control",
+      "severity": "medium",
+      "target": "https://app.euler.finance",
+      "proof": "Header \"Permissions-Policy\" is missing in response",
+      "response_headers": {
+        "Date": "Mon, 01 Dec 2025 18:26:39 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "CF-Ray": "9a74a2548e1e7e8e-ATL",
+        "CF-Cache-Status": "DYNAMIC",
+        "Access-Control-Allow-Origin": "https://app.safe.global",
+        "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "Server": "cloudflare",
+        "x-xss-protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "Vary": "Accept-Encoding",
+        "Via": "1.1 cce4f085bae54e809d81c3987bfe466e.cloudfront.net (CloudFront)",
+        "content-security-policy": "default-src 'self'; script-src 'unsafe-eval' 'unsafe-inline' 'wasm-unsafe-eval' 'report-sample' https://static.cloudflareinsights.com 'self'; style-src 'unsafe-inline' 'report-sample' 'self'; object-src 'none'; base-uri 'self'; connect-src 'self' https://token-images.euler.finance https://oracle-checks-data.euler.finance https://api.notifi.network/gql wss://api.notifi.network/gql https://data.euler.finance https://api.llama.fi/protocol/euler https://devlb.euler.finance https://base.easscan.org/graphql https://points.euler.finance https://xp.euler.finance https://explorer-api.walletconnect.com https://verify.walletconnect.org https://pulse.walletconnect.org https://chain-proxy.wallet.coinbase.com https://hermes.pyth.network https://oracle-gateway-1.a.redstone.finance https://oracle-gateway-1.a.redstone.vip https://oracle-gateway-2.a.redstone.finance https://arb1.arbitrum.io https://cloudflare-eth.com https://raw.githubusercontent.com/ https://api.redstone.finance/ https://rpc.gobob.xyz/ https://bob-mainnet.public.blastapi.io/ https://explorer.gobob.xyz/ https://swap.euler.finance https://indexer-main.euler.finance https://muddy-multi-dust.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1 https://muddy-multi-dust.bsc.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1 https://muddy-multi-dust.unichain-mainnet.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1 https://skilled-palpable-sun.monad-mainnet.quiknode.pro/d5b2ff5fea8d3b33e42604c1fb3d75cdcb185973 https://muddy-multi-dust.sonic-mainnet.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1 https://rpc.ankr.com/tac/91917bb8e3a5c5f736333312b361027651a18402aeed8685452ac29bde4d6bd4 https://neat-light-mansion.hype-mainnet.quiknode.pro/19bb2e917b698efdb8ab14441035621cfa88219a/evm https://rpc.ankr.com/swell/91917bb8e3a5c5f736333312b361027651a18402aeed8685452ac29bde4d6bd4 https://skilled-palpable-sun.mantle-mainnet.quiknode.pro/d5b2ff5fea8d3b33e42604c1fb3d75cdcb185973 https://muddy-multi-dust.base-mainnet.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1 https://skilled-palpable-sun.plasma-mainnet.quiknode.pro/d5b2ff5fea8d3b33e42604c1fb3d75cdcb185973 https://virtual.mainnet.rpc.tenderly.co/6d6af2a8-fe8c-4e9b-96a1-948a7bae5d0a https://muddy-multi-dust.arbitrum-mainnet.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1 https://muddy-multi-dust.avalanche-mainnet.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1/ext/bc/C/rpc/ https://muddy-multi-dust.ink-mainnet.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1 https://muddy-multi-dust.linea-mainnet.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1 https://bob-mainnet.g.alchemy.com/v2/esRBVzYSDzCo3A55HyVKbfdCDxOHFIlB https://bartio.rpc.berachain.com https://muddy-multi-dust.bera-mainnet.quiknode.pro/62a123e649c9e265678ce409a54081ab67855bf1 https://skilled-palpable-sun.ethereum-sepolia.quiknode.pro/d5b2ff5fea8d3b33e42604c1fb3d75cdcb185973 https://rpc.soniclabs.com/ https://mainnet.unichain.org/ wss://www.walletlink.org wss://relay.walletconnect.com wss://relay.walletconnect.org; font-src 'self' https://fonts.gstatic.com; frame-src 'self' https://verify.walletconnect.org https://verify.walletconnect.com; frame-ancestors 'self' https://app.safe.global; img-src 'self' data: https://token-images.euler.finance https://arbiscan.io https://assets.coingecko.com https://coin-images.coingecko.com https://app.amphor.io https://explorer-api.walletconnect.com https://raw.githubusercontent.com https://tokens.1inch.io https://res.cloudinary.com https://assets.beraborrow.com https://tokens-data.1inch.io https://token-images.euler.finance https://storage.googleapis.com; manifest-src 'self'; media-src 'self'; worker-src 'self' blob:; form-action 'self'; block-all-mixed-content; report-uri https://o1220493.ingest.us.sentry.io/api/4507589356617728/security/?sentry_key=d8a8ef631f6e4676d3ebd04d36957f1a&sentry_environment=prod; report-to default;",
+        "expect-ct": "max-age=86400, enforce",
+        "referrer-policy": "same-origin",
+        "x-amz-cf-id": "VM42IIr9AdR6IW54LJ4t498i5-ozP0ESo1ymrpqdsqrWQiJSlPNFZg==",
+        "x-amz-cf-pop": "ATL59-P7",
+        "x-cache": "Miss from cloudfront",
+        "x-chain-id": "1",
+        "x-content-type-options": "nosniff",
+        "X-Country-Code": "US",
+        "x-frame-options": "SAMEORIGIN",
+        "X-Is-Proxy-Or-VPN": "false",
+        "X-Is-VPN": "false",
+        "x-middleware-rewrite": "/en",
+        "Content-Encoding": "gzip",
+        "Set-Cookie": "NEXT_LOCALE=en; SameSite=Lax; Path=/; Max-Age=31536000; Expires=Tue, 01 Dec 2026 18:26:39 GMT, __cf_bm=2Qwtc8pfS.W.3sV8itTw.RB.1O.xv0J0kDOdD9CcLrY-1764613599.4503233-1.0.1.1-ba8p2k5W.frjQ1JXiFQ4yzDhRcChLE8QZd65pjD1.3ZED92OBZ49MVSJQVLZzT0HS5b9VLMd42uDjmpZl5gRRlxigEHcrmmLg7jDQGub1ua5qwmvx.jVvFwvfe8TTylA; HttpOnly; Secure; Path=/; Domain=euler.finance; Expires=Mon, 01 Dec 2025 18:56:39 GMT"
+      },
+      "timestamp": "2025-12-01T13:26:40.170316",
+      "verified": true,
+      "verification_time": "2025-12-01T13:26:48.954001"
+    },
+    {
+      "type": "cors_misconfiguration",
+      "severity": "medium",
+      "target": "https://app.euler.finance",
+      "proof": "CORS allows origin: https://app.safe.global",
+      "tested_origin": "https://evil.com",
+      "allowed_origin": "https://app.safe.global",
+      "timestamp": "2025-12-01T13:26:43.677623",
+      "verified": true,
+      "verification_time": "2025-12-01T13:26:49.367316"
+    }
+  ],
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 2,
+    "low": 0
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "test_metadata": {
+    "start_time": "2025-12-01T21:50:21.562653",
+    "targets_tested": 4,
+    "methodology": "X-Frame-Options + CSP header analysis",
+    "total_bounty_potential": "$29,500"
+  },
+  "vulnerable_targets": [
+    {
+      "target_name": "VetraFi",
+      "bounty": "$8,000",
+      "domain": "https://vetrafi.com",
+      "vulnerable": true,
+      "security_headers": {
+        "X-Frame-Options": null,
+        "Content-Security-Policy": null,
+        "X-Content-Type-Options": null
+      },
+      "status_code": 200,
+      "test_time": "2025-12-01T21:50:23.760434"
+    },
+    {
+      "target_name": "VetraFi",
+      "bounty": "$8,000",
+      "domain": "https://app.vetrafi.com",
+      "vulnerable": true,
+      "security_headers": {
+        "X-Frame-Options": null,
+        "Content-Security-Policy": null,
+        "X-Content-Type-Options": null
+      },
+      "status_code": 200,
+      "test_time": "2025-12-01T21:50:24.143204"
+    }
+  ],
+  "protected_targets": [
+    {
+      "target_name": "Alchemy",
+      "bounty": "$10,000",
+      "domain": "https://dashboard.alchemy.com",
+      "vulnerable": false,
+      "security_headers": {
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": null,
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 200,
+      "test_time": "2025-12-01T21:50:21.784996"
+    },
+    {
+      "target_name": "Alchemy",
+      "bounty": "$10,000",
+      "domain": "https://www.alchemy.com",
+      "vulnerable": false,
+      "security_headers": {
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": null,
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 200,
+      "test_time": "2025-12-01T21:50:22.035876"
+    }
+  ],
+  "test_results": [
+    {
+      "target_name": "Alchemy",
+      "bounty": "$10,000",
+      "domain": "https://dashboard.alchemy.com",
+      "vulnerable": false,
+      "security_headers": {
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": null,
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 200,
+      "test_time": "2025-12-01T21:50:21.784996"
+    },
+    {
+      "target_name": "Alchemy",
+      "bounty": "$10,000",
+      "domain": "https://www.alchemy.com",
+      "vulnerable": false,
+      "security_headers": {
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": null,
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 200,
+      "test_time": "2025-12-01T21:50:22.035876"
+    },
+    {
+      "target_name": "Deri Protocol",
+      "bounty": "$10,000",
+      "domain": "https://deri.finance",
+      "vulnerable": false,
+      "error": "HTTPSConnectionPool(host='deri.finance', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7152ae7c6570>: Failed to resolve 'deri.finance' ([Errno -5] No address associated with hostname)\"))",
+      "test_time": "2025-12-01T21:50:23.126283"
+    },
+    {
+      "target_name": "Deri Protocol",
+      "bounty": "$10,000",
+      "domain": "https://app.deri.finance",
+      "vulnerable": false,
+      "error": "HTTPSConnectionPool(host='app.deri.finance', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7152ae7c7e60>: Failed to resolve 'app.deri.finance' ([Errno -2] Name or service not known)\"))",
+      "test_time": "2025-12-01T21:50:23.242362"
+    },
+    {
+      "target_name": "VetraFi",
+      "bounty": "$8,000",
+      "domain": "https://vetrafi.com",
+      "vulnerable": true,
+      "security_headers": {
+        "X-Frame-Options": null,
+        "Content-Security-Policy": null,
+        "X-Content-Type-Options": null
+      },
+      "status_code": 200,
+      "test_time": "2025-12-01T21:50:23.760434"
+    },
+    {
+      "target_name": "VetraFi",
+      "bounty": "$8,000",
+      "domain": "https://app.vetrafi.com",
+      "vulnerable": true,
+      "security_headers": {
+        "X-Frame-Options": null,
+        "Content-Security-Policy": null,
+        "X-Content-Type-Options": null
+      },
+      "status_code": 200,
+      "test_time": "2025-12-01T21:50:24.143204"
+    },
+    {
+      "target_name": "CircuitDAO",
+      "bounty": "$1,500",
+      "domain": "https://circuitdao.org",
+      "vulnerable": false,
+      "error": "HTTPSConnectionPool(host='circuitdao.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7152ae7f0440>: Failed to resolve 'circuitdao.org' ([Errno -2] Name or service not known)\"))",
+      "test_time": "2025-12-01T21:50:24.186889"
+    },
+    {
+      "target_name": "CircuitDAO",
+      "bounty": "$1,500",
+      "domain": "https://app.circuitdao.org",
+      "vulnerable": false,
+      "error": "HTTPSConnectionPool(host='app.circuitdao.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7152ae7f0b60>: Failed to resolve 'app.circuitdao.org' ([Errno -2] Name or service not known)\"))",
+      "test_time": "2025-12-01T21:50:24.255068"
+    }
+  ],
+  "summary": {
+    "total_tested": 4,
+    "domains_tested": 8,
+    "vulnerable_count": 2,
+    "protected_count": 2,
+    "vulnerability_rate": "25.0%",
+    "potential_bounty": 16000,
+    "test_duration": "0:00:02.692518"
+  }
+}

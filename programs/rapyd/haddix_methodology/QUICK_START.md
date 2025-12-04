@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Quick Start Guide - Jason Haddix Methodology
 
 ## âœ… System Status: READY

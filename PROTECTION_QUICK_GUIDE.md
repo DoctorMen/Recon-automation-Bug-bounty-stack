@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🔒 Quick Guide: Set Your Name for Copyright
 
 ## Option 1: Edit the Script (Recommended)

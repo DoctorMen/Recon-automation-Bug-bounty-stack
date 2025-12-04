@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+ParallelProfit™ Mobile App Designs - iPhone & Android
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParallelProfit™ - Mobile App Designs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+        }
+        
+        .phones-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        
+        .phone-wrapper {
+            text-align: center;
+        }
+        
+        .phone-label {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            background: #1a1a1a;
+            border-radius: 50px;
+            padding: 12px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        
+        .phone-frame.android {
+            border-radius: 40px;
+        }
+        
+        .phone-notch {
+            width: 200px;
+            height: 30px;
+            background: #1a1a1a;
+            border-radius: 0 0 20px 20px;
+            margin: 0 auto;
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 42px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .phone-frame.android .phone-screen {
+            border-radius: 32px;
+        }
+        
+        /* App UI Styles */
+        .app-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+        
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .app-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: white;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+        
+        .menu-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .menu-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .menu-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .menu-count {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0 25px;
+        }
+        
+        .nav-item {
+            text-align: center;
+            color: #999;
+            font-size: 0.7rem;
+        }
+        
+        .nav-item.active {
+            color: #667eea;
+        }
+        
+        .nav-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .activity-feed {
+            padding: 20px;
+        }
+        
+        .activity-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 3px;
+        }
+        
+        .activity-time {
+            font-size: 0.7rem;
+            color: #999;
+        }
+        
+        .fab-button {
+            position: absolute;
+            bottom: 90px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .comparison-title {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .comparison-list {
+            list-style: none;
+        }
+        
+        .comparison-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        
+        .comparison-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 ParallelProfit™ Mobile Apps</h1>
+        <p class="subtitle">Native iOS & Android Designs</p>
+        
+        <!-- Phone Mockups -->
+        <div class="phones-container">
+            <!-- iPhone Design -->
+            <div class="phone-wrapper">
+                <div class="phone-label">🍎 iPhone (iOS)</div>
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <!-- App Header -->
+                        <div class="app-header">
+                            <div class="app-title">ParallelProfit™</div>
+                            <div class="app-subtitle">Money-Making Dashboard</div>
+                        </div>
+                        
+                        <!-- Stats Row -->
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-number">10</div>
+                                <div class="stat-label">JOBS APPLIED</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">3</div>
+                                <div class="stat-label">JOBS WON</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">$900</div>
+                                <div class="stat-label">REVENUE</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu Grid -->
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <div class="menu-icon">🔍</div>
+                                <div class="menu-label">Discover Jobs</div>
+                                <div class="menu-count">4 platforms</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-icon">📝</div>
+                                <div class="menu-label">Proposals</div>
+                                <div class="menu-count">20 generated</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-icon">⚡</div>
+                                <div class="menu-label">Scan Client</div>
+                                <div class="menu-count">2 hours</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-icon">📊</div>
+                                <div class="menu-label">Analytics</div>
+                                <div class="menu-count">30% win rate</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity Feed -->
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon">✅</div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Job Won: Security Scan</div>
+                                    <div class="activity-time">2 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">📤</div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Proposal Sent to Upwork</div>
+                                    <div class="activity-time">4 hours ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAB Button -->
+                        <div class="fab-button">+</div>
+                        
+                        <!-- Bottom Navigation -->
+                        <div class="bottom-nav">
+                            <div class="nav-item active">
+                                <div class="nav-icon">🏠</div>
+                                <div>Home</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📋</div>
+                                <div>Jobs</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">💰</div>
+                                <div>Revenue</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">⚙️</div>
+                                <div>Settings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Android Design -->
+            <div class="phone-wrapper">
+                <div class="phone-label">🤖 Android</div>
+                <div class="phone-frame android">
+                    <div class="phone-screen">
+                        <!-- App Header -->
+                        <div class="app-header">
+                            <div class="app-title">ParallelProfit™</div>
+                            <div class="app-subtitle">Money-Making Dashboard</div>
+                        </div>
+                        
+                        <!-- Stats Row -->
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-number">10</div>
+                                <div class="stat-label">JOBS APPLIED</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">3</div>
+                                <div class="stat-label">JOBS WON</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">$900</div>
+                                <div class="stat-label">REVENUE</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Menu Grid -->
+                        <div class="menu-grid">
+                            <div class="menu-item">
+                                <div class="menu-icon">🔍</div>
+                                <div class="menu-label">Discover Jobs</div>
+                                <div class="menu-count">4 platforms</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-icon">📝</div>
+                                <div class="menu-label">Proposals</div>
+                                <div class="menu-count">20 generated</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-icon">⚡</div>
+                                <div class="menu-label">Scan Client</div>
+                                <div class="menu-count">2 hours</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-icon">📊</div>
+                                <div class="menu-label">Analytics</div>
+                                <div class="menu-count">30% win rate</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity Feed -->
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon">✅</div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Job Won: Security Scan</div>
+                                    <div class="activity-time">2 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">📤</div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Proposal Sent to Upwork</div>
+                                    <div class="activity-time">4 hours ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAB Button -->
+                        <div class="fab-button">+</div>
+                        
+                        <!-- Bottom Navigation -->
+                        <div class="bottom-nav">
+                            <div class="nav-item active">
+                                <div class="nav-icon">🏠</div>
+                                <div>Home</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">📋</div>
+                                <div>Jobs</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">💰</div>
+                                <div>Revenue</div>
+                            </div>
+                            <div class="nav-item">
+                                <div class="nav-icon">⚙️</div>
+                                <div>Settings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comparison Section -->
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <h3 class="comparison-title">🍎 iPhone Features</h3>
+                <ul class="comparison-list">
+                    <li>✅ Native iOS design language</li>
+                    <li>✅ Face ID / Touch ID integration</li>
+                    <li>✅ Apple Pay for subscriptions</li>
+                    <li>✅ iCloud sync</li>
+                    <li>✅ Siri shortcuts</li>
+                    <li>✅ Apple Watch companion app</li>
+                    <li>✅ Dark mode support</li>
+                    <li>✅ Haptic feedback</li>
+                    <li>✅ Push notifications</li>
+                    <li>✅ Widget support</li>
+                </ul>
+            </div>
+            
+            <div class="comparison-card">
+                <h3 class="comparison-title">🤖 Android Features</h3>
+                <ul class="comparison-list">
+                    <li>✅ Material Design 3</li>
+                    <li>✅ Fingerprint authentication</li>
+                    <li>✅ Google Pay integration</li>
+                    <li>✅ Google Drive sync</li>
+                    <li>✅ Google Assistant actions</li>
+                    <li>✅ Wear OS companion app</li>
+                    <li>✅ Dynamic theming</li>
+                    <li>✅ Adaptive icons</li>
+                    <li>✅ Rich notifications</li>
+                    <li>✅ Home screen widgets</li>
+                </ul>
+            </div>
+            
+            <div class="comparison-card">
+                <h3 class="comparison-title">📱 Shared Features</h3>
+                <ul class="comparison-list">
+                    <li>✅ Real-time job discovery</li>
+                    <li>✅ AI proposal generation</li>
+                    <li>✅ One-tap application</li>
+                    <li>✅ Revenue tracking</li>
+                    <li>✅ Analytics dashboard</li>
+                    <li>✅ Client management</li>
+                    <li>✅ Scan scheduling</li>
+                    <li>✅ Report generation</li>
+                    <li>✅ Offline mode</li>
+                    <li>✅ Multi-platform sync</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

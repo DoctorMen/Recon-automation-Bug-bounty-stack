@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Recon-Automation Bug Bounty Stack — Onboarding Notes
 
 ## Purpose

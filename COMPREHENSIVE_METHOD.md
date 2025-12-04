@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🎯 Comprehensive Bug Bounty Method v2.0
 
 ## 📚 Unified Method Integrating All PDF Knowledge

@@ -1,0 +1,211 @@
+{
+  "safe_targets": {
+    "description": "Non-critical bug bounty targets safe for testing",
+    "owner": "Khallid Hakeem Nurse",
+    "last_updated": "2025-11-05",
+    "risk_level": "low",
+    
+    "categories": {
+      "test_environments": [
+        "demo.hackerone.com",
+        "staging.example.com",
+        "test.example.com",
+        "sandbox.example.com",
+        "dev.example.com"
+      ],
+      
+      "public_marketing": [
+        "blog.example.com",
+        "www.example.com",
+        "marketing.example.com",
+        "about.example.com",
+        "careers.example.com"
+      ],
+      
+      "documentation": [
+        "docs.example.com",
+        "help.example.com",
+        "support.example.com",
+        "api-docs.example.com"
+      ],
+      
+      "ctf_platforms": [
+        "ctf.hacker101.com",
+        "hackerone.com/hacker101",
+        "playground.bugcrowd.com"
+      ]
+    },
+    
+    "avoid_critical": {
+      "payment_systems": [
+        "pay.*",
+        "payment.*",
+        "billing.*",
+        "checkout.*"
+      ],
+      
+      "authentication": [
+        "auth.*",
+        "login.*",
+        "sso.*",
+        "oauth.*"
+      ],
+      
+      "production_data": [
+        "api.* (if handles real data)",
+        "data.*",
+        "db.*",
+        "database.*"
+      ],
+      
+      "admin_systems": [
+        "admin.*",
+        "internal.*",
+        "ops.*",
+        "production.*"
+      ],
+      
+      "regulated_sectors": [
+        "healthcare systems",
+        "financial systems",
+        "government systems",
+        "critical infrastructure"
+      ]
+    },
+    
+    "program_guidelines": {
+      "shopify": {
+        "safe": [
+          "*.myshopify.com (test stores only)",
+          "partners-sandbox.shopify.com"
+        ],
+        "avoid": [
+          "admin.shopify.com",
+          "payments.shopify.com",
+          "Production merchant stores"
+        ]
+      },
+      
+      "github": {
+        "safe": [
+          "github.com (public repos)",
+          "gist.github.com",
+          "github.community"
+        ],
+        "avoid": [
+          "api.github.com (with real user tokens)",
+          "github.com/settings (other users)",
+          "github.com/organizations (other orgs)"
+        ]
+      },
+      
+      "stripe": {
+        "safe": [
+          "Test mode API keys only",
+          "stripe.com/docs",
+          "dashboard.stripe.com (test mode)"
+        ],
+        "avoid": [
+          "Live mode API keys",
+          "Real payment processing",
+          "Customer payment data"
+        ]
+      }
+    },
+    
+    "testing_rules": {
+      "rule_1": "Only test targets explicitly listed in program scope",
+      "rule_2": "Prefer test/staging/sandbox environments",
+      "rule_3": "Never test production payment systems",
+      "rule_4": "Never access real user data",
+      "rule_5": "If in doubt, ask program team first",
+      "rule_6": "Stop immediately if you affect real users",
+      "rule_7": "Use test accounts, never real accounts",
+      "rule_8": "Minimal impact testing only",
+      "rule_9": "Document everything for transparency",
+      "rule_10": "When unsure, err on side of caution"
+    },
+    
+    "risk_assessment": {
+      "low_risk": {
+        "description": "Safe to test without additional approval",
+        "examples": [
+          "Public marketing pages",
+          "Test environments explicitly marked",
+          "CTF/playground environments",
+          "Documentation sites"
+        ],
+        "impact": "Minimal - no real users or data affected"
+      },
+      
+      "medium_risk": {
+        "description": "Test cautiously, minimal impact only",
+        "examples": [
+          "Public APIs (read-only)",
+          "Community forums",
+          "Developer portals",
+          "Public search features"
+        ],
+        "impact": "Low - some users may be affected temporarily",
+        "recommendation": "Use test accounts, minimal traffic"
+      },
+      
+      "high_risk": {
+        "description": "AVOID unless explicit approval from program",
+        "examples": [
+          "Production databases",
+          "Payment systems",
+          "Authentication services",
+          "Admin panels",
+          "Internal tools"
+        ],
+        "impact": "High - real users and business operations affected",
+        "recommendation": "DO NOT TEST - get explicit written approval first"
+      }
+    },
+    
+    "recommended_programs": {
+      "beginner_safe": [
+        {
+          "name": "Hacker101 CTF",
+          "url": "ctf.hacker101.com",
+          "reason": "Designed for testing, zero risk",
+          "critical_systems": "None - all test infrastructure"
+        },
+        {
+          "name": "HackerOne H1-702 (Test Program)",
+          "url": "hackerone.com/h1-702-2018",
+          "reason": "Test program, safe to break",
+          "critical_systems": "None - intentionally vulnerable"
+        }
+      ],
+      
+      "intermediate_safe": [
+        {
+          "name": "Shopify (Test Stores Only)",
+          "url": "hackerone.com/shopify",
+          "reason": "Create own test stores",
+          "critical_systems": "Avoid: production merchant stores, payments",
+          "safe_areas": "Your own test stores, sandbox environment"
+        },
+        {
+          "name": "GitHub (Public Repos)",
+          "url": "bounty.github.com",
+          "reason": "Test on own repos",
+          "critical_systems": "Avoid: other users' private data",
+          "safe_areas": "Public features, own test repos"
+        }
+      ]
+    },
+    
+    "pre_test_verification": {
+      "step_1": "Read program policy completely",
+      "step_2": "Identify out-of-scope targets (usually listed)",
+      "step_3": "Check for 'critical infrastructure' warnings",
+      "step_4": "Look for 'test environment' recommendations",
+      "step_5": "When in doubt, ask in program comments",
+      "step_6": "Start with lowest-risk targets first",
+      "step_7": "Escalate gradually as you gain confidence"
+    }
+  }
+}

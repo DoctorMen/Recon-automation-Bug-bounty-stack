@@ -1,0 +1,3205 @@
+{
+  "review_timestamp": "2025-12-01T08:52:05.042114",
+  "total_findings": 193,
+  "total_errors": 200,
+  "total_fixes": 181,
+  "total_enhancements": 303,
+  "findings": [
+    {
+      "report_file": ".ai-training\\FINAL_DEPLOYMENT_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "COMPLETE",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "1inch_bug_report.md",
+      "target": "Unknown",
+      "vulnerability_type": "Unknown",
+      "severity": "**",
+      "status": "Unknown",
+      "errors_found": [
+        "invalid_cwe",
+        "invalid_cwe"
+      ],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "APPLE_REPORT_UPLOAD.md",
+      "target": "apple.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "BACKEND_OPTIMIZATION_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "BLACKHOLE_VERIFICATION_REPORT.md",
+      "target": "github.com",
+      "vulnerability_type": "IDOR",
+      "severity": "Unknown",
+      "status": "TEST",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "BLACKHOLE_VERIFIED_FINDINGS.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "VERIFIED",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$600-$2,400"
+    },
+    {
+      "report_file": "BROWSER_COMPATIBILITY_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence"
+      ],
+      "fixes_applied": [
+        "Added evidence section"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$600-$2,400"
+    },
+    {
+      "report_file": "BUGFIX_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence"
+      ],
+      "fixes_applied": [
+        "Added evidence section"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$600-$2,400"
+    },
+    {
+      "report_file": "COREBRIDGE_FINANCIAL_SECURITY_MISCONFIGURATION_REPORT.md",
+      "target": "agentportal.live.web.corebridgefinancial.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "FANDUEL_VDP_SECURITY_HEADERS_VULNERABILITY_REPORT.md",
+      "target": "fanduel.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "GOOGLE_REPORT_UPLOAD.md",
+      "target": "google.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "IP_VALUATION_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$600-$2,400"
+    },
+    {
+      "report_file": "MICROSOFT_REPORT_UPLOAD.md",
+      "target": "microsoft.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "MILLION_DOLLAR_FINDINGS_SUMMARY.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "NETFLIX_REPORT_UPLOAD.md",
+      "target": "netflix.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "OPPO_BBP_SECURITY_HEADERS_VULNERABILITY_REPORT.md",
+      "target": "gcsm.oppoit.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "OPPO_RESPONSIBLE_DISCLOSURE_REPORT.md",
+      "target": "www.oppo.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence"
+      ],
+      "fixes_applied": [
+        "Added evidence section"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "PHASE1_ASSESSMENT_REPORT.md",
+      "target": "security-audit-links.s3.us-east-1.amazonaws.com",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "Assessment",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$600-$2,400"
+    },
+    {
+      "report_file": "SCAN_STATUS_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**BLOCKED**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "SYSTEM_UPDATE_REPORT.md",
+      "target": "parallelprofit.com",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "TESLA_REPORT_UPLOAD.md",
+      "target": "spacex.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "TOMTOM_CLICKJACKING_VULNERABILITY_REPORT.md",
+      "target": "tomtom.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "Unknown",
+      "errors_found": [
+        "incomplete_remediation",
+        "invalid_cwe",
+        "invalid_cwe",
+        "invalid_cwe"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "TOMTOM_GUARANTEED_VALIDATION_REPORT.md",
+      "target": "tomtom.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation",
+        "invalid_cwe",
+        "invalid_cwe",
+        "invalid_cwe",
+        "invalid_cwe"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "UPWORK_TOS_FINDINGS.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "VECTRA_AI_DISCOVERY_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation",
+        "invalid_cwe",
+        "invalid_cwe",
+        "invalid_cwe"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,450-$5,800"
+    },
+    {
+      "report_file": "VECTRA_AI_SECURITY_HEADERS_VULNERABILITY_REPORT.md",
+      "target": "vpn.vectranetworks.com",
+      "vulnerability_type": "Missing security headers",
+      "severity": "**",
+      "status": "Unknown",
+      "errors_found": [
+        "incomplete_remediation",
+        "invalid_cwe",
+        "invalid_cwe",
+        "invalid_cwe",
+        "invalid_cwe"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$600-$2,400"
+    },
+    {
+      "report_file": "ai\\ai-vulnerability-hunting-series.md",
+      "target": "api.example.com",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$600-$2,400"
+    },
+    {
+      "report_file": "coinscope_ssl_report.md",
+      "target": "api.coinscope.com",
+      "vulnerability_type": "Unknown",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "invalid_cwe",
+        "invalid_cwe"
+      ],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "enhanced_submissions\\example-bank.com_login_20251201_081053\\main_submission_report.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "exploitation_analysis_20251201_083634\\exploitation_analysis_report.md",
+      "target": "example.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [
+        "missing_evidence",
+        "missing_poc",
+        "theoretical_claims"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added proof of concept",
+        "Validated theoretical claims"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$800-$3,200"
+    },
+    {
+      "report_file": "gitlab_cors_professional_report.md",
+      "target": "gitlab.com",
+      "vulnerability_type": "Unknown",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "gumroad_products\\product_2_upwork_system\\UPWORK_TOS_FINDINGS.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "nitro\\.github\\ISSUE_TEMPLATE\\bug_report.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "node_modules\\.pnpm\\amqplib@0.10.6\\node_modules\\amqplib\\.github\\ISSUE_TEMPLATE\\bug_report.md",
+      "target": "github.com",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "node_modules\\amqplib\\.github\\ISSUE_TEMPLATE\\bug_report.md",
+      "target": "github.com",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "notification_system\\agent3_security\\security_audit_report.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_001_reentrancy.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_002_flash_loan_attack.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_003_price_manipulation.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_004_access_control.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_005_integer_overflow.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_006_front_running.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_007_token_approval.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_008_liquidity_pool_exploit.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_009_router_vulnerability.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_010_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_011_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_012_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_013_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_014_api_idor.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "idor",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_015_api_idor_put.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "idor",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_016_api_idor_patch.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "idor",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_017_api_idor_delete.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "idor",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_018_api_mass_assignment.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_019_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_020_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_021_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_022_api_jwt_manipulation.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_023_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_024_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_025_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_026_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_027_api_idor.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "idor",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_028_api_idor_put.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "idor",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_029_api_idor_patch.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "idor",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_030_api_idor_delete.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "idor",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_031_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_032_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_033_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_034_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_035_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_036_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_037_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_038_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_039_api_rate_limit_bypass.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_040_api_graphql_introspection.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\blackhole_code4rena\\reports\\finding_041_api_graphql_query_complexity.md",
+      "target": "code4rena.com",
+      "vulnerability_type": "Unknown",
+      "severity": "Unknown",
+      "status": "Unknown",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$500-$2,000"
+    },
+    {
+      "report_file": "output\\master_integration\\integration_report.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "\u2705",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "output\\workflow_logs\\status_report_20251105_000916.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "pentest_reports_9c80c807\\penetration_test_report.md",
+      "target": "example.com",
+      "vulnerability_type": "Missing security headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "pentest_reports_c9c41e01\\penetration_test_report.md",
+      "target": "example.com",
+      "vulnerability_type": "Missing security headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "professional_reports\\bug_bounty_reputation_report_tomtom_com_20251130_203257.md",
+      "target": "tomtom.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "professional_reports\\bug_bounty_reputation_report_tomtomgroup_com_20251130_203257.md",
+      "target": "tomtomgroup.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "professional_reports\\bug_bounty_reputation_report_vectra_ai_20251130_203257.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "programs\\bolt\\REAL_VULNERABILITY_CHECK.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\API_SCRIPTS_READY.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\BROWSER_CAPTURE_HELPER.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\BROWSER_EVIDENCE_WORKFLOW.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\BROWSER_SNAPSHOT.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\BUGCROWD_SUBMISSION_FORM.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,250-$5,000"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\BUG_REPORT_SUMMARY.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,250-$5,000"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\COMPLETE_IDOR_EVIDENCE_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\COMPLETE_SETUP_SUMMARY.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\ENHANCED_IDOR_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\EVIDENCE_CAPTURE_GUIDE.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "200",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\EXACT_ENDPOINT_PATH.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\EXACT_ENDPOINT_PATHS.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\FINAL_BUG_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\FINDINGS_LOG.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "Testing",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\FIX_400_ERROR.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence"
+      ],
+      "fixes_applied": [
+        "Added evidence section"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$600-$2,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\IDEMPOTENT_SUMMARY.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\IDEMPOTENT_TESTING_GUIDE.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\IDOR_COMPLETE_EVIDENCE.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\IDOR_TESTING_COMPLETE.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\IDOR_TEST_RESULTS.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\IMPROVEMENT_SUMMARY.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\MANUAL_IDOR_TEST.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\MANUAL_IDOR_TESTING.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\MANUAL_IDOR_TEST_COMPLETE.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\NETWORK_REQUESTS_FOUND.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\PAYMENT_PROBABILITY_ANALYSIS.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\PROOF_STATUS_ASSESSMENT.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\QUICK_CHECKLIST.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\QUICK_IDOR_TEST.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\QUICK_START.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence"
+      ],
+      "fixes_applied": [
+        "Added evidence section"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$600-$2,400"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\README_SUBMISSION.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\SUBMISSION_READY_REPORT.md",
+      "target": "Unknown",
+      "vulnerability_type": "IDOR",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [],
+      "fixes_applied": [],
+      "further_exploitation": [
+        "automation_potential - Script mass data extraction",
+        "business_impact - Calculate financial data exposure",
+        "persistence_mechanisms - Maintain access through multiple accounts"
+      ],
+      "enhanced_bounty_potential": "$1,250-$5,000"
+    },
+    {
+      "report_file": "programs\\rapyd\\findings\\TESTING_INSTRUCTIONS.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_ADOBE_XD_adobe_com_20251130_204327.md",
+      "target": "adobe.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_ADOBE_XD_adobe_io_20251130_204327.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_ADOBE_adobe_com_20251130_204326.md",
+      "target": "adobe.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_ADOBE_creativecloud_com_20251130_204326.md",
+      "target": "creativecloud.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_ADOBE_documentcloud_com_20251130_204326.md",
+      "target": "documentcloud.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_AIRBNB_airbnb_co_uk_20251130_204326.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_AIRBNB_airbnb_com_20251130_204326.md",
+      "target": "airbnb.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_APPLE_apple_com_20251130_204326.md",
+      "target": "apple.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_APPLE_appstore_com_20251130_204326.md",
+      "target": "appstore.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_APPLE_icloud_com_20251130_204326.md",
+      "target": "icloud.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_BIGCOMMERCE_bigcommerce_com_20251130_204327.md",
+      "target": "bigcommerce.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_BINANCE_binance_us_20251130_204326.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_CLOUDFLARE_cloudflare_com_20251130_204327.md",
+      "target": "cloudflare.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_DIGITALOCEAN_digitalocean_com_20251130_204327.md",
+      "target": "digitalocean.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_DIGITALOCEAN_do_co_20251130_204327.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_DISCORD_discord_com_20251130_204326.md",
+      "target": "discord.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_DISCORD_discordapp_com_20251130_204326.md",
+      "target": "discordapp.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_DOORDASH_caviar_com_20251130_204326.md",
+      "target": "caviar.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_DROPBOX_dropbox_com_20251130_204326.md",
+      "target": "dropbox.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_DROPBOX_paper_dropbox_com_20251130_204326.md",
+      "target": "paper.dropbox.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_FIGMA_figma_com_20251130_204327.md",
+      "target": "figma.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_Framer_framer_com_20251130_204327.md",
+      "target": "framer.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_Framer_framerusercontent_com_20251130_204327.md",
+      "target": "framerusercontent.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_GITHUB_gist_github_com_20251130_204326.md",
+      "target": "gist.github.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_GITHUB_github_com_20251130_204326.md",
+      "target": "github.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_GODADDY_secureserver_net_20251130_204327.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation",
+        "invalid_cwe"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_GOOGLE_gmail_com_20251130_204326.md",
+      "target": "gmail.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_GOOGLE_google_com_20251130_204326.md",
+      "target": "google.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_GOOGLE_youtube_com_20251130_204326.md",
+      "target": "youtube.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_INSTACART_instacart_com_20251130_204326.md",
+      "target": "instacart.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_INVISION_invisionapp_com_20251130_204327.md",
+      "target": "invisionapp.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_LINKEDIN_linkedin_com_20251130_204326.md",
+      "target": "linkedin.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_LINODE_linode_com_20251130_204327.md",
+      "target": "linode.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_META_facebook_com_20251130_204326.md",
+      "target": "facebook.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_META_instagram_com_20251130_204326.md",
+      "target": "instagram.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_META_whatsapp_com_20251130_204326.md",
+      "target": "whatsapp.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_MICROSOFT_azure_com_20251130_204326.md",
+      "target": "azure.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_MICROSOFT_linkedin_com_20251130_204326.md",
+      "target": "linkedin.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_MICROSOFT_microsoft_com_20251130_204326.md",
+      "target": "microsoft.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_MICROSOFT_office_com_20251130_204326.md",
+      "target": "office.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_NETFLIX_netflix_com_20251130_204326.md",
+      "target": "netflix.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_NETFLIX_nflxvideo_net_20251130_204326.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_PAYPAL_paypal_com_20251130_204326.md",
+      "target": "paypal.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_REDDIT_redd_it_20251130_204326.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_REDDIT_reddit_com_20251130_204326.md",
+      "target": "reddit.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_ROBINHOOD_robinhood_com_20251130_204326.md",
+      "target": "robinhood.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SALESFORCE_salesforce_com_20251130_204326.md",
+      "target": "salesforce.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SALESFORCE_slack_com_20251130_204326.md",
+      "target": "slack.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SHOPIFY_shopify_com_20251130_204327.md",
+      "target": "shopify.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SKETCH_sketch_com_20251130_204327.md",
+      "target": "sketch.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SLACK_slack_com_20251130_204326.md",
+      "target": "slack.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SPOTIFY_spotify_com_20251130_204326.md",
+      "target": "spotify.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SQUARESPACE_squarespace_com_20251130_204327.md",
+      "target": "squarespace.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SQUARE_square_com_20251130_204326.md",
+      "target": "square.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SQUARE_squareup_com_20251130_204326.md",
+      "target": "squareup.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_SQUARE_squareup_com_20251130_204327.md",
+      "target": "squareup.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_STRIPE_stripe_com_20251130_204326.md",
+      "target": "stripe.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_STRIPE_stripe_me_20251130_204326.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_TESLA_spacex_com_20251130_204326.md",
+      "target": "spacex.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_TWILIO_twil_io_20251130_204327.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_TWILIO_twilio_com_20251130_204327.md",
+      "target": "twilio.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_TWITTER_twitter_com_20251130_204326.md",
+      "target": "twitter.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_TWITTER_x_com_20251130_204326.md",
+      "target": "x.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_VULTR_vultr_com_20251130_204327.md",
+      "target": "vultr.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_WEBFLOW_webflow_com_20251130_204327.md",
+      "target": "webflow.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_WEBFLOW_webflow_io_20251130_204327.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_WIX_wix_com_20251130_204327.md",
+      "target": "wix.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_WOOCOMMERCE_woocommerce_com_20251130_204327.md",
+      "target": "woocommerce.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_WOOCOMMERCE_woothemes_com_20251130_204327.md",
+      "target": "woothemes.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_ZOOM_zoom_com_20251130_204326.md",
+      "target": "zoom.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_bounty_report_HACKERONE_ZOOM_zoom_us_20251130_204326.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_reputation_report_SCOPES_tomtom_com_20251130_204326.md",
+      "target": "tomtom.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_reputation_report_SCOPES_tomtomgroup_com_20251130_204326.md",
+      "target": "tomtomgroup.com",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "scaling_reports\\massive_reputation_report_SCOPES_vectra_ai_20251130_204326.md",
+      "target": "Unknown",
+      "vulnerability_type": "Missing Security Headers",
+      "severity": "**",
+      "status": "**",
+      "errors_found": [
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [
+        "attack_chaining - Combine with XSS for full compromise",
+        "business_impact - Quantify customer data exposure",
+        "mass_compromise - Scale to all platform users"
+      ],
+      "enhanced_bounty_potential": "$1,350-$5,400"
+    },
+    {
+      "report_file": "v4-core\\lib\\openzeppelin-contracts\\.github\\ISSUE_TEMPLATE\\bug_report.md",
+      "target": "forum.openzeppelin.com",
+      "vulnerability_type": "Missing security headers",
+      "severity": "Unknown",
+      "status": "**",
+      "errors_found": [
+        "missing_evidence",
+        "incomplete_remediation"
+      ],
+      "fixes_applied": [
+        "Added evidence section",
+        "Added remediation guidance"
+      ],
+      "further_exploitation": [],
+      "enhanced_bounty_potential": "$700-$2,800"
+    }
+  ]
+}

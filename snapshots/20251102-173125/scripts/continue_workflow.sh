@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Continue Workflow - Prioritize and Test Discovered Endpoints
 
 set -euo pipefail

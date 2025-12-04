@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 set -euo pipefail
 
 OUT_ROOT="env/staging/output/$(date +%Y%m%d-%H%M%S)"

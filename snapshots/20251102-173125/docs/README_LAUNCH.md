@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Same‑Day Security Surface Check — Launch Guide
 
 1) Replace placeholders

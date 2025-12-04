@@ -1,0 +1,231 @@
+{
+  "seed_target": "example.com",
+  "timestamp": "2025-12-01T20:39:32.249940",
+  "max_degree": 2,
+  "statistics": {
+    "total_nodes": 7,
+    "total_edges": 6,
+    "nodes_by_type": {
+      "domain": 1,
+      "ip_address": 6
+    },
+    "nodes_by_degree": {
+      "0": 1,
+      "1": 6
+    },
+    "explored": 7,
+    "unexplored": 0,
+    "in_scope": 1,
+    "out_of_scope": 6,
+    "vulnerabilities_found": 4
+  },
+  "findings": [
+    {
+      "type": "missing_security_header",
+      "header": "x-frame-options",
+      "purpose": "Clickjacking Protection",
+      "severity": "medium",
+      "target": "example.com",
+      "evidence": "Header 'x-frame-options' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "x-content-type-options",
+      "purpose": "MIME Sniffing Protection",
+      "severity": "low",
+      "target": "example.com",
+      "evidence": "Header 'x-content-type-options' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "content-security-policy",
+      "purpose": "XSS Protection",
+      "severity": "medium",
+      "target": "example.com",
+      "evidence": "Header 'content-security-policy' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "strict-transport-security",
+      "purpose": "HTTPS Enforcement",
+      "severity": "medium",
+      "target": "example.com",
+      "evidence": "Header 'strict-transport-security' not found in HTTP response"
+    }
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "5ababd603b22",
+        "type": "domain",
+        "value": "example.com",
+        "degree": 0,
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.768744",
+        "explored": true,
+        "in_scope": true,
+        "findings": [
+          {
+            "type": "missing_security_header",
+            "header": "x-frame-options",
+            "purpose": "Clickjacking Protection",
+            "severity": "medium",
+            "target": "example.com",
+            "evidence": "Header 'x-frame-options' not found in HTTP response"
+          },
+          {
+            "type": "missing_security_header",
+            "header": "x-content-type-options",
+            "purpose": "MIME Sniffing Protection",
+            "severity": "low",
+            "target": "example.com",
+            "evidence": "Header 'x-content-type-options' not found in HTTP response"
+          },
+          {
+            "type": "missing_security_header",
+            "header": "content-security-policy",
+            "purpose": "XSS Protection",
+            "severity": "medium",
+            "target": "example.com",
+            "evidence": "Header 'content-security-policy' not found in HTTP response"
+          },
+          {
+            "type": "missing_security_header",
+            "header": "strict-transport-security",
+            "purpose": "HTTPS Enforcement",
+            "severity": "medium",
+            "target": "example.com",
+            "evidence": "Header 'strict-transport-security' not found in HTTP response"
+          }
+        ]
+      },
+      {
+        "id": "4c945d32f0c1",
+        "type": "ip_address",
+        "value": "23.215.0.138",
+        "degree": 1,
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.832326",
+        "explored": true,
+        "in_scope": false,
+        "findings": []
+      },
+      {
+        "id": "b345c2ec93c5",
+        "type": "ip_address",
+        "value": "23.220.75.245",
+        "degree": 1,
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.832679",
+        "explored": true,
+        "in_scope": false,
+        "findings": []
+      },
+      {
+        "id": "25414c5dafc9",
+        "type": "ip_address",
+        "value": "23.192.228.80",
+        "degree": 1,
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.832862",
+        "explored": true,
+        "in_scope": false,
+        "findings": []
+      },
+      {
+        "id": "21d4540b911e",
+        "type": "ip_address",
+        "value": "23.215.0.136",
+        "degree": 1,
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.833131",
+        "explored": true,
+        "in_scope": false,
+        "findings": []
+      },
+      {
+        "id": "c32e22f5430c",
+        "type": "ip_address",
+        "value": "23.192.228.84",
+        "degree": 1,
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.833350",
+        "explored": true,
+        "in_scope": false,
+        "findings": []
+      },
+      {
+        "id": "e949f04d2ec5",
+        "type": "ip_address",
+        "value": "23.220.75.232",
+        "degree": 1,
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.833574",
+        "explored": true,
+        "in_scope": false,
+        "findings": []
+      }
+    ],
+    "edges": [
+      {
+        "source_id": "5ababd603b22",
+        "target_id": "4c945d32f0c1",
+        "type": "resolves_to",
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.832573"
+      },
+      {
+        "source_id": "5ababd603b22",
+        "target_id": "b345c2ec93c5",
+        "type": "resolves_to",
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.832730"
+      },
+      {
+        "source_id": "5ababd603b22",
+        "target_id": "25414c5dafc9",
+        "type": "resolves_to",
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.833025"
+      },
+      {
+        "source_id": "5ababd603b22",
+        "target_id": "21d4540b911e",
+        "type": "resolves_to",
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.833222"
+      },
+      {
+        "source_id": "5ababd603b22",
+        "target_id": "c32e22f5430c",
+        "type": "resolves_to",
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.833454"
+      },
+      {
+        "source_id": "5ababd603b22",
+        "target_id": "e949f04d2ec5",
+        "type": "resolves_to",
+        "metadata": {},
+        "discovered_at": "2025-12-01T20:39:31.833663"
+      }
+    ],
+    "statistics": {
+      "total_nodes": 7,
+      "total_edges": 6,
+      "nodes_by_type": {
+        "domain": 1,
+        "ip_address": 6
+      },
+      "nodes_by_degree": {
+        "0": 1,
+        "1": 6
+      },
+      "explored": 7,
+      "unexplored": 0,
+      "in_scope": 1,
+      "out_of_scope": 6,
+      "vulnerabilities_found": 4
+    }
+  }
+}

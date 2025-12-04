@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 💰 THE HONEST TRUTH - Why The Numbers Seem Contradictory
 
 ## 🤔 YOUR QUESTION IS VALID

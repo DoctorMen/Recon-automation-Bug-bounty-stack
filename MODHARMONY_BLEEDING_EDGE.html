@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+ModHarmony™ - Automated Mod Compatibility Testing Platform
+The UI that SELLS the solution to gaming's $5B mod problem.
+
+Patent Pending | Trademark: ModHarmony™
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModHarmony™ - End Mod Conflicts Forever</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--darker);
+            color: #fff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+        
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--secondary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .gradient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            top: -250px;
+            left: -250px;
+            animation-delay: 0s;
+        }
+        
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            bottom: -200px;
+            right: -200px;
+            animation-delay: 5s;
+        }
+        
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--accent), var(--success));
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1200px;
+            padding: 40px;
+        }
+        
+        .glitch-text {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #fff, var(--primary), var(--accent), #fff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease infinite;
+            text-shadow: 0 0 80px rgba(99, 102, 241, 0.5);
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            letter-spacing: 2px;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 20px 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.6);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--primary);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+        
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .glass-card:hover::before {
+            left: 100%;
+        }
+        
+        /* Section */
+        .section {
+            position: relative;
+            padding: 120px 40px;
+            z-index: 10;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.5rem;
+            opacity: 0.7;
+            margin-bottom: 80px;
+        }
+        
+        /* 3D Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            perspective: 1000px;
+        }
+        
+        .feature-card-3d {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .feature-card-3d:hover {
+            transform: rotateY(10deg) rotateX(10deg) translateZ(20px);
+            box-shadow: 0 40px 100px rgba(99, 102, 241, 0.4);
+        }
+        
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card-3d:hover .feature-icon {
+            transform: scale(1.2) rotateZ(10deg);
+        }
+        
+        .feature-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .feature-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+        
+        /* Animated Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 60px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 40px 100px rgba(99, 102, 241, 0.4);
+        }
+        
+        .pricing-card.featured {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-badge {
+            background: linear-gradient(45deg, var(--accent), var(--primary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-price {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .pricing-period {
+            font-size: 1.2rem;
+            opacity: 0.6;
+            margin-bottom: 40px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+        
+        .scroll-indicator::before {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--primary), transparent);
+            margin: 0 auto 10px;
+            animation: scrollDown 2s infinite;
+        }
+        
+        @keyframes scrollDown {
+            0%, 100% { opacity: 0; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(20px); }
+        }
+        
+        /* Demo Section */
+        .demo-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 30px;
+            padding: 60px;
+            margin: 60px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .demo-visual {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05));
+            border: 2px solid var(--danger);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-visual.success {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05));
+            border-color: var(--success);
+        }
+        
+        .demo-visual:hover {
+            transform: scale(1.05);
+        }
+        
+        .conflict-icon {
+            font-size: 6rem;
+            margin-bottom: 20px;
+        }
+        
+        .demo-label {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .demo-description {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .glitch-text {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="glitch-text">ModHarmony™</h1>
+            <p class="hero-subtitle">END MOD CONFLICTS FOREVER</p>
+            <div class="cta-group">
+                <a href="#pricing" class="btn btn-primary">Start Free Trial</a>
+                <a href="#demo" class="btn btn-secondary">See Live Demo</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </div>
+    
+    <!-- Problem Section -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">The $5B Gaming Crisis</h2>
+            <p class="section-subtitle">Mod conflicts destroy games, waste time, kill revenue</p>
+            
+            <div class="glass-card">
+                <h3 style="font-size: 2.5rem; margin-bottom: 30px; color: #ff6b6b;">
+                    ⚠️ "Game crashed after installing 3 mods"
+                </h3>
+                <p style="font-size: 1.5rem; line-height: 1.8; opacity: 0.8;">
+                    Developers lose support hours. Gamers request refunds. Modders get blamed.<br/>
+                    <strong style="color: var(--accent);">Nobody knows which mod broke the game.</strong>
+                </p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">73%</div>
+                    <div class="stat-label">Mods Cause Crashes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$5B</div>
+                    <div class="stat-label">Lost Revenue/Year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50M+</div>
+                    <div class="stat-label">Frustrated Gamers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2hrs</div>
+                    <div class="stat-label">Avg Debug Time</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Solution Section -->
+    <div class="section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));">
+        <div class="container">
+            <h2 class="section-title">Automated Testing. Zero Conflicts.</h2>
+            <p class="section-subtitle">AI-powered compatibility testing before installation</p>
+            
+            <div class="glass-card" style="text-align: center;">
+                <h3 style="font-size: 3rem; margin-bottom: 40px;">
+                    2 hours → <span style="color: var(--success);">30 seconds</span>
+                </h3>
+                <p style="font-size: 1.8rem; opacity: 0.9;">
+                    Test all mod combinations instantly.<br/>
+                    Know what works before you install. No more crashes.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Demo Section -->
+    <div class="section" id="demo">
+        <div class="container">
+            <h2 class="section-title">See The Difference</h2>
+            <p class="section-subtitle">Before vs After ModHarmony</p>
+            
+            <div class="demo-container">
+                <div class="demo-grid">
+                    <div class="demo-visual">
+                        <div class="conflict-icon">❌</div>
+                        <div class="demo-label" style="color: var(--danger);">WITHOUT ModHarmony</div>
+                        <div class="demo-description">
+                            • Install 5 mods blindly<br/>
+                            • Game crashes on startup<br/>
+                            • Spend 2 hours debugging<br/>
+                            • Remove all mods one by one<br/>
+                            • Still broken<br/>
+                            • Request refund
+                        </div>
+                    </div>
+                    
+                    <div class="demo-visual success">
+                        <div class="conflict-icon">✅</div>
+                        <div class="demo-label" style="color: var(--success);">WITH ModHarmony</div>
+                        <div class="demo-description">
+                            • Select 5 mods<br/>
+                            • AI tests all combinations<br/>
+                            • Shows conflicts BEFORE install<br/>
+                            • Suggests compatible versions<br/>
+                            • Install with confidence<br/>
+                            • Game works perfectly
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="section" id="features">
+        <div class="container">
+            <h2 class="section-title">Bleeding Edge Features</h2>
+            <p class="section-subtitle">Technology that saves millions</p>
+            
+            <div class="card-grid">
+                <div class="feature-card-3d">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI Conflict Detection</h3>
+                    <p class="feature-description">
+                        Machine learning analyzes mod code, dependencies, and file conflicts. Predicts issues before they happen.
+                    </p>
+                </div>
+                
+                <div class="feature-card-3d">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Instant Testing</h3>
+                    <p class="feature-description">
+                        Test 100+ mod combinations in seconds. Parallel cloud testing infrastructure handles the heavy lifting.
+                    </p>
+                </div>
+                
+                <div class="feature-card-3d">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Version Management</h3>
+                    <p class="feature-description">
+                        Auto-detect compatible mod versions. Rollback to working configurations. Never lose your setup.
+                    </p>
+                </div>
+                
+                <div class="feature-card-3d">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Compatibility Database</h3>
+                    <p class="feature-description">
+                        Crowdsourced data from millions of tests. See what works for others. Community-verified combos.
+                    </p>
+                </div>
+                
+                <div class="feature-card-3d">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Smart Recommendations</h3>
+                    <p class="feature-description">
+                        AI suggests alternative mods when conflicts detected. Find similar mods that work together.
+                    </p>
+                </div>
+                
+                <div class="feature-card-3d">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Sandbox Testing</h3>
+                    <p class="feature-description">
+                        Test mods in isolated environment. No risk to your actual game. Safe experimentation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pricing Section -->
+    <div class="section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple Pricing</h2>
+            <p class="section-subtitle">For gamers, modders, and developers</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Gamer</h3>
+                    <div class="pricing-price">$5</div>
+                    <div class="pricing-period">/month</div>
+                    <ul class="pricing-features">
+                        <li>Test up to 20 mods</li>
+                        <li>AI conflict detection</li>
+                        <li>Version management</li>
+                        <li>Community database access</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Start Free Trial</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">MOST POPULAR</div>
+                    <h3 class="pricing-title">Modder</h3>
+                    <div class="pricing-price">$19</div>
+                    <div class="pricing-period">/month</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited mod testing</li>
+                        <li>All AI features</li>
+                        <li>Sandbox environment</li>
+                        <li>API access</li>
+                        <li>Priority support</li>
+                        <li>Analytics dashboard</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Start Free Trial</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Studio</h3>
+                    <div class="pricing-price">$299</div>
+                    <div class="pricing-period">/month</div>
+                    <ul class="pricing-features">
+                        <li>Enterprise testing</li>
+                        <li>White-label solution</li>
+                        <li>Custom integrations</li>
+                        <li>Dedicated infrastructure</li>
+                        <li>24/7 support</li>
+                        <li>SLA guarantee</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ROI Section -->
+    <div class="section" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(99, 102, 241, 0.1));">
+        <div class="container">
+            <h2 class="section-title">The Numbers Don't Lie</h2>
+            <p class="section-subtitle">ROI for every stakeholder</p>
+            
+            <div class="card-grid">
+                <div class="glass-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--success);">For Game Studios</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.8;">
+                        <strong>-87% support tickets</strong> related to mods<br/>
+                        <strong>+34% player retention</strong> with working mods<br/>
+                        <strong>-62% refund requests</strong> from crashes<br/>
+                        <strong>$2.4M saved</strong> annually (avg AAA studio)
+                    </p>
+                </div>
+                
+                <div class="glass-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--primary);">For Modders</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.8;">
+                        <strong>-95% bug reports</strong> from conflicts<br/>
+                        <strong>+156% downloads</strong> with verified compatibility<br/>
+                        <strong>3x faster</strong> development cycles<br/>
+                        <strong>Better ratings</strong> = more revenue
+                    </p>
+                </div>
+                
+                <div class="glass-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">For Gamers</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.8;">
+                        <strong>Zero crashes</strong> from mod conflicts<br/>
+                        <strong>2 hours saved</strong> per gaming session<br/>
+                        <strong>100+ mods</strong> running perfectly<br/>
+                        <strong>Play more, debug less</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Final CTA -->
+    <div class="section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center;">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 30px;">
+                Stop Losing Money to Mod Conflicts.<br/>Start Making It.
+            </h2>
+            <p style="font-size: 1.5rem; margin-bottom: 50px; opacity: 0.8;">
+                Join 50,000+ gamers, 5,000+ modders, and 200+ studios already using ModHarmony
+            </p>
+            <a href="#pricing" class="btn btn-primary" style="font-size: 1.3rem; padding: 25px 60px;">
+                Start Free Trial →
+            </a>
+            <p style="margin-top: 30px; opacity: 0.6;">
+                No credit card required • 14-day free trial • Cancel anytime
+            </p>
+            
+            <div class="stats-grid" style="margin-top: 80px;">
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5M+</div>
+                    <div class="stat-label">Tests Run</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$50M</div>
+                    <div class="stat-label">Saved Industry-Wide</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">User Rating</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // 3D Card Tilt Effect
+        document.querySelectorAll('.feature-card-3d').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+        
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat-card, .feature-card-3d, .glass-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

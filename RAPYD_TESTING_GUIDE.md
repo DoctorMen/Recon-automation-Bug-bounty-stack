@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Rapyd Bug Bounty Testing Guide
 
 **Created:** November 1, 2025  

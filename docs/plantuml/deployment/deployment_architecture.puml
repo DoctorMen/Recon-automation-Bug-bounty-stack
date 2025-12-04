@@ -1,0 +1,88 @@
+@startuml GHOST Deployment Architecture
+!define GHOST_ORANGE #FF6B35
+!define GHOST_BLUE #004E89
+!define GHOST_GREEN #2ECC71
+!define GHOST_RED #E74C3C
+
+skinparam componentStyle uml2
+skinparam backgroundColor #FFFFFF
+skinparam component {
+    BackgroundColor GHOST_BLUE
+    BorderColor #333333
+    ArrowColor #333333
+    FontName Arial
+    FontSize 12
+    FontStyle plain
+}
+
+package "GHOST Cloud Environment" {
+    [Load Balancer] as lb #GHOST_ORANGE
+    
+    node "Web Tier" {
+        [Web Server 1] as ws1 #GHOST_BLUE
+        [Web Server 2] as ws2 #GHOST_BLUE
+    }
+    
+    node "Application Tier" {
+        [API Service 1] as api1 #GHOST_ORANGE
+        [API Service 2] as api2 #GHOST_ORANGE
+        [Worker 1] as w1 #GHOST_GREEN
+        [Worker 2] as w2 #GHOST_GREEN
+    }
+    
+    node "Data Tier" {
+        [Primary DB] as db1 #GHOST_BLUE
+        [Replica DB] as db2 #GHOST_BLUE
+        [Redis Cache] as cache #GHOST_RED
+        [Object Storage] as storage #GHOST_ORANGE
+    }
+    
+    node "Monitoring" {
+        [Prometheus] as prom #GHOST_GREEN
+        [Grafana] as grafana #GHOST_BLUE
+        [ELK Stack] as elk #GHOST_ORANGE
+    }
+}
+
+' External systems
+[Internet] as internet
+[CI/CD Pipeline] as ci #GHOST_GREEN
+[External APIs] as ext #GHOST_RED
+
+' Connections
+internet --> lb : HTTPS (443)
+lb --> ws1 : HTTP (80)
+lb --> ws2 : HTTP (80)
+
+ws1 --> api1 : API Calls
+ws2 --> api2 : API Calls
+
+api1 --> db1 : Read/Write
+api2 --> db2 : Read
+api1 --> cache : Cache
+api2 --> cache : Cache
+api1 --> storage : Read/Write
+api2 --> storage : Read/Write
+
+w1 --> db1 : Background Jobs
+w2 --> db1 : Background Jobs
+
+prom --> api1 : Metrics
+prom --> api2 : Metrics
+prom --> db1 : Metrics
+grafana --> prom : Visualize
+
+ci --> lb : Deploy
+ci --> db1 : Migrations
+
+api1 --> ext : API Calls
+api2 --> ext : API Calls
+
+' Add legend
+legend right
+  <b>GHOST Deployment Architecture</b>\n\n
+  <color:#FF6B35>▉</color> Web & API Services\n  <color:#004E89>▉</color> Core Infrastructure\n  <color:#2ECC71>▉</color> Processing & Monitoring\n  <color:#E74C3C>▉</color> External Services\n  
+  © 2025 Khallid Hakeem Nurse\n  All Rights Reserved
+end legend
+
+@enduml

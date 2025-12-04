@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Apple Bug Bounty Scope Verification
 Check if Apple CDN endpoints are in scope
@@ -143,5 +147,11 @@ def apple_scope_verification():
 
 if __name__ == "__main__":
     apple_scope_verification()
+
+
+
+
+
+
 
 

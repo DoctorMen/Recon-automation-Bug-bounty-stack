@@ -1,0 +1,52 @@
+INSTALLATION GUIDE
+==================
+
+QUICK INSTALL (Recommended):
+----------------------------
+1. Extract all files to a directory
+2. Open terminal in that directory
+3. Run: chmod +x install.sh
+4. Run: ./install.sh
+5. Wait for installation to complete
+6. Run: python3 run_pipeline.py --target example.com
+
+MANUAL INSTALL:
+--------------
+If automatic installation fails:
+
+1. Install Python 3.8+
+   - Ubuntu/Debian: sudo apt install python3 python3-pip
+   - macOS: brew install python3
+
+2. Install Go (for tools)
+   - Ubuntu/Debian: sudo apt install golang-go
+   - macOS: brew install go
+
+3. Install Python dependencies:
+   pip3 install -r requirements.txt
+
+4. Install security tools:
+   go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+   go install github.com/projectdiscovery/httpx/cmd/httpx@latest
+   go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+
+5. Add Go bin to PATH:
+   export PATH=$PATH:~/go/bin
+
+6. Test installation:
+   python3 run_pipeline.py --help
+
+WINDOWS (WSL):
+-------------
+1. Install WSL2: wsl --install
+2. Open Ubuntu terminal
+3. Follow "Quick Install" steps above
+
+TROUBLESHOOTING:
+---------------
+- "Command not found": Add ~/go/bin to PATH
+- "Permission denied": Run chmod +x on .sh files
+- "Module not found": Run pip3 install -r requirements.txt
+- "Tool not found": Ensure Go tools are installed
+
+For more help, see TROUBLESHOOTING.txt

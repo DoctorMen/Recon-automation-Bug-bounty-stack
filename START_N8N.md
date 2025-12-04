@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Start n8n - Next Steps
 
 ## Prerequisites Check âœ…

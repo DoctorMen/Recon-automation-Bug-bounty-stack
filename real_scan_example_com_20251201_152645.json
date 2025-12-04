@@ -1,0 +1,18 @@
+{
+  "target": "example.com",
+  "timestamp": "2025-12-01T15:26:45.139636",
+  "dns": {
+    "resolved": false,
+    "ips": []
+  },
+  "findings": [],
+  "tools_used": [
+    "curl",
+    "nuclei",
+    "httpx",
+    "nmap",
+    "dig",
+    "subfinder",
+    "slither"
+  ]
+}

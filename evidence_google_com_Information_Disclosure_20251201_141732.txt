@@ -1,0 +1,36 @@
+# Evidence File - Information Disclosure
+# Target: google.com
+# Generated: 2025-12-01T14:17:33.106425
+
+# PRIMARY PROOF - Direct Evidence
+# Target: gmail.com
+# Vulnerability: Information Disclosure
+# Timestamp: 2025-12-01T14:17:28.538203
+
+## Command Executed:
+curl -I https://gmail.com
+
+## Response Headers Analysis:
+Accept-Ranges: bytes
+Vary: Accept-Encoding
+Content-Type: text/html
+Content-Security-Policy: script-src  'nonce-13Igtb57oLjD2faPiw77Zw' 'report-sample' 'strict-dynamic' 'unsafe-eval' 'unsafe-hashes' 'unsafe-inline' http: https:; object-src 'none'; report-uri https://csp.withgoogle.com/csp/workspace-web-team; base-uri 'self'
+Cross-Origin-Resource-Policy: cross-origin
+Cross-Origin-Opener-Policy-Report-Only: same-origin; report-to="workspace-web-team"
+Report-To: {"group":"workspace-web-team","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/workspace-web-team"}]}
+Date: Mon, 01 Dec 2025 19:17:28 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Last-Modified: Tue, 25 Nov 2025 19:18:00 GMT
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+Server: sffe
+X-XSS-Protection: 0
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Transfer-Encoding: chunked
+
+## Vulnerability Confirmed:
+❌ Server header DISCLOSES: sffe
+✅ INFORMATION DISCLOSURE CONFIRMED

@@ -1,0 +1,26 @@
+{
+  "skills": [
+    "python",
+    "automation",
+    "web scraping",
+    "api integration",
+    "security testing",
+    "penetration testing",
+    "bug bounty",
+    "vulnerability assessment"
+  ],
+  "hourly_rate_min": 50,
+  "hourly_rate_max": 150,
+  "job_types": [
+    "hourly",
+    "fixed"
+  ],
+  "experience_levels": [
+    "intermediate",
+    "expert"
+  ],
+  "min_budget": 500,
+  "proposal_template": "professional",
+  "auto_apply": false,
+  "max_proposals_per_day": 10
+}

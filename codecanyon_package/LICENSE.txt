@@ -1,0 +1,39 @@
+COMMERCIAL USE LICENSE
+
+Copyright © 2025 Khallid H Nurse (DBA DoctorMen)
+All Rights Reserved.
+
+GRANT OF LICENSE:
+This software is licensed for commercial use under the following terms:
+
+PERMITTED USES:
+✅ Use for commercial security assessments
+✅ Use for client projects (unlimited clients)
+✅ Modification for personal/commercial use
+✅ Integration into commercial workflows
+✅ Use by security consultants and pentesters
+
+PROHIBITED USES:
+❌ Resale or redistribution as standalone product
+❌ Sharing with non-purchasers
+❌ Removal of copyright notices
+❌ Claiming authorship
+❌ Unauthorized or illegal scanning
+
+WARRANTY DISCLAIMER:
+This software is provided "AS IS" without warranty of any kind.
+The author is not liable for any damages arising from use.
+
+LEGAL COMPLIANCE:
+User is solely responsible for:
+- Obtaining proper authorization before scanning
+- Compliance with applicable laws
+- Responsible disclosure of findings
+- Ethical use of tools
+
+SUPPORT:
+Documentation provided. No guaranteed support.
+
+For questions about licensing, contact via CodeCanyon.
+
+© 2025 All Rights Reserved

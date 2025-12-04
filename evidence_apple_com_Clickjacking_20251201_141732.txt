@@ -1,0 +1,33 @@
+# Evidence File - Clickjacking
+# Target: apple.com
+# Generated: 2025-12-01T14:17:33.151119
+
+# PRIMARY PROOF - Direct Evidence
+# Target: apple.com
+# Vulnerability: Clickjacking
+# Timestamp: 2025-12-01T14:17:29.337836
+
+## Command Executed:
+curl -I https://apple.com
+
+## Response Headers Analysis:
+Server: Apple
+Content-Type: text/html; charset=utf-8
+Set-Cookie: geo=US; path=/; domain=.apple.com
+X-Frame-Options: SAMEORIGIN
+Vary: Accept-Encoding
+Content-Security-Policy: default-src 'self' blob: data: *.akamaized.net *.apple.com *.apple-mapkit.com *.cdn-apple.com *.organicfruitapps.com; child-src blob: mailto: embed.music.apple.com embed.podcasts.apple.com https://recyclingprogram.apple.com https://smb.apple.com https://nova.apple.com swdlp.apple.com www.apple.com www.instagram.com platform.twitter.com www.youtube-nocookie.com; img-src 'unsafe-inline' blob: data: *.apple.com *.apple-mapkit.com *.cdn-apple.com *.mzstatic.com; script-src 'unsafe-inline' 'unsafe-eval' blob: *.apple.com *.apple-mapkit.com www.instagram.com platform.twitter.com; style-src 'unsafe-inline' *.apple.com
+Referrer-Policy: no-referrer-when-downgrade
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Content-Encoding: gzip
+Cache-Control: max-age=0
+Expires: Mon, 01 Dec 2025 19:17:29 GMT
+Date: Mon, 01 Dec 2025 19:17:29 GMT
+Content-Length: 41722
+Connection: keep-alive
+
+## Vulnerability Confirmed:
+❌ CSP frame-ancestors directive MISSING
+✅ CLICKJACKING VULNERABILITY CONFIRMED

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Blackhole DEX Attack - Code4rena (PT Enhanced)
 
 ## 🎯 Target Information

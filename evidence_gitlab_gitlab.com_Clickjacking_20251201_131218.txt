@@ -1,0 +1,38 @@
+# Clickjacking Evidence - gitlab.com
+# Generated: 2025-12-01T13:12:18.854097
+# Program: GitLab (HackerOne)
+
+Command: curl -I https://about.gitlab.com/
+
+Output:
+HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2025 18:12:18 GMT
+Content-Type: text/html
+Connection: keep-alive
+Server: cloudflare
+CF-Ray: 9a748d5089af78ee-ATL
+CF-Cache-Status: HIT
+Accept-Ranges: bytes
+Age: 2
+Cache-Control: public, max-age=14400
+Expires: Mon, 01 Dec 2025 22:12:18 GMT
+Last-Modified: Mon, 01 Dec 2025 17:45:53 GMT
+Strict-Transport-Security: max-age=31536000
+Vary: Accept-Encoding, Origin
+alt-svc: h3=":443"; ma=86400
+x-goog-generation: 1764611153193999
+x-goog-hash: crc32c=wqAJtQ==
+x-goog-hash: md5=/3XSRy+xvWmudo0nV3IRoA==
+x-goog-metageneration: 1
+x-goog-storage-class: MULTI_REGIONAL
+x-goog-stored-content-encoding: identity
+x-goog-stored-content-length: 232769
+x-guploader-uploadid: AOCedOFPHV_8kK18rV6bY3DJV8tqBKLWvLI4EXBSFWu7ZsOrokBQ6BVWkufB1g1rZc3vbad-NrdScrk
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

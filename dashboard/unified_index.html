@@ -1,0 +1,295 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <title>🌐 MASTER COMMAND CENTER - UNIFIED VIEW</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        .master-header {
+            background: linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #10b981 100%);
+        }
+        
+        .repo-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 2px solid #7c3aed;
+        }
+        
+        .repo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #7c3aed;
+        }
+        
+        .repo-title {
+            font-size: 1.5rem;
+            color: #7c3aed;
+        }
+        
+        .repo-link {
+            background: #7c3aed;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .repo-link:hover {
+            background: #6d28d9;
+            transform: translateY(-2px);
+        }
+        
+        .unified-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .unified-stat {
+            background: #334155;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .unified-stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #7c3aed;
+        }
+        
+        .unified-stat-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body class="redacted">
+    <!-- SECURITY BANNER -->
+    <div class="security-banner">
+        🔒 MASTER VIEW - SECURE MODE | LOCAL ONLY | ALL REPOSITORIES
+    </div>
+
+    <!-- REDACTION TOGGLE -->
+    <button class="redaction-toggle" id="redactionToggle" onclick="toggleRedaction()">
+        🔒 Redaction: ON
+    </button>
+
+    <div class="dashboard-container">
+        <!-- MASTER HEADER -->
+        <header class="dashboard-header master-header">
+            <div class="header-content">
+                <h1>🌐 MASTER COMMAND CENTER</h1>
+                <p class="subtitle">Unified View Across All Repositories</p>
+                <div class="status-badges">
+                    <span class="badge badge-success">✓ OPSEC Active</span>
+                    <span class="badge badge-info">📡 Local Only</span>
+                    <span class="badge" style="background: #7c3aed;">🌐 Unified View</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- AGGREGATE METRICS -->
+        <section class="system-overview">
+            <h2>📊 System-Wide Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">📁</div>
+                    <div class="metric-value" id="totalRepos">2</div>
+                    <div class="metric-label">Active Repositories</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🎯</div>
+                    <div class="metric-value" id="totalFindings">--</div>
+                    <div class="metric-label">Total Findings</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🚨</div>
+                    <div class="metric-value" id="criticalTotal">--</div>
+                    <div class="metric-label">Critical/High</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">⚡</div>
+                    <div class="metric-value" id="activeScans">--</div>
+                    <div class="metric-label">Active Scans</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECON-AUTOMATION-BUG-BOUNTY-STACK -->
+        <section class="repo-section">
+            <div class="repo-header">
+                <h2 class="repo-title">🎯 Recon-automation-Bug-bounty-stack</h2>
+                <a href="index.html" class="repo-link">Open Dashboard →</a>
+            </div>
+            
+            <div class="repo-description">
+                <p><strong>Purpose:</strong> Full automation pipeline, multi-agent system, evidence capture</p>
+                <p><strong>Features:</strong> run_pipeline.sh, run_recon.sh, run_httpx.sh, run_nuclei.sh</p>
+            </div>
+            
+            <div class="unified-stats">
+                <div class="unified-stat">
+                    <div class="unified-stat-value" id="main-findings">0</div>
+                    <div class="unified-stat-label">Findings</div>
+                </div>
+                <div class="unified-stat">
+                    <div class="unified-stat-value" id="main-critical">0</div>
+                    <div class="unified-stat-label">Critical</div>
+                </div>
+                <div class="unified-stat">
+                    <div class="unified-stat-value" id="main-targets">0</div>
+                    <div class="unified-stat-label">Targets</div>
+                </div>
+                <div class="unified-stat">
+                    <div class="unified-stat-value" id="main-status">Ready</div>
+                    <div class="unified-stat-label">Status</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECON-STACK -->
+        <section class="repo-section">
+            <div class="repo-header">
+                <h2 class="repo-title">🔍 recon-stack</h2>
+                <a href="../../recon-stack/dashboard/index.html" class="repo-link">Open Dashboard →</a>
+            </div>
+            
+            <div class="repo-description">
+                <p><strong>Purpose:</strong> Analysis & post-scan processing, existing scan analysis</p>
+                <p><strong>Features:</strong> analyze_existing_scan.sh, post_scan_processor.sh, enhanced state tracking</p>
+            </div>
+            
+            <div class="unified-stats">
+                <div class="unified-stat">
+                    <div class="unified-stat-value" id="recon-findings">0</div>
+                    <div class="unified-stat-label">Findings</div>
+                </div>
+                <div class="unified-stat">
+                    <div class="unified-stat-value" id="recon-critical">0</div>
+                    <div class="unified-stat-label">Critical</div>
+                </div>
+                <div class="unified-stat">
+                    <div class="unified-stat-value" id="recon-targets">0</div>
+                    <div class="unified-stat-label">Targets</div>
+                </div>
+                <div class="unified-stat">
+                    <div class="unified-stat-value" id="recon-status">Ready</div>
+                    <div class="unified-stat-label">Status</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK NAVIGATION -->
+        <section class="quick-actions">
+            <h2>🚀 Quick Navigation</h2>
+            <div class="action-grid">
+                <div class="action-card" onclick="location.href='index.html'">
+                    <div class="action-icon">🎯</div>
+                    <h3>Main Stack</h3>
+                    <p>Full pipeline dashboard</p>
+                </div>
+                <div class="action-card" onclick="location.href='../../recon-stack/dashboard/index.html'">
+                    <div class="action-icon">🔍</div>
+                    <h3>Analysis Stack</h3>
+                    <p>Recon-stack dashboard</p>
+                </div>
+                <div class="action-card" onclick="location.href='system_status.html'">
+                    <div class="action-icon">🖥️</div>
+                    <h3>System Status</h3>
+                    <p>Tools & health</p>
+                </div>
+                <div class="action-card" onclick="location.href='scan_visualizer.html'">
+                    <div class="action-icon">📊</div>
+                    <h3>Findings</h3>
+                    <p>All vulnerabilities</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+            <p>🔒 Unified view of all repositories | Local only | OPSEC compliant</p>
+            <p><small>Last updated: <span id="lastUpdate">--</span></small></p>
+        </footer>
+    </div>
+
+    <script src="assets/dashboard.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            loadUnifiedData();
+            updateLastUpdate();
+            
+            setInterval(() => {
+                loadUnifiedData();
+                updateLastUpdate();
+            }, 30000);
+        });
+
+        async function loadUnifiedData() {
+            // Load data from both repos and aggregate
+            let totalFindings = 0;
+            let totalCritical = 0;
+            
+            // Try to load main stack data
+            try {
+                const mainData = await fetch('../output/nuclei-findings.json').then(r => r.json());
+                const mainCritical = mainData.filter(f => 
+                    ['critical', 'high'].includes((f.info?.severity || '').toLowerCase())
+                ).length;
+                
+                document.getElementById('main-findings').textContent = mainData.length;
+                document.getElementById('main-critical').textContent = mainCritical;
+                document.getElementById('main-status').textContent = 'Active';
+                
+                totalFindings += mainData.length;
+                totalCritical += mainCritical;
+            } catch (e) {
+                document.getElementById('main-status').textContent = 'No Data';
+            }
+
+            // Try to load recon-stack data
+            try {
+                const reconData = await fetch('../../recon-stack/output/nuclei-findings.json').then(r => r.json());
+                const reconCritical = reconData.filter(f => 
+                    ['critical', 'high'].includes((f.info?.severity || '').toLowerCase())
+                ).length;
+                
+                document.getElementById('recon-findings').textContent = reconData.length;
+                document.getElementById('recon-critical').textContent = reconCritical;
+                document.getElementById('recon-status').textContent = 'Active';
+                
+                totalFindings += reconData.length;
+                totalCritical += reconCritical;
+            } catch (e) {
+                document.getElementById('recon-status').textContent = 'No Data';
+            }
+
+            // Update aggregate totals
+            document.getElementById('totalFindings').textContent = totalFindings || '0';
+            document.getElementById('criticalTotal').textContent = totalCritical || '0';
+        }
+
+        function updateLastUpdate() {
+            document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString();
+        }
+
+        document.body.classList.add('redacted');
+    </script>
+</body>
+</html>
+

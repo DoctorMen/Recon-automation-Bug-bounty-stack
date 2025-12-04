@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 What Endpoints Do We Actually Have?
 Find realistic endpoints from programs we can actually test
@@ -137,5 +141,11 @@ def analyze_realistic_endpoints():
 
 if __name__ == "__main__":
     analyze_realistic_endpoints()
+
+
+
+
+
+
 
 

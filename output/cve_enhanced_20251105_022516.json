@@ -1,0 +1,38 @@
+{
+  "target": "https://chain.link",
+  "scan_date": "2025-11-05T02:25:16.338054",
+  "total_findings": 2,
+  "cve_findings": 2,
+  "crypto_findings": 0,
+  "bounty_potential": "$5,500 - $23,000",
+  "findings": [
+    {
+      "type": "cve_exposure",
+      "cve_id": "CVE-2024-20482",
+      "severity": "CRITICAL",
+      "cvss": 7.5,
+      "epss": "18.12%",
+      "description": "Cisco Secure Firewall Adaptive Security Appliance (ASA) VPN",
+      "impact": "Information disclosure",
+      "bounty_estimate": "$5,000-$20,000",
+      "affected_tech": "ASA",
+      "url": "https://chain.link",
+      "verified": false,
+      "note": "Technology ASA detected - may be vulnerable to CVE-2024-20482"
+    },
+    {
+      "type": "cve_exposure",
+      "cve_id": "CVE-2020-13598",
+      "severity": "HIGH",
+      "cvss": 6.1,
+      "epss": "2.84%",
+      "description": "jQuery XSS vulnerability",
+      "impact": "Cross-site scripting",
+      "bounty_estimate": "$500-$3,000",
+      "affected_tech": "jQuery",
+      "url": "https://chain.link",
+      "verified": false,
+      "note": "Technology jQuery detected - may be vulnerable to CVE-2020-13598"
+    }
+  ]
+}

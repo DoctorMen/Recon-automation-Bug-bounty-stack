@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Prepare Apple CDN Submission
 Create submission-ready report with disclosure
@@ -177,5 +181,11 @@ Researcher Information:
 
 if __name__ == "__main__":
     prepare_submission()
+
+
+
+
+
+
 
 

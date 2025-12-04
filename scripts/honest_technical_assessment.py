@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Honest Technical Assessment
 Is the finding actually impressive?
@@ -163,5 +167,11 @@ def honest_assessment():
 
 if __name__ == "__main__":
     honest_assessment()
+
+
+
+
+
+
 
 

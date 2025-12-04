@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 <h1 align="center">
   <img src="static/subfinder-logo.png" alt="subfinder" width="200px">
   <br>

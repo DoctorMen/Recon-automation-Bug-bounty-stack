@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Immediate ROI Bug Bounty Hunter - Quick Reference
 
 ## 🚀 One-Command Start

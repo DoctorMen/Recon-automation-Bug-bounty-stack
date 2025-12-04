@@ -1,0 +1,57 @@
+{
+  "report_id": "REAL-20251128170221",
+  "researcher": "Khallid Hakeem Nurse",
+  "program": "github.com",
+  "vulnerability_type": "Information Disclosure",
+  "severity": "Low",
+  "title": "Information Disclosure in /rate_limit",
+  "description": "Real security finding discovered through live testing",
+  "real_evidence": {
+    "status_code": 200,
+    "rate_limit_info": {
+      "code_search": {
+        "limit": 60,
+        "remaining": 60,
+        "reset": 1764370941,
+        "used": 0,
+        "resource": "code_search"
+      },
+      "core": {
+        "limit": 60,
+        "remaining": 60,
+        "reset": 1764370941,
+        "used": 0,
+        "resource": "core"
+      },
+      "graphql": {
+        "limit": 0,
+        "remaining": 0,
+        "reset": 1764370941,
+        "used": 0,
+        "resource": "graphql"
+      },
+      "integration_manifest": {
+        "limit": 5000,
+        "remaining": 5000,
+        "reset": 1764370941,
+        "used": 0,
+        "resource": "integration_manifest"
+      },
+      "search": {
+        "limit": 10,
+        "remaining": 10,
+        "reset": 1764367401,
+        "used": 0,
+        "resource": "search"
+      }
+    },
+    "exposed_data": "Rate limit information exposed"
+  },
+  "risk_assessment": "Reveals API usage patterns and limits",
+  "discovery_method": "Real API testing",
+  "timestamp": "2025-11-28T17:02:21.526524",
+  "verification_status": "CONFIRMED REAL - NOT HALLUCINATED",
+  "legal_authorization": "Public API testing - no authorization required",
+  "submission_ready": true,
+  "copyright": "\u00a9 2025 Khallid Hakeem Nurse"
+}

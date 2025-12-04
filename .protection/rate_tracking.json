@@ -1,0 +1,5 @@
+{
+  "targets": {},
+  "global_limit": 100,
+  "per_target_limit": 20
+}

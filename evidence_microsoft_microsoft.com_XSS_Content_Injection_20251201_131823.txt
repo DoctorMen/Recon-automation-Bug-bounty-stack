@@ -1,0 +1,21 @@
+# XSS/Content Injection Evidence - microsoft.com
+# Generated: 2025-12-01T13:18:23.318402
+# Program: Microsoft (MSRC)
+
+Command: curl -I https://microsoft.com
+
+Output:
+HTTP/1.1 301 Moved Permanently
+Date: Mon, 01 Dec 2025 18:18:22 GMT
+Server: Kestrel
+Location: https://www.microsoft.com/
+Strict-Transport-Security: max-age=31536000
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

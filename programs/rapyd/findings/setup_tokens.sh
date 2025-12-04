@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Quick Setup Helper - Loads credentials and provides instructions
 # Usage: bash setup_tokens.sh
 

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bug Bounty Program Research Summary
 **Date**: November 1, 2025  
 **Research Goal**: Find fintech/payment/SaaS/API programs with High severity rewards ≥ $1,000  

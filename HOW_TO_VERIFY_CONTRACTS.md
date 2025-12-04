@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # How to Clone & Verify Contracts Against Findings
 
 ## ✅ Contracts Already Cloned!

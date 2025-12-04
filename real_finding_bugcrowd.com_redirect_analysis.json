@@ -1,0 +1,36 @@
+{
+  "report_id": "REAL-20251128170222",
+  "researcher": "Khallid Hakeem Nurse",
+  "program": "bugcrowd.com",
+  "vulnerability_type": "Redirect Analysis",
+  "severity": "Informational",
+  "title": "Redirect Analysis in /api",
+  "description": "Real security finding discovered through live testing",
+  "real_evidence": {
+    "status_code": 200,
+    "final_url": "https://bugcrowd.com/h/api",
+    "redirect_chain": 1,
+    "headers": {
+      "Connection": "keep-alive",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "nginx/1.27.3",
+      "cache-control": "no-cache, private, no-store",
+      "content-security-policy": "img-src 'self' data: *.bugcrowdusercontent.com *.redamausercontent.com assets.pentesterlab.com bugcrowd.exposed redama.com bugcrowd.com; frame-src 'self' https://widget.paymentrails.com https://www.youtube.com https://login.hackers.bugcrowd.com; script-src 'self' 'nonce-18bfd85c1656350055b74dbe5d252d1b' 'strict-dynamic'; style-src 'unsafe-inline' 'self' https://widget.freshworks.com fonts.bunny.net;",
+      "x-frame-options": "SAMEORIGIN",
+      "Accept-Ranges": "bytes",
+      "Date": "Fri, 28 Nov 2025 22:02:22 GMT",
+      "Via": "1.1 varnish",
+      "X-Served-By": "cache-pdk-kfty8610089-PDK, cache-pdk-kpdk1780039-PDK",
+      "X-Cache": "MISS, MISS",
+      "X-Cache-Hits": "0, 0",
+      "Strict-Transport-Security": "max-age=31557600"
+    }
+  },
+  "risk_assessment": "Redirect behavior analysis",
+  "discovery_method": "Real redirect testing",
+  "timestamp": "2025-11-28T17:02:22.055128",
+  "verification_status": "CONFIRMED REAL - NOT HALLUCINATED",
+  "legal_authorization": "Public API testing - no authorization required",
+  "submission_ready": true,
+  "copyright": "\u00a9 2025 Khallid Hakeem Nurse"
+}

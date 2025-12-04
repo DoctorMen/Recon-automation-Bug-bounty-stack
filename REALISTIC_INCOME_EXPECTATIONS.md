@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # ✅ Realistic Payout Guide - Honest Expectations
 
 ## 💰 What You'll ACTUALLY Get Paid

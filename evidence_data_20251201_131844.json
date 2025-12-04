@@ -1,0 +1,553 @@
+{
+  "generation_timestamp": "2025-12-01T13:18:44.950775",
+  "total_vulnerabilities": 48,
+  "programs_tested": [
+    "Tesla",
+    "Meta (Facebook)",
+    "Uber",
+    "Google",
+    "Spotify",
+    "Atlassian",
+    "GitLab",
+    "Apple",
+    "Shopify",
+    "Microsoft",
+    "Verizon"
+  ],
+  "severity_breakdown": {
+    "High": 0,
+    "Medium": 18,
+    "Low": 30
+  },
+  "total_estimated_value": 415560,
+  "vulnerabilities": [
+    {
+      "company": "Shopify",
+      "target": "shopify.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "bounty_estimate": "$3,350-$6,700",
+      "evidence_files": [
+        "evidence_shopify_shopify.com_Clickjacking_20251201_131726.txt"
+      ],
+      "remediation": "Add X-Frame-Options: DENY or SAMEORIGIN"
+    },
+    {
+      "company": "Shopify",
+      "target": "shopify.com",
+      "vulnerability_type": "XSS/Content Injection",
+      "severity": "Medium",
+      "bounty_estimate": "$3,350-$6,700",
+      "evidence_files": [
+        "evidence_shopify_shopify.com_XSS_Content_Injection_20251201_131727.txt"
+      ],
+      "remediation": "Add Content-Security-Policy: default-src 'self'"
+    },
+    {
+      "company": "Shopify",
+      "target": "shopify.com",
+      "vulnerability_type": "XSS Protection",
+      "severity": "Low",
+      "bounty_estimate": "$1,450-$2,900",
+      "evidence_files": [
+        "evidence_shopify_shopify.com_XSS_Protection_20251201_131727.txt"
+      ],
+      "remediation": "Add X-XSS-Protection: 1; mode=block"
+    },
+    {
+      "company": "Shopify",
+      "target": "shopify.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$1,450-$2,900",
+      "evidence_files": [
+        "evidence_shopify_shopify.com_Privacy_Leakage_20251201_131727.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "company": "Shopify",
+      "target": "shopify.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "bounty_estimate": "$3,350-$6,700",
+      "evidence_files": [
+        "evidence_shopify_shopify.com_Clickjacking_20251201_131727.txt"
+      ],
+      "remediation": "Add X-Frame-Options: DENY or CSP frame-ancestors 'none'"
+    },
+    {
+      "company": "Shopify",
+      "target": "shopify.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "bounty_estimate": "$1,450-$2,900",
+      "evidence_files": [
+        "evidence_shopify_shopify.com_Information_Disclosure_20251201_131727.txt"
+      ],
+      "remediation": "Remove or obfuscate server header"
+    },
+    {
+      "company": "GitLab",
+      "target": "gitlab.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "bounty_estimate": "$1,570-$3,140",
+      "evidence_files": [
+        "evidence_gitlab_gitlab.com_Clickjacking_20251201_131733.txt"
+      ],
+      "remediation": "Add X-Frame-Options: DENY or SAMEORIGIN"
+    },
+    {
+      "company": "GitLab",
+      "target": "gitlab.com",
+      "vulnerability_type": "MIME Sniffing",
+      "severity": "Low",
+      "bounty_estimate": "$590-$1,180",
+      "evidence_files": [
+        "evidence_gitlab_gitlab.com_MIME_Sniffing_20251201_131733.txt"
+      ],
+      "remediation": "Add X-Content-Type-Options: nosniff"
+    },
+    {
+      "company": "GitLab",
+      "target": "gitlab.com",
+      "vulnerability_type": "XSS/Content Injection",
+      "severity": "Medium",
+      "bounty_estimate": "$1,570-$3,140",
+      "evidence_files": [
+        "evidence_gitlab_gitlab.com_XSS_Content_Injection_20251201_131733.txt"
+      ],
+      "remediation": "Add Content-Security-Policy: default-src 'self'"
+    },
+    {
+      "company": "GitLab",
+      "target": "gitlab.com",
+      "vulnerability_type": "XSS Protection",
+      "severity": "Low",
+      "bounty_estimate": "$590-$1,180",
+      "evidence_files": [
+        "evidence_gitlab_gitlab.com_XSS_Protection_20251201_131733.txt"
+      ],
+      "remediation": "Add X-XSS-Protection: 1; mode=block"
+    },
+    {
+      "company": "GitLab",
+      "target": "gitlab.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$590-$1,180",
+      "evidence_files": [
+        "evidence_gitlab_gitlab.com_Privacy_Leakage_20251201_131733.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "company": "GitLab",
+      "target": "gitlab.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "bounty_estimate": "$1,570-$3,140",
+      "evidence_files": [
+        "evidence_gitlab_gitlab.com_Clickjacking_20251201_131734.txt"
+      ],
+      "remediation": "Add X-Frame-Options: DENY or CSP frame-ancestors 'none'"
+    },
+    {
+      "company": "GitLab",
+      "target": "gitlab.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "bounty_estimate": "$590-$1,180",
+      "evidence_files": [
+        "evidence_gitlab_gitlab.com_Information_Disclosure_20251201_131734.txt"
+      ],
+      "remediation": "Remove or obfuscate server header"
+    },
+    {
+      "company": "Uber",
+      "target": "uber.com",
+      "vulnerability_type": "XSS/Content Injection",
+      "severity": "Medium",
+      "bounty_estimate": "$3,350-$6,700",
+      "evidence_files": [
+        "evidence_uber_uber.com_XSS_Content_Injection_20251201_131739.txt"
+      ],
+      "remediation": "Add Content-Security-Policy: default-src 'self'"
+    },
+    {
+      "company": "Uber",
+      "target": "uber.com",
+      "vulnerability_type": "XSS Protection",
+      "severity": "Low",
+      "bounty_estimate": "$1,450-$2,900",
+      "evidence_files": [
+        "evidence_uber_uber.com_XSS_Protection_20251201_131739.txt"
+      ],
+      "remediation": "Add X-XSS-Protection: 1; mode=block"
+    },
+    {
+      "company": "Uber",
+      "target": "uber.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$1,450-$2,900",
+      "evidence_files": [
+        "evidence_uber_uber.com_Privacy_Leakage_20251201_131739.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "company": "Uber",
+      "target": "uber.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "bounty_estimate": "$1,450-$2,900",
+      "evidence_files": [
+        "evidence_uber_uber.com_Information_Disclosure_20251201_131740.txt"
+      ],
+      "remediation": "Remove or obfuscate server header"
+    },
+    {
+      "company": "Verizon",
+      "target": "verizon.com",
+      "vulnerability_type": "Transport Security",
+      "severity": "Medium",
+      "bounty_estimate": "$1,675-$3,350",
+      "evidence_files": [
+        "evidence_verizon_verizon.com_Transport_Security_20251201_131745.txt"
+      ],
+      "remediation": "Add Strict-Transport-Security: max-age=31536000; includeSubDomains"
+    },
+    {
+      "company": "Verizon",
+      "target": "verizon.com",
+      "vulnerability_type": "XSS Protection",
+      "severity": "Low",
+      "bounty_estimate": "$725-$1,450",
+      "evidence_files": [
+        "evidence_verizon_verizon.com_XSS_Protection_20251201_131745.txt"
+      ],
+      "remediation": "Add X-XSS-Protection: 1; mode=block"
+    },
+    {
+      "company": "Spotify",
+      "target": "spotify.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "bounty_estimate": "$1,570-$3,140",
+      "evidence_files": [
+        "evidence_spotify_spotify.com_Clickjacking_20251201_131750.txt"
+      ],
+      "remediation": "Add X-Frame-Options: DENY or SAMEORIGIN"
+    },
+    {
+      "company": "Spotify",
+      "target": "spotify.com",
+      "vulnerability_type": "XSS Protection",
+      "severity": "Low",
+      "bounty_estimate": "$590-$1,180",
+      "evidence_files": [
+        "evidence_spotify_spotify.com_XSS_Protection_20251201_131750.txt"
+      ],
+      "remediation": "Add X-XSS-Protection: 1; mode=block"
+    },
+    {
+      "company": "Spotify",
+      "target": "spotify.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$590-$1,180",
+      "evidence_files": [
+        "evidence_spotify_spotify.com_Privacy_Leakage_20251201_131750.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "company": "Spotify",
+      "target": "spotify.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "bounty_estimate": "$590-$1,180",
+      "evidence_files": [
+        "evidence_spotify_spotify.com_Information_Disclosure_20251201_131750.txt"
+      ],
+      "remediation": "Remove or obfuscate server header"
+    },
+    {
+      "company": "Tesla",
+      "target": "tesla.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "bounty_estimate": "$5,200-$10,400",
+      "evidence_files": [
+        "evidence_tesla_tesla.com_Clickjacking_20251201_131756.txt"
+      ],
+      "remediation": "Add X-Frame-Options: DENY or SAMEORIGIN"
+    },
+    {
+      "company": "Tesla",
+      "target": "tesla.com",
+      "vulnerability_type": "MIME Sniffing",
+      "severity": "Low",
+      "bounty_estimate": "$2,400-$4,800",
+      "evidence_files": [
+        "evidence_tesla_tesla.com_MIME_Sniffing_20251201_131756.txt"
+      ],
+      "remediation": "Add X-Content-Type-Options: nosniff"
+    },
+    {
+      "company": "Tesla",
+      "target": "tesla.com",
+      "vulnerability_type": "XSS/Content Injection",
+      "severity": "Medium",
+      "bounty_estimate": "$5,200-$10,400",
+      "evidence_files": [
+        "evidence_tesla_tesla.com_XSS_Content_Injection_20251201_131757.txt"
+      ],
+      "remediation": "Add Content-Security-Policy: default-src 'self'"
+    },
+    {
+      "company": "Tesla",
+      "target": "tesla.com",
+      "vulnerability_type": "XSS Protection",
+      "severity": "Low",
+      "bounty_estimate": "$2,400-$4,800",
+      "evidence_files": [
+        "evidence_tesla_tesla.com_XSS_Protection_20251201_131758.txt"
+      ],
+      "remediation": "Add X-XSS-Protection: 1; mode=block"
+    },
+    {
+      "company": "Tesla",
+      "target": "tesla.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$2,400-$4,800",
+      "evidence_files": [
+        "evidence_tesla_tesla.com_Privacy_Leakage_20251201_131758.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "company": "Tesla",
+      "target": "tesla.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "bounty_estimate": "$5,200-$10,400",
+      "evidence_files": [
+        "evidence_tesla_tesla.com_Clickjacking_20251201_131759.txt"
+      ],
+      "remediation": "Add X-Frame-Options: DENY or CSP frame-ancestors 'none'"
+    },
+    {
+      "company": "Tesla",
+      "target": "tesla.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "bounty_estimate": "$2,400-$4,800",
+      "evidence_files": [
+        "evidence_tesla_tesla.com_Information_Disclosure_20251201_131800.txt"
+      ],
+      "remediation": "Remove or obfuscate server header"
+    },
+    {
+      "company": "Apple",
+      "target": "apple.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "bounty_estimate": "$10,900-$21,800",
+      "evidence_files": [
+        "evidence_apple_apple.com_Information_Disclosure_20251201_131805.txt"
+      ],
+      "remediation": "Remove or obfuscate server header"
+    },
+    {
+      "company": "Atlassian",
+      "target": "atlassian.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$1,020-$2,040",
+      "evidence_files": [
+        "evidence_atlassian_atlassian.com_Privacy_Leakage_20251201_131810.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "company": "Atlassian",
+      "target": "atlassian.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "bounty_estimate": "$1,020-$2,040",
+      "evidence_files": [
+        "evidence_atlassian_atlassian.com_Information_Disclosure_20251201_131810.txt"
+      ],
+      "remediation": "Remove or obfuscate server header"
+    },
+    {
+      "company": "Microsoft",
+      "target": "microsoft.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "bounty_estimate": "$45,350-$90,700",
+      "evidence_files": [
+        "evidence_microsoft_microsoft.com_Clickjacking_20251201_131815.txt"
+      ],
+      "remediation": "Add X-Frame-Options: DENY or SAMEORIGIN"
+    },
+    {
+      "company": "Microsoft",
+      "target": "microsoft.com",
+      "vulnerability_type": "MIME Sniffing",
+      "severity": "Low",
+      "bounty_estimate": "$15,450-$30,900",
+      "evidence_files": [
+        "evidence_microsoft_microsoft.com_MIME_Sniffing_20251201_131816.txt"
+      ],
+      "remediation": "Add X-Content-Type-Options: nosniff"
+    },
+    {
+      "company": "Microsoft",
+      "target": "microsoft.com",
+      "vulnerability_type": "XSS/Content Injection",
+      "severity": "Medium",
+      "bounty_estimate": "$45,350-$90,700",
+      "evidence_files": [
+        "evidence_microsoft_microsoft.com_XSS_Content_Injection_20251201_131823.txt"
+      ],
+      "remediation": "Add Content-Security-Policy: default-src 'self'"
+    },
+    {
+      "company": "Microsoft",
+      "target": "microsoft.com",
+      "vulnerability_type": "Transport Security",
+      "severity": "Medium",
+      "bounty_estimate": "$45,350-$90,700",
+      "evidence_files": [
+        "evidence_microsoft_microsoft.com_Transport_Security_20251201_131823.txt"
+      ],
+      "remediation": "Add Strict-Transport-Security: max-age=31536000; includeSubDomains"
+    },
+    {
+      "company": "Microsoft",
+      "target": "microsoft.com",
+      "vulnerability_type": "XSS Protection",
+      "severity": "Low",
+      "bounty_estimate": "$15,450-$30,900",
+      "evidence_files": [
+        "evidence_microsoft_microsoft.com_XSS_Protection_20251201_131823.txt"
+      ],
+      "remediation": "Add X-XSS-Protection: 1; mode=block"
+    },
+    {
+      "company": "Microsoft",
+      "target": "microsoft.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$15,450-$30,900",
+      "evidence_files": [
+        "evidence_microsoft_microsoft.com_Privacy_Leakage_20251201_131823.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "company": "Microsoft",
+      "target": "microsoft.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "bounty_estimate": "$45,350-$90,700",
+      "evidence_files": [
+        "evidence_microsoft_microsoft.com_Clickjacking_20251201_131824.txt"
+      ],
+      "remediation": "Add X-Frame-Options: DENY or CSP frame-ancestors 'none'"
+    },
+    {
+      "company": "Microsoft",
+      "target": "microsoft.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "bounty_estimate": "$15,450-$30,900",
+      "evidence_files": [
+        "evidence_microsoft_microsoft.com_Information_Disclosure_20251201_131824.txt"
+      ],
+      "remediation": "Remove or obfuscate server header"
+    },
+    {
+      "company": "Google",
+      "target": "google.com",
+      "vulnerability_type": "MIME Sniffing",
+      "severity": "Low",
+      "bounty_estimate": "$10,090-$20,180",
+      "evidence_files": [
+        "evidence_google_google.com_MIME_Sniffing_20251201_131829.txt"
+      ],
+      "remediation": "Add X-Content-Type-Options: nosniff"
+    },
+    {
+      "company": "Google",
+      "target": "google.com",
+      "vulnerability_type": "XSS/Content Injection",
+      "severity": "Medium",
+      "bounty_estimate": "$30,070-$60,140",
+      "evidence_files": [
+        "evidence_google_google.com_XSS_Content_Injection_20251201_131829.txt"
+      ],
+      "remediation": "Add Content-Security-Policy: default-src 'self'"
+    },
+    {
+      "company": "Google",
+      "target": "google.com",
+      "vulnerability_type": "Transport Security",
+      "severity": "Medium",
+      "bounty_estimate": "$30,070-$60,140",
+      "evidence_files": [
+        "evidence_google_google.com_Transport_Security_20251201_131829.txt"
+      ],
+      "remediation": "Add Strict-Transport-Security: max-age=31536000; includeSubDomains"
+    },
+    {
+      "company": "Google",
+      "target": "google.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$10,090-$20,180",
+      "evidence_files": [
+        "evidence_google_google.com_Privacy_Leakage_20251201_131829.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "company": "Google",
+      "target": "google.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "bounty_estimate": "$10,090-$20,180",
+      "evidence_files": [
+        "evidence_google_google.com_Information_Disclosure_20251201_131829.txt"
+      ],
+      "remediation": "Remove or obfuscate server header"
+    },
+    {
+      "company": "Meta (Facebook)",
+      "target": "facebook.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$4,450-$8,900",
+      "evidence_files": [
+        "evidence_meta (facebook)_facebook.com_Privacy_Leakage_20251201_131834.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "company": "Meta (Facebook)",
+      "target": "meta.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "bounty_estimate": "$4,450-$8,900",
+      "evidence_files": [
+        "evidence_meta (facebook)_meta.com_Privacy_Leakage_20251201_131840.txt"
+      ],
+      "remediation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    }
+  ]
+}

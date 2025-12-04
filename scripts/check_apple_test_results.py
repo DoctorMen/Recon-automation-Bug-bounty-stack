@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Check Apple Endpoint Test Results
 Looks for any test results, logs, or evidence of Apple endpoint testing
@@ -135,5 +139,11 @@ def check_apple_test_results():
 
 if __name__ == "__main__":
     check_apple_test_results()
+
+
+
+
+
+
 
 

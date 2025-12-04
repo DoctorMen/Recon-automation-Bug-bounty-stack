@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Migrate Recon Stack to Cursor (Windows Native)
 
 Complete guide to move everything from WSL/Ubuntu to Cursor workspace on Windows.

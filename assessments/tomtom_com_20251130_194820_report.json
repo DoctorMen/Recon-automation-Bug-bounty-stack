@@ -1,0 +1,59 @@
+{
+  "assessment_id": "tomtom_com_20251130_194820",
+  "target": "tomtom.com",
+  "tier": "pentest",
+  "start_time": "2025-11-30T19:48:20.005396",
+  "duration_minutes": 0.02241793333333333,
+  "risk_score": 4,
+  "risk_rating": "LOW",
+  "severity_breakdown": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+  },
+  "total_findings": 3,
+  "findings": [
+    {
+      "category": "configuration",
+      "title": "Missing Security Headers",
+      "severity": "medium",
+      "count": 5,
+      "details": "5 security headers missing",
+      "data": [
+        "X-Frame-Options (Prevents clickjacking)",
+        "X-Content-Type-Options (Prevents MIME sniffing)",
+        "Content-Security-Policy (Prevents XSS and injection)",
+        "Strict-Transport-Security (Enforces HTTPS)",
+        "X-XSS-Protection (Browser XSS protection)"
+      ],
+      "recommendation": "Implement all recommended security headers"
+    },
+    {
+      "category": "compliance",
+      "title": "OWASP Top 10 Assessment",
+      "severity": "info",
+      "details": "Assessment covered 10 OWASP categories",
+      "data": [
+        "A01:2021 - Broken Access Control",
+        "A02:2021 - Cryptographic Failures",
+        "A03:2021 - Injection",
+        "A04:2021 - Insecure Design",
+        "A05:2021 - Security Misconfiguration",
+        "A06:2021 - Vulnerable Components",
+        "A07:2021 - Authentication Failures",
+        "A08:2021 - Software and Data Integrity",
+        "A09:2021 - Security Logging Failures",
+        "A10:2021 - Server-Side Request Forgery"
+      ]
+    },
+    {
+      "category": "compliance",
+      "title": "PCI-DSS Requirements",
+      "severity": "info",
+      "details": "Basic PCI-DSS requirement verification",
+      "data": "SSL/TLS, firewall, security updates checked"
+    }
+  ]
+}

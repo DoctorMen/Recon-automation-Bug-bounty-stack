@@ -1,0 +1,599 @@
+{
+  "session": {
+    "session_id": "session_1762354262_9344",
+    "target": "example.com",
+    "goal": "Find critical vulnerabilities",
+    "started_at": 1762354262.9027562,
+    "completed_at": 1762354262.9031131
+  },
+  "paths": [
+    {
+      "path_id": "lateral_1762354262_0",
+      "name": "Reverse Engineering Approach",
+      "description": "Lateral thinking: Reverse Engineering Approach",
+      "thinking_mode": "ThinkingMode.LATERAL",
+      "hypothesis": "Start from desired outcome and work backwards",
+      "attack_vectors": [
+        "Identify final goal state",
+        "Map prerequisites",
+        "Find weakest link in chain"
+      ],
+      "target_areas": [
+        "authentication_flow",
+        "data_access_layer",
+        "business_logic"
+      ],
+      "tools_required": [
+        "custom_scripts",
+        "burp_suite",
+        "manual_analysis"
+      ],
+      "estimated_success_probability": 0.4,
+      "creativity_score": 0.8,
+      "feasibility_score": 0.6,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9029946,
+      "explored_at": null
+    },
+    {
+      "path_id": "lateral_1762354262_1",
+      "name": "Adjacent System Attack",
+      "description": "Lateral thinking: Adjacent System Attack",
+      "thinking_mode": "ThinkingMode.LATERAL",
+      "hypothesis": "Compromise related systems to access target",
+      "attack_vectors": [
+        "Third-party integrations",
+        "Partner APIs",
+        "Shared infrastructure"
+      ],
+      "target_areas": [
+        "oauth_providers",
+        "cdn",
+        "monitoring_systems"
+      ],
+      "tools_required": [
+        "custom_scripts",
+        "burp_suite",
+        "manual_analysis"
+      ],
+      "estimated_success_probability": 0.4,
+      "creativity_score": 0.8,
+      "feasibility_score": 0.6,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030006,
+      "explored_at": null
+    },
+    {
+      "path_id": "lateral_1762354262_2",
+      "name": "Semantic Confusion",
+      "description": "Lateral thinking: Semantic Confusion",
+      "thinking_mode": "ThinkingMode.LATERAL",
+      "hypothesis": "Exploit differences in how systems interpret same data",
+      "attack_vectors": [
+        "Encoding confusion",
+        "Parser differentials",
+        "Unicode tricks"
+      ],
+      "target_areas": [
+        "input_validation",
+        "character_encoding",
+        "locale_handling"
+      ],
+      "tools_required": [
+        "custom_scripts",
+        "burp_suite",
+        "manual_analysis"
+      ],
+      "estimated_success_probability": 0.4,
+      "creativity_score": 0.8,
+      "feasibility_score": 0.6,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.903004,
+      "explored_at": null
+    },
+    {
+      "path_id": "lateral_1762354262_3",
+      "name": "Time-Based Exploitation",
+      "description": "Lateral thinking: Time-Based Exploitation",
+      "thinking_mode": "ThinkingMode.LATERAL",
+      "hypothesis": "Leverage timing and sequence dependencies",
+      "attack_vectors": [
+        "Race conditions",
+        "TTL manipulation",
+        "Scheduling attacks"
+      ],
+      "target_areas": [
+        "concurrent_operations",
+        "cache_timing",
+        "session_management"
+      ],
+      "tools_required": [
+        "custom_scripts",
+        "burp_suite",
+        "manual_analysis"
+      ],
+      "estimated_success_probability": 0.4,
+      "creativity_score": 0.8,
+      "feasibility_score": 0.6,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030063,
+      "explored_at": null
+    },
+    {
+      "path_id": "parallel_1762354262_0",
+      "name": "Wide Recon",
+      "description": "Parallel path: Wide Recon",
+      "thinking_mode": "ThinkingMode.PARALLEL",
+      "hypothesis": "Cast wide net across all subdomains",
+      "attack_vectors": [
+        "Wide Recon_vector"
+      ],
+      "target_areas": [
+        "wide_recon"
+      ],
+      "tools_required": [
+        "subfinder",
+        "amass",
+        "chaos"
+      ],
+      "estimated_success_probability": 0.6,
+      "creativity_score": 0.5,
+      "feasibility_score": 0.8,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030168,
+      "explored_at": null
+    },
+    {
+      "path_id": "parallel_1762354262_1",
+      "name": "Deep API Testing",
+      "description": "Parallel path: Deep API Testing",
+      "thinking_mode": "ThinkingMode.PARALLEL",
+      "hypothesis": "Exhaustive API endpoint enumeration",
+      "attack_vectors": [
+        "Deep API Testing_vector"
+      ],
+      "target_areas": [
+        "deep_api_testing"
+      ],
+      "tools_required": [
+        "ffuf",
+        "kiterunner",
+        "arjun"
+      ],
+      "estimated_success_probability": 0.6,
+      "creativity_score": 0.5,
+      "feasibility_score": 0.8,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030204,
+      "explored_at": null
+    },
+    {
+      "path_id": "parallel_1762354262_2",
+      "name": "Auth Mechanisms",
+      "description": "Parallel path: Auth Mechanisms",
+      "thinking_mode": "ThinkingMode.PARALLEL",
+      "hypothesis": "Parallel testing of all auth methods",
+      "attack_vectors": [
+        "Auth Mechanisms_vector"
+      ],
+      "target_areas": [
+        "auth_mechanisms"
+      ],
+      "tools_required": [
+        "authz",
+        "jwt_tool",
+        "saml_raider"
+      ],
+      "estimated_success_probability": 0.6,
+      "creativity_score": 0.5,
+      "feasibility_score": 0.8,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030228,
+      "explored_at": null
+    },
+    {
+      "path_id": "parallel_1762354262_3",
+      "name": "JS Analysis",
+      "description": "Parallel path: JS Analysis",
+      "thinking_mode": "ThinkingMode.PARALLEL",
+      "hypothesis": "Concurrent JavaScript endpoint discovery",
+      "attack_vectors": [
+        "JS Analysis_vector"
+      ],
+      "target_areas": [
+        "js_analysis"
+      ],
+      "tools_required": [
+        "linkfinder",
+        "getjs",
+        "secertfinder"
+      ],
+      "estimated_success_probability": 0.6,
+      "creativity_score": 0.5,
+      "feasibility_score": 0.8,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.903025,
+      "explored_at": null
+    },
+    {
+      "path_id": "combinatorial_1762354262_0",
+      "name": "Combined Authentication + Authorization",
+      "description": "Hybrid attack combining authentication and authorization",
+      "thinking_mode": "ThinkingMode.COMBINATORIAL",
+      "hypothesis": "Combine authentication techniques with authorization to create novel attack",
+      "attack_vectors": [
+        "JWT manipulation",
+        "Session fixation",
+        "IDOR",
+        "Privilege escalation"
+      ],
+      "target_areas": [
+        "authentication",
+        "authorization"
+      ],
+      "tools_required": [
+        "burp_suite",
+        "custom_scripts"
+      ],
+      "estimated_success_probability": 0.5,
+      "creativity_score": 0.7,
+      "feasibility_score": 0.6,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030364,
+      "explored_at": null
+    },
+    {
+      "path_id": "combinatorial_1762354262_1",
+      "name": "Combined Authorization + Injection",
+      "description": "Hybrid attack combining authorization and injection",
+      "thinking_mode": "ThinkingMode.COMBINATORIAL",
+      "hypothesis": "Combine authorization techniques with injection to create novel attack",
+      "attack_vectors": [
+        "IDOR",
+        "Privilege escalation",
+        "SQLi",
+        "NoSQLi"
+      ],
+      "target_areas": [
+        "authorization",
+        "injection"
+      ],
+      "tools_required": [
+        "burp_suite",
+        "custom_scripts"
+      ],
+      "estimated_success_probability": 0.5,
+      "creativity_score": 0.7,
+      "feasibility_score": 0.6,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030414,
+      "explored_at": null
+    },
+    {
+      "path_id": "combinatorial_1762354262_2",
+      "name": "Combined Injection + Api",
+      "description": "Hybrid attack combining injection and api",
+      "thinking_mode": "ThinkingMode.COMBINATORIAL",
+      "hypothesis": "Combine injection techniques with api to create novel attack",
+      "attack_vectors": [
+        "SQLi",
+        "NoSQLi",
+        "Mass assignment",
+        "GraphQL introspection"
+      ],
+      "target_areas": [
+        "injection",
+        "api"
+      ],
+      "tools_required": [
+        "burp_suite",
+        "custom_scripts"
+      ],
+      "estimated_success_probability": 0.5,
+      "creativity_score": 0.7,
+      "feasibility_score": 0.6,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030447,
+      "explored_at": null
+    },
+    {
+      "path_id": "combinatorial_1762354262_3",
+      "name": "Combined Api + Logic",
+      "description": "Hybrid attack combining api and logic",
+      "thinking_mode": "ThinkingMode.COMBINATORIAL",
+      "hypothesis": "Combine api techniques with logic to create novel attack",
+      "attack_vectors": [
+        "Mass assignment",
+        "GraphQL introspection",
+        "Business logic flaw",
+        "Race condition"
+      ],
+      "target_areas": [
+        "api",
+        "logic"
+      ],
+      "tools_required": [
+        "burp_suite",
+        "custom_scripts"
+      ],
+      "estimated_success_probability": 0.5,
+      "creativity_score": 0.7,
+      "feasibility_score": 0.6,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.903048,
+      "explored_at": null
+    },
+    {
+      "path_id": "perspective_1762354262_0",
+      "name": "Insider Threat Perspective",
+      "description": "Attack from Insider Threat viewpoint",
+      "thinking_mode": "ThinkingMode.PERSPECTIVE",
+      "hypothesis": "Low-privilege internal user perspective",
+      "attack_vectors": [
+        "insider threat_attacks"
+      ],
+      "target_areas": [
+        "internal_api",
+        "employee_endpoints"
+      ],
+      "tools_required": [
+        "perspective_specific_tools"
+      ],
+      "estimated_success_probability": 0.6,
+      "creativity_score": 0.6,
+      "feasibility_score": 0.7,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030545,
+      "explored_at": null
+    },
+    {
+      "path_id": "perspective_1762354262_1",
+      "name": "Mobile User Perspective",
+      "description": "Attack from Mobile User viewpoint",
+      "thinking_mode": "ThinkingMode.PERSPECTIVE",
+      "hypothesis": "Mobile app user attack surface",
+      "attack_vectors": [
+        "mobile user_attacks"
+      ],
+      "target_areas": [
+        "mobile_api",
+        "deep_linking"
+      ],
+      "tools_required": [
+        "perspective_specific_tools"
+      ],
+      "estimated_success_probability": 0.7,
+      "creativity_score": 0.6,
+      "feasibility_score": 0.7,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030573,
+      "explored_at": null
+    },
+    {
+      "path_id": "perspective_1762354262_2",
+      "name": "API Consumer Perspective",
+      "description": "Attack from API Consumer viewpoint",
+      "thinking_mode": "ThinkingMode.PERSPECTIVE",
+      "hypothesis": "Third-party API integration viewpoint",
+      "attack_vectors": [
+        "api consumer_attacks"
+      ],
+      "target_areas": [
+        "api_endpoints",
+        "webhooks"
+      ],
+      "tools_required": [
+        "perspective_specific_tools"
+      ],
+      "estimated_success_probability": 0.65,
+      "creativity_score": 0.6,
+      "feasibility_score": 0.7,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030597,
+      "explored_at": null
+    },
+    {
+      "path_id": "perspective_1762354262_3",
+      "name": "Administrator Perspective",
+      "description": "Attack from Administrator viewpoint",
+      "thinking_mode": "ThinkingMode.PERSPECTIVE",
+      "hypothesis": "Admin panel and privileged function testing",
+      "attack_vectors": [
+        "administrator_attacks"
+      ],
+      "target_areas": [
+        "admin_panel",
+        "privileged_operations"
+      ],
+      "tools_required": [
+        "perspective_specific_tools"
+      ],
+      "estimated_success_probability": 0.55,
+      "creativity_score": 0.6,
+      "feasibility_score": 0.7,
+      "priority": 3,
+      "parent_path_id": null,
+      "children_path_ids": [],
+      "exploration_results": null,
+      "created_at": 1762354262.9030614,
+      "explored_at": null
+    }
+  ],
+  "thoughts": [
+    {
+      "thought_id": "thought_1762354262_7028",
+      "category": "lateral",
+      "content": "Creative insight: Start from desired outcome and work backwards might reveal hidden vulnerability",
+      "inspiration_source": "Reverse Engineering Approach",
+      "novelty_score": 0.8,
+      "relevance_score": 0.4,
+      "actionable": true,
+      "associated_paths": [
+        "lateral_1762354262_0"
+      ],
+      "metadata": {}
+    },
+    {
+      "thought_id": "thought_1762354262_3192",
+      "category": "lateral",
+      "content": "Creative insight: Compromise related systems to access target might reveal critical vulnerability",
+      "inspiration_source": "Adjacent System Attack",
+      "novelty_score": 0.8,
+      "relevance_score": 0.4,
+      "actionable": true,
+      "associated_paths": [
+        "lateral_1762354262_1"
+      ],
+      "metadata": {}
+    },
+    {
+      "thought_id": "thought_1762354262_8482",
+      "category": "lateral",
+      "content": "Creative insight: Exploit differences in how systems interpret same data might reveal critical vulnerability",
+      "inspiration_source": "Semantic Confusion",
+      "novelty_score": 0.8,
+      "relevance_score": 0.4,
+      "actionable": true,
+      "associated_paths": [
+        "lateral_1762354262_2"
+      ],
+      "metadata": {}
+    },
+    {
+      "thought_id": "thought_1762354262_3021",
+      "category": "lateral",
+      "content": "Creative insight: Leverage timing and sequence dependencies might reveal novel vulnerability",
+      "inspiration_source": "Time-Based Exploitation",
+      "novelty_score": 0.8,
+      "relevance_score": 0.4,
+      "actionable": true,
+      "associated_paths": [
+        "lateral_1762354262_3"
+      ],
+      "metadata": {}
+    },
+    {
+      "thought_id": "thought_1762354262_7955",
+      "category": "parallel",
+      "content": "Creative insight: Cast wide net across all subdomains might reveal novel vulnerability",
+      "inspiration_source": "Wide Recon",
+      "novelty_score": 0.5,
+      "relevance_score": 0.6,
+      "actionable": true,
+      "associated_paths": [
+        "parallel_1762354262_0"
+      ],
+      "metadata": {}
+    },
+    {
+      "thought_id": "thought_1762354262_4581",
+      "category": "parallel",
+      "content": "Creative insight: Exhaustive API endpoint enumeration might reveal hidden vulnerability",
+      "inspiration_source": "Deep API Testing",
+      "novelty_score": 0.5,
+      "relevance_score": 0.6,
+      "actionable": true,
+      "associated_paths": [
+        "parallel_1762354262_1"
+      ],
+      "metadata": {}
+    },
+    {
+      "thought_id": "thought_1762354262_2885",
+      "category": "parallel",
+      "content": "Creative insight: Parallel testing of all auth methods might reveal novel vulnerability",
+      "inspiration_source": "Auth Mechanisms",
+      "novelty_score": 0.5,
+      "relevance_score": 0.6,
+      "actionable": true,
+      "associated_paths": [
+        "parallel_1762354262_2"
+      ],
+      "metadata": {}
+    },
+    {
+      "thought_id": "thought_1762354262_8527",
+      "category": "parallel",
+      "content": "Creative insight: Concurrent JavaScript endpoint discovery might reveal novel vulnerability",
+      "inspiration_source": "JS Analysis",
+      "novelty_score": 0.5,
+      "relevance_score": 0.6,
+      "actionable": true,
+      "associated_paths": [
+        "parallel_1762354262_3"
+      ],
+      "metadata": {}
+    },
+    {
+      "thought_id": "thought_1762354262_9640",
+      "category": "combinatorial",
+      "content": "Creative insight: Combine authentication techniques with authorization to create novel attack might reveal critical vulnerability",
+      "inspiration_source": "Combined Authentication + Authorization",
+      "novelty_score": 0.7,
+      "relevance_score": 0.5,
+      "actionable": true,
+      "associated_paths": [
+        "combinatorial_1762354262_0"
+      ],
+      "metadata": {}
+    },
+    {
+      "thought_id": "thought_1762354262_5406",
+      "category": "combinatorial",
+      "content": "Creative insight: Combine authorization techniques with injection to create novel attack might reveal hidden vulnerability",
+      "inspiration_source": "Combined Authorization + Injection",
+      "novelty_score": 0.7,
+      "relevance_score": 0.5,
+      "actionable": true,
+      "associated_paths": [
+        "combinatorial_1762354262_1"
+      ],
+      "metadata": {}
+    }
+  ]
+}

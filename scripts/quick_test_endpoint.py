@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Quick Test - Single Apple Endpoint
 Fast test to see what one endpoint actually is
@@ -33,5 +37,11 @@ try:
         
 except Exception as e:
     print(f"Error: {e}")
+
+
+
+
+
+
 
 

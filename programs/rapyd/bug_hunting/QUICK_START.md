@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Quick Start - High ROI Bug Hunting
 
 ## Goal: High to Medium Severity Bugs Ready for Submission Tonight

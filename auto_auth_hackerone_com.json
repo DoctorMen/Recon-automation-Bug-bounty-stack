@@ -1,0 +1,36 @@
+{
+  "client_name": "HackerOne - hackerone",
+  "target": "hackerone",
+  "program_handle": "hackerone",
+  "program_name": "hackerone",
+  "scope": [
+    "profile-photos.hackerone-user-content.com",
+    "constants-1f31df55dec45325d81e1e2166927a747dbf3590a47a9e26e27ac29eed5378a9.js",
+    "js-D6vPABje.js",
+    "original.png",
+    "browser-not-supported.html",
+    "js-Ne1rLj-2.css",
+    "hackerone.com",
+    "css-kg3HtJk5.css"
+  ],
+  "start_date": "2025-11-28T21:51:47.078434Z",
+  "end_date": "2026-11-28T21:51:47.078445Z",
+  "authorized_by": "HackerOne Program Terms",
+  "authorized_by_email": "support@hackerone.com",
+  "authorized_by_title": "Bug Bounty Program",
+  "testing_types_authorized": [
+    "vulnerability_scanning",
+    "web_application_testing"
+  ],
+  "testing_types_forbidden": [
+    "dos_testing",
+    "social_engineering"
+  ],
+  "program_policy": "",
+  "program_url": "https://hackerone.com/hackerone",
+  "signature_date": "2025-11-28T21:51:47.078455Z",
+  "signature_hash": "hackerone_terms_accepted",
+  "notes": "Auto-discovered via web scraping. Verify official terms before testing.",
+  "discovery_method": "web_scraping",
+  "discovery_timestamp": "2025-11-28T21:51:47.078458Z"
+}

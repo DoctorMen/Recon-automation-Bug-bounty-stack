@@ -1,0 +1,58 @@
+{
+  "system_name": "Divergent Thinking System",
+  "system_id": "DIVERGENT_THINKING_20251105",
+  "copyright_year": "2025",
+  "registration_date": "2025-11-05T09:56:43.079571",
+  "owner": "Khallid Hakeem Nurse",
+  "protected_works": {
+    "source_code": {
+      "files": [
+        "DIVERGENT_THINKING_ENGINE.py",
+        "DIVERGENT_THINKING_INTEGRATION.py",
+        "DIVERGENT_THINKING_COPYRIGHT.py"
+      ],
+      "type": "Literary work (software)",
+      "protection": "Copyright + Trade Secret"
+    },
+    "documentation": {
+      "files": [
+        "DIVERGENT_THINKING_EXPLAINED.md",
+        "DIVERGENT_THINKING_BENEFITS_ANALYSIS.md"
+      ],
+      "type": "Literary work (technical documentation)",
+      "protection": "Copyright"
+    },
+    "algorithms": {
+      "description": "Divergent thinking algorithms, thinking mode implementations, path generation patterns",
+      "type": "Trade secret",
+      "protection": "Trade Secret Law"
+    },
+    "databases": {
+      "description": "Creative pattern databases, attack vector libraries, success prediction models",
+      "type": "Compilation",
+      "protection": "Copyright (compilation)"
+    }
+  },
+  "intellectual_property_value": {
+    "conservative_estimate": "$350,000",
+    "aggressive_estimate": "$950,000",
+    "time_period": "3 years",
+    "basis": "Revenue generation potential + competitive advantage + licensing opportunity"
+  },
+  "trade_secrets": [
+    "Path prioritization algorithms",
+    "Thinking mode selection logic",
+    "Creative pattern databases",
+    "Success prediction models",
+    "Integration architecture patterns"
+  ],
+  "enforcement": {
+    "monitoring": "Active",
+    "violations": "Report to legal counsel",
+    "remedies": [
+      "Injunctive relief",
+      "Damages",
+      "Attorney fees"
+    ]
+  }
+}

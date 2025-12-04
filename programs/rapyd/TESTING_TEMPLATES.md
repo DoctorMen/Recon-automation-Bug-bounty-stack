@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Rapyd API Testing - Ready-to-Use Templates
 
 **Account:** DoctorMen@bugcrowdninja.com  

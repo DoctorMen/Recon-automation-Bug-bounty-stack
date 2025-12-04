@@ -1,0 +1,478 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 Upwork Auto-Solver - Live Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor { width: 20px; height: 20px; border: 2px solid #00ff88; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease; }
+        .cursor-dot { width: 6px; height: 6px; background: #00ff88; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; }
+
+        /* Animated Background */
+        .bg-gradient { position: fixed; width: 100%; height: 100%; background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%); z-index: -2; }
+        .floating-orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: float 20s infinite ease-in-out; z-index: -1; }
+        .orb-1 { width: 400px; height: 400px; background: linear-gradient(45deg, #00ff88, #00d4ff); top: -10%; left: -10%; }
+        .orb-2 { width: 500px; height: 500px; background: linear-gradient(45deg, #ffaa00, #ff0080); bottom: -15%; right: -10%; animation-delay: -7s; }
+        .orb-3 { width: 300px; height: 300px; background: linear-gradient(45deg, #8b5cf6, #00d4ff); top: 50%; right: 20%; animation-delay: -14s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, 50px) rotate(90deg); }
+            50% { transform: translate(100px, -50px) rotate(180deg); }
+            75% { transform: translate(-50px, 100px) rotate(270deg); }
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #ffaa00, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 170, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(255, 170, 0, 0.8)); }
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(0, 255, 136, 0.2);
+            border: 1px solid #00ff88;
+            border-radius: 20px;
+            margin-left: 20px;
+            font-size: 0.9em;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.6); }
+        }
+
+        /* Container */
+        .container { max-width: 1600px; margin: 40px auto; padding: 0 40px; }
+
+        /* Revenue Display */
+        .revenue-display {
+            background: linear-gradient(135deg, rgba(255, 170, 0, 0.2), rgba(0, 255, 136, 0.2));
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 170, 0, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(255, 170, 0, 0.3);
+        }
+
+        .revenue-amount {
+            font-size: 4em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ffaa00, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+        }
+
+        .revenue-label {
+            font-size: 1.2em;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffaa00;
+            box-shadow: 0 10px 30px rgba(255, 170, 0, 0.3);
+        }
+
+        .stat-label { font-size: 0.9em; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ffaa00, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Jobs Table */
+        .jobs-section { margin: 40px 0; }
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ffaa00, #ff0080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .jobs-table {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            overflow-x: auto;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        th { color: #ffaa00; font-weight: bold; text-transform: uppercase; font-size: 0.9em; }
+        tr:hover { background: rgba(255, 170, 0, 0.1); }
+
+        .status-ready { color: #00ff88; font-weight: bold; }
+        .status-analyzing { color: #00d4ff; }
+        .status-generating { color: #ffaa00; }
+
+        /* Solution Preview */
+        .solution-preview {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        .file-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 3px solid #00ff88;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+        }
+
+        .control-button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #ffaa00, #ff0080);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .control-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 170, 0, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8em; }
+            .revenue-amount { font-size: 3em; }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #ffaa00, #00ff88); border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Background -->
+    <div class="bg-gradient"></div>
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+
+    <!-- Header -->
+    <header>
+        <h1>💰 Upwork Auto-Solver</h1>
+        <span class="status-badge" id="status-badge">🟢 MONITORING</span>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Revenue Display -->
+        <div class="revenue-display">
+            <div class="revenue-label">Potential Revenue</div>
+            <div class="revenue-amount" id="revenue">$0</div>
+            <div class="revenue-label">Ready for Submission</div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Jobs Found</div>
+                <div class="stat-value" id="jobs-found">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Solutions Ready</div>
+                <div class="stat-value" id="solutions-ready">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Success Rate</div>
+                <div class="stat-value" id="success-rate">0%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Avg Validation</div>
+                <div class="stat-value" id="avg-validation">0%</div>
+            </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <button class="control-button" onclick="startMonitoring()">▶️ Start Monitoring</button>
+            <button class="control-button" onclick="processJob()">🔨 Process Test Job</button>
+            <button class="control-button" onclick="viewSolutions()">📁 View Solutions</button>
+            <button class="control-button" onclick="exportReport()">📊 Export Report</button>
+        </div>
+
+        <!-- Jobs Table -->
+        <div class="jobs-section">
+            <h2 class="section-title">📋 Recent Jobs</h2>
+            <div class="jobs-table">
+                <table id="jobs-table">
+                    <thead>
+                        <tr>
+                            <th>Job Title</th>
+                            <th>Budget</th>
+                            <th>Pattern</th>
+                            <th>Confidence</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jobs-tbody">
+                        <tr>
+                            <td colspan="5" style="text-align: center; color: #666;">No jobs processed yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Solution Preview -->
+        <div class="solution-preview" id="solution-preview" style="display: none;">
+            <h2 class="section-title">📄 Latest Solution</h2>
+            <div id="solution-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = (e.clientX - 3) + 'px';
+            cursorDot.style.top = (e.clientY - 3) + 'px';
+        });
+
+        // Mock data
+        let totalRevenue = 0;
+        let jobsProcessed = 0;
+        let solutionsReady = 0;
+
+        function startMonitoring() {
+            document.getElementById('status-badge').textContent = '🟢 MONITORING ACTIVE';
+            document.getElementById('status-badge').style.background = 'rgba(0, 255, 136, 0.3)';
+            
+            // Simulate finding jobs
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    addMockJob();
+                }
+            }, 10000);
+        }
+
+        function addMockJob() {
+            const titles = [
+                'Web Scraping for E-commerce Site',
+                'Data Analysis Dashboard',
+                'Automation Script for Excel',
+                'Landing Page Design',
+                'API Integration Project'
+            ];
+            
+            const budgets = [150, 200, 300, 250, 400];
+            const patterns = ['web_scraping', 'data_analysis', 'automation', 'website', 'api_integration'];
+            
+            const idx = Math.floor(Math.random() * titles.length);
+            const confidence = 0.7 + Math.random() * 0.3;
+            const validation = 0.8 + Math.random() * 0.2;
+            
+            jobsProcessed++;
+            if (validation >= 0.8) {
+                solutionsReady++;
+                totalRevenue += budgets[idx];
+            }
+            
+            updateStats();
+            addJobToTable(titles[idx], budgets[idx], patterns[idx], confidence);
+        }
+
+        function addJobToTable(title, budget, pattern, confidence) {
+            const tbody = document.getElementById('jobs-tbody');
+            
+            // Remove placeholder
+            if (tbody.children.length === 1 && tbody.children[0].cells[0].colSpan === 5) {
+                tbody.innerHTML = '';
+            }
+            
+            const row = tbody.insertRow(0);
+            row.innerHTML = `
+                <td>${title}</td>
+                <td>$${budget}</td>
+                <td>${pattern.replace('_', ' ')}</td>
+                <td>${(confidence * 100).toFixed(0)}%</td>
+                <td class="status-ready">✅ Ready</td>
+            `;
+            
+            // Keep only last 10
+            while (tbody.children.length > 10) {
+                tbody.removeChild(tbody.lastChild);
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('revenue').textContent = `$${totalRevenue.toFixed(0)}`;
+            document.getElementById('jobs-found').textContent = jobsProcessed;
+            document.getElementById('solutions-ready').textContent = solutionsReady;
+            document.getElementById('success-rate').textContent = 
+                jobsProcessed > 0 ? `${((solutionsReady / jobsProcessed) * 100).toFixed(0)}%` : '0%';
+            document.getElementById('avg-validation').textContent = '87%';
+        }
+
+        function processJob() {
+            addMockJob();
+            showNotification('✅ Job processed successfully!');
+        }
+
+        function viewSolutions() {
+            const preview = document.getElementById('solution-preview');
+            preview.style.display = 'block';
+            
+            document.getElementById('solution-content').innerHTML = `
+                <div class="file-item">
+                    <strong>📄 web_scraper.py</strong><br>
+                    <small>Python script with BeautifulSoup + Pandas</small>
+                </div>
+                <div class="file-item">
+                    <strong>📄 README.md</strong><br>
+                    <small>Instructions and usage guide</small>
+                </div>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(0, 255, 136, 0.1); border-radius: 10px;">
+                    <strong>✅ Validation: 92%</strong><br>
+                    Ready for submission to client
+                </div>
+            `;
+            
+            preview.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function exportReport() {
+            const report = {
+                total_revenue: totalRevenue,
+                jobs_processed: jobsProcessed,
+                solutions_ready: solutionsReady,
+                success_rate: ((solutionsReady / jobsProcessed) * 100).toFixed(2),
+                timestamp: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `upwork-report-${Date.now()}.json`;
+            a.click();
+            
+            showNotification('📊 Report exported successfully!');
+        }
+
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.textContent = message;
+            notif.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 40px;
+                background: rgba(0, 255, 136, 0.9);
+                color: #000;
+                padding: 15px 30px;
+                border-radius: 10px;
+                font-weight: bold;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => {
+                notif.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notif.remove(), 300);
+            }, 3000);
+        }
+
+        // Initial update
+        updateStats();
+    </script>
+</body>
+</html>

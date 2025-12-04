@@ -1,0 +1,5 @@
+Permission proof for bolt.eu (Bugcrowd public program)
+Source: https://bugcrowd.com/bolt
+Date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+Scope: *.bolt.eu
+Notes: Passive recon + non-destructive scanning permitted per Bugcrowd policy.

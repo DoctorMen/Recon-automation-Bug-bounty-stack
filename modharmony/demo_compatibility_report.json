@@ -1,0 +1,36 @@
+{
+  "status": "conflicts_detected",
+  "total_conflicts": 1,
+  "critical_conflicts": 1,
+  "warnings": 0,
+  "info": 0,
+  "conflicts": [
+    {
+      "file": "Interface\\skyui_cfg.txt",
+      "conflict_type": "file_overwrite",
+      "severity": "high",
+      "mods": [
+        "SkyUI",
+        "Frostfall"
+      ],
+      "details": [
+        {
+          "mod": "SkyUI",
+          "hash": "8bbc7ddc5847362f940ef2ad794b3633",
+          "size": 36
+        },
+        {
+          "mod": "Frostfall",
+          "hash": "e4557b84d082cba004c5e3f4dcdd98ce",
+          "size": 72
+        }
+      ]
+    }
+  ],
+  "mods_scanned": 3,
+  "recommendations": [
+    "[WARNING] 1 critical conflicts detected",
+    "Recommendation: Review load order or disable conflicting mods",
+    "  - Conflict between: SkyUI, Frostfall"
+  ]
+}

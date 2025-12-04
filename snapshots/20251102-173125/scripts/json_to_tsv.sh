@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # ==========================================
 # JSON → TSV auto-parser for httpx output
 # Author: Recon Automation Stack

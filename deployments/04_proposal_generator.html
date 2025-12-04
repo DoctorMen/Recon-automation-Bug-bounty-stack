@@ -1,0 +1,180 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal Generator - Upwork Master</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0066FF; --accent: #10B981; --dark: #0A0E27;
+            --dark-card: #1A2332; --dark-border: #2D3748;
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #7C3AED 100%);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: #FFFFFF; padding: 40px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5em; margin-bottom: 10px; }
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px; background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 12px; color: white; font-size: 1em; font-family: 'Inter', sans-serif; }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .btn { padding: 16px 40px; background: var(--accent); color: white; border: none; border-radius: 12px; font-weight: 600; font-size: 1.1em; cursor: pointer; transition: all 0.3s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(16,185,129,0.3); }
+        .output { background: var(--dark-card); padding: 32px; border-radius: 16px; border: 1px solid var(--dark-border); margin-top: 40px; display: none; }
+        .output.show { display: block; }
+        .output pre { white-space: pre-wrap; font-family: 'Inter', sans-serif; line-height: 1.8; }
+        .copy-btn { margin-top: 16px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Proposal Generator</h1>
+            <p>Generate winning proposals in 60 seconds</p>
+        </div>
+
+        <form id="proposalForm">
+            <div class="form-group">
+                <label>Client Name</label>
+                <input type="text" id="clientName" placeholder="Enter client name" required>
+            </div>
+            <div class="form-group">
+                <label>Template Type</label>
+                <select id="templateType" required>
+                    <option value="">Select template...</option>
+                    <option value="emergency">Emergency Scan (ASAP/Urgent)</option>
+                    <option value="api">API Security Testing</option>
+                    <option value="pentest">Penetration Testing</option>
+                    <option value="monthly">Monthly Monitoring</option>
+                    <option value="compliance">Compliance Audit</option>
+                    <option value="wordpress">WordPress Security</option>
+                    <option value="ecommerce">E-commerce Security</option>
+                    <option value="cloud">Cloud Security</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Specific Concern (from job post)</label>
+                <textarea id="concern" placeholder="Mention any specific security concerns or requirements from the job post..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="text" id="price" placeholder="e.g., $300 or $400-$800">
+            </div>
+            <button type="submit" class="btn">Generate Proposal</button>
+        </form>
+
+        <div class="output" id="output">
+            <h3 style="margin-bottom: 20px; color: var(--primary);">Generated Proposal:</h3>
+            <pre id="proposalText"></pre>
+            <button class="btn copy-btn" onclick="copyProposal()">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script>
+        const templates = {
+            emergency: `Subject: 2-Hour Security Scan - Results Today
+
+Hi [CLIENT_NAME],
+
+I see you need a security assessment urgently. I specialize in fast, comprehensive security scans using enterprise automation tools.
+
+What I'll deliver in 2 hours:
+✅ Complete vulnerability scan (100+ checks)
+✅ Professional report with security score
+✅ Critical issues flagged immediately
+✅ Step-by-step fix instructions
+✅ 30-day support included
+
+My automated system scans 80-240x faster than manual methods, so I can deliver results today - perfect for urgent situations.
+
+Fixed Price: [PRICE]
+Timeline: 2 hours from start
+Guarantee: Full refund if not satisfied
+
+Ready to secure your business today?
+
+Best regards,
+[Your Name]`,
+
+            api: `Subject: API Security Assessment - Comprehensive Testing
+
+Hi [CLIENT_NAME],
+
+I specialize in API security testing using automated tools + manual expertise. I've secured 500+ APIs and found 2,000+ vulnerabilities.
+
+What I'll test:
+✅ Authentication (OAuth 2.0, JWT, API keys, session management)
+✅ Authorization (IDOR, privilege escalation, RBAC bypass)
+✅ Input validation (SQL injection, NoSQL injection, XXE, SSRF)
+✅ Rate limiting & DDoS protection
+✅ Business logic vulnerabilities
+✅ API endpoint discovery (60+ endpoints auto-discovered)
+
+Fixed Price: [PRICE]
+Timeline: 24-48 hours
+Deliverables: Full report + PoC requests + remediation guide
+
+I can start immediately if you're ready. Would you like to discuss your API security needs?
+
+Best,
+[Your Name]`,
+
+            pentest: `Subject: Professional Penetration Testing - OWASP Methodology
+
+Hi [CLIENT_NAME],
+
+I offer comprehensive penetration testing aligned with OWASP Top 10 methodology. My automated recon + manual validation approach finds issues others miss while delivering faster than traditional firms.
+
+What you'll receive:
+✅ Professional branded PDF report
+✅ OWASP Top 10 vulnerability assessment
+✅ CVSS scores for each finding
+✅ Step-by-step reproduction instructions
+✅ Evidence bundle (screenshots, logs, outputs)
+✅ Remediation recommendations with priority matrix
+✅ Ticket-ready issue descriptions
+
+Fixed Price: [PRICE]
+Timeline: 48-72 hours
+Deliverables: Executive summary + detailed technical report + evidence bundle
+
+I can complete this faster than traditional firms (weeks) while maintaining comprehensive coverage. Ready to discuss your security testing needs?
+
+Best regards,
+[Your Name]`
+        };
+
+        document.getElementById('proposalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const clientName = document.getElementById('clientName').value;
+            const templateType = document.getElementById('templateType').value;
+            const concern = document.getElementById('concern').value;
+            const price = document.getElementById('price').value || 'Based on scope';
+
+            let proposal = templates[templateType] || templates.emergency;
+            proposal = proposal.replace(/\[CLIENT_NAME\]/g, clientName);
+            proposal = proposal.replace(/\[PRICE\]/g, price);
+            
+            if (concern) {
+                proposal = proposal.replace('I see you need', `I see you need - specifically regarding: ${concern}. I understand`);
+            }
+
+            document.getElementById('proposalText').textContent = proposal;
+            document.getElementById('output').classList.add('show');
+        });
+
+        function copyProposal() {
+            const text = document.getElementById('proposalText').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Proposal copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
+

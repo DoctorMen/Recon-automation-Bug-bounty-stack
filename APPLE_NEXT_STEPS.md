@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Apple Bug Bounty - System Status & Next Steps
 
 ## ✅ GOOD NEWS: Script Fixed!
@@ -86,5 +89,11 @@ python3 scripts/find_apple_protected.py
 ---
 
 **Bottom line:** System is fixed, but Apple is hard. Focus on Rapyd for better results! 💰
+
+
+
+
+
+
 
 

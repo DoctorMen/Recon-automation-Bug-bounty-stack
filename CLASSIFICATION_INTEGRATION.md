@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bug Classification Integration - Complete
 
 ## ✅ Enhanced with Bug Bounty Methodology

@@ -1,0 +1,33 @@
+{
+  "poc_metadata": {
+    "tester": "Real POC Tester",
+    "test_date": "2025-12-01T21:26:21.995332",
+    "targets_tested": 2,
+    "confirmed_exploits": 1,
+    "total_bounty_potential": 1500,
+    "evidence_type": "Browser-based PoC"
+  },
+  "confirmed_exploits": [
+    {
+      "exploitable": true,
+      "target": "gitlab.com",
+      "vulnerability": "clickjacking",
+      "bounty": 1500,
+      "poc_file": "clickjacking_poc_gitlab_com.html",
+      "evidence_type": "browser_poc_html",
+      "exploit_method": "iframe_embedding",
+      "impact": "UI redress attack possible",
+      "test_results": {
+        "x_frame_options": "MISSING",
+        "csp_frame_ancestors": "PROTECTION MISSING",
+        "iframe_test": "SUCCESS"
+      },
+      "discovered_at": "2025-12-01T21:26:21.846543"
+    }
+  ],
+  "submission_readiness": {
+    "status": "PARTIALLY READY",
+    "reason": "Limited exploitable findings",
+    "recommendation": "Submit available findings, continue testing"
+  }
+}

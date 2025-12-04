@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Current Plan Status - Updated
 
 ## Phase 1: Setup (COMPLETED âœ…)

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Sales Page Copy (Paste into Gumroad/Teachable/Lemon Squeezy)
 
 ## Headline
@@ -30,6 +33,12 @@ Real run produced $20K in accepted vulns; 209M tokens processed cost‑efficient
 For authorized testing only. Stay within program scope. See EULA.
 
 Owner: DoctorMen • Contact: doctormen131@outlook.com
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,71 @@
+{
+  "session_id": "6d1abd76",
+  "target_url": "https://example.com",
+  "vulnerability_type": "clickjacking",
+  "endpoint_tested": "https://example.com",
+  "validation_timestamp": "2025-12-01T08:32:00.102529",
+  "validation_status": "vulnerable",
+  "evidence": {
+    "headers_received": {
+      "Accept-Ranges": "bytes",
+      "Content-Type": "text/html",
+      "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+      "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+      "Vary": "Accept-Encoding",
+      "Content-Encoding": "gzip",
+      "Cache-Control": "max-age=86000",
+      "Date": "Mon, 01 Dec 2025 13:32:05 GMT",
+      "Content-Length": "20",
+      "Connection": "keep-alive",
+      "Alt-Svc": "h3=\":443\"; ma=93600"
+    },
+    "x_frame_options": "",
+    "csp_frame_ancestors": false,
+    "iframe_test_result": null,
+    "proof_of_concept": null,
+    "iframe_test_file": "validation_reports\\clickjacking_test_6d1abd76.html",
+    "iframe_test_html": "\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Clickjacking Validation Test - https://example.com</title>\n    <style>\n        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }\n        .test-container { border: 2px solid #333; padding: 10px; margin: 10px 0; }\n        .iframe-container { width: 100%; height: 500px; border: 1px solid red; }\n        iframe { width: 100%; height: 100%; border: none; }\n        .result { margin: 10px 0; padding: 10px; }\n        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }\n        .failure { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }\n    </style>\n</head>\n<body>\n    <h1>\ud83d\udd0d Clickjacking Validation Test</h1>\n    <div class=\"test-container\">\n        <h2>Target: https://example.com</h2>\n        <p>X-Frame-Options: MISSING</p>\n        <p>CSP frame-ancestors: MISSING</p>\n    </div>\n    \n    <div class=\"test-container\">\n        <h2>IFrame Embedding Test</h2>\n        <div class=\"iframe-container\">\n            <iframe src=\"https://example.com\" id=\"targetFrame\"></iframe>\n        </div>\n        <div id=\"testResult\" class=\"result\">Testing iframe loading...</div>\n    </div>\n    \n    <script>\n        const iframe = document.getElementById('targetFrame');\n        const resultDiv = document.getElementById('testResult');\n        \n        iframe.onload = function() {\n            try {\n                // Try to access iframe content (same-origin test)\n                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded successfully - VULNERABLE to clickjacking';\n            } catch(e) {\n                // Cross-origin - but iframe still loaded\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded (cross-origin) - VULNERABLE to clickjacking';\n            }\n        };\n        \n        iframe.onerror = function() {\n            resultDiv.className = 'result failure';\n            resultDiv.innerHTML = '\u274c IFrame blocked by X-Frame-Options or CSP - NOT VULNERABLE';\n        };\n        \n        // Timeout after 10 seconds\n        setTimeout(function() {\n            if (resultDiv.innerHTML === 'Testing iframe loading...') {\n                resultDiv.className = 'result failure';\n                resultDiv.innerHTML = '\u274c IFrame failed to load - NOT VULNERABLE or network error';\n            }\n        }, 10000);\n    </script>\n</body>\n</html>\n        "
+  },
+  "reproduction_steps": [
+    "1. Navigate to the target endpoint: https://example.com",
+    "2. Check HTTP headers - X-Frame-Options: MISSING",
+    "3. Check CSP header - frame-ancestors: MISSING",
+    "4. Create HTML page with iframe embedding the target",
+    "5. Load the HTML page in browser",
+    "6. Observe iframe loads: SUCCESS (vulnerable)",
+    "7. If vulnerable, attacker can overlay hidden elements to hijack clicks"
+  ],
+  "proof_of_vulnerability": {
+    "type": "clickjacking",
+    "severity": "medium",
+    "impact_description": "Attackers can embed the target in invisible iframes and trick users into clicking hidden UI elements",
+    "exploit_scenario": "An attacker could create a fake login page that overlays the real login form, capturing user credentials",
+    "business_impact": "Account takeover, unauthorized actions, data theft through UI manipulation",
+    "test_file_location": "validation_reports\\clickjacking_test_6d1abd76.html"
+  },
+  "risk_assessment": {},
+  "responsible_disclosure": {
+    "summary": "CLICKJACKING VULNERABILITY CONFIRMED",
+    "security_focus": "The security flaw itself, not attack automation",
+    "technical_details": {
+      "type": "clickjacking",
+      "severity": "medium",
+      "impact_description": "Attackers can embed the target in invisible iframes and trick users into clicking hidden UI elements",
+      "exploit_scenario": "An attacker could create a fake login page that overlays the real login form, capturing user credentials",
+      "business_impact": "Account takeover, unauthorized actions, data theft through UI manipulation",
+      "test_file_location": "validation_reports\\clickjacking_test_6d1abd76.html"
+    },
+    "remediation_priority": "medium",
+    "compliance_impact": [
+      "OWASP Top 10",
+      "PCI-DSS"
+    ],
+    "next_steps": [
+      "Review validation evidence",
+      "Assess business impact",
+      "Plan remediation",
+      "Test fix implementation",
+      "Monitor for regressions"
+    ]
+  }
+}

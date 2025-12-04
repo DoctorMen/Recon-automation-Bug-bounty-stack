@@ -1,0 +1,4767 @@
+{
+  "scan_type": "defi_cantina_bounty",
+  "timestamp": "2025-12-01T20:59:41.914275",
+  "targets": [
+    "liquity.org",
+    "monad.xyz",
+    "kiln.fi",
+    "stackup.sh",
+    "usdai.com",
+    "infinifi-protocol.com",
+    "sablier.com",
+    "alchemy.com",
+    "mento-labs.org",
+    "kuru-labs.io",
+    "whetstone.cc",
+    "rheo.xyz",
+    "huma.finance",
+    "marginal.vc",
+    "eco.org",
+    "nodle.io",
+    "cantina.xyz",
+    "deri.io",
+    "vetrafi.com"
+  ],
+  "duration": 103.621497631073,
+  "total_findings": 184,
+  "statistics": {
+    "critical": 0,
+    "high": 0,
+    "medium": 161,
+    "low": 0,
+    "info": 23
+  },
+  "vulnerability_types": {
+    "dns_resolution": 16,
+    "defi_technology": 7,
+    "defi_endpoint": 138,
+    "clickjacking_risk": 11,
+    "csp_missing": 12
+  },
+  "target_scores": {
+    "liquity.org": 0,
+    "https:": 276,
+    "monad.xyz": 4,
+    "kiln.fi": 4,
+    "stackup.sh": 2,
+    "usdai.com": 4,
+    "sablier.com": 0,
+    "alchemy.com": 0,
+    "whetstone.cc": 4,
+    "rheo.xyz": 4,
+    "huma.finance": 0,
+    "marginal.vc": 4,
+    "eco.org": 4,
+    "nodle.io": 4,
+    "cantina.xyz": 4,
+    "deri.io": 4,
+    "vetrafi.com": 4
+  },
+  "findings": [
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "liquity.org",
+      "evidence": "Resolves to 4 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_technology",
+      "severity": "info",
+      "target": "liquity.org",
+      "evidence": "DeFi technologies: cloudflare",
+      "technologies": [
+        "cloudflare"
+      ],
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/liquidity/",
+      "evidence": "DeFi endpoint accessible: /liquidity/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/governance/",
+      "evidence": "DeFi endpoint accessible: /governance/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://liquity.org/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "monad.xyz",
+      "evidence": "Resolves to 1 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "monad.xyz",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "monad.xyz",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/liquidity/",
+      "evidence": "DeFi endpoint accessible: /liquidity/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/governance/",
+      "evidence": "DeFi endpoint accessible: /governance/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://monad.xyz/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "kiln.fi",
+      "evidence": "Resolves to 2 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "kiln.fi",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "kiln.fi",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/liquidity/",
+      "evidence": "DeFi endpoint accessible: /liquidity/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "stackup.sh",
+      "evidence": "Resolves to 3 IPs",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "defi_technology",
+      "severity": "info",
+      "target": "stackup.sh",
+      "evidence": "DeFi technologies: cloudflare",
+      "technologies": [
+        "cloudflare"
+      ],
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "stackup.sh",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "usdai.com",
+      "evidence": "Resolves to 1 IPs",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "usdai.com",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "usdai.com",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "sablier.com",
+      "evidence": "Resolves to 3 IPs",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "alchemy.com",
+      "evidence": "Resolves to 2 IPs",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "whetstone.cc",
+      "evidence": "Resolves to 4 IPs",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "whetstone.cc",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "whetstone.cc",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "rheo.xyz",
+      "evidence": "Resolves to 1 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_technology",
+      "severity": "info",
+      "target": "rheo.xyz",
+      "evidence": "DeFi technologies: cloudflare",
+      "technologies": [
+        "cloudflare"
+      ],
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "rheo.xyz",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "rheo.xyz",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/liquidity/",
+      "evidence": "DeFi endpoint accessible: /liquidity/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/governance/",
+      "evidence": "DeFi endpoint accessible: /governance/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://rheo.xyz/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "huma.finance",
+      "evidence": "Resolves to 4 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/liquidity/",
+      "evidence": "DeFi endpoint accessible: /liquidity/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/governance/",
+      "evidence": "DeFi endpoint accessible: /governance/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://huma.finance/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "marginal.vc",
+      "evidence": "Resolves to 2 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "marginal.vc",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "marginal.vc",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/liquidity/",
+      "evidence": "DeFi endpoint accessible: /liquidity/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/governance/",
+      "evidence": "DeFi endpoint accessible: /governance/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://marginal.vc/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "eco.org",
+      "evidence": "Resolves to 1 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "eco.org",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "eco.org",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/liquidity/",
+      "evidence": "DeFi endpoint accessible: /liquidity/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/governance/",
+      "evidence": "DeFi endpoint accessible: /governance/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://eco.org/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "nodle.io",
+      "evidence": "Resolves to 2 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_technology",
+      "severity": "info",
+      "target": "nodle.io",
+      "evidence": "DeFi technologies: cloudflare",
+      "technologies": [
+        "cloudflare"
+      ],
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "nodle.io",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "nodle.io",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/governance/",
+      "evidence": "DeFi endpoint accessible: /governance/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://nodle.io/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "cantina.xyz",
+      "evidence": "Resolves to 2 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_technology",
+      "severity": "info",
+      "target": "cantina.xyz",
+      "evidence": "DeFi technologies: cloudflare",
+      "technologies": [
+        "cloudflare"
+      ],
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "cantina.xyz",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "cantina.xyz",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/liquidity/",
+      "evidence": "DeFi endpoint accessible: /liquidity/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/governance/",
+      "evidence": "DeFi endpoint accessible: /governance/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://cantina.xyz/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "deri.io",
+      "evidence": "Resolves to 2 IPs",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "defi_technology",
+      "severity": "info",
+      "target": "deri.io",
+      "evidence": "DeFi technologies: cloudflare",
+      "technologies": [
+        "cloudflare"
+      ],
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "deri.io",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "deri.io",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "systematic_scan",
+      "predictions": []
+    },
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "vetrafi.com",
+      "evidence": "Resolves to 1 IPs",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_technology",
+      "severity": "info",
+      "target": "vetrafi.com",
+      "evidence": "DeFi technologies: cloudflare",
+      "technologies": [
+        "cloudflare"
+      ],
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "vetrafi.com",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "csp_missing",
+      "severity": "medium",
+      "target": "vetrafi.com",
+      "evidence": "Missing CSP - potential for cryptojacking script injection",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/api/v1/",
+      "evidence": "DeFi endpoint accessible: /api/v1/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/contracts/",
+      "evidence": "DeFi endpoint accessible: /contracts/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/abi/",
+      "evidence": "DeFi endpoint accessible: /abi/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/token/",
+      "evidence": "DeFi endpoint accessible: /token/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/swap/",
+      "evidence": "DeFi endpoint accessible: /swap/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/pool/",
+      "evidence": "DeFi endpoint accessible: /pool/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/liquidity/",
+      "evidence": "DeFi endpoint accessible: /liquidity/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/governance/",
+      "evidence": "DeFi endpoint accessible: /governance/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/wallet/",
+      "evidence": "DeFi endpoint accessible: /wallet/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/approve/",
+      "evidence": "DeFi endpoint accessible: /approve/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/docs/",
+      "evidence": "DeFi endpoint accessible: /docs/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/swagger/",
+      "evidence": "DeFi endpoint accessible: /swagger/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://vetrafi.com/.well-known/",
+      "evidence": "DeFi endpoint accessible: /.well-known/",
+      "ai_analysis": "chain_building",
+      "predictions": [
+        {
+          "vuln": "Wallet Signature Replay",
+          "confidence": 0.65,
+          "target": "Wallet connection",
+          "impact": "High - Unauthorized transactions"
+        },
+        {
+          "vuln": "API Access Control Bypass",
+          "confidence": 0.6,
+          "target": "API endpoints",
+          "impact": "High - Unauthorized operations"
+        },
+        {
+          "vuln": "Approval Manipulation",
+          "confidence": 0.6,
+          "target": "Token approvals",
+          "impact": "Critical - Token theft"
+        }
+      ]
+    }
+  ],
+  "exploit_chains": []
+}

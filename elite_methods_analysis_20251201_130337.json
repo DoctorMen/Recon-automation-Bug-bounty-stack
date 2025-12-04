@@ -1,0 +1,61 @@
+{
+  "santiago_lopez": {
+    "philosophy": "Balance reward size against time investment",
+    "key_techniques": [
+      "Focus on medium-severity bugs that pay well",
+      "Avoid critical bugs that take too long",
+      "Prodigious work ethic - 8+ hours daily",
+      "Systematic approach to target selection"
+    ],
+    "success_metrics": {
+      "first_millionaire": "$1M+ earnings",
+      "time_to_mastery": "2 years intensive work",
+      "hourly_rate": "~$50/hour sustained"
+    }
+  },
+  "frans_rosen": {
+    "philosophy": "Code structure analysis and data flow tracking",
+    "key_techniques": [
+      "Analyze code structures and variable typing",
+      "Track data flow through applications",
+      "Use custom tools (DomLogger++, postMessage-tracker)",
+      "Focus on non-standard paths for vulnerabilities",
+      "Param Miner for parameter discovery"
+    ],
+    "success_metrics": {
+      "highest_bounty": "$30k single bounty",
+      "specialization": "DOM-based vulnerabilities",
+      "tool_preference": "Custom JavaScript tools"
+    }
+  },
+  "rhynorater": {
+    "philosophy": "Intuition-driven deep diving",
+    "key_techniques": [
+      "No checklists - pure intuition",
+      "30+ hours minimum per target",
+      "Source code review and reverse engineering",
+      "Focus on crown jewels of each target",
+      "Cross-protocol vulnerability chaining"
+    ],
+    "success_metrics": {
+      "vulnerabilities_found": "450+",
+      "leaderboard_rank": "Top 35 all-time",
+      "specialization": "0-day hunting"
+    }
+  },
+  "monke": {
+    "philosophy": "Automation-enhanced manual testing",
+    "key_techniques": [
+      "Caido over Burpsuite for simplicity",
+      "Jason Haddix Recon Methodology",
+      "Mind mapping in Obsidian for attack surface",
+      "Pomodoro sessions for mental endurance",
+      "Focus on impact-based vulnerabilities"
+    ],
+    "success_metrics": {
+      "tool_stack": "ProjectDiscovery suite",
+      "note_taking": "Obsidian mind maps",
+      "break_strategy": "Regular recovery time"
+    }
+  }
+}

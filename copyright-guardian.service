@@ -1,0 +1,23 @@
+# Copyright © 2025 DoctorMen. All Rights Reserved.
+# Systemd service file for Auto Copyright Guardian
+# Install: sudo cp copyright-guardian.service /etc/systemd/system/
+# Enable: sudo systemctl enable copyright-guardian
+# Start: sudo systemctl start copyright-guardian
+# Status: sudo systemctl status copyright-guardian
+
+[Unit]
+Description=Auto Copyright Guardian - 10-minute copyright protection
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Recon-automation-Bug-bounty-stack
+ExecStart=/usr/bin/python3 /home/ubuntu/Recon-automation-Bug-bounty-stack/AUTO_COPYRIGHT_GUARDIAN.py --daemon --interval 10
+Restart=always
+RestartSec=60
+StandardOutput=append:/home/ubuntu/Recon-automation-Bug-bounty-stack/.auto_copyright_log.txt
+StandardError=append:/home/ubuntu/Recon-automation-Bug-bounty-stack/.auto_copyright_log.txt
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,101 @@
+{
+  "session_id": "NRO-20251202_212215",
+  "target": "example.com",
+  "scope": [
+    "example.com",
+    "*.example.com"
+  ],
+  "started_at": "2025-12-02T21:22:15.452050",
+  "phases": {
+    "initial_analysis": {
+      "target": "example.com",
+      "initial_score": 0.8859476187202091,
+      "key_features": [
+        [
+          "missing_xframe",
+          0.55
+        ],
+        [
+          "missing_csp",
+          0.5
+        ],
+        [
+          "missing_hsts",
+          0.4
+        ],
+        [
+          "missing_nosniff",
+          0.3
+        ],
+        [
+          "degree_0",
+          0.2
+        ]
+      ],
+      "vulnerability_predictions": []
+    },
+    "graph_exploration": {
+      "total_nodes": 1,
+      "graph_stats": {
+        "total_nodes": 1,
+        "total_edges": 0,
+        "nodes_by_type": {
+          "domain": 1
+        },
+        "nodes_by_degree": {
+          "0": 1
+        },
+        "explored": 1,
+        "unexplored": 0,
+        "in_scope": 1,
+        "out_of_scope": 0,
+        "vulnerabilities_found": 0
+      },
+      "prioritized_nodes": [
+        {
+          "name": "example.com",
+          "score": 0.8859476187202091,
+          "degree": 0
+        }
+      ],
+      "raw_findings": []
+    }
+  },
+  "prioritized_findings": [],
+  "attack_chains": [],
+  "learning_insights": {
+    "session_summary": {
+      "total_findings": 0,
+      "unique_targets": 0,
+      "duration": 0.18319
+    },
+    "weight_analysis": {
+      "top_positive": [
+        [
+          "debug_in_name",
+          0.9
+        ],
+        [
+          "admin_in_name",
+          0.85
+        ],
+        [
+          "upload_in_name",
+          0.85
+        ],
+        [
+          "struts_detected",
+          0.85
+        ],
+        [
+          "similar_to_success",
+          0.85
+        ]
+      ],
+      "top_negative": []
+    },
+    "recommendations": []
+  },
+  "completed_at": "2025-12-02T21:22:15.635218",
+  "duration_seconds": 0.183521
+}

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Sales Page Copy (Paste into Gumroad/Teachable/Lemon Squeezy)
 
 ## Headline

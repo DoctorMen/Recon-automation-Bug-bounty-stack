@@ -1,0 +1,65 @@
+#!/bin/bash
+# GHOST IP Manager for Windsurf
+# Copyright (c) 2025 Khallid Hakeem Nurse - All Rights Reserved
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Banner
+echo -e "${GREEN}GHOST IP Manager${NC} - ${YELLOW}Windsurf Edition${NC}"
+echo -e "© 2025 ${GREEN}Khallid Hakeem Nurse${NC}\n"
+
+case "$1" in
+    view)
+        case "$2" in
+            registry)
+                cat IP_REGISTRY.md | less
+                ;;
+            guide)
+                cat IP_MANAGEMENT_GUIDE.md | less
+                ;;
+            *)
+                echo -e "${YELLOW}Usage:${NC} ipmgr view [registry|guide]"
+                ;;
+        esac
+        ;;
+    
+    update)
+        echo -e "${YELLOW}Updating copyright notices...${NC}"
+        python3 update_copyright.py
+        ;;
+        
+    search)
+        if [ -z "$2" ]; then
+            echo -e "${RED}Error:${NC} Please provide a search term"
+            echo -e "${YELLOW}Usage:${NC} ipmgr search [term]"
+            exit 1
+        fi
+        echo -e "${YELLOW}Searching for:${NC} $2"
+        grep -r "$2" . --include="*.md" --include="*.py" --include="*.js" --include="*.html" --color=always | grep -v "node_modules" | grep -v "__pycache__"
+        ;;
+        
+    add-asset)
+        if [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ] || [ -z "$5" ]; then
+            echo -e "${RED}Error:${NC} Missing required parameters"
+            echo -e "${YELLOW}Usage:${NC} ipmgr add-asset [name] [version] [registration] [description]"
+            echo -e "${YELLOW}Example:${NC} ipmgr add-asset "New Module" "1.0.0" "SRu00123456800" "Description here"
+            exit 1
+        fi
+        
+        echo -e "| $2 | $3 | $4 | $5 |" | tee -a IP_REGISTRY.md
+        echo -e "${GREEN}✓ Added new asset to IP_REGISTRY.md${NC}"
+        ;;
+        
+    *)
+        echo -e "${YELLOW}GHOST IP Manager - Available Commands:${NC}\n"
+        echo -e "${GREEN}view registry${NC}    - View IP registry"
+        echo -e "${GREEN}view guide${NC}      - View IP management guide"
+        echo -e "${GREEN}update${NC}          - Update copyright notices"
+        echo -e "${GREEN}search [term]${NC}   - Search IP documentation"
+        echo -e "${GREEN}add-asset${NC}       - Add new IP asset (name version registration description)"
+        ;;
+esac

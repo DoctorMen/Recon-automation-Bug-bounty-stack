@@ -1,0 +1,61 @@
+{
+  "target": "example.com",
+  "timestamp": "2025-12-01T15:27:20.262411",
+  "dns": {
+    "resolved": true,
+    "ips": [
+      "23.220.75.232",
+      "23.192.228.80",
+      "23.215.0.136",
+      "23.192.228.84",
+      "23.215.0.138",
+      "23.220.75.245"
+    ]
+  },
+  "findings": [
+    {
+      "type": "missing_security_header",
+      "header": "x-frame-options",
+      "purpose": "Clickjacking Protection",
+      "severity": "medium",
+      "evidence": "Header 'x-frame-options' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "x-content-type-options",
+      "purpose": "MIME Sniffing Protection",
+      "severity": "medium",
+      "evidence": "Header 'x-content-type-options' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "content-security-policy",
+      "purpose": "XSS Protection",
+      "severity": "medium",
+      "evidence": "Header 'content-security-policy' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "strict-transport-security",
+      "purpose": "HTTPS Enforcement",
+      "severity": "medium",
+      "evidence": "Header 'strict-transport-security' not found in HTTP response"
+    },
+    {
+      "type": "missing_security_header",
+      "header": "x-xss-protection",
+      "purpose": "XSS Filter",
+      "severity": "medium",
+      "evidence": "Header 'x-xss-protection' not found in HTTP response"
+    }
+  ],
+  "tools_used": [
+    "curl",
+    "nuclei",
+    "httpx",
+    "nmap",
+    "dig",
+    "subfinder",
+    "slither"
+  ]
+}

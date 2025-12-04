@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 
 # Rapyd Bug Bounty Quick Start Script
 # This script runs safe reconnaissance for Rapyd bug bounty program

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Slither Detector Names - Correct Usage
 
 ## Problem

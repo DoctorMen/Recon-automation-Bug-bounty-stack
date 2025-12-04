@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 💰 Realistic Bug Bounty Payouts - Honest Comparison
 
 ## ⚠️ CRITICAL REALITY CHECK

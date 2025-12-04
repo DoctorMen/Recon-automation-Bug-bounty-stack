@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # ✅ Crypto Scanner Verification System
 
 ## 🔍 Verification vs Hallucination

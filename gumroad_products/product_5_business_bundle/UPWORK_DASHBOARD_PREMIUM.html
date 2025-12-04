@@ -1,0 +1,403 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Operations | Upwork Intelligence Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #064e3b 0%, #134e4a 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav {
+            background: rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 0 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-item {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            color: #6ee7b7;
+            background: rgba(110, 231, 183, 0.1);
+        }
+
+        .nav-item.active {
+            color: #6ee7b7;
+            border-bottom-color: #6ee7b7;
+            background: rgba(110, 231, 183, 0.1);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.15) 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(110, 231, 183, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+            border-color: #6ee7b7;
+        }
+
+        .kpi-title {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6ee7b7 0%, #84cc16 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #6ee7b7;
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-card {
+            background: linear-gradient(135deg, rgba(132, 204, 22, 0.1) 0%, rgba(101, 163, 13, 0.1) 100%);
+            border: 1px solid rgba(132, 204, 22, 0.3);
+            border-left: 4px solid #84cc16;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+        }
+
+        .proposal-card:hover {
+            border-left-width: 8px;
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(132, 204, 22, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #047857 0%, #059669 100%);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-active { background: rgba(132, 204, 22, 0.2); color: #84cc16; }
+        .badge-pending { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+        .badge-won { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">💼</div>
+                <div>
+                    <div>Freelance Operations</div>
+                    <div style="font-size: 0.75rem; opacity: 0.9; font-weight: 400;">Upwork Intelligence Platform</div>
+                </div>
+            </div>
+            <div style="text-align: right;">
+                <div style="font-size: 0.75rem; opacity: 0.8;">Active Proposals</div>
+                <div style="font-size: 1.5rem; font-weight: 700;">12 Pending</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <div class="nav-content">
+            <div class="nav-item active">Dashboard</div>
+            <div class="nav-item">Active Proposals</div>
+            <div class="nav-item">Won Contracts</div>
+            <div class="nav-item">Analytics</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-title">Proposals Sent</div>
+                <div class="kpi-value">47</div>
+                <div style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">
+                    <span style="color: #84cc16; font-weight: 600;">↗ +12 this week</span>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-title">Response Rate</div>
+                <div class="kpi-value">38%</div>
+                <div style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">
+                    <span style="color: #84cc16; font-weight: 600;">Above average</span>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-title">Win Rate</div>
+                <div class="kpi-value">25%</div>
+                <div style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">
+                    <span style="color: #10b981; font-weight: 600;">Industry leading</span>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-title">Avg Contract Value</div>
+                <div class="kpi-value">$2.5K</div>
+                <div style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">
+                    <span style="color: #84cc16; font-weight: 600;">↗ +15% growth</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🎯 Active Proposals (High Priority)</div>
+
+            <div class="proposal-card">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                    <div>
+                        <div style="font-size: 1.125rem; font-weight: 600; color: #84cc16; margin-bottom: 0.25rem;">
+                            Full-Stack Developer for SaaS Platform
+                        </div>
+                        <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">Posted 2 hours ago • $5,000-$8,000 budget</div>
+                    </div>
+                    <span class="badge badge-active">ACTIVE</span>
+                </div>
+                <div style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">
+                    React + Node.js + PostgreSQL stack. Automated proposal sent with 95% match score.
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div style="flex: 1;">
+                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">MATCH SCORE</div>
+                        <div style="font-weight: 600; color: #10b981;">95%</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">COMPETITORS</div>
+                        <div style="font-weight: 600; color: #fbbf24;">8</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">WIN PROBABILITY</div>
+                        <div style="font-weight: 600; color: #84cc16;">78%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proposal-card">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                    <div>
+                        <div style="font-size: 1.125rem; font-weight: 600; color: #84cc16; margin-bottom: 0.25rem;">
+                            Security Automation Engineer
+                        </div>
+                        <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">Posted 4 hours ago • $3,000-$5,000 budget</div>
+                    </div>
+                    <span class="badge badge-pending">PENDING</span>
+                </div>
+                <div style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">
+                    Python automation + Security tools. Perfect match for your bug bounty experience.
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div style="flex: 1;">
+                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">MATCH SCORE</div>
+                        <div style="font-weight: 600; color: #10b981;">92%</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">COMPETITORS</div>
+                        <div style="font-weight: 600; color: #fbbf24;">5</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">WIN PROBABILITY</div>
+                        <div style="font-weight: 600; color: #84cc16;">85%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div class="section">
+                <div class="section-title">📈 Proposal Performance</div>
+                <div class="chart-container">
+                    <canvas id="proposalChart"></canvas>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">💰 Revenue Forecast</div>
+                <div style="padding: 1.5rem; background: rgba(132, 204, 22, 0.1); border-radius: 12px; border: 1px solid rgba(132, 204, 22, 0.3); margin-bottom: 1rem;">
+                    <div style="font-size: 0.875rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem;">This Month</div>
+                    <div style="font-size: 2rem; font-weight: 700; color: #84cc16;">$12,500</div>
+                    <div style="font-size: 0.875rem; color: rgba(255,255,255,0.7);">From 5 active contracts</div>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(16, 185, 129, 0.1); border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                    <div style="font-size: 0.875rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem;">Pipeline (Next 30 days)</div>
+                    <div style="font-size: 2rem; font-weight: 700; color: #10b981;">$24,000</div>
+                    <div style="font-size: 0.875rem; color: rgba(255,255,255,0.7);">12 proposals pending decision</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('proposalChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Proposals Sent',
+                    data: [8, 12, 15, 12],
+                    backgroundColor: 'rgba(132, 204, 22, 0.8)',
+                    borderRadius: 8
+                }, {
+                    label: 'Contracts Won',
+                    data: [2, 3, 4, 3],
+                    backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: 'rgba(255,255,255,0.7)' },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    },
+                    x: {
+                        ticks: { color: 'rgba(255,255,255,0.7)' },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    }
+                }
+            }
+        });
+
+        // Interactivity
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.kpi-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const value = this.querySelector('.kpi-value').textContent;
+                const notification = document.createElement('div');
+                notification.style.cssText = 'position: fixed; top: 20px; right: 20px; padding: 1rem 1.5rem; background: #10b981; color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 10000; font-weight: 500;';
+                notification.textContent = `Metric: ${value}`;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.remove(), 3000);
+            });
+        });
+    </script>
+</body>
+</html>

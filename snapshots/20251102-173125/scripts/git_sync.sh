@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # =====================================================
 # Git auto-sync for recon results
 # Author: Recon Automation Stack

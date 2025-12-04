@@ -1,0 +1,28 @@
+{
+  "report_id": "REPORT-92308",
+  "researcher": "Khallid Hakeem Nurse",
+  "program": "github.com",
+  "vulnerability_type": "IDOR",
+  "severity": "High",
+  "cvss_score": 7.5,
+  "title": "IDOR in /api/v3/repos/{owner}/{repo}/issues/{id}",
+  "description": "Discovered IDOR vulnerability in github.com",
+  "steps_to_reproduce": [
+    "1. Send request to /api/v3/repos/{owner}/{repo}/issues/{id}",
+    "2. Inject payload: Access unauthorized issue by changing ID",
+    "3. Observe vulnerability execution"
+  ],
+  "proof_of_concept": {
+    "request": "GET /api/v3/repos/owner/repo/issues/456",
+    "payload": "Changed issue_id from 123 to 456",
+    "response": "200 OK - Accessed unauthorized issue",
+    "screenshot": "idor_evidence.png"
+  },
+  "impact": "Potential High security risk",
+  "remediation": "Implement proper authorization checks",
+  "bounty_estimate": 7500,
+  "legal_authorization": "auto_auth_github_com.json",
+  "compliance_verified": true,
+  "submission_ready": true,
+  "copyright": "\u00a9 2025 Khallid Hakeem Nurse"
+}

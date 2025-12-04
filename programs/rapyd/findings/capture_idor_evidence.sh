@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # IDOR Evidence Capture Script
 # This script helps capture all required evidence for IDOR submission
 
@@ -224,6 +226,8 @@ echo "  4. Replace [TO BE CAPTURED] placeholders"
 echo "  5. Submit to Bugcrowd"
 echo ""
 success "Evidence capture complete!"
+
+
 
 
 

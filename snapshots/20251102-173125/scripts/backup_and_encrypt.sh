@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 set -euo pipefail
 
 # Creates a timestamped backup of key project assets and encrypts it (Linux/WSL)

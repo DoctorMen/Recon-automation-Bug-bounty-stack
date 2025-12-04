@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Content Discovery Methods - Jason Haddix Methodology
 
 ## 7 Separate Content Discovery Methods

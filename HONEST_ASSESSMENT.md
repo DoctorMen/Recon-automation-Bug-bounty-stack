@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Honest Assessment: Is Your Work Worth It?
 
 ## ✅ What's Working (The Good News)

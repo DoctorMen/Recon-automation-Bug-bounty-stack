@@ -1,0 +1,154 @@
+{
+  "ai_security_testing": {
+    "description": "Framework for safely testing AI systems following HackerOne guidelines",
+    "last_updated": "2025-11-04",
+    
+    "authorized_testing_types": {
+      "ai_security": [
+        "prompt_injection",
+        "model_extraction_attempts",
+        "data_poisoning_detection",
+        "adversarial_input_testing",
+        "access_control_bypass",
+        "unauthorized_data_access"
+      ],
+      "ai_safety": [
+        "toxic_content_generation",
+        "sensitive_information_disclosure", 
+        "hallucination_exploitation",
+        "bias_and_fairness_testing"
+      ]
+    },
+    
+    "prohibited_testing_types": [
+      "actual_data_poisoning",
+      "actual_model_theft",
+      "dos_attacks_on_ai_endpoints",
+      "mass_automated_abuse",
+      "social_engineering_via_ai"
+    ],
+    
+    "ai_programs_in_scope": {
+      "openai": {
+        "domains": ["api.openai.com", "chatgpt.com", "platform.openai.com"],
+        "models": ["gpt-4", "gpt-3.5-turbo", "dall-e"],
+        "testing_allowed": ["prompt_injection", "safety_bypass", "data_leakage"],
+        "testing_forbidden": ["dos", "automated_spam", "account_abuse"],
+        "max_requests_per_minute": 10,
+        "bug_bounty_url": "https://hackerone.com/openai",
+        "payout_range": "$200-$20,000"
+      },
+      "anthropic": {
+        "domains": ["api.anthropic.com", "claude.ai"],
+        "models": ["claude-3", "claude-2"],
+        "testing_allowed": ["prompt_injection", "safety_bypass", "jailbreak"],
+        "testing_forbidden": ["dos", "model_extraction", "mass_testing"],
+        "max_requests_per_minute": 5,
+        "bug_bounty_url": "https://hackerone.com/anthropic",
+        "payout_range": "$500-$15,000"
+      },
+      "google": {
+        "domains": ["generativelanguage.googleapis.com", "gemini.google.com"],
+        "models": ["gemini-pro", "palm-2"],
+        "testing_allowed": ["prompt_injection", "safety_filter_bypass"],
+        "testing_forbidden": ["dos", "excessive_usage"],
+        "max_requests_per_minute": 10,
+        "bug_bounty_url": "https://bughunters.google.com/",
+        "payout_range": "$500-$31,337"
+      },
+      "meta": {
+        "domains": ["ai.meta.com"],
+        "models": ["llama-2", "llama-3"],
+        "testing_allowed": ["safety_bypass", "prompt_injection"],
+        "testing_forbidden": ["model_weight_extraction"],
+        "max_requests_per_minute": 10,
+        "bug_bounty_url": "https://hackerone.com/meta",
+        "payout_range": "$500-$10,000"
+      }
+    },
+    
+    "safety_guardrails": {
+      "rate_limiting": {
+        "max_prompts_per_target_per_minute": 10,
+        "max_prompts_per_target_per_day": 500,
+        "cooldown_period_seconds": 60
+      },
+      "blocked_prompt_patterns": [
+        ".*delete.*database.*",
+        ".*drop.*table.*",
+        ".*exec.*system.*",
+        ".*\/etc\/passwd.*"
+      ],
+      "ethical_guidelines": [
+        "Only test authorized AI systems (public bug bounties)",
+        "Do not attempt actual model theft",
+        "Do not poison training data",
+        "Do not abuse free tiers",
+        "Report findings responsibly",
+        "Follow rate limits strictly"
+      ]
+    },
+    
+    "testing_methodology": {
+      "reconnaissance": [
+        "Identify AI endpoints",
+        "Determine model type",
+        "Map API structure",
+        "Identify authentication methods"
+      ],
+      "security_testing": [
+        "Prompt injection variants",
+        "Context window exploitation",
+        "System prompt extraction",
+        "Authorization bypass attempts"
+      ],
+      "safety_testing": [
+        "Content filter bypass",
+        "Toxic content generation",
+        "PII extraction attempts",
+        "Bias exploitation"
+      ],
+      "documentation": [
+        "Document all test prompts",
+        "Record model responses",
+        "Calculate severity",
+        "Prepare responsible disclosure"
+      ]
+    },
+    
+    "severity_classification": {
+      "critical": {
+        "examples": [
+          "Full model extraction possible",
+          "Arbitrary code execution via prompt",
+          "Mass PII leakage from training data"
+        ],
+        "typical_payout": "$10,000-$50,000"
+      },
+      "high": {
+        "examples": [
+          "Reliable safety filter bypass",
+          "System prompt extraction",
+          "Unauthorized data access"
+        ],
+        "typical_payout": "$5,000-$15,000"
+      },
+      "medium": {
+        "examples": [
+          "Partial safety bypass",
+          "Inconsistent behavior exploitation",
+          "Minor prompt injection"
+        ],
+        "typical_payout": "$1,000-$5,000"
+      },
+      "low": {
+        "examples": [
+          "Edge case hallucinations",
+          "Minor content policy violations",
+          "Rate limit bypasses"
+        ],
+        "typical_payout": "$200-$1,000"
+      }
+    }
+  }
+}

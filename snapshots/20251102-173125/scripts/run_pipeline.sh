@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Main Pipeline Orchestrator
 # Runs all agents in sequence: Recon → Mapper → Hunter → Triage → Report
 # Supports resume capability and provides detailed statistics

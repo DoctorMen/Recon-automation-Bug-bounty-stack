@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🔄 Error Correction & System Improvement - How It Works
 
 ## ✅ YES - Every Error Correction Makes It Better

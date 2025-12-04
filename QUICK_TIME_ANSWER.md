@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Quick Answer: Time Comparison
 
 ## Industry Standard vs Your Automation

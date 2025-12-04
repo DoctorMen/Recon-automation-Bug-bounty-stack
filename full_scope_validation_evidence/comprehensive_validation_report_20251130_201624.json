@@ -1,0 +1,355 @@
+{
+  "comprehensive_validation_report": {
+    "generated_at": "2025-11-30T20:16:24.336605",
+    "total_scopes_tested": 1,
+    "total_targets_tested": 6,
+    "total_vulnerabilities_found": 6,
+    "eligible_vulnerabilities_found": 0,
+    "guaranteed_triage_pass": true,
+    "estimated_revenue_potential": 0,
+    "evidence_files": []
+  },
+  "scope_summary": {
+    "SCOPES": {
+      "total_targets": 2,
+      "vulnerabilities_found": 2,
+      "eligible_targets": 0,
+      "high_severity_targets": 2
+    }
+  },
+  "detailed_evidence": [
+    {
+      "domain": "fdbox.net",
+      "scope_info": {
+        "domain": "fdbox.net",
+        "wildcard": "*.fdbox.net",
+        "eligible_for_bounty": false,
+        "max_severity": "critical",
+        "system_tags": ""
+      },
+      "test_type": "security_headers_analysis",
+      "timestamp": "2025-11-30T20:15:43.414833",
+      "results": {
+        "http": {
+          "url": "http://fdbox.net",
+          "error": "CONNECTION_ERROR",
+          "details": "HTTPConnectionPool(host='fdbox.net', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection object at 0x0000020686D5F230>: Failed to resolve 'fdbox.net' ([Errno 11001] getaddrinfo failed)\"))"
+        },
+        "https": {
+          "url": "https://fdbox.net",
+          "error": "CONNECTION_ERROR",
+          "details": "HTTPSConnectionPool(host='fdbox.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000020686D5F770>: Failed to resolve 'fdbox.net' ([Errno 11001] getaddrinfo failed)\"))"
+        }
+      },
+      "vulnerabilities": []
+    },
+    {
+      "domain": "tomtom-global.com",
+      "scope_info": {
+        "domain": "tomtom-global.com",
+        "wildcard": "*.tomtom-global.com",
+        "eligible_for_bounty": false,
+        "max_severity": "critical",
+        "system_tags": ""
+      },
+      "test_type": "security_headers_analysis",
+      "timestamp": "2025-11-30T20:15:45.738974",
+      "results": {
+        "http": {
+          "url": "http://tomtom-global.com",
+          "error": "CONNECTION_ERROR",
+          "details": "HTTPConnectionPool(host='tomtom-global.com', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x0000020686E59310>, 'Connection to tomtom-global.com timed out. (connect timeout=10)'))"
+        },
+        "https": {
+          "url": "https://tomtom-global.com",
+          "error": "CONNECTION_ERROR",
+          "details": "HTTPSConnectionPool(host='tomtom-global.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000020686E596D0>, 'Connection to tomtom-global.com timed out. (connect timeout=10)'))"
+        }
+      },
+      "vulnerabilities": []
+    },
+    {
+      "domain": "tomtom.com",
+      "scope_info": {
+        "domain": "tomtom.com",
+        "wildcard": "*.tomtom.com",
+        "eligible_for_bounty": false,
+        "max_severity": "critical",
+        "system_tags": ""
+      },
+      "test_type": "security_headers_analysis",
+      "timestamp": "2025-11-30T20:16:07.761993",
+      "results": {
+        "http": {
+          "url": "http://tomtom.com",
+          "status_code": 200,
+          "final_url": "https://www.tomtom.com/",
+          "server": "Unknown",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": 280205,
+          "security_headers": {
+            "x_frame_options": "MISSING",
+            "content_security_policy": "MISSING",
+            "x_content_type_options": "nosniff",
+            "strict_transport_security": "MISSING",
+            "x_xss_protection": "1",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        },
+        "https": {
+          "url": "https://tomtom.com",
+          "status_code": 200,
+          "final_url": "https://www.tomtom.com/",
+          "server": "Unknown",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": 280205,
+          "security_headers": {
+            "x_frame_options": "MISSING",
+            "content_security_policy": "MISSING",
+            "x_content_type_options": "nosniff",
+            "strict_transport_security": "MISSING",
+            "x_xss_protection": "1",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        }
+      },
+      "vulnerabilities": [
+        {
+          "type": "missing_security_headers",
+          "severity": "medium",
+          "url": "http://tomtom.com",
+          "missing_headers": [
+            "x_frame_options",
+            "content_security_policy",
+            "strict_transport_security",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "6.1",
+          "description": "Missing security headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "eligible_for_bounty": false
+        },
+        {
+          "type": "missing_security_headers",
+          "severity": "medium",
+          "url": "https://tomtom.com",
+          "missing_headers": [
+            "x_frame_options",
+            "content_security_policy",
+            "strict_transport_security",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "6.1",
+          "description": "Missing security headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "eligible_for_bounty": false
+        }
+      ],
+      "global_error": "'str' object has no attribute 'toUpperCase'"
+    },
+    {
+      "domain": "tomtomgroup.com",
+      "scope_info": {
+        "domain": "tomtomgroup.com",
+        "wildcard": "*.tomtomgroup.com",
+        "eligible_for_bounty": false,
+        "max_severity": "critical",
+        "system_tags": ""
+      },
+      "test_type": "security_headers_analysis",
+      "timestamp": "2025-11-30T20:16:12.557539",
+      "results": {
+        "http": {
+          "url": "http://tomtomgroup.com",
+          "status_code": 200,
+          "final_url": "https://www.tomtom.com",
+          "server": "Unknown",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": 280205,
+          "security_headers": {
+            "x_frame_options": "MISSING",
+            "content_security_policy": "MISSING",
+            "x_content_type_options": "nosniff",
+            "strict_transport_security": "MISSING",
+            "x_xss_protection": "1",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        },
+        "https": {
+          "url": "https://tomtomgroup.com",
+          "status_code": 200,
+          "final_url": "https://www.tomtom.com",
+          "server": "Unknown",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": 280205,
+          "security_headers": {
+            "x_frame_options": "MISSING",
+            "content_security_policy": "MISSING",
+            "x_content_type_options": "nosniff",
+            "strict_transport_security": "MISSING",
+            "x_xss_protection": "1",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        }
+      },
+      "vulnerabilities": [
+        {
+          "type": "missing_security_headers",
+          "severity": "medium",
+          "url": "http://tomtomgroup.com",
+          "missing_headers": [
+            "x_frame_options",
+            "content_security_policy",
+            "strict_transport_security",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "6.1",
+          "description": "Missing security headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "eligible_for_bounty": false
+        },
+        {
+          "type": "missing_security_headers",
+          "severity": "medium",
+          "url": "https://tomtomgroup.com",
+          "missing_headers": [
+            "x_frame_options",
+            "content_security_policy",
+            "strict_transport_security",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "6.1",
+          "description": "Missing security headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "eligible_for_bounty": false
+        }
+      ],
+      "global_error": "'str' object has no attribute 'toUpperCase'"
+    },
+    {
+      "domain": "vectra-svc.ai",
+      "scope_info": {
+        "domain": "vectra-svc.ai",
+        "wildcard": "*.vectra-svc.ai",
+        "eligible_for_bounty": false,
+        "max_severity": "critical",
+        "system_tags": ""
+      },
+      "test_type": "security_headers_analysis",
+      "timestamp": "2025-11-30T20:16:16.922122",
+      "results": {
+        "http": {
+          "url": "http://vectra-svc.ai",
+          "error": "CONNECTION_ERROR",
+          "details": "HTTPConnectionPool(host='vectra-svc.ai', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection object at 0x0000020686E5D480>: Failed to resolve 'vectra-svc.ai' ([Errno 11001] getaddrinfo failed)\"))"
+        },
+        "https": {
+          "url": "https://vectra-svc.ai",
+          "error": "CONNECTION_ERROR",
+          "details": "HTTPSConnectionPool(host='vectra-svc.ai', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x0000020686E5A710>: Failed to resolve 'vectra-svc.ai' ([Errno 11001] getaddrinfo failed)\"))"
+        }
+      },
+      "vulnerabilities": []
+    },
+    {
+      "domain": "vectra.ai",
+      "scope_info": {
+        "domain": "vectra.ai",
+        "wildcard": "*.vectra.ai",
+        "eligible_for_bounty": false,
+        "max_severity": "critical",
+        "system_tags": ""
+      },
+      "test_type": "security_headers_analysis",
+      "timestamp": "2025-11-30T20:16:19.142718",
+      "results": {
+        "http": {
+          "url": "http://vectra.ai",
+          "status_code": 200,
+          "final_url": "https://www.vectra.ai/",
+          "server": "cloudflare",
+          "content_type": "text/html",
+          "content_length": 743256,
+          "security_headers": {
+            "x_frame_options": "SAMEORIGIN",
+            "content_security_policy": "frame-ancestors 'self'",
+            "x_content_type_options": "MISSING",
+            "strict_transport_security": "max-age=31536000; includeSubDomains",
+            "x_xss_protection": "MISSING",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        },
+        "https": {
+          "url": "https://vectra.ai",
+          "status_code": 200,
+          "final_url": "https://www.vectra.ai/",
+          "server": "cloudflare",
+          "content_type": "text/html",
+          "content_length": 743256,
+          "security_headers": {
+            "x_frame_options": "SAMEORIGIN",
+            "content_security_policy": "frame-ancestors 'self'",
+            "x_content_type_options": "MISSING",
+            "strict_transport_security": "max-age=31536000; includeSubDomains",
+            "x_xss_protection": "MISSING",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        }
+      },
+      "vulnerabilities": [
+        {
+          "type": "missing_security_headers",
+          "severity": "low",
+          "url": "http://vectra.ai",
+          "missing_headers": [
+            "x_content_type_options",
+            "x_xss_protection",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "4.3",
+          "description": "Missing security headers: x_content_type_options, x_xss_protection, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_content_type_options, x_xss_protection, referrer_policy, permissions_policy",
+          "eligible_for_bounty": false
+        },
+        {
+          "type": "missing_security_headers",
+          "severity": "low",
+          "url": "https://vectra.ai",
+          "missing_headers": [
+            "x_content_type_options",
+            "x_xss_protection",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "4.3",
+          "description": "Missing security headers: x_content_type_options, x_xss_protection, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_content_type_options, x_xss_protection, referrer_policy, permissions_policy",
+          "eligible_for_bounty": false
+        }
+      ]
+    }
+  ]
+}

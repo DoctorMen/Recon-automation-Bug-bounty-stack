@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Create Test Customers & Payments for IDOR Testing
 # This script creates test data via API, then tests IDOR vulnerability
 
@@ -32,6 +34,8 @@ echo ""
 
 # Navigate to test customer URL
 echo "Ready to test in browser..."
+
+
 
 
 

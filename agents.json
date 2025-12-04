@@ -29,6 +29,11 @@
       "name": "Composer 4 — CI/CD & Security Ops",
       "model": "composer",
       "role": "Creates GitHub workflows, Docker integration, and environment hardening (YAML + GitHub Actions)."
+    },
+    {
+      "name": "Divergent Thinker",
+      "model": "gpt-5",
+      "role": "Generates creative exploration paths using 7 thinking modes (lateral, parallel, associative, generative, combinatorial, perspective, constraint-free) to discover novel vulnerabilities and alternative attack approaches."
     }
   ]
 }

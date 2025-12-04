@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Advanced Burp Suite Configuration & API Testing Workflow for Rapyd
 
 **Account:** DoctorMen@bugcrowdninja.com  

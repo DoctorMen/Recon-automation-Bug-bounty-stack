@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Burp Suite Configuration - Step-by-Step Guide
 
 **Account:** DoctorMen@bugcrowdninja.com  

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Upwork Business Launcher - Quick Setup for Cybersecurity Services
 Integrates with existing client infrastructure for rapid Upwork deployment
@@ -451,4 +455,10 @@ Files are saved to output/upwork_business/
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
 

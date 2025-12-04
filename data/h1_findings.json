@@ -1,0 +1,42 @@
+[
+  {
+    "id": "gh-block1-001",
+    "date": "2025-11-12",
+    "program": "GitHub",
+    "target": "github/docs repository",
+    "category": "supply-chain",
+    "severity": "info",
+    "title": "GitHub Docs Supply Chain Analysis",
+    "description": "Analyzed GitHub Actions and npm dependencies in github/docs repo. All external actions are official GitHub-owned with recent updates. npm dependencies appear up-to-date with Express 5.x and latest lodash. No immediate takeover risks identified.",
+    "impact": "Low - Good security hygiene observed",
+    "recommendation": "Monitor Sharp library usage for any custom implementations. Consider expanding analysis to other high-value GitHub repositories.",
+    "status": "analyzed",
+    "evidence": {
+      "actions_count": 6,
+      "npm_deps_count": 93,
+      "actions_official": true,
+      "express_version": "^5.1.0",
+      "lodash_version": "^4.17.21",
+      "sharp_version": "0.33.5"
+    }
+  },
+  {
+    "id": "shopify-block2-001",
+    "date": "2025-11-12",
+    "program": "Shopify",
+    "target": "Third-party app ecosystem",
+    "category": "supply-chain",
+    "severity": "high",
+    "title": "Shopify App Dependency Chain Vulnerabilities",
+    "description": "Identified multiple high-risk vectors in Shopify app ecosystem including deprecated Oberlo app still installed on 100k+ stores, jQuery < 3.5.0 in Privy and other apps, potential CDN subdomain takeovers, and shared analytics libraries creating cross-store data exposure risks.",
+    "impact": "High - Potential mass exploitation across thousands of stores",
+    "recommendation": "Prioritize jQuery XSS research in Privy app, investigate Oberlo deprecated endpoints, check CDN CNAME records for takeover opportunities. Estimated bounty: $10k-30k for mass XSS.",
+    "status": "researching",
+    "evidence": {
+      "deprecated_apps": ["Oberlo"],
+      "vulnerable_libs": ["jQuery < 3.5.0"],
+      "potential_takeovers": ["cdn.privy.com", "assets.loox.io"],
+      "attack_vectors": ["mass XSS", "CDN takeover", "data leakage"]
+    }
+  }
+]

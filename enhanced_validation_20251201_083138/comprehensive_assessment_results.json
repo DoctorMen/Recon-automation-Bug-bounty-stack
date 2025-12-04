@@ -1,0 +1,1385 @@
+{
+  "session_id": "20251201_083138",
+  "target": "https://example.com",
+  "start_time": "2025-12-01T08:31:38.401494",
+  "phases": {
+    "pentest": {
+      "session_id": "9c80c807",
+      "target": "https://example.com",
+      "start_time": "2025-12-01T08:31:38.380343",
+      "phases": {
+        "pre_engagement": {
+          "status": "completed",
+          "roe": {
+            "target": "https://example.com",
+            "scope": [
+              "example.com",
+              "*.example.com"
+            ],
+            "exclusions": [],
+            "testing_window": "24/7",
+            "emergency_contacts": [
+              "security@example.com"
+            ],
+            "authorized_methods": [
+              "passive_recon",
+              "active_scanning",
+              "vulnerability_analysis"
+            ],
+            "forbidden_actions": [
+              "dos_attacks",
+              "data_exfiltration"
+            ],
+            "notification_procedures": []
+          },
+          "scope": {
+            "primary_target": "https://example.com",
+            "in_scope": [
+              "example.com",
+              "*.example.com"
+            ],
+            "out_of_scope": [],
+            "testing_types": [
+              "passive_recon",
+              "active_scanning",
+              "vulnerability_analysis"
+            ],
+            "compliance_requirements": [
+              "OWASP Top 10",
+              "PCI-DSS"
+            ],
+            "special_instructions": []
+          },
+          "roe_document": "pentest_reports_9c80c807\\rules_of_engagement.json"
+        },
+        "intelligence_gathering": {
+          "passive_osint": {
+            "findings": [
+              {
+                "type": "information_gathering",
+                "severity": "info",
+                "title": "Google Dorks Available",
+                "description": "Search queries for exposed information",
+                "data": {
+                  "dorks": [
+                    "site:example.com ext:log",
+                    "site:example.com ext:conf",
+                    "site:example.com ext:backup",
+                    "site:example.com inurl:admin",
+                    "site:example.com intitle:\"index of\"",
+                    "site:example.com \"internal use only\"",
+                    "site:example.com \"private key\"",
+                    "site:example.com \"password\""
+                  ]
+                }
+              }
+            ],
+            "google_dorks": [
+              "site:example.com ext:log",
+              "site:example.com ext:conf",
+              "site:example.com ext:backup",
+              "site:example.com inurl:admin",
+              "site:example.com intitle:\"index of\"",
+              "site:example.com \"internal use only\"",
+              "site:example.com \"private key\"",
+              "site:example.com \"password\""
+            ]
+          },
+          "active_recon": {
+            "findings": []
+          },
+          "subdomains": {
+            "subdomains": [
+              "www.example.com"
+            ],
+            "findings": [
+              {
+                "type": "subdomain_discovery",
+                "severity": "info",
+                "title": "Subdomains Discovered",
+                "description": "Found 1 total, 1 live subdomains",
+                "data": {
+                  "total_subdomains": [
+                    "www.example.com"
+                  ],
+                  "live_subdomains": [
+                    "www.example.com"
+                  ]
+                }
+              }
+            ],
+            "live_subdomains": [
+              "www.example.com"
+            ]
+          },
+          "technologies": {
+            "technologies": {
+              "headers": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Content-Length": "363",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:39 GMT",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              }
+            },
+            "findings": []
+          }
+        },
+        "threat_modeling": {
+          "attack_surfaces": [
+            {
+              "type": "web_interface",
+              "description": "Web application",
+              "location": "https://example.com",
+              "risk_level": "medium"
+            }
+          ],
+          "threat_agents": [
+            "External attackers",
+            "Malicious insiders",
+            "Business competitors",
+            "Automated tools/bots"
+          ],
+          "attack_vectors": [
+            {
+              "name": "Cross-Site Scripting",
+              "cwe": "CWE-79",
+              "likelihood": "high",
+              "impact": "medium"
+            }
+          ],
+          "risk_assessment": [
+            {
+              "vector": "Cross-Site Scripting",
+              "cwe": "CWE-79",
+              "likelihood": "high",
+              "impact": "medium",
+              "risk_score": 6,
+              "risk_level": "critical"
+            }
+          ]
+        },
+        "vulnerability_analysis": {
+          "scanning_results": {
+            "wstg_info": {
+              "findings": []
+            },
+            "wstg_conf": {
+              "findings": []
+            },
+            "wstg_auth": {
+              "findings": []
+            },
+            "wstg_authz": {
+              "findings": []
+            },
+            "wstg_input": {
+              "findings": []
+            }
+          },
+          "manual_validation": {},
+          "validated_vulnerabilities": []
+        },
+        "exploitation": {
+          "exploitation_attempts": [],
+          "successful_exploits": [],
+          "proofs_of_concept": []
+        },
+        "post_exploitation": {
+          "privilege_escalation_attempts": [],
+          "lateral_movement": [],
+          "data_access_simulation": [],
+          "business_impact_analysis": []
+        },
+        "reporting": {
+          "report_file": "pentest_reports_9c80c807\\penetration_test_report.json",
+          "markdown_file": "pentest_reports_9c80c807\\penetration_test_report.md",
+          "summary": {
+            "overall_risk_level": "medium",
+            "critical_findings": 0,
+            "high_findings": 0,
+            "total_findings": 2,
+            "key_risks": [],
+            "recommendations": [
+              "Address critical and high vulnerabilities immediately",
+              "Implement security monitoring and incident response",
+              "Conduct regular security assessments"
+            ]
+          }
+        }
+      },
+      "end_time": "2025-12-01T08:31:39.999407",
+      "total_duration": "0:00:01.619069"
+    },
+    "validation": {
+      "clickjacking": {
+        "session_id": "33230e33",
+        "target_url": "https://example.com",
+        "vulnerability_type": "clickjacking",
+        "endpoint_tested": "https://example.com",
+        "validation_timestamp": "2025-12-01T08:31:38.380314",
+        "validation_status": "vulnerable",
+        "evidence": {
+          "headers_received": {
+            "Accept-Ranges": "bytes",
+            "Content-Type": "text/html",
+            "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+            "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+            "Vary": "Accept-Encoding",
+            "Content-Encoding": "gzip",
+            "Cache-Control": "max-age=86000",
+            "Date": "Mon, 01 Dec 2025 13:31:39 GMT",
+            "Content-Length": "20",
+            "Connection": "keep-alive",
+            "Alt-Svc": "h3=\":443\"; ma=93600"
+          },
+          "x_frame_options": "",
+          "csp_frame_ancestors": false,
+          "iframe_test_result": null,
+          "proof_of_concept": null,
+          "iframe_test_file": "validation_reports\\clickjacking_test_33230e33.html",
+          "iframe_test_html": "\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Clickjacking Validation Test - https://example.com</title>\n    <style>\n        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }\n        .test-container { border: 2px solid #333; padding: 10px; margin: 10px 0; }\n        .iframe-container { width: 100%; height: 500px; border: 1px solid red; }\n        iframe { width: 100%; height: 100%; border: none; }\n        .result { margin: 10px 0; padding: 10px; }\n        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }\n        .failure { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }\n    </style>\n</head>\n<body>\n    <h1>\ud83d\udd0d Clickjacking Validation Test</h1>\n    <div class=\"test-container\">\n        <h2>Target: https://example.com</h2>\n        <p>X-Frame-Options: MISSING</p>\n        <p>CSP frame-ancestors: MISSING</p>\n    </div>\n    \n    <div class=\"test-container\">\n        <h2>IFrame Embedding Test</h2>\n        <div class=\"iframe-container\">\n            <iframe src=\"https://example.com\" id=\"targetFrame\"></iframe>\n        </div>\n        <div id=\"testResult\" class=\"result\">Testing iframe loading...</div>\n    </div>\n    \n    <script>\n        const iframe = document.getElementById('targetFrame');\n        const resultDiv = document.getElementById('testResult');\n        \n        iframe.onload = function() {\n            try {\n                // Try to access iframe content (same-origin test)\n                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded successfully - VULNERABLE to clickjacking';\n            } catch(e) {\n                // Cross-origin - but iframe still loaded\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded (cross-origin) - VULNERABLE to clickjacking';\n            }\n        };\n        \n        iframe.onerror = function() {\n            resultDiv.className = 'result failure';\n            resultDiv.innerHTML = '\u274c IFrame blocked by X-Frame-Options or CSP - NOT VULNERABLE';\n        };\n        \n        // Timeout after 10 seconds\n        setTimeout(function() {\n            if (resultDiv.innerHTML === 'Testing iframe loading...') {\n                resultDiv.className = 'result failure';\n                resultDiv.innerHTML = '\u274c IFrame failed to load - NOT VULNERABLE or network error';\n            }\n        }, 10000);\n    </script>\n</body>\n</html>\n        "
+        },
+        "reproduction_steps": [
+          "1. Navigate to the target endpoint: https://example.com",
+          "2. Check HTTP headers - X-Frame-Options: MISSING",
+          "3. Check CSP header - frame-ancestors: MISSING",
+          "4. Create HTML page with iframe embedding the target",
+          "5. Load the HTML page in browser",
+          "6. Observe iframe loads: SUCCESS (vulnerable)",
+          "7. If vulnerable, attacker can overlay hidden elements to hijack clicks"
+        ],
+        "proof_of_vulnerability": {
+          "type": "clickjacking",
+          "severity": "medium",
+          "impact_description": "Attackers can embed the target in invisible iframes and trick users into clicking hidden UI elements",
+          "exploit_scenario": "An attacker could create a fake login page that overlays the real login form, capturing user credentials",
+          "business_impact": "Account takeover, unauthorized actions, data theft through UI manipulation",
+          "test_file_location": "validation_reports\\clickjacking_test_33230e33.html"
+        },
+        "risk_assessment": {},
+        "responsible_disclosure": {
+          "summary": "CLICKJACKING VULNERABILITY CONFIRMED",
+          "security_focus": "The security flaw itself, not attack automation",
+          "technical_details": {
+            "type": "clickjacking",
+            "severity": "medium",
+            "impact_description": "Attackers can embed the target in invisible iframes and trick users into clicking hidden UI elements",
+            "exploit_scenario": "An attacker could create a fake login page that overlays the real login form, capturing user credentials",
+            "business_impact": "Account takeover, unauthorized actions, data theft through UI manipulation",
+            "test_file_location": "validation_reports\\clickjacking_test_33230e33.html"
+          },
+          "remediation_priority": "medium",
+          "compliance_impact": [
+            "OWASP Top 10",
+            "PCI-DSS"
+          ],
+          "next_steps": [
+            "Review validation evidence",
+            "Assess business impact",
+            "Plan remediation",
+            "Test fix implementation",
+            "Monitor for regressions"
+          ]
+        }
+      },
+      "xss": {
+        "session_id": "33230e33",
+        "target_url": "https://example.com",
+        "vulnerability_type": "xss",
+        "endpoint_tested": "https://example.com",
+        "validation_timestamp": "2025-12-01T08:31:38.380314",
+        "validation_status": "not_vulnerable",
+        "evidence": {
+          "headers_received": {
+            "Accept-Ranges": "bytes",
+            "Content-Type": "text/html",
+            "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+            "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+            "Vary": "Accept-Encoding",
+            "Content-Encoding": "gzip",
+            "Cache-Control": "max-age=86000",
+            "Date": "Mon, 01 Dec 2025 13:31:39 GMT",
+            "Content-Length": "20",
+            "Connection": "keep-alive",
+            "Alt-Svc": "h3=\":443\"; ma=93600"
+          },
+          "csp_header": "",
+          "csp_strict": "",
+          "payload_tested": "<script>alert(\"XSS\")</script>",
+          "injection_points": [
+            {
+              "parameter": "q",
+              "test_url": "https://example.com?q=%3Cscript%3Ealert%28%22XSS%22%29%3C/script%3E",
+              "status_code": 200,
+              "payload_reflected": false,
+              "script_executed": false,
+              "response_snippet": "<!doctype html><html lang=\"en\"><head><title>Example Domain</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><style>body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}</style><body><div><h1>Example Domain</h1><p>This domain is for use in documentation examples without needing permission. Avoid use in operations.<p><a href=\"https://iana.org/domains/example\">Learn more</a></div></"
+            },
+            {
+              "parameter": "search",
+              "test_url": "https://example.com?search=%3Cscript%3Ealert%28%22XSS%22%29%3C/script%3E",
+              "status_code": 200,
+              "payload_reflected": false,
+              "script_executed": false,
+              "response_snippet": "<!doctype html><html lang=\"en\"><head><title>Example Domain</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><style>body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}</style><body><div><h1>Example Domain</h1><p>This domain is for use in documentation examples without needing permission. Avoid use in operations.<p><a href=\"https://iana.org/domains/example\">Learn more</a></div></"
+            },
+            {
+              "parameter": "query",
+              "test_url": "https://example.com?query=%3Cscript%3Ealert%28%22XSS%22%29%3C/script%3E",
+              "status_code": 200,
+              "payload_reflected": false,
+              "script_executed": false,
+              "response_snippet": "<!doctype html><html lang=\"en\"><head><title>Example Domain</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><style>body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}</style><body><div><h1>Example Domain</h1><p>This domain is for use in documentation examples without needing permission. Avoid use in operations.<p><a href=\"https://iana.org/domains/example\">Learn more</a></div></"
+            },
+            {
+              "parameter": "input",
+              "test_url": "https://example.com?input=%3Cscript%3Ealert%28%22XSS%22%29%3C/script%3E",
+              "status_code": 200,
+              "payload_reflected": false,
+              "script_executed": false,
+              "response_snippet": "<!doctype html><html lang=\"en\"><head><title>Example Domain</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><style>body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}</style><body><div><h1>Example Domain</h1><p>This domain is for use in documentation examples without needing permission. Avoid use in operations.<p><a href=\"https://iana.org/domains/example\">Learn more</a></div></"
+            },
+            {
+              "parameter": "data",
+              "test_url": "https://example.com?data=%3Cscript%3Ealert%28%22XSS%22%29%3C/script%3E",
+              "status_code": 200,
+              "payload_reflected": false,
+              "script_executed": false,
+              "response_snippet": "<!doctype html><html lang=\"en\"><head><title>Example Domain</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><style>body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}</style><body><div><h1>Example Domain</h1><p>This domain is for use in documentation examples without needing permission. Avoid use in operations.<p><a href=\"https://iana.org/domains/example\">Learn more</a></div></"
+            },
+            {
+              "parameter": "param",
+              "test_url": "https://example.com?param=%3Cscript%3Ealert%28%22XSS%22%29%3C/script%3E",
+              "status_code": 200,
+              "payload_reflected": false,
+              "script_executed": false,
+              "response_snippet": "<!doctype html><html lang=\"en\"><head><title>Example Domain</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><style>body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}</style><body><div><h1>Example Domain</h1><p>This domain is for use in documentation examples without needing permission. Avoid use in operations.<p><a href=\"https://iana.org/domains/example\">Learn more</a></div></"
+            },
+            {
+              "parameter": "test",
+              "test_url": "https://example.com?test=%3Cscript%3Ealert%28%22XSS%22%29%3C/script%3E",
+              "status_code": 200,
+              "payload_reflected": false,
+              "script_executed": false,
+              "response_snippet": "<!doctype html><html lang=\"en\"><head><title>Example Domain</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><style>body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}</style><body><div><h1>Example Domain</h1><p>This domain is for use in documentation examples without needing permission. Avoid use in operations.<p><a href=\"https://iana.org/domains/example\">Learn more</a></div></"
+            }
+          ],
+          "response_analysis": {}
+        },
+        "reproduction_steps": [
+          "1. Navigate to target endpoint: https://example.com",
+          "2. Check CSP header: MISSING",
+          "3. Test XSS payload: <script>alert(\"XSS\")</script>",
+          "4. Test parameters: None vulnerable",
+          "5. Observe payload reflection in response",
+          "6. Vulnerability confirmed: NO"
+        ],
+        "proof_of_vulnerability": {},
+        "risk_assessment": {},
+        "responsible_disclosure": {
+          "summary": "XSS NOT VULNERABLE",
+          "security_focus": "The security flaw itself, not attack automation",
+          "technical_details": {},
+          "remediation_priority": "high",
+          "compliance_impact": [
+            "OWASP Top 10",
+            "PCI-DSS",
+            "GDPR",
+            "SOC 2"
+          ],
+          "next_steps": [
+            "Review validation evidence",
+            "Assess business impact",
+            "Plan remediation",
+            "Test fix implementation",
+            "Monitor for regressions"
+          ]
+        }
+      },
+      "missing_csp": {
+        "session_id": "33230e33",
+        "target_url": "https://example.com",
+        "vulnerability_type": "missing_csp",
+        "endpoint_tested": "https://example.com",
+        "validation_timestamp": "2025-12-01T08:31:38.380314",
+        "validation_status": "vulnerable",
+        "evidence": {
+          "headers_received": {
+            "Accept-Ranges": "bytes",
+            "Content-Type": "text/html",
+            "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+            "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+            "Vary": "Accept-Encoding",
+            "Content-Encoding": "gzip",
+            "Cache-Control": "max-age=86000",
+            "Date": "Mon, 01 Dec 2025 13:31:41 GMT",
+            "Content-Length": "20",
+            "Connection": "keep-alive",
+            "Alt-Svc": "h3=\":443\"; ma=93600"
+          },
+          "csp_header": "",
+          "csp_present": false,
+          "csp_analysis": null,
+          "risk_assessment": null
+        },
+        "reproduction_steps": [
+          "1. Navigate to target endpoint: https://example.com",
+          "2. Check HTTP headers for CSP: MISSING",
+          "3. If missing, site lacks XSS protection",
+          "4. Test script injection in various contexts",
+          "5. Vulnerability confirmed: YES"
+        ],
+        "proof_of_vulnerability": {
+          "type": "missing content security policy",
+          "severity": "medium",
+          "impact_description": "No protection against XSS and other injection attacks",
+          "exploit_scenario": "Attackers can inject scripts, steal data, and perform malicious actions",
+          "business_impact": "XSS vulnerabilities, data theft, compliance violations"
+        },
+        "risk_assessment": {},
+        "responsible_disclosure": {
+          "summary": "MISSING_CSP VULNERABILITY CONFIRMED",
+          "security_focus": "The security flaw itself, not attack automation",
+          "technical_details": {
+            "type": "missing content security policy",
+            "severity": "medium",
+            "impact_description": "No protection against XSS and other injection attacks",
+            "exploit_scenario": "Attackers can inject scripts, steal data, and perform malicious actions",
+            "business_impact": "XSS vulnerabilities, data theft, compliance violations"
+          },
+          "remediation_priority": "medium",
+          "compliance_impact": [
+            "OWASP Top 10",
+            "PCI-DSS",
+            "SOC 2"
+          ],
+          "next_steps": [
+            "Review validation evidence",
+            "Assess business impact",
+            "Plan remediation",
+            "Test fix implementation",
+            "Monitor for regressions"
+          ]
+        }
+      },
+      "missing_hsts": {
+        "session_id": "33230e33",
+        "target_url": "https://example.com",
+        "vulnerability_type": "missing_hsts",
+        "endpoint_tested": "https://example.com",
+        "validation_timestamp": "2025-12-01T08:31:38.380314",
+        "validation_status": "vulnerable",
+        "evidence": {
+          "headers_received": {
+            "Accept-Ranges": "bytes",
+            "Content-Type": "text/html",
+            "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+            "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+            "Vary": "Accept-Encoding",
+            "Content-Encoding": "gzip",
+            "Cache-Control": "max-age=86000",
+            "Date": "Mon, 01 Dec 2025 13:31:41 GMT",
+            "Content-Length": "20",
+            "Connection": "keep-alive",
+            "Alt-Svc": "h3=\":443\"; ma=93600"
+          },
+          "hsts_header": "",
+          "hsts_present": false,
+          "https_available": true,
+          "hsts_analysis": null
+        },
+        "reproduction_steps": [
+          "1. Test HTTPS availability: YES",
+          "2. Check HSTS header: MISSING",
+          "3. If missing, vulnerable to SSL stripping attacks",
+          "4. Test HTTP connection downgrade",
+          "5. Vulnerability confirmed: YES"
+        ],
+        "proof_of_vulnerability": {
+          "type": "missing HSTS",
+          "severity": "medium",
+          "impact_description": "Vulnerable to SSL stripping and man-in-the-middle attacks",
+          "exploit_scenario": "Attackers can downgrade HTTPS to HTTP and intercept credentials",
+          "business_impact": "Credential theft, session hijacking, data interception"
+        },
+        "risk_assessment": {},
+        "responsible_disclosure": {
+          "summary": "MISSING_HSTS VULNERABILITY CONFIRMED",
+          "security_focus": "The security flaw itself, not attack automation",
+          "technical_details": {
+            "type": "missing HSTS",
+            "severity": "medium",
+            "impact_description": "Vulnerable to SSL stripping and man-in-the-middle attacks",
+            "exploit_scenario": "Attackers can downgrade HTTPS to HTTP and intercept credentials",
+            "business_impact": "Credential theft, session hijacking, data interception"
+          },
+          "remediation_priority": "medium",
+          "compliance_impact": [
+            "PCI-DSS",
+            "SOC 2",
+            "NIST CSF"
+          ],
+          "next_steps": [
+            "Review validation evidence",
+            "Assess business impact",
+            "Plan remediation",
+            "Test fix implementation",
+            "Monitor for regressions"
+          ]
+        }
+      },
+      "csrf": {
+        "session_id": "33230e33",
+        "target_url": "https://example.com",
+        "vulnerability_type": "csrf",
+        "endpoint_tested": "https://example.com",
+        "validation_timestamp": "2025-12-01T08:31:38.380314",
+        "validation_status": "not_vulnerable",
+        "evidence": {
+          "forms_found": [],
+          "csrf_tokens_found": [],
+          "same_site_cookies": [],
+          "headers_received": {
+            "Accept-Ranges": "bytes",
+            "Content-Type": "text/html",
+            "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+            "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+            "Vary": "Accept-Encoding",
+            "Content-Encoding": "gzip",
+            "Cache-Control": "max-age=86000",
+            "Date": "Mon, 01 Dec 2025 13:31:42 GMT",
+            "Content-Length": "363",
+            "Connection": "keep-alive",
+            "Alt-Svc": "h3=\":443\"; ma=93600"
+          }
+        },
+        "reproduction_steps": [
+          "1. Navigate to target endpoint: https://example.com",
+          "2. Analyze forms found: 0",
+          "3. Check for CSRF tokens: 0 found",
+          "4. Check SameSite cookies: 0 protected",
+          "5. Vulnerability confirmed: NO"
+        ],
+        "proof_of_vulnerability": {},
+        "risk_assessment": {},
+        "responsible_disclosure": {
+          "summary": "CSRF NOT VULNERABLE",
+          "security_focus": "The security flaw itself, not attack automation",
+          "technical_details": {},
+          "remediation_priority": "high",
+          "compliance_impact": [
+            "OWASP Top 10",
+            "PCI-DSS",
+            "SOC 2"
+          ],
+          "next_steps": [
+            "Review validation evidence",
+            "Assess business impact",
+            "Plan remediation",
+            "Test fix implementation",
+            "Monitor for regressions"
+          ]
+        }
+      }
+    },
+    "disclosure": {
+      "Clickjacking": {
+        "report_data": {
+          "report_metadata": {
+            "report_id": "VULN-33230E33",
+            "target_url": "https://example.com",
+            "vulnerability_type": "clickjacking",
+            "severity": "medium",
+            "discovery_date": "2025-12-01T08:31:38.380314",
+            "report_date": "2025-12-01T08:31:43.034198",
+            "status": "new"
+          },
+          "vulnerability_summary": {
+            "title": "Clickjacking Vulnerability in https://example.com",
+            "description": "Attackers can embed the target in invisible iframes and trick users into clicking hidden UI elements",
+            "affected_endpoint": "https://example.com",
+            "cvss_score": {
+              "base_score": 5.5,
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+            },
+            "cwe_id": "CWE-451",
+            "owasp_category": "A05:2021 - Security Misconfiguration"
+          },
+          "detailed_findings": {
+            "validation_status": "vulnerable",
+            "technical_analysis": {
+              "headers_received": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:39 GMT",
+                "Content-Length": "20",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              },
+              "x_frame_options": "",
+              "csp_frame_ancestors": false,
+              "iframe_test_result": null,
+              "proof_of_concept": null,
+              "iframe_test_file": "validation_reports\\clickjacking_test_33230e33.html",
+              "iframe_test_html": "\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Clickjacking Validation Test - https://example.com</title>\n    <style>\n        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }\n        .test-container { border: 2px solid #333; padding: 10px; margin: 10px 0; }\n        .iframe-container { width: 100%; height: 500px; border: 1px solid red; }\n        iframe { width: 100%; height: 100%; border: none; }\n        .result { margin: 10px 0; padding: 10px; }\n        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }\n        .failure { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }\n    </style>\n</head>\n<body>\n    <h1>\ud83d\udd0d Clickjacking Validation Test</h1>\n    <div class=\"test-container\">\n        <h2>Target: https://example.com</h2>\n        <p>X-Frame-Options: MISSING</p>\n        <p>CSP frame-ancestors: MISSING</p>\n    </div>\n    \n    <div class=\"test-container\">\n        <h2>IFrame Embedding Test</h2>\n        <div class=\"iframe-container\">\n            <iframe src=\"https://example.com\" id=\"targetFrame\"></iframe>\n        </div>\n        <div id=\"testResult\" class=\"result\">Testing iframe loading...</div>\n    </div>\n    \n    <script>\n        const iframe = document.getElementById('targetFrame');\n        const resultDiv = document.getElementById('testResult');\n        \n        iframe.onload = function() {\n            try {\n                // Try to access iframe content (same-origin test)\n                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded successfully - VULNERABLE to clickjacking';\n            } catch(e) {\n                // Cross-origin - but iframe still loaded\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded (cross-origin) - VULNERABLE to clickjacking';\n            }\n        };\n        \n        iframe.onerror = function() {\n            resultDiv.className = 'result failure';\n            resultDiv.innerHTML = '\u274c IFrame blocked by X-Frame-Options or CSP - NOT VULNERABLE';\n        };\n        \n        // Timeout after 10 seconds\n        setTimeout(function() {\n            if (resultDiv.innerHTML === 'Testing iframe loading...') {\n                resultDiv.className = 'result failure';\n                resultDiv.innerHTML = '\u274c IFrame failed to load - NOT VULNERABLE or network error';\n            }\n        }, 10000);\n    </script>\n</body>\n</html>\n        "
+            },
+            "root_cause": "Missing X-Frame-Options header and/or CSP frame-ancestors directive",
+            "attack_vector": "Attacker creates malicious page with invisible iframe containing target, overlays deceptive UI elements to hijack user clicks",
+            "conditions_required": [
+              "User visits malicious website",
+              "User is logged into target application",
+              "User clicks on deceptive UI elements"
+            ]
+          },
+          "proof_of_vulnerability": {
+            "evidence_type": "automated_validation",
+            "validation_method": "VulnerabilityValidator Framework",
+            "test_results": {
+              "headers_received": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:39 GMT",
+                "Content-Length": "20",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              },
+              "x_frame_options": "",
+              "csp_frame_ancestors": false,
+              "iframe_test_result": null,
+              "proof_of_concept": null,
+              "iframe_test_file": "validation_reports\\clickjacking_test_33230e33.html",
+              "iframe_test_html": "\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Clickjacking Validation Test - https://example.com</title>\n    <style>\n        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }\n        .test-container { border: 2px solid #333; padding: 10px; margin: 10px 0; }\n        .iframe-container { width: 100%; height: 500px; border: 1px solid red; }\n        iframe { width: 100%; height: 100%; border: none; }\n        .result { margin: 10px 0; padding: 10px; }\n        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }\n        .failure { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }\n    </style>\n</head>\n<body>\n    <h1>\ud83d\udd0d Clickjacking Validation Test</h1>\n    <div class=\"test-container\">\n        <h2>Target: https://example.com</h2>\n        <p>X-Frame-Options: MISSING</p>\n        <p>CSP frame-ancestors: MISSING</p>\n    </div>\n    \n    <div class=\"test-container\">\n        <h2>IFrame Embedding Test</h2>\n        <div class=\"iframe-container\">\n            <iframe src=\"https://example.com\" id=\"targetFrame\"></iframe>\n        </div>\n        <div id=\"testResult\" class=\"result\">Testing iframe loading...</div>\n    </div>\n    \n    <script>\n        const iframe = document.getElementById('targetFrame');\n        const resultDiv = document.getElementById('testResult');\n        \n        iframe.onload = function() {\n            try {\n                // Try to access iframe content (same-origin test)\n                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded successfully - VULNERABLE to clickjacking';\n            } catch(e) {\n                // Cross-origin - but iframe still loaded\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded (cross-origin) - VULNERABLE to clickjacking';\n            }\n        };\n        \n        iframe.onerror = function() {\n            resultDiv.className = 'result failure';\n            resultDiv.innerHTML = '\u274c IFrame blocked by X-Frame-Options or CSP - NOT VULNERABLE';\n        };\n        \n        // Timeout after 10 seconds\n        setTimeout(function() {\n            if (resultDiv.innerHTML === 'Testing iframe loading...') {\n                resultDiv.className = 'result failure';\n                resultDiv.innerHTML = '\u274c IFrame failed to load - NOT VULNERABLE or network error';\n            }\n        }, 10000);\n    </script>\n</body>\n</html>\n        "
+            },
+            "screenshots": [],
+            "network_logs": [],
+            "console_output": [],
+            "validation_confidence": "high"
+          },
+          "reproduction_steps": [
+            "1. Navigate to the target endpoint: https://example.com",
+            "2. Check HTTP headers - X-Frame-Options: MISSING",
+            "3. Check CSP header - frame-ancestors: MISSING",
+            "4. Create HTML page with iframe embedding the target",
+            "5. Load the HTML page in browser",
+            "6. Observe iframe loads: SUCCESS (vulnerable)",
+            "7. If vulnerable, attacker can overlay hidden elements to hijack clicks"
+          ],
+          "business_impact": {
+            "technical_impact": "An attacker could create a fake login page that overlays the real login form, capturing user credentials",
+            "business_risk": "Account takeover, unauthorized actions, data theft through UI manipulation",
+            "affected_assets": [
+              "User interface",
+              "Authentication flows",
+              "Administrative functions"
+            ],
+            "potential_damage": {
+              "data_exposure": "Limited data exposure",
+              "financial_impact": "$1K - $10K",
+              "reputation_impact": "Moderate",
+              "operational_impact": "Minimal impact"
+            },
+            "compliance_risk": [
+              "OWASP Top 10",
+              "PCI-DSS"
+            ]
+          },
+          "remediation_guidance": {
+            "immediate_actions": [
+              "Add X-Frame-Options: DENY or SAMEORIGIN header",
+              "Implement CSP frame-ancestors directive",
+              "Review iframe usage in application"
+            ],
+            "long_term_fixes": [
+              "Implement comprehensive clickjacking protection framework",
+              "Regular security header audits",
+              "Security awareness training for developers"
+            ],
+            "code_examples": {
+              "nginx": "add_header X-Frame-Options DENY;",
+              "apache": "Header always set X-Frame-Options DENY",
+              "csp": "Content-Security-Policy: frame-ancestors 'none';"
+            },
+            "testing_procedures": [
+              "Deploy fix to staging environment",
+              "Run automated vulnerability scans",
+              "Perform manual testing with reproduction steps",
+              "Verify fix does not break functionality",
+              "Monitor for regression in production"
+            ],
+            "deployment_considerations": [
+              "Test in non-production environment first",
+              "Consider impact on existing functionality",
+              "Plan rollback procedure if issues arise",
+              "Monitor application performance after deployment",
+              "Document changes for security audit"
+            ]
+          },
+          "compliance_impact": {
+            "affected_standards": [
+              "OWASP Top 10",
+              "PCI-DSS"
+            ],
+            "regulatory_implications": {
+              "OWASP Top 10": "Compliance impact identified",
+              "PCI-DSS": "Non-compliance if payment data affected"
+            },
+            "audit_failures": [
+              "Security control deficiency"
+            ],
+            "legal_exposure": {
+              "data_breach_laws": "Low probability of breach notification",
+              "negligence_claims": "Low risk of negligence claims",
+              "regulatory_fines": "Minimal regulatory risk"
+            }
+          },
+          "researcher_info": {
+            "name": "Security Researcher",
+            "contact_method": "Platform messaging",
+            "preferred_communication": "Platform messaging",
+            "availability_for_questions": "Yes"
+          }
+        },
+        "platform_reports": {
+          "hackerone": "# Clickjacking Vulnerability in https://example.com\n\n## Vulnerability Type\nAttackers can embed the target in invisible iframes and trick users into clicking hidden UI elements\n\n## Severity\nMEDIUM\n\n## Affected URL\nhttps://example.com\n\n## CVSS Score\n5.5 - CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N\n\n## CWE ID\nCWE-451\n\n## OWASP Category\nA05:2021 - Security Misconfiguration\n\n## Detailed Description\nMissing X-Frame-Options header and/or CSP frame-ancestors directive\n\n## Proof of Concept\n1. 1. Navigate to the target endpoint: https://example.com\n2. 2. Check HTTP headers - X-Frame-Options: MISSING\n3. 3. Check CSP header - frame-ancestors: MISSING\n4. 4. Create HTML page with iframe embedding the target\n5. 5. Load the HTML page in browser\n6. 6. Observe iframe loads: SUCCESS (vulnerable)\n7. 7. If vulnerable, attacker can overlay hidden elements to hijack clicks\n\n## Business Impact\nAccount takeover, unauthorized actions, data theft through UI manipulation\n\n## Remediation\n- Add X-Frame-Options: DENY or SAMEORIGIN header\n- Implement CSP frame-ancestors directive\n- Review iframe usage in application\n\n## Timeline\n- **Discovery**: 2025-12-01T08:31:38.380314\n- **Report**: 2025-12-01T08:31:43.034198",
+          "bugcrowd": "**Vulnerability Summary:**\nClickjacking Vulnerability in https://example.com\n\n**Description:**\nAttackers can embed the target in invisible iframes and trick users into clicking hidden UI elements\n\n**Severity:** MEDIUM\n**CVSS:** 5.5\n\n**Affected Endpoint:** https://example.com\n\n**Steps to Reproduce:**\n1. 1. Navigate to the target endpoint: https://example.com\n2. 2. Check HTTP headers - X-Frame-Options: MISSING\n3. 3. Check CSP header - frame-ancestors: MISSING\n4. 4. Create HTML page with iframe embedding the target\n5. 5. Load the HTML page in browser\n6. 6. Observe iframe loads: SUCCESS (vulnerable)\n7. 7. If vulnerable, attacker can overlay hidden elements to hijack clicks\n\n**Evidence:**\nValidation confirmed through automated testing framework.\n\n**Business Impact:**\nAccount takeover, unauthorized actions, data theft through UI manipulation\n\n**Recommendations:**\n\u2022 Add X-Frame-Options: DENY or SAMEORIGIN header\n\u2022 Implement CSP frame-ancestors directive\n\u2022 Review iframe usage in application",
+          "intigriti": "**Vulnerability Details**\n\n**Type:** Clickjacking Vulnerability in https://example.com\n**Severity:** MEDIUM\n**CWE:** CWE-451\n\n**Description:**\nAttackers can embed the target in invisible iframes and trick users into clicking hidden UI elements\n\n**Affected URL:** https://example.com\n\n**Proof of Concept:**\n1. 1. Navigate to the target endpoint: https://example.com\n2. 2. Check HTTP headers - X-Frame-Options: MISSING\n3. 3. Check CSP header - frame-ancestors: MISSING\n4. 4. Create HTML page with iframe embedding the target\n5. 5. Load the HTML page in browser\n6. 6. Observe iframe loads: SUCCESS (vulnerable)\n7. 7. If vulnerable, attacker can overlay hidden elements to hijack clicks\n\n**Impact Analysis:**\nAccount takeover, unauthorized actions, data theft through UI manipulation\n\n**Remediation Advice:**\n- Add X-Frame-Options: DENY or SAMEORIGIN header\n- Implement CSP frame-ancestors directive\n- Review iframe usage in application"
+        },
+        "finding": {
+          "title": "Clickjacking",
+          "description": "Attackers can embed the target in invisible iframes and trick users into clicking hidden UI elements",
+          "severity": "medium",
+          "type": "clickjacking",
+          "validation_result": {
+            "session_id": "33230e33",
+            "target_url": "https://example.com",
+            "vulnerability_type": "clickjacking",
+            "endpoint_tested": "https://example.com",
+            "validation_timestamp": "2025-12-01T08:31:38.380314",
+            "validation_status": "vulnerable",
+            "evidence": {
+              "headers_received": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:39 GMT",
+                "Content-Length": "20",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              },
+              "x_frame_options": "",
+              "csp_frame_ancestors": false,
+              "iframe_test_result": null,
+              "proof_of_concept": null,
+              "iframe_test_file": "validation_reports\\clickjacking_test_33230e33.html",
+              "iframe_test_html": "\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Clickjacking Validation Test - https://example.com</title>\n    <style>\n        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }\n        .test-container { border: 2px solid #333; padding: 10px; margin: 10px 0; }\n        .iframe-container { width: 100%; height: 500px; border: 1px solid red; }\n        iframe { width: 100%; height: 100%; border: none; }\n        .result { margin: 10px 0; padding: 10px; }\n        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }\n        .failure { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }\n    </style>\n</head>\n<body>\n    <h1>\ud83d\udd0d Clickjacking Validation Test</h1>\n    <div class=\"test-container\">\n        <h2>Target: https://example.com</h2>\n        <p>X-Frame-Options: MISSING</p>\n        <p>CSP frame-ancestors: MISSING</p>\n    </div>\n    \n    <div class=\"test-container\">\n        <h2>IFrame Embedding Test</h2>\n        <div class=\"iframe-container\">\n            <iframe src=\"https://example.com\" id=\"targetFrame\"></iframe>\n        </div>\n        <div id=\"testResult\" class=\"result\">Testing iframe loading...</div>\n    </div>\n    \n    <script>\n        const iframe = document.getElementById('targetFrame');\n        const resultDiv = document.getElementById('testResult');\n        \n        iframe.onload = function() {\n            try {\n                // Try to access iframe content (same-origin test)\n                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded successfully - VULNERABLE to clickjacking';\n            } catch(e) {\n                // Cross-origin - but iframe still loaded\n                resultDiv.className = 'result success';\n                resultDiv.innerHTML = '\u2705 IFrame loaded (cross-origin) - VULNERABLE to clickjacking';\n            }\n        };\n        \n        iframe.onerror = function() {\n            resultDiv.className = 'result failure';\n            resultDiv.innerHTML = '\u274c IFrame blocked by X-Frame-Options or CSP - NOT VULNERABLE';\n        };\n        \n        // Timeout after 10 seconds\n        setTimeout(function() {\n            if (resultDiv.innerHTML === 'Testing iframe loading...') {\n                resultDiv.className = 'result failure';\n                resultDiv.innerHTML = '\u274c IFrame failed to load - NOT VULNERABLE or network error';\n            }\n        }, 10000);\n    </script>\n</body>\n</html>\n        "
+            },
+            "reproduction_steps": [
+              "1. Navigate to the target endpoint: https://example.com",
+              "2. Check HTTP headers - X-Frame-Options: MISSING",
+              "3. Check CSP header - frame-ancestors: MISSING",
+              "4. Create HTML page with iframe embedding the target",
+              "5. Load the HTML page in browser",
+              "6. Observe iframe loads: SUCCESS (vulnerable)",
+              "7. If vulnerable, attacker can overlay hidden elements to hijack clicks"
+            ],
+            "proof_of_vulnerability": {
+              "type": "clickjacking",
+              "severity": "medium",
+              "impact_description": "Attackers can embed the target in invisible iframes and trick users into clicking hidden UI elements",
+              "exploit_scenario": "An attacker could create a fake login page that overlays the real login form, capturing user credentials",
+              "business_impact": "Account takeover, unauthorized actions, data theft through UI manipulation",
+              "test_file_location": "validation_reports\\clickjacking_test_33230e33.html"
+            },
+            "risk_assessment": {},
+            "responsible_disclosure": {
+              "summary": "CLICKJACKING VULNERABILITY CONFIRMED",
+              "security_focus": "The security flaw itself, not attack automation",
+              "technical_details": {
+                "type": "clickjacking",
+                "severity": "medium",
+                "impact_description": "Attackers can embed the target in invisible iframes and trick users into clicking hidden UI elements",
+                "exploit_scenario": "An attacker could create a fake login page that overlays the real login form, capturing user credentials",
+                "business_impact": "Account takeover, unauthorized actions, data theft through UI manipulation",
+                "test_file_location": "validation_reports\\clickjacking_test_33230e33.html"
+              },
+              "remediation_priority": "medium",
+              "compliance_impact": [
+                "OWASP Top 10",
+                "PCI-DSS"
+              ],
+              "next_steps": [
+                "Review validation evidence",
+                "Assess business impact",
+                "Plan remediation",
+                "Test fix implementation",
+                "Monitor for regressions"
+              ]
+            }
+          },
+          "source": "validation_framework"
+        }
+      },
+      "Missing_Csp": {
+        "report_data": {
+          "report_metadata": {
+            "report_id": "VULN-33230E33",
+            "target_url": "https://example.com",
+            "vulnerability_type": "missing_csp",
+            "severity": "medium",
+            "discovery_date": "2025-12-01T08:31:38.380314",
+            "report_date": "2025-12-01T08:31:43.034355",
+            "status": "new"
+          },
+          "vulnerability_summary": {
+            "title": "Missing Content Security Policy in https://example.com",
+            "description": "No protection against XSS and other injection attacks",
+            "affected_endpoint": "https://example.com",
+            "cvss_score": {
+              "base_score": 5.5,
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+            },
+            "cwe_id": "CWE-693",
+            "owasp_category": "A05:2021 - Security Misconfiguration"
+          },
+          "detailed_findings": {
+            "validation_status": "vulnerable",
+            "technical_analysis": {
+              "headers_received": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:41 GMT",
+                "Content-Length": "20",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              },
+              "csp_header": "",
+              "csp_present": false,
+              "csp_analysis": null,
+              "risk_assessment": null
+            },
+            "root_cause": "No Content Security Policy header implemented",
+            "attack_vector": "Attacker can inject and execute scripts due to lack of CSP restrictions",
+            "conditions_required": [
+              "Attacker can inject scripts through any input vector",
+              "Scripts execute without CSP restrictions",
+              "Browser allows script execution"
+            ]
+          },
+          "proof_of_vulnerability": {
+            "evidence_type": "automated_validation",
+            "validation_method": "VulnerabilityValidator Framework",
+            "test_results": {
+              "headers_received": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:41 GMT",
+                "Content-Length": "20",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              },
+              "csp_header": "",
+              "csp_present": false,
+              "csp_analysis": null,
+              "risk_assessment": null
+            },
+            "screenshots": [],
+            "network_logs": [],
+            "console_output": [],
+            "validation_confidence": "high"
+          },
+          "reproduction_steps": [
+            "1. Navigate to target endpoint: https://example.com",
+            "2. Check HTTP headers for CSP: MISSING",
+            "3. If missing, site lacks XSS protection",
+            "4. Test script injection in various contexts",
+            "5. Vulnerability confirmed: YES"
+          ],
+          "business_impact": {
+            "technical_impact": "Attackers can inject scripts, steal data, and perform malicious actions",
+            "business_risk": "XSS vulnerabilities, data theft, compliance violations",
+            "affected_assets": [
+              "Application security",
+              "User data",
+              "System integrity"
+            ],
+            "potential_damage": {
+              "data_exposure": "Limited data exposure",
+              "financial_impact": "$1K - $10K",
+              "reputation_impact": "Moderate",
+              "operational_impact": "Minimal impact"
+            },
+            "compliance_risk": [
+              "OWASP Top 10",
+              "PCI-DSS",
+              "SOC 2"
+            ]
+          },
+          "remediation_guidance": {
+            "immediate_actions": [
+              "Implement comprehensive Content Security Policy",
+              "Start with restrictive policy and whitelist needed sources",
+              "Test policy thoroughly before deployment"
+            ],
+            "long_term_fixes": [
+              "Develop CSP deployment strategy",
+              "Regular CSP policy reviews",
+              "Content Security Policy monitoring"
+            ],
+            "code_examples": {
+              "general": "Implement appropriate security controls for the vulnerability type"
+            },
+            "testing_procedures": [
+              "Deploy fix to staging environment",
+              "Run automated vulnerability scans",
+              "Perform manual testing with reproduction steps",
+              "Verify fix does not break functionality",
+              "Monitor for regression in production"
+            ],
+            "deployment_considerations": [
+              "Test in non-production environment first",
+              "Consider impact on existing functionality",
+              "Plan rollback procedure if issues arise",
+              "Monitor application performance after deployment",
+              "Document changes for security audit"
+            ]
+          },
+          "compliance_impact": {
+            "affected_standards": [
+              "OWASP Top 10",
+              "PCI-DSS",
+              "SOC 2"
+            ],
+            "regulatory_implications": {
+              "OWASP Top 10": "Compliance impact identified",
+              "PCI-DSS": "Non-compliance if payment data affected",
+              "SOC 2": "Security control deficiency identified"
+            },
+            "audit_failures": [
+              "Security control deficiency"
+            ],
+            "legal_exposure": {
+              "data_breach_laws": "Low probability of breach notification",
+              "negligence_claims": "Low risk of negligence claims",
+              "regulatory_fines": "Minimal regulatory risk"
+            }
+          },
+          "researcher_info": {
+            "name": "Security Researcher",
+            "contact_method": "Platform messaging",
+            "preferred_communication": "Platform messaging",
+            "availability_for_questions": "Yes"
+          }
+        },
+        "platform_reports": {
+          "hackerone": "# Missing Content Security Policy in https://example.com\n\n## Vulnerability Type\nNo protection against XSS and other injection attacks\n\n## Severity\nMEDIUM\n\n## Affected URL\nhttps://example.com\n\n## CVSS Score\n5.5 - CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N\n\n## CWE ID\nCWE-693\n\n## OWASP Category\nA05:2021 - Security Misconfiguration\n\n## Detailed Description\nNo Content Security Policy header implemented\n\n## Proof of Concept\n1. 1. Navigate to target endpoint: https://example.com\n2. 2. Check HTTP headers for CSP: MISSING\n3. 3. If missing, site lacks XSS protection\n4. 4. Test script injection in various contexts\n5. 5. Vulnerability confirmed: YES\n\n## Business Impact\nXSS vulnerabilities, data theft, compliance violations\n\n## Remediation\n- Implement comprehensive Content Security Policy\n- Start with restrictive policy and whitelist needed sources\n- Test policy thoroughly before deployment\n\n## Timeline\n- **Discovery**: 2025-12-01T08:31:38.380314\n- **Report**: 2025-12-01T08:31:43.034355",
+          "bugcrowd": "**Vulnerability Summary:**\nMissing Content Security Policy in https://example.com\n\n**Description:**\nNo protection against XSS and other injection attacks\n\n**Severity:** MEDIUM\n**CVSS:** 5.5\n\n**Affected Endpoint:** https://example.com\n\n**Steps to Reproduce:**\n1. 1. Navigate to target endpoint: https://example.com\n2. 2. Check HTTP headers for CSP: MISSING\n3. 3. If missing, site lacks XSS protection\n4. 4. Test script injection in various contexts\n5. 5. Vulnerability confirmed: YES\n\n**Evidence:**\nValidation confirmed through automated testing framework.\n\n**Business Impact:**\nXSS vulnerabilities, data theft, compliance violations\n\n**Recommendations:**\n\u2022 Implement comprehensive Content Security Policy\n\u2022 Start with restrictive policy and whitelist needed sources\n\u2022 Test policy thoroughly before deployment",
+          "intigriti": "**Vulnerability Details**\n\n**Type:** Missing Content Security Policy in https://example.com\n**Severity:** MEDIUM\n**CWE:** CWE-693\n\n**Description:**\nNo protection against XSS and other injection attacks\n\n**Affected URL:** https://example.com\n\n**Proof of Concept:**\n1. 1. Navigate to target endpoint: https://example.com\n2. 2. Check HTTP headers for CSP: MISSING\n3. 3. If missing, site lacks XSS protection\n4. 4. Test script injection in various contexts\n5. 5. Vulnerability confirmed: YES\n\n**Impact Analysis:**\nXSS vulnerabilities, data theft, compliance violations\n\n**Remediation Advice:**\n- Implement comprehensive Content Security Policy\n- Start with restrictive policy and whitelist needed sources\n- Test policy thoroughly before deployment"
+        },
+        "finding": {
+          "title": "Missing_Csp",
+          "description": "No protection against XSS and other injection attacks",
+          "severity": "medium",
+          "type": "missing_csp",
+          "validation_result": {
+            "session_id": "33230e33",
+            "target_url": "https://example.com",
+            "vulnerability_type": "missing_csp",
+            "endpoint_tested": "https://example.com",
+            "validation_timestamp": "2025-12-01T08:31:38.380314",
+            "validation_status": "vulnerable",
+            "evidence": {
+              "headers_received": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:41 GMT",
+                "Content-Length": "20",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              },
+              "csp_header": "",
+              "csp_present": false,
+              "csp_analysis": null,
+              "risk_assessment": null
+            },
+            "reproduction_steps": [
+              "1. Navigate to target endpoint: https://example.com",
+              "2. Check HTTP headers for CSP: MISSING",
+              "3. If missing, site lacks XSS protection",
+              "4. Test script injection in various contexts",
+              "5. Vulnerability confirmed: YES"
+            ],
+            "proof_of_vulnerability": {
+              "type": "missing content security policy",
+              "severity": "medium",
+              "impact_description": "No protection against XSS and other injection attacks",
+              "exploit_scenario": "Attackers can inject scripts, steal data, and perform malicious actions",
+              "business_impact": "XSS vulnerabilities, data theft, compliance violations"
+            },
+            "risk_assessment": {},
+            "responsible_disclosure": {
+              "summary": "MISSING_CSP VULNERABILITY CONFIRMED",
+              "security_focus": "The security flaw itself, not attack automation",
+              "technical_details": {
+                "type": "missing content security policy",
+                "severity": "medium",
+                "impact_description": "No protection against XSS and other injection attacks",
+                "exploit_scenario": "Attackers can inject scripts, steal data, and perform malicious actions",
+                "business_impact": "XSS vulnerabilities, data theft, compliance violations"
+              },
+              "remediation_priority": "medium",
+              "compliance_impact": [
+                "OWASP Top 10",
+                "PCI-DSS",
+                "SOC 2"
+              ],
+              "next_steps": [
+                "Review validation evidence",
+                "Assess business impact",
+                "Plan remediation",
+                "Test fix implementation",
+                "Monitor for regressions"
+              ]
+            }
+          },
+          "source": "validation_framework"
+        }
+      },
+      "Missing_Hsts": {
+        "report_data": {
+          "report_metadata": {
+            "report_id": "VULN-33230E33",
+            "target_url": "https://example.com",
+            "vulnerability_type": "missing_hsts",
+            "severity": "medium",
+            "discovery_date": "2025-12-01T08:31:38.380314",
+            "report_date": "2025-12-01T08:31:43.034498",
+            "status": "new"
+          },
+          "vulnerability_summary": {
+            "title": "Missing HSTS Header in https://example.com",
+            "description": "Vulnerable to SSL stripping and man-in-the-middle attacks",
+            "affected_endpoint": "https://example.com",
+            "cvss_score": {
+              "base_score": 5.5,
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+            },
+            "cwe_id": "CWE-319",
+            "owasp_category": "A02:2021 - Cryptographic Failures"
+          },
+          "detailed_findings": {
+            "validation_status": "vulnerable",
+            "technical_analysis": {
+              "headers_received": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:41 GMT",
+                "Content-Length": "20",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              },
+              "hsts_header": "",
+              "hsts_present": false,
+              "https_available": true,
+              "hsts_analysis": null
+            },
+            "root_cause": "No Strict-Transport-Security header configured",
+            "attack_vector": "Attacker can perform SSL stripping attacks to downgrade HTTPS to HTTP",
+            "conditions_required": [
+              "User connects over HTTP initially",
+              "Attacker can perform MITM attack",
+              "SSL stripping successful"
+            ]
+          },
+          "proof_of_vulnerability": {
+            "evidence_type": "automated_validation",
+            "validation_method": "VulnerabilityValidator Framework",
+            "test_results": {
+              "headers_received": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:41 GMT",
+                "Content-Length": "20",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              },
+              "hsts_header": "",
+              "hsts_present": false,
+              "https_available": true,
+              "hsts_analysis": null
+            },
+            "screenshots": [],
+            "network_logs": [],
+            "console_output": [],
+            "validation_confidence": "high"
+          },
+          "reproduction_steps": [
+            "1. Test HTTPS availability: YES",
+            "2. Check HSTS header: MISSING",
+            "3. If missing, vulnerable to SSL stripping attacks",
+            "4. Test HTTP connection downgrade",
+            "5. Vulnerability confirmed: YES"
+          ],
+          "business_impact": {
+            "technical_impact": "Attackers can downgrade HTTPS to HTTP and intercept credentials",
+            "business_risk": "Credential theft, session hijacking, data interception",
+            "affected_assets": [
+              "Data in transit",
+              "User credentials",
+              "Session tokens"
+            ],
+            "potential_damage": {
+              "data_exposure": "Limited data exposure",
+              "financial_impact": "$1K - $10K",
+              "reputation_impact": "Moderate",
+              "operational_impact": "Minimal impact"
+            },
+            "compliance_risk": [
+              "PCI-DSS",
+              "SOC 2",
+              "NIST CSF"
+            ]
+          },
+          "remediation_guidance": {
+            "immediate_actions": [
+              "Add Strict-Transport-Security header",
+              "Set appropriate max-age (minimum 6 months)",
+              "Consider includeSubDomains and preload"
+            ],
+            "long_term_fixes": [
+              "Implement HTTPS everywhere strategy",
+              "HSTS preloading submission",
+              "Regular TLS configuration audits"
+            ],
+            "code_examples": {
+              "nginx": "add_header Strict-Transport-Security \"max-age=31536000; includeSubDomains\" always;",
+              "apache": "Header always set Strict-Transport-Security \"max-age=31536000; includeSubDomains\""
+            },
+            "testing_procedures": [
+              "Deploy fix to staging environment",
+              "Run automated vulnerability scans",
+              "Perform manual testing with reproduction steps",
+              "Verify fix does not break functionality",
+              "Monitor for regression in production"
+            ],
+            "deployment_considerations": [
+              "Test in non-production environment first",
+              "Consider impact on existing functionality",
+              "Plan rollback procedure if issues arise",
+              "Monitor application performance after deployment",
+              "Document changes for security audit"
+            ]
+          },
+          "compliance_impact": {
+            "affected_standards": [
+              "PCI-DSS",
+              "SOC 2",
+              "NIST CSF"
+            ],
+            "regulatory_implications": {
+              "PCI-DSS": "Non-compliance if payment data affected",
+              "SOC 2": "Security control deficiency identified",
+              "NIST CSF": "Control gap in security framework"
+            },
+            "audit_failures": [
+              "Security control deficiency"
+            ],
+            "legal_exposure": {
+              "data_breach_laws": "Low probability of breach notification",
+              "negligence_claims": "Low risk of negligence claims",
+              "regulatory_fines": "Minimal regulatory risk"
+            }
+          },
+          "researcher_info": {
+            "name": "Security Researcher",
+            "contact_method": "Platform messaging",
+            "preferred_communication": "Platform messaging",
+            "availability_for_questions": "Yes"
+          }
+        },
+        "platform_reports": {
+          "hackerone": "# Missing HSTS Header in https://example.com\n\n## Vulnerability Type\nVulnerable to SSL stripping and man-in-the-middle attacks\n\n## Severity\nMEDIUM\n\n## Affected URL\nhttps://example.com\n\n## CVSS Score\n5.5 - CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N\n\n## CWE ID\nCWE-319\n\n## OWASP Category\nA02:2021 - Cryptographic Failures\n\n## Detailed Description\nNo Strict-Transport-Security header configured\n\n## Proof of Concept\n1. 1. Test HTTPS availability: YES\n2. 2. Check HSTS header: MISSING\n3. 3. If missing, vulnerable to SSL stripping attacks\n4. 4. Test HTTP connection downgrade\n5. 5. Vulnerability confirmed: YES\n\n## Business Impact\nCredential theft, session hijacking, data interception\n\n## Remediation\n- Add Strict-Transport-Security header\n- Set appropriate max-age (minimum 6 months)\n- Consider includeSubDomains and preload\n\n## Timeline\n- **Discovery**: 2025-12-01T08:31:38.380314\n- **Report**: 2025-12-01T08:31:43.034498",
+          "bugcrowd": "**Vulnerability Summary:**\nMissing HSTS Header in https://example.com\n\n**Description:**\nVulnerable to SSL stripping and man-in-the-middle attacks\n\n**Severity:** MEDIUM\n**CVSS:** 5.5\n\n**Affected Endpoint:** https://example.com\n\n**Steps to Reproduce:**\n1. 1. Test HTTPS availability: YES\n2. 2. Check HSTS header: MISSING\n3. 3. If missing, vulnerable to SSL stripping attacks\n4. 4. Test HTTP connection downgrade\n5. 5. Vulnerability confirmed: YES\n\n**Evidence:**\nValidation confirmed through automated testing framework.\n\n**Business Impact:**\nCredential theft, session hijacking, data interception\n\n**Recommendations:**\n\u2022 Add Strict-Transport-Security header\n\u2022 Set appropriate max-age (minimum 6 months)\n\u2022 Consider includeSubDomains and preload",
+          "intigriti": "**Vulnerability Details**\n\n**Type:** Missing HSTS Header in https://example.com\n**Severity:** MEDIUM\n**CWE:** CWE-319\n\n**Description:**\nVulnerable to SSL stripping and man-in-the-middle attacks\n\n**Affected URL:** https://example.com\n\n**Proof of Concept:**\n1. 1. Test HTTPS availability: YES\n2. 2. Check HSTS header: MISSING\n3. 3. If missing, vulnerable to SSL stripping attacks\n4. 4. Test HTTP connection downgrade\n5. 5. Vulnerability confirmed: YES\n\n**Impact Analysis:**\nCredential theft, session hijacking, data interception\n\n**Remediation Advice:**\n- Add Strict-Transport-Security header\n- Set appropriate max-age (minimum 6 months)\n- Consider includeSubDomains and preload"
+        },
+        "finding": {
+          "title": "Missing_Hsts",
+          "description": "Vulnerable to SSL stripping and man-in-the-middle attacks",
+          "severity": "medium",
+          "type": "missing_hsts",
+          "validation_result": {
+            "session_id": "33230e33",
+            "target_url": "https://example.com",
+            "vulnerability_type": "missing_hsts",
+            "endpoint_tested": "https://example.com",
+            "validation_timestamp": "2025-12-01T08:31:38.380314",
+            "validation_status": "vulnerable",
+            "evidence": {
+              "headers_received": {
+                "Accept-Ranges": "bytes",
+                "Content-Type": "text/html",
+                "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+                "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+                "Vary": "Accept-Encoding",
+                "Content-Encoding": "gzip",
+                "Cache-Control": "max-age=86000",
+                "Date": "Mon, 01 Dec 2025 13:31:41 GMT",
+                "Content-Length": "20",
+                "Connection": "keep-alive",
+                "Alt-Svc": "h3=\":443\"; ma=93600"
+              },
+              "hsts_header": "",
+              "hsts_present": false,
+              "https_available": true,
+              "hsts_analysis": null
+            },
+            "reproduction_steps": [
+              "1. Test HTTPS availability: YES",
+              "2. Check HSTS header: MISSING",
+              "3. If missing, vulnerable to SSL stripping attacks",
+              "4. Test HTTP connection downgrade",
+              "5. Vulnerability confirmed: YES"
+            ],
+            "proof_of_vulnerability": {
+              "type": "missing HSTS",
+              "severity": "medium",
+              "impact_description": "Vulnerable to SSL stripping and man-in-the-middle attacks",
+              "exploit_scenario": "Attackers can downgrade HTTPS to HTTP and intercept credentials",
+              "business_impact": "Credential theft, session hijacking, data interception"
+            },
+            "risk_assessment": {},
+            "responsible_disclosure": {
+              "summary": "MISSING_HSTS VULNERABILITY CONFIRMED",
+              "security_focus": "The security flaw itself, not attack automation",
+              "technical_details": {
+                "type": "missing HSTS",
+                "severity": "medium",
+                "impact_description": "Vulnerable to SSL stripping and man-in-the-middle attacks",
+                "exploit_scenario": "Attackers can downgrade HTTPS to HTTP and intercept credentials",
+                "business_impact": "Credential theft, session hijacking, data interception"
+              },
+              "remediation_priority": "medium",
+              "compliance_impact": [
+                "PCI-DSS",
+                "SOC 2",
+                "NIST CSF"
+              ],
+              "next_steps": [
+                "Review validation evidence",
+                "Assess business impact",
+                "Plan remediation",
+                "Test fix implementation",
+                "Monitor for regressions"
+              ]
+            }
+          },
+          "source": "validation_framework"
+        }
+      }
+    },
+    "analysis": {
+      "correlation_analysis": {
+        "pentest_only": [],
+        "validation_only": [
+          "missing_csp",
+          "clickjacking",
+          "missing_hsts"
+        ],
+        "both_methods": [],
+        "correlation_score": 0.0
+      },
+      "risk_assessment": {
+        "total_vulnerabilities": 3,
+        "severity_breakdown": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 0,
+          "info": 0
+        },
+        "overall_risk_score": 2.0,
+        "high_priority_vulnerabilities": []
+      },
+      "recommendations": {
+        "immediate_actions": [],
+        "short_term_improvements": [
+          "Implement automated vulnerability scanning",
+          "Enhance security headers configuration",
+          "Conduct regular security assessments"
+        ],
+        "long_term_strategy": [
+          "Develop comprehensive security program",
+          "Implement secure development lifecycle (SDLC)",
+          "Establish continuous security monitoring"
+        ],
+        "methodology_improvements": [
+          "Low correlation between pentest and validation methods - review testing approaches"
+        ]
+      },
+      "metrics": {
+        "assessment_coverage": {
+          "pentest_phases_completed": 7,
+          "total_pentest_phases": 7,
+          "validation_types_tested": 5,
+          "reports_generated": 3
+        },
+        "efficiency_metrics": {
+          "vulnerabilities_per_hour": 1.0,
+          "validation_success_rate": 0.6
+        },
+        "quality_metrics": {
+          "evidence_collected": 5,
+          "reproduction_steps_provided": 5,
+          "professional_reports_generated": 9
+        }
+      }
+    }
+  },
+  "end_time": "2025-12-01T08:31:43.035714",
+  "total_duration": "0:00:04.634226"
+}

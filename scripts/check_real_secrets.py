@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Check for ACTUAL secrets in discovery files
 Looks for API keys, tokens, passwords, credentials
@@ -154,5 +158,11 @@ def check_secrets():
 
 if __name__ == "__main__":
     check_secrets()
+
+
+
+
+
+
 
 

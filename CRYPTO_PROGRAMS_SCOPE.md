@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # ✅ Real Crypto Bug Bounty Programs - Scope Configuration
 
 ## 🎯 Programs Configured

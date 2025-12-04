@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Continue Workflow - Next Steps
 
 ## ✅ What You've Accomplished
@@ -200,5 +203,11 @@ When you find a bug, document:
 - **Submit 1 bug report** (if you find something)
 
 Remember: Discovery is done. Now it's time for manual testing - this is where real bugs come from!
+
+
+
+
+
+
 
 

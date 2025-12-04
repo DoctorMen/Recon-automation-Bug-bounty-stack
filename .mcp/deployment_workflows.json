@@ -1,0 +1,241 @@
+{
+  "workflows": {
+    "parallelprofit_production": {
+      "name": "ParallelProfit™ Production Deployment",
+      "description": "Full stack deployment with monitoring",
+      "steps": [
+        {
+          "service": "netlify",
+          "action": "deploy",
+          "source": "PARALLELPROFIT_BLEEDING_EDGE.html",
+          "config": {
+            "site_name": "parallelprofit",
+            "build_command": "npm run build",
+            "publish_directory": "dist",
+            "environment": "production"
+          }
+        },
+        {
+          "service": "aws-lambda",
+          "action": "deploy",
+          "source": "backend/automation",
+          "config": {
+            "runtime": "python3.11",
+            "memory": 512,
+            "timeout": 300,
+            "environment_variables": {
+              "UPWORK_API_KEY": "${UPWORK_API_KEY}",
+              "FIVERR_API_KEY": "${FIVERR_API_KEY}",
+              "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+            }
+          }
+        },
+        {
+          "service": "digitalocean",
+          "action": "create_database",
+          "config": {
+            "engine": "postgresql",
+            "version": "15",
+            "size": "db-s-1vcpu-1gb",
+            "region": "nyc3"
+          }
+        },
+        {
+          "service": "aws-cloudwatch",
+          "action": "setup_monitoring",
+          "config": {
+            "metrics": ["requests", "errors", "latency"],
+            "alarms": {
+              "error_rate": {
+                "threshold": 5,
+                "period": 300
+              }
+            }
+          }
+        }
+      ],
+      "estimated_time": "5 minutes",
+      "estimated_cost": "$25/month"
+    },
+    "worktreemanager_production": {
+      "name": "WorktreeManager™ Production Deployment",
+      "description": "Next.js app with database and edge API",
+      "steps": [
+        {
+          "service": "vercel",
+          "action": "deploy",
+          "source": "worktree-app",
+          "config": {
+            "framework": "nextjs",
+            "build_command": "npm run build",
+            "output_directory": ".next",
+            "environment": "production"
+          }
+        },
+        {
+          "service": "cloudflare-workers",
+          "action": "deploy",
+          "source": "api/edge-functions",
+          "config": {
+            "routes": ["/api/*"],
+            "compatibility_date": "2024-01-01"
+          }
+        },
+        {
+          "service": "railway",
+          "action": "create_database",
+          "config": {
+            "engine": "postgresql",
+            "version": "15",
+            "plan": "starter"
+          }
+        }
+      ],
+      "estimated_time": "4 minutes",
+      "estimated_cost": "$20/month"
+    },
+    "jobmatch_production": {
+      "name": "JobMatch™ Production Deployment",
+      "description": "Full stack job board with AI API",
+      "steps": [
+        {
+          "service": "cloudflare-pages",
+          "action": "deploy",
+          "source": "jobmatch/index.html",
+          "config": {
+            "build_command": "npm run build",
+            "output_directory": "dist",
+            "environment": "production"
+          }
+        },
+        {
+          "service": "render",
+          "action": "deploy",
+          "source": "backend/api",
+          "config": {
+            "type": "web_service",
+            "runtime": "node",
+            "build_command": "npm install && npm run build",
+            "start_command": "npm start"
+          }
+        },
+        {
+          "service": "render",
+          "action": "create_database",
+          "config": {
+            "engine": "postgresql",
+            "version": "15",
+            "plan": "starter"
+          }
+        },
+        {
+          "service": "aws-lambda",
+          "action": "deploy",
+          "source": "ai/resume-optimizer",
+          "config": {
+            "runtime": "python3.11",
+            "memory": 1024,
+            "timeout": 60,
+            "layers": ["openai", "langchain"]
+          }
+        }
+      ],
+      "estimated_time": "6 minutes",
+      "estimated_cost": "$30/month"
+    },
+    "quick_test_deploy": {
+      "name": "Quick Test Deployment (All 3)",
+      "description": "Deploy all 3 businesses to free tiers for testing",
+      "steps": [
+        {
+          "service": "netlify",
+          "action": "deploy",
+          "source": "PARALLELPROFIT_BLEEDING_EDGE.html",
+          "config": {
+            "site_name": "parallelprofit-test",
+            "environment": "staging"
+          }
+        },
+        {
+          "service": "vercel",
+          "action": "deploy",
+          "source": "WORKTREE_BLEEDING_EDGE.html",
+          "config": {
+            "project_name": "worktreemanager-test",
+            "environment": "preview"
+          }
+        },
+        {
+          "service": "netlify",
+          "action": "deploy",
+          "source": "jobmatch/index.html",
+          "config": {
+            "site_name": "jobmatch-test",
+            "environment": "staging"
+          }
+        }
+      ],
+      "estimated_time": "2 minutes",
+      "estimated_cost": "$0/month"
+    },
+    "staging_deploy": {
+      "name": "Staging Environment Deployment",
+      "description": "Deploy to staging for testing before production",
+      "steps": [
+        {
+          "service": "netlify",
+          "action": "deploy",
+          "source": ".",
+          "config": {
+            "branch": "staging",
+            "environment": "staging",
+            "deploy_previews": true
+          }
+        }
+      ],
+      "estimated_time": "1 minute",
+      "estimated_cost": "$0/month"
+    },
+    "rollback": {
+      "name": "Emergency Rollback",
+      "description": "Rollback all deployments to previous version",
+      "steps": [
+        {
+          "service": "netlify",
+          "action": "rollback",
+          "config": {
+            "version": "previous"
+          }
+        },
+        {
+          "service": "vercel",
+          "action": "rollback",
+          "config": {
+            "version": "previous"
+          }
+        },
+        {
+          "service": "cloudflare",
+          "action": "rollback",
+          "config": {
+            "version": "previous"
+          }
+        }
+      ],
+      "estimated_time": "30 seconds",
+      "estimated_cost": "$0"
+    }
+  },
+  "ai_commands": {
+    "deploy_all_production": "Deploy all 3 businesses to production with databases and monitoring",
+    "deploy_all_test": "Deploy all 3 businesses to staging for testing",
+    "deploy_parallelprofit": "Deploy ParallelProfit to production",
+    "deploy_worktreemanager": "Deploy WorktreeManager to production",
+    "deploy_jobmatch": "Deploy JobMatch to production",
+    "update_all": "Update all deployments with latest changes",
+    "rollback_all": "Rollback all deployments to previous version",
+    "check_status": "Show status of all deployments",
+    "show_urls": "Show all deployment URLs",
+    "show_costs": "Show deployment costs and usage"
+  }
+}

@@ -1,0 +1,76 @@
+END USER LICENSE AGREEMENT (EULA)
+
+Copyright © 2025 Khallid H Nurse (DBA DoctorMen)
+All Rights Reserved.
+
+This End User License Agreement ("Agreement") is a legal agreement 
+between you (the "Licensee") and Khallid H Nurse (DBA DoctorMen) (the "Licensor") 
+for the software product and associated materials (the "Product").
+
+BY PURCHASING AND/OR USING THIS PRODUCT, YOU AGREE TO BE BOUND BY 
+THE TERMS OF THIS AGREEMENT.
+
+1. GRANT OF LICENSE
+The Licensor grants you a non-exclusive, non-transferable license to:
+- Use the Product for commercial purposes
+- Modify the Product for your own use
+- Use the Product for unlimited client projects
+- Create derivative works for your commercial use
+
+2. RESTRICTIONS
+You may NOT:
+- Resell, redistribute, or sublicense the Product as-is
+- Share the Product with others who have not purchased it
+- Remove or modify copyright notices
+- Claim authorship or ownership of the Product
+- Use the Product for illegal activities
+- Reverse engineer for competitive purposes
+
+3. INTELLECTUAL PROPERTY
+The Product is protected by copyright laws and international treaty 
+provisions. The Licensor retains all rights, title, and interest in 
+and to the Product, including all copyrights, patents, trade secrets, 
+trademarks, and other intellectual property rights.
+
+4. UPDATES AND SUPPORT
+The Licensor is not obligated to provide updates, bug fixes, or 
+technical support. Any updates provided are at the sole discretion 
+of the Licensor.
+
+5. TERMINATION
+This license is effective until terminated. Your rights under this 
+license will terminate automatically without notice if you fail to 
+comply with any term of this Agreement. Upon termination, you must 
+destroy all copies of the Product.
+
+6. WARRANTY DISCLAIMER
+THE PRODUCT IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. THE 
+LICENSOR DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT 
+NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR 
+A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+7. LIMITATION OF LIABILITY
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY SPECIAL, INCIDENTAL, 
+INDIRECT, OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY 
+TO USE THE PRODUCT, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE 
+POSSIBILITY OF SUCH DAMAGES.
+
+8. GOVERNING LAW
+This Agreement shall be governed by and construed in accordance with 
+the laws of the United States, without regard to its conflict of law 
+provisions.
+
+9. ENTIRE AGREEMENT
+This Agreement constitutes the entire agreement between you and the 
+Licensor concerning the Product and supersedes all prior agreements 
+and understandings.
+
+10. CONTACT
+For questions about this license, contact: Khallid H Nurse (DBA DoctorMen)
+
+════════════════════════════════════════════════════════════════
+By using this Product, you acknowledge that you have read this 
+Agreement, understand it, and agree to be bound by its terms.
+
+Copyright © 2025 Khallid H Nurse (DBA DoctorMen). All Rights Reserved.
+════════════════════════════════════════════════════════════════

@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Quick Manual IDOR Test Guide
 # This script provides step-by-step instructions for manual IDOR testing
 

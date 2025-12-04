@@ -1,0 +1,231 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <title>🎯 Bug Bounty Command Center - SECURE</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        /* Critical inline styles for security notice */
+        .security-banner {
+            background: #dc3545;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+        }
+        .redaction-toggle {
+            position: fixed;
+            top: 50px;
+            right: 20px;
+            z-index: 1000;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .redaction-toggle.off {
+            background: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <!-- SECURITY BANNER -->
+    <div class="security-banner">
+        🔒 SECURE MODE - LOCAL ONLY | NO EXTERNAL CONNECTIONS | OPSEC ACTIVE
+    </div>
+
+    <!-- REDACTION TOGGLE -->
+    <button class="redaction-toggle" id="redactionToggle" onclick="toggleRedaction()">
+        🔒 Redaction: ON
+    </button>
+
+    <!-- MAIN DASHBOARD -->
+    <div class="dashboard-container">
+        <!-- HEADER -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>🎯 Bug Bounty Command Center</h1>
+                <p class="subtitle">Real-time Visual Intelligence Dashboard</p>
+                <div class="status-badges">
+                    <span class="badge badge-success">✓ OPSEC Active</span>
+                    <span class="badge badge-info">📡 Local Only</span>
+                    <span class="badge badge-warning" id="repoStatus">⏳ Loading Repos...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- QUICK ACTIONS -->
+        <section class="quick-actions">
+            <h2>⚡ Quick Actions</h2>
+            <div class="action-grid">
+                <div class="action-card" onclick="location.href='system_status.html'">
+                    <div class="action-icon">🖥️</div>
+                    <h3>System Status</h3>
+                    <p>Monitor tools & repos</p>
+                </div>
+                <div class="action-card" onclick="location.href='scan_visualizer.html'">
+                    <div class="action-icon">📊</div>
+                    <h3>Scan Results</h3>
+                    <p>Visualize findings</p>
+                </div>
+                <div class="action-card" onclick="openEvidence()">
+                    <div class="action-icon">📸</div>
+                    <h3>Evidence Viewer</h3>
+                    <p>Browse captures</p>
+                </div>
+                <div class="action-card" onclick="openReports()">
+                    <div class="action-icon">📋</div>
+                    <h3>Reports</h3>
+                    <p>Generate & export</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYSTEM OVERVIEW -->
+        <section class="system-overview">
+            <h2>📈 System Overview</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">🎯</div>
+                    <div class="metric-value" id="activeScans">0</div>
+                    <div class="metric-label">Active Scans</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🔍</div>
+                    <div class="metric-value" id="totalFindings">0</div>
+                    <div class="metric-label">Total Findings</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🚨</div>
+                    <div class="metric-value" id="criticalFindings">0</div>
+                    <div class="metric-label">Critical/High</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">💰</div>
+                    <div class="metric-value" id="roiScore">--</div>
+                    <div class="metric-label">ROI Score</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECENT SCANS -->
+        <section class="recent-scans">
+            <h2>🕒 Recent Activity</h2>
+            <div class="timeline" id="recentActivity">
+                <div class="timeline-item">
+                    <div class="timeline-icon">⏳</div>
+                    <div class="timeline-content">
+                        <p>Loading recent activity...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEVERITY BREAKDOWN -->
+        <section class="severity-section">
+            <h2>📊 Findings by Severity</h2>
+            <div class="chart-container">
+                <canvas id="severityChart"></canvas>
+            </div>
+        </section>
+
+        <!-- QUICK STATS -->
+        <section class="quick-stats">
+            <h2>📋 Repository Status</h2>
+            <div class="repo-grid">
+                <div class="repo-card">
+                    <h3>Recon-automation-Bug-bounty-stack</h3>
+                    <div class="repo-stats">
+                        <span class="stat-item">📁 <span class="redactable">Main Stack</span></span>
+                        <span class="stat-item">✓ Active</span>
+                    </div>
+                </div>
+                <div class="repo-card">
+                    <h3>recon-stack</h3>
+                    <div class="repo-stats">
+                        <span class="stat-item">📁 <span class="redactable">Analysis Stack</span></span>
+                        <span class="stat-item">✓ Active</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+            <p>🔒 All data processed locally | No external connections | OPSEC compliant</p>
+            <p><small>Last updated: <span id="lastUpdate">--</span></small></p>
+        </footer>
+    </div>
+
+    <!-- SCRIPTS (ALL LOCAL) -->
+    <script src="assets/dashboard.js"></script>
+    <script>
+        // Initialize dashboard on load
+        window.addEventListener('DOMContentLoaded', function() {
+            initDashboard();
+            loadMetrics();
+            updateLastUpdateTime();
+            checkRepoStatus();
+            
+            // Update every 30 seconds
+            setInterval(function() {
+                loadMetrics();
+                updateLastUpdateTime();
+            }, 30000);
+        });
+
+        function toggleRedaction() {
+            const btn = document.getElementById('redactionToggle');
+            const isRedacted = btn.classList.toggle('off');
+            
+            if (isRedacted) {
+                btn.textContent = '🔓 Redaction: OFF';
+                document.body.classList.remove('redacted');
+            } else {
+                btn.textContent = '🔒 Redaction: ON';
+                document.body.classList.add('redacted');
+            }
+            
+            // Apply/remove redaction to all sensitive elements
+            document.querySelectorAll('.redactable').forEach(el => {
+                el.classList.toggle('redacted');
+            });
+        }
+
+        function openEvidence() {
+            alert('Evidence Viewer\n\nLocation: ../output/evidence/\n\nAccess evidence files directly through your file explorer.\n\n⚠️ OPSEC: These files contain sensitive data. Review SECURITY.md before sharing.');
+        }
+
+        function openReports() {
+            alert('Reports\n\nLocation: ../output/reports/\n\nView sanitized reports ready for client delivery.\n\n✓ Safe to share (redacted)');
+        }
+
+        function updateLastUpdateTime() {
+            const now = new Date();
+            document.getElementById('lastUpdate').textContent = now.toLocaleTimeString();
+        }
+
+        function checkRepoStatus() {
+            // This would check actual repo status in production
+            document.getElementById('repoStatus').textContent = '✓ 2 Repos Active';
+            document.getElementById('repoStatus').className = 'badge badge-success';
+        }
+
+        // Initialize on start
+        document.body.classList.add('redacted');
+    </script>
+</body>
+</html>
+

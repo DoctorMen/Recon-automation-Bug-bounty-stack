@@ -1,0 +1,80 @@
+{
+  "generated_at": "2025-11-30T20:32:57.934295",
+  "total_discoveries": 6,
+  "total_reports": 6,
+  "estimated_bounty_total": 0,
+  "reputation_points_total": 30,
+  "platforms": [
+    "SCOPES"
+  ],
+  "bounty_eligible_discoveries": 0,
+  "reputation_building_discoveries": 6,
+  "severity_breakdown": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 2
+  },
+  "discovered_vulnerabilities": [
+    {
+      "domain": "tomtom.com",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 0,
+      "reputation_value": 5,
+      "bounty_eligible": false,
+      "report_file": "./professional_reports/bug_bounty_reputation_report_tomtom_com_20251130_203257.md"
+    },
+    {
+      "domain": "tomtom.com",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 0,
+      "reputation_value": 5,
+      "bounty_eligible": false,
+      "report_file": "./professional_reports/bug_bounty_reputation_report_tomtom_com_20251130_203257.md"
+    },
+    {
+      "domain": "tomtomgroup.com",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 0,
+      "reputation_value": 5,
+      "bounty_eligible": false,
+      "report_file": "./professional_reports/bug_bounty_reputation_report_tomtomgroup_com_20251130_203257.md"
+    },
+    {
+      "domain": "tomtomgroup.com",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "estimated_bounty": 0,
+      "reputation_value": 5,
+      "bounty_eligible": false,
+      "report_file": "./professional_reports/bug_bounty_reputation_report_tomtomgroup_com_20251130_203257.md"
+    },
+    {
+      "domain": "vectra.ai",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "low",
+      "estimated_bounty": 0,
+      "reputation_value": 5,
+      "bounty_eligible": false,
+      "report_file": "./professional_reports/bug_bounty_reputation_report_vectra_ai_20251130_203257.md"
+    },
+    {
+      "domain": "vectra.ai",
+      "platform": "SCOPES",
+      "type": "missing_security_headers",
+      "severity": "low",
+      "estimated_bounty": 0,
+      "reputation_value": 5,
+      "bounty_eligible": false,
+      "report_file": "./professional_reports/bug_bounty_reputation_report_vectra_ai_20251130_203257.md"
+    }
+  ]
+}

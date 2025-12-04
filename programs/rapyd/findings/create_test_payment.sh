@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Manual IDOR Test - Create Test Payment First
 # This simulates creating a payment via API, then manual testing in browser
 
@@ -67,6 +69,8 @@ fi
 
 echo ""
 echo "=== Ready for Manual IDOR Test ==="
+
+
 
 
 

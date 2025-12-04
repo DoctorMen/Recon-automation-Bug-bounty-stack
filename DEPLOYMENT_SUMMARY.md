@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🎯 IMMEDIATE ROI BUG BOUNTY SYSTEM - DEPLOYED TONIGHT
 
 ## ✅ What's Been Created

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Filter priority endpoints by program
 Focus on Rapyd, Mastercard, and other high-value bug bounty programs
@@ -120,5 +124,11 @@ def filter_by_program():
 
 if __name__ == "__main__":
     filter_by_program()
+
+
+
+
+
+
 
 

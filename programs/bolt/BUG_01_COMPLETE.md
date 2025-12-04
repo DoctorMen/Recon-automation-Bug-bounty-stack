@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # âœ… BUG 1 COMPLETE: Authentication Bypass - Admin Endpoint
 
 ## Evidence Captured:

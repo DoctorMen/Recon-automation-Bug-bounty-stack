@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Rapyd API Testing Script with Private Key
 # Uses the secret key for API authentication
 
@@ -36,6 +38,8 @@ curl -X POST "$RAPYD_BASE_URL/v1/payments/create" \
 
 echo ""
 echo "=== Test Complete ==="
+
+
 
 
 

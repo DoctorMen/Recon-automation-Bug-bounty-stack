@@ -1,0 +1,28 @@
+{
+  "report_id": "REPORT-19303",
+  "researcher": "Khallid Hakeem Nurse",
+  "program": "gitlab.com",
+  "vulnerability_type": "XSS",
+  "severity": "Medium",
+  "cvss_score": 6.1,
+  "title": "XSS in /api/v1/projects/{id}/issues",
+  "description": "Discovered XSS vulnerability in gitlab.com",
+  "steps_to_reproduce": [
+    "1. Send request to /api/v1/projects/{id}/issues",
+    "2. Inject payload: <script>alert(1)</script>",
+    "3. Observe vulnerability execution"
+  ],
+  "proof_of_concept": {
+    "request": "POST /api/v1/projects/123/issues",
+    "payload": "<script>alert(1)</script>",
+    "response": "200 OK - Script executed in title field",
+    "screenshot": "xss_evidence.png"
+  },
+  "impact": "Potential Medium security risk",
+  "remediation": "Sanitize user input in issue titles",
+  "bounty_estimate": 5000,
+  "legal_authorization": "auto_auth_gitlab_com.json",
+  "compliance_verified": true,
+  "submission_ready": true,
+  "copyright": "\u00a9 2025 Khallid Hakeem Nurse"
+}

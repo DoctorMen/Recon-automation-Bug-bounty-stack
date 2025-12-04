@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Automation Status - What Can Be Automated
 
 ## âœ… CAN BE AUTOMATED (Reliable & Fast):
@@ -47,7 +50,8 @@
 
 ## Results:
 
-Check econ/output/confirmed_exploitable_bugs.json for automated findings.
+Check 
+econ/output/confirmed_exploitable_bugs.json for automated findings.
 Check submissions/confirmed_bug_*.json for submission-ready reports.
 
 Automated tests run fast and find exploitable bugs with proof.

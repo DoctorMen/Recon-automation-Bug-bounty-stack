@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # IDOR Testing Script with API Credentials
 # Tests IDOR vulnerability using provided secret key
 
@@ -92,6 +94,8 @@ fi
 echo ""
 echo "=== Test Complete ==="
 echo "Save the response above as evidence for your bug bounty report."
+
+
 
 
 

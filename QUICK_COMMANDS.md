@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Quick Commands Reference
 
 ## 🔧 Fix Directory Issues
@@ -48,5 +51,11 @@ python3 ~/Recon-automation-Bug-bounty-stack/scripts/find_apple_protected.py
 ---
 
 **Always run from repo root:** `cd ~/Recon-automation-Bug-bounty-stack`
+
+
+
+
+
+
 
 

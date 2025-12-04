@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bugcrowd Submission Format - Bolt Technologies
 
 ## Submission Page URL:

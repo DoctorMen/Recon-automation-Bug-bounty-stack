@@ -1,0 +1,30 @@
+# Clickjacking Evidence - shopify.com
+# Generated: 2025-12-01T13:12:12.283416
+# Program: Shopify (HackerOne)
+
+Command: curl -I https://www.shopify.com/
+
+Output:
+HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2025 18:12:12 GMT
+Content-Type: text/html; charset=utf-8
+Connection: keep-alive
+Set-Cookie: _shopify_essential_=cb9ecafd-837a-4bdf-abae-13e44ed28d02; Domain=shopify.com; Path=/; Expires=Tue, 01 Dec 2026 18:12:12 GMT; Secure; SameSite=Lax
+set-cookie: _shopify_s=363acff3-3b88-4a76-96b7-b99e946b9d01; Domain=shopify.com; Path=/; Expires=Mon, 01 Dec 2025 18:42:12 GMT; Secure; SameSite=Lax
+set-cookie: _shopify_y=81e98cd7-136f-4763-9fef-f17b53a095ba; Domain=shopify.com; Path=/; Expires=Tue, 01 Dec 2026 18:12:12 GMT; Secure; SameSite=Lax
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=5xQw5Vk4TobnJQcGZFfqRLoCm7dmbOw5RM%2BvZ3HGyHrT0YBLzMdWW5oKxGjVhQFn1HSmAM%2FjSg8AhXOjgkYC0EANo7ZVN8Dx7VHgNNJFxklVqjBcqALrQzdytAgsvLQBmg%3D%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}
+Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+Server: cloudflare
+CF-RAY: 9a748d279c08afec-ATL
+alt-svc: h3=":443"; ma=86400
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🚀 QUICK START - Real Bug Bounty Scan
 
 ## ✅ Targets Updated!

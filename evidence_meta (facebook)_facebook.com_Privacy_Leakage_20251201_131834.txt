@@ -1,0 +1,25 @@
+# Privacy Leakage Evidence - facebook.com
+# Generated: 2025-12-01T13:18:34.802484
+# Program: Meta (Facebook) (VRP)
+
+Command: curl -I https://facebook.com
+
+Output:
+HTTP/1.1 301 Moved Permanently
+Location: https://www.facebook.com/
+Strict-Transport-Security: max-age=15552000; preload
+Content-Type: text/html; charset="utf-8"
+X-FB-Debug: yd9hGflvIamPReb9rLm4pqMFERbdjteo2ocHbN579Wy5O9bFiRy4acV+napZL8prAB3QO9DSpOb4uFdzZgQK6g==
+Date: Mon, 01 Dec 2025 18:18:34 GMT
+X-FB-Connection-Quality: EXCELLENT; q=0.9, rtt=16, rtx=0, c=10, mss=1392, tbw=3517, tp=-1, tpl=-1, uplat=66, ullat=0
+Alt-Svc: h3=":443"; ma=86400
+Connection: keep-alive
+Content-Length: 0
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

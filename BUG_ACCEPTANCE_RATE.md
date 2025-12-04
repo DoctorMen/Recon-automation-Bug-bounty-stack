@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🎯 Bug Acceptance Rate - Realistic Assessment
 
 ## ⚠️ THE BRUTAL TRUTH

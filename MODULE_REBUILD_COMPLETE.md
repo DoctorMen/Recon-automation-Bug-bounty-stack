@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Module Rebuild Complete ✅
 
 ## Issues Fixed

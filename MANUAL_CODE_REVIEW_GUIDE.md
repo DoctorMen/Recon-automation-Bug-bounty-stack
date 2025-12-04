@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Manual Code Review - Best Approach for Bug Bounty
 
 ## ✅ RECOMMENDED: Manual Code Review

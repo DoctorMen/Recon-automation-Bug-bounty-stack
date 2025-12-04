@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Prepare n8n Setup - While Node.js Compiles
 # ===========================================
 

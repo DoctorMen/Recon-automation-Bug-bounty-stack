@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🎯 TOP 0.1% CAPABILITY - DEMONSTRATED!
 
 ## ✅ RESULTS - RAPYD Target

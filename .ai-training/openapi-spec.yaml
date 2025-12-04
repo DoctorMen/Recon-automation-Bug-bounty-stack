@@ -1,0 +1,388 @@
+openapi: 3.0.3
+info:
+  title: Recon Automation Bug Bounty Stack API
+  version: 1.0.0
+  description: |
+    Comprehensive API specification for bug bounty automation pipeline.
+    This spec enables AI agents to understand and interact with all system components.
+  contact:
+    name: DoctorMen
+  license:
+    name: Proprietary
+    
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+  - url: file:///{REPO_ROOT}
+    description: File-based operations
+
+tags:
+  - name: Pipeline
+    description: Main orchestration and workflow management
+  - name: Recon
+    description: Subdomain enumeration and discovery
+  - name: Scanning
+    description: Vulnerability scanning operations
+  - name: Reporting
+    description: Report generation and analytics
+  - name: Orchestration
+    description: Agent coordination and task delegation
+  - name: OPSEC
+    description: Security operations and privacy controls
+
+paths:
+  /pipeline/run:
+    post:
+      tags: [Pipeline]
+      summary: Execute full bug bounty pipeline
+      description: Runs complete workflow from recon through reporting
+      operationId: runPipeline
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resume:
+                  type: boolean
+                  default: false
+                  description: Resume from last completed stage
+                targets_file:
+                  type: string
+                  default: targets.txt
+                  description: Path to targets file
+      responses:
+        '200':
+          description: Pipeline completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineResult'
+        '400':
+          description: Invalid configuration or missing targets
+        '500':
+          description: Pipeline execution failed
+      x-script: run_pipeline.py
+      x-command: python3 run_pipeline.py
+      
+  /recon/subdomains:
+    post:
+      tags: [Recon]
+      summary: Enumerate subdomains
+      description: Discovers subdomains using Subfinder, Amass, and DNSx validation
+      operationId: runRecon
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                targets:
+                  type: array
+                  items:
+                    type: string
+                  description: Domain targets to scan
+                timeout:
+                  type: integer
+                  default: 1800
+                  description: Recon timeout in seconds
+                threads:
+                  type: integer
+                  default: 50
+                  description: Subfinder concurrent threads
+      responses:
+        '200':
+          description: Subdomains enumerated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReconResult'
+      x-script: run_recon.py
+      x-command: python3 run_recon.py
+      x-env-vars:
+        - RECON_TIMEOUT
+        - SUBFINDER_THREADS
+        - AMASS_MAX_DNS
+        - DNSX_THREADS
+        
+  /scan/nuclei:
+    post:
+      tags: [Scanning]
+      summary: Execute Nuclei vulnerability scan
+      description: Scans HTTP endpoints for vulnerabilities using Nuclei templates
+      operationId: runNuclei
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                endpoints:
+                  type: array
+                  items:
+                    type: string
+                  description: HTTP endpoints to scan
+                severity:
+                  type: string
+                  enum: [low, medium, high, critical, info]
+                  default: medium,high,critical
+                  description: Severity filter (comma-separated)
+                rate_limit:
+                  type: integer
+                  default: 150
+                  description: Requests per second
+                threads:
+                  type: integer
+                  default: 50
+                  description: Concurrent template executions
+      responses:
+        '200':
+          description: Scan completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NucleiResult'
+      x-script: run_nuclei.py
+      x-command: python3 run_nuclei.py
+      x-env-vars:
+        - NUCLEI_RATE_LIMIT
+        - NUCLEI_THREADS
+        - NUCLEI_SEVERITY
+        - NUCLEI_TIMEOUT
+        
+  /reports/generate:
+    post:
+      tags: [Reporting]
+      summary: Generate vulnerability reports
+      description: Creates markdown and JSON reports from scan findings
+      operationId: generateReport
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                format:
+                  type: string
+                  enum: [markdown, json, html, pdf]
+                  default: markdown
+                output_dir:
+                  type: string
+                  default: output/reports
+      responses:
+        '200':
+          description: Reports generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportResult'
+      x-script: scripts/generate_report.py
+      x-command: python3 scripts/generate_report.py
+      
+  /orchestrator/execute:
+    post:
+      tags: [Orchestration]
+      summary: Execute agent task
+      description: Routes tasks to appropriate agents based on role
+      operationId: orchestrateTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [role, task]
+              properties:
+                role:
+                  type: string
+                  enum:
+                    - Strategist
+                    - Executor
+                    - Composer 1 — Automation Engineer
+                    - Composer 2 — Parallelization & Optimization
+                    - Composer 3 — Documentation & Reporting
+                    - Composer 4 — CI/CD & Security Ops
+                task:
+                  type: string
+                  description: Task name specific to the role
+      responses:
+        '200':
+          description: Task executed successfully
+        '400':
+          description: Invalid role or task
+      x-script: scripts/agent_orchestrator.py
+      x-command: python3 scripts/agent_orchestrator.py --role {role} --task {task}
+      
+  /opsec/check:
+    get:
+      tags: [OPSEC]
+      summary: Verify OPSEC status
+      description: Checks VPN, privacy settings, and security posture
+      operationId: checkOPSEC
+      responses:
+        '200':
+          description: OPSEC check completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OPSECStatus'
+      x-script: scripts/opsec_check_all.sh
+      x-command: bash scripts/opsec_check_all.sh
+
+components:
+  schemas:
+    PipelineResult:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [success, partial, failed]
+        duration_seconds:
+          type: integer
+        stages_completed:
+          type: array
+          items:
+            type: string
+        statistics:
+          type: object
+          properties:
+            subdomains_discovered:
+              type: integer
+            http_endpoints:
+              type: integer
+            findings_total:
+              type: integer
+            findings_critical:
+              type: integer
+            findings_high:
+              type: integer
+        output_files:
+          type: array
+          items:
+            type: string
+            
+    ReconResult:
+      type: object
+      properties:
+        subdomains_found:
+          type: integer
+        validated_subdomains:
+          type: integer
+        output_file:
+          type: string
+          example: output/subs.txt
+        sources:
+          type: object
+          properties:
+            subfinder:
+              type: integer
+            amass:
+              type: integer
+        duration_seconds:
+          type: integer
+          
+    NucleiResult:
+      type: object
+      properties:
+        findings_total:
+          type: integer
+        findings_by_severity:
+          type: object
+          properties:
+            critical:
+              type: integer
+            high:
+              type: integer
+            medium:
+              type: integer
+            low:
+              type: integer
+            info:
+              type: integer
+        output_file:
+          type: string
+          example: output/nuclei-findings.json
+        scan_duration_seconds:
+          type: integer
+          
+    ReportResult:
+      type: object
+      properties:
+        reports_generated:
+          type: array
+          items:
+            type: string
+        summary_path:
+          type: string
+        format:
+          type: string
+          
+    OPSECStatus:
+      type: object
+      properties:
+        vpn_active:
+          type: boolean
+        dns_leak_protected:
+          type: boolean
+        secrets_sanitized:
+          type: boolean
+        privacy_score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        warnings:
+          type: array
+          items:
+            type: string
+
+  securitySchemes:
+    licenseCheck:
+      type: apiKey
+      in: header
+      name: X-License-Key
+      description: Proprietary license validation
+
+security:
+  - licenseCheck: []
+
+externalDocs:
+  description: Complete documentation and training materials
+  url: file:///.ai-training/
+
+x-training-metadata:
+  ai_assistant_instructions: |
+    This API enables complete bug bounty automation. All operations are IDEMPOTENT.
+    Commands can be run multiple times safely. Use natural language patterns from
+    natural-language-guide.md to interpret user requests.
+  
+  common_workflows:
+    - name: First Time Scan
+      steps:
+        - Check OPSEC status
+        - Create targets.txt
+        - Run pipeline
+        - Generate reports
+    - name: Resume Scan
+      steps:
+        - Set RESUME=true
+        - Run pipeline
+    - name: Fast Scan
+      steps:
+        - Set high concurrency settings
+        - Filter to high/critical severity
+        - Run pipeline
+  
+  error_handling:
+    - Always check logs at output/recon-run.log
+    - Verify OPSEC before scanning
+    - Confirm authorization for all targets
+    - Use RESUME=true to recover from interruptions
+  
+  performance_optimization:
+    low_ram: "SUBFINDER_THREADS=30 AMASS_MAX_DNS=5000 DNSX_THREADS=50"
+    medium_ram: "SUBFINDER_THREADS=50 AMASS_MAX_DNS=10000 DNSX_THREADS=100"
+    high_ram: "SUBFINDER_THREADS=100 AMASS_MAX_DNS=20000 DNSX_THREADS=150"

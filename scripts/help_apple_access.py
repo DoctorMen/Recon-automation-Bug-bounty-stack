@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Access Apple Bug Bounty Portal
 Help navigate and check scope
@@ -34,5 +38,11 @@ def help_access_apple_portal():
 
 if __name__ == "__main__":
     help_access_apple_portal()
+
+
+
+
+
+
 
 

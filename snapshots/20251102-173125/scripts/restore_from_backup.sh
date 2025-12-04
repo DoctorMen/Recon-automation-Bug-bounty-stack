@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 set -euo pipefail
 
 # Restores an encrypted backup created by backup_and_encrypt.sh (Linux/WSL)

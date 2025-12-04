@@ -1,0 +1,222 @@
+{
+  "guaranteed_validation_report": {
+    "generated_at": "2025-11-30T20:07:05.426657",
+    "total_targets_tested": 4,
+    "total_vulnerabilities_found": 4,
+    "guaranteed_triage_pass": true,
+    "evidence_files": []
+  },
+  "detailed_evidence": [
+    {
+      "target": "tomtom-global.com",
+      "test_type": "security_headers_analysis",
+      "timestamp": "2025-11-30T20:06:23.346597",
+      "results": {
+        "http": {
+          "url": "http://tomtom-global.com",
+          "error": "CONNECTION_ERROR",
+          "details": "HTTPConnectionPool(host='tomtom-global.com', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x00000224BFC2B4D0>, 'Connection to tomtom-global.com timed out. (connect timeout=10)'))"
+        },
+        "https": {
+          "url": "https://tomtom-global.com",
+          "error": "CONNECTION_ERROR",
+          "details": "HTTPSConnectionPool(host='tomtom-global.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000224BFC2BA10>, 'Connection to tomtom-global.com timed out. (connect timeout=10)'))"
+        }
+      },
+      "vulnerabilities": []
+    },
+    {
+      "target": "tomtom.com",
+      "test_type": "security_headers_analysis",
+      "timestamp": "2025-11-30T20:06:45.520705",
+      "results": {
+        "http": {
+          "url": "http://tomtom.com",
+          "status_code": 200,
+          "final_url": "https://www.tomtom.com/",
+          "server": "Unknown",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": 280205,
+          "security_headers": {
+            "x_frame_options": "MISSING",
+            "content_security_policy": "MISSING",
+            "x_content_type_options": "nosniff",
+            "strict_transport_security": "MISSING",
+            "x_xss_protection": "1",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        },
+        "https": {
+          "url": "https://tomtom.com",
+          "status_code": 200,
+          "final_url": "https://www.tomtom.com/",
+          "server": "Unknown",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": 280205,
+          "security_headers": {
+            "x_frame_options": "MISSING",
+            "content_security_policy": "MISSING",
+            "x_content_type_options": "nosniff",
+            "strict_transport_security": "MISSING",
+            "x_xss_protection": "1",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        }
+      },
+      "vulnerabilities": [
+        {
+          "type": "missing_security_headers",
+          "severity": "medium",
+          "url": "http://tomtom.com",
+          "missing_headers": [
+            "x_frame_options",
+            "content_security_policy",
+            "strict_transport_security",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "6.1",
+          "description": "Missing critical security headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy"
+        },
+        {
+          "type": "missing_security_headers",
+          "severity": "medium",
+          "url": "https://tomtom.com",
+          "missing_headers": [
+            "x_frame_options",
+            "content_security_policy",
+            "strict_transport_security",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "6.1",
+          "description": "Missing critical security headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy"
+        }
+      ],
+      "global_error": "'charmap' codec can't encode character '\\U0001f6a8' in position 1685: character maps to <undefined>"
+    },
+    {
+      "target": "tomtomgroup.com",
+      "test_type": "security_headers_analysis",
+      "timestamp": "2025-11-30T20:06:50.149951",
+      "results": {
+        "http": {
+          "url": "http://tomtomgroup.com",
+          "status_code": 200,
+          "final_url": "https://www.tomtom.com",
+          "server": "Unknown",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": 280205,
+          "security_headers": {
+            "x_frame_options": "MISSING",
+            "content_security_policy": "MISSING",
+            "x_content_type_options": "nosniff",
+            "strict_transport_security": "MISSING",
+            "x_xss_protection": "1",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        },
+        "https": {
+          "url": "https://tomtomgroup.com",
+          "status_code": 200,
+          "final_url": "https://www.tomtom.com",
+          "server": "Unknown",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": 280205,
+          "security_headers": {
+            "x_frame_options": "MISSING",
+            "content_security_policy": "MISSING",
+            "x_content_type_options": "nosniff",
+            "strict_transport_security": "MISSING",
+            "x_xss_protection": "1",
+            "referrer_policy": "MISSING",
+            "permissions_policy": "MISSING"
+          }
+        }
+      },
+      "vulnerabilities": [
+        {
+          "type": "missing_security_headers",
+          "severity": "medium",
+          "url": "http://tomtomgroup.com",
+          "missing_headers": [
+            "x_frame_options",
+            "content_security_policy",
+            "strict_transport_security",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "6.1",
+          "description": "Missing critical security headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy"
+        },
+        {
+          "type": "missing_security_headers",
+          "severity": "medium",
+          "url": "https://tomtomgroup.com",
+          "missing_headers": [
+            "x_frame_options",
+            "content_security_policy",
+            "strict_transport_security",
+            "referrer_policy",
+            "permissions_policy"
+          ],
+          "cwe": "CWE-693",
+          "cvss_base_score": "6.1",
+          "description": "Missing critical security headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy",
+          "impact": "Clickjacking, XSS, MIME sniffing, HTTPS enforcement bypass",
+          "remediation": "Implement missing headers: x_frame_options, content_security_policy, strict_transport_security, referrer_policy, permissions_policy"
+        }
+      ],
+      "global_error": "'charmap' codec can't encode character '\\U0001f6a8' in position 1685: character maps to <undefined>"
+    },
+    {
+      "test_type": "github_repository_analysis",
+      "timestamp": "2025-11-30T20:06:54.653042",
+      "results": {
+        "https://github.com/tomtom-international/tomtom-sdk-android": {
+          "url": "https://github.com/tomtom-international/tomtom-sdk-android",
+          "status_code": 404,
+          "accessible": false,
+          "content_length": 295926
+        },
+        "https://github.com/tomtom-international/tomtom-sdk-ios": {
+          "url": "https://github.com/tomtom-international/tomtom-sdk-ios",
+          "status_code": 404,
+          "accessible": false,
+          "content_length": 295851
+        },
+        "https://github.com/tomtom-international/tomtom-sdk-web": {
+          "url": "https://github.com/tomtom-international/tomtom-sdk-web",
+          "status_code": 404,
+          "accessible": false,
+          "content_length": 295853
+        },
+        "https://github.com/tomtom-international/maps-sdk-for-android": {
+          "url": "https://github.com/tomtom-international/maps-sdk-for-android",
+          "status_code": 404,
+          "accessible": false,
+          "content_length": 295950
+        },
+        "https://github.com/tomtom-international/maps-sdk-for-ios": {
+          "url": "https://github.com/tomtom-international/maps-sdk-for-ios",
+          "status_code": 404,
+          "accessible": false,
+          "content_length": 295877
+        }
+      },
+      "vulnerabilities": []
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "assessment_id": "docs_kuru_io_20251202_212938",
+  "target": "docs.kuru.io",
+  "tier": "comprehensive",
+  "start_time": "2025-12-02T21:29:38.422290",
+  "duration_minutes": 0.013867766666666666,
+  "risk_score": 22,
+  "risk_rating": "MEDIUM",
+  "severity_breakdown": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+  },
+  "total_findings": 3,
+  "findings": [
+    {
+      "category": "configuration",
+      "title": "Missing Security Headers",
+      "severity": "medium",
+      "count": 2,
+      "details": "2 security headers missing",
+      "data": [
+        "X-Content-Type-Options (Prevents MIME sniffing)",
+        "X-XSS-Protection (Browser XSS protection)"
+      ],
+      "recommendation": "Implement all recommended security headers"
+    },
+    {
+      "category": "compliance",
+      "title": "OWASP Top 10 Assessment",
+      "severity": "info",
+      "details": "Assessment covered 10 OWASP categories",
+      "data": [
+        "A01:2021 - Broken Access Control",
+        "A02:2021 - Cryptographic Failures",
+        "A03:2021 - Injection",
+        "A04:2021 - Insecure Design",
+        "A05:2021 - Security Misconfiguration",
+        "A06:2021 - Vulnerable Components",
+        "A07:2021 - Authentication Failures",
+        "A08:2021 - Software and Data Integrity",
+        "A09:2021 - Security Logging Failures",
+        "A10:2021 - Server-Side Request Forgery"
+      ]
+    },
+    {
+      "category": "compliance",
+      "title": "PCI-DSS Requirements",
+      "severity": "info",
+      "details": "Basic PCI-DSS requirement verification",
+      "data": "SSL/TLS, firewall, security updates checked"
+    }
+  ]
+}

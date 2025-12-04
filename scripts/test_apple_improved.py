@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Improved Apple Endpoint Testing - Actually Find Vulnerabilities
 Fix mistakes and test for real security issues

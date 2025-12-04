@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Quick Restart Guide - Bug 1 Testing
 
 ## Step-by-Step to Get Back:

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Burp Suite Download Guide for Rapyd Bug Bounty
 
 **Last Updated:** November 1, 2025

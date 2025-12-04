@@ -1,0 +1,25 @@
+# Evidence File - MIME Sniffing
+# Target: microsoft.com
+# Generated: 2025-12-01T14:17:32.926359
+
+# PRIMARY PROOF - Direct Evidence
+# Target: microsoft.com
+# Vulnerability: MIME Sniffing
+# Timestamp: 2025-12-01T14:17:25.450162
+
+## Command Executed:
+curl -I https://microsoft.com
+
+## Response Headers Analysis:
+Accept-Ranges: bytes
+Content-Type: text/html
+ETag: "85de642e1467807f64f7e10807df3869:1711562737.176211"
+Last-Modified: Tue, 26 Mar 2024 18:16:43 GMT
+Server: AkamaiNetStorage
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Date: Mon, 01 Dec 2025 19:17:25 GMT
+Content-Length: 12623
+Connection: keep-alive
+
+## Vulnerability Confirmed:

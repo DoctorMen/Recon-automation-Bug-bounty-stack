@@ -1,0 +1,4 @@
+*.bolt.eu
+bolt.eu
+*.bolt.eu
+bolt.eu

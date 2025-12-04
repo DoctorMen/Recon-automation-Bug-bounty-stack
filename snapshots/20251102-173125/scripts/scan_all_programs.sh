@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Universal Bug Bounty Scanner - All Programs
 # Scans ALL targets in targets.txt, not just Rapyd
 # Focuses on quick wins (30-minute scans)

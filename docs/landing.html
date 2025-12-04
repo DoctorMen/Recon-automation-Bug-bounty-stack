@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -52,7 +55,8 @@
         backdrop-filter: blur(8px) saturate(120%);
       }
       .badge { display: inline-block; padding: 6px 10px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; color: var(--muted); font-size: 12px; letter-spacing: 0.4px; }
-      h1 { font-size: 44px; line-height: 1.05; margin: 14px 0 10px; }
+      h1 { font-size: 64px; line-height: 1.05; margin: 14px 0 10px; font-weight: 900; background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--accent2) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 80px rgba(102,224,255,0.3); letter-spacing: -0.02em; }
+      @media (max-width: 860px) { h1 { font-size: 48px; } }
       .sub { color: var(--muted); font-size: 18px; max-width: 720px; }
       .cta { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
       .btn {
@@ -67,7 +71,7 @@
       .card { background: rgba(18,22,33,0.45); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 20px; backdrop-filter: blur(6px) saturate(120%); position: relative; z-index: 2; overflow: hidden; }
       .card h3 { margin: 0 0 8px; }
       ul { margin: 0; padding-left: 18px; }
-      .price { font-size: 36px; font-weight: 800; line-height: 1.15; display: block; margin: 10px 0 8px; position: relative; z-index: 2; }
+      .price { font-size: 36px; font-weight: 800; line-height: 1.2; display: block; margin: 10px 0 12px; }
       .note { color: var(--muted); font-size: 14px; }
       .kicker { color: var(--ok); font-weight: 700; }
       .divider { height: 1px; background: rgba(255,255,255,0.08); margin: 16px 0; }
@@ -89,7 +93,7 @@
       .q strong { display:block; margin-bottom:6px }
       .addons { display:grid; grid-template-columns: 1fr 1fr; gap:12px }
       .addon { border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:12px }
-      @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 36px; } }
+      @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
     </style>
   </head>
   <body>
@@ -162,12 +166,12 @@
           <p><strong>Express — 4‑Hour Window</strong> <span class="pill">Limited slots</span></p>
           <div class="price">$2,500</div>
           <div class="note">Priority queue. Delivery within a 4‑hour window today.</div>
-          <a class="btn" id="payExpress" href="#" target="_blank" rel="noopener noreferrer">Book Express</a>
+          <a class="btn" id="payExpress" href="#" target="_blank" rel="noopener noreferrer" style="margin-top:8px;display:inline-block">Book Express</a>
           <div class="divider"></div>
           <p><strong>Monthly Pack — 4 runs/mo</strong></p>
           <div class="price">$5,000</div>
           <div class="note">Weekly surface checks; best for active release teams.</div>
-          <a class="btn" id="payMonthly" href="#" target="_blank" rel="noopener noreferrer">Start Monthly</a>
+          <a class="btn" id="payMonthly" href="#" target="_blank" rel="noopener noreferrer" style="margin-top:8px;display:inline-block">Start Monthly</a>
           <div class="divider"></div>
           <p class="kicker">Refund Guarantee</p>
           <p class="note">If we miss your delivery window after payment and a completed consent form (and prerequisites are met), we refund 100%.</p>

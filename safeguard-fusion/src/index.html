@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:;">
+  <title>SafeGuard Fusion</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Custom Title Bar -->
+  <div class="title-bar">
+    <div class="title-bar-drag">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2" fill="none"/>
+          <path d="M20 8 L32 26 L8 26 Z" fill="url(#logoGrad)" opacity="0.3"/>
+          <circle cx="20" cy="20" r="6" fill="url(#logoGrad)"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00d4ff"/>
+              <stop offset="100%" style="stop-color:#00ff88"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">SafeGuard <span class="accent">Fusion</span></span>
+      </div>
+      
+      <!-- Mode Switcher -->
+      <div class="mode-switcher">
+        <button class="mode-btn active" data-mode="hybrid">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Hybrid NOC
+        </button>
+        <button class="mode-btn" data-mode="bounty">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+          Bounty Ops
+        </button>
+        <div class="mode-slider"></div>
+      </div>
+    </div>
+    
+    <div class="window-controls">
+      <button class="win-btn minimize" onclick="window.safeguard.minimize()">
+        <svg width="12" height="12" viewBox="0 0 12 12"><rect y="5" width="12" height="2" fill="currentColor"/></svg>
+      </button>
+      <button class="win-btn maximize" onclick="window.safeguard.maximize()">
+        <svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      </button>
+      <button class="win-btn close" onclick="window.safeguard.close()">
+        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Application -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="nav-section">
+        <div class="nav-label">COMMAND CENTER</div>
+        <a href="#" class="nav-item active" data-page="dashboard">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-page="defense">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span>Defense</span>
+        </a>
+        <a href="#" class="nav-item" data-page="offense">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/>
+          </svg>
+          <span>Offense</span>
+        </a>
+      </div>
+      
+      <div class="nav-section">
+        <div class="nav-label">BOUNTY OPS</div>
+        <a href="#" class="nav-item" data-page="bounty">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          <span>Submissions</span>
+        </a>
+        <a href="#" class="nav-item" data-page="targets">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+          </svg>
+          <span>Targets</span>
+        </a>
+        <a href="#" class="nav-item" data-page="leaderboard">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 21V12H4v9h4zM14 21V8h-4v13h4zM20 21V4h-4v17h4z"/>
+          </svg>
+          <span>Leaderboard</span>
+        </a>
+      </div>
+      
+      <div class="nav-section">
+        <div class="nav-label">COMPLIANCE</div>
+        <a href="#" class="nav-item" data-page="transparency">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+          <span>Audit Logs</span>
+        </a>
+        <a href="#" class="nav-item" data-page="authorization">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span>Authorization</span>
+        </a>
+      </div>
+
+      <div class="nav-section nav-bottom">
+        <a href="#" class="nav-item" data-page="settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <span>Settings</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Dashboard Page -->
+      <div class="page active" id="page-dashboard">
+        <!-- Top Stats Bar -->
+        <div class="stats-bar">
+          <div class="stat-card">
+            <div class="stat-icon defense">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-uptime">99.9%</span>
+              <span class="stat-label">System Uptime</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon offense">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-scans">0</span>
+              <span class="stat-label">Active Scans</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon warning">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-alerts">0</span>
+              <span class="stat-label">Alerts</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon success">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-bounty">$0</span>
+              <span class="stat-label">Bounty Earned</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Split View Dashboard -->
+        <div class="dashboard-grid">
+          <!-- Defense Panel -->
+          <div class="panel defense-panel">
+            <div class="panel-header">
+              <h2><span class="indicator defense"></span>Defensive Operations</h2>
+              <div class="panel-actions">
+                <button class="btn-icon" title="Refresh">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="panel-content">
+              <!-- Network Health Chart -->
+              <div class="chart-container">
+                <h3>Network Traffic Analysis</h3>
+                <canvas id="traffic-chart"></canvas>
+              </div>
+              
+              <!-- System Health Indicators -->
+              <div class="health-grid">
+                <div class="health-item">
+                  <span class="health-label">Firewall</span>
+                  <div class="health-bar"><div class="health-fill" style="width: 100%"></div></div>
+                  <span class="health-status active">Active</span>
+                </div>
+                <div class="health-item">
+                  <span class="health-label">IDS/IPS</span>
+                  <div class="health-bar"><div class="health-fill" style="width: 100%"></div></div>
+                  <span class="health-status active">Active</span>
+                </div>
+                <div class="health-item">
+                  <span class="health-label">SIEM</span>
+                  <div class="health-bar"><div class="health-fill" style="width: 95%"></div></div>
+                  <span class="health-status active">Connected</span>
+                </div>
+                <div class="health-item">
+                  <span class="health-label">Endpoint</span>
+                  <div class="health-bar"><div class="health-fill" style="width: 87%"></div></div>
+                  <span class="health-status warning">87%</span>
+                </div>
+              </div>
+
+              <!-- Recent Threats -->
+              <div class="threats-list">
+                <h3>Recent Threat Events</h3>
+                <div class="threat-item low">
+                  <span class="threat-time">12:15:32</span>
+                  <span class="threat-type">Port Scan Detected</span>
+                  <span class="threat-source">192.168.1.45</span>
+                  <span class="threat-badge">LOW</span>
+                </div>
+                <div class="threat-item medium">
+                  <span class="threat-time">12:10:18</span>
+                  <span class="threat-type">Suspicious DNS Query</span>
+                  <span class="threat-source">10.0.0.23</span>
+                  <span class="threat-badge">MEDIUM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offense Panel -->
+          <div class="panel offense-panel">
+            <div class="panel-header">
+              <h2><span class="indicator offense"></span>Offensive Simulations</h2>
+              <div class="panel-actions">
+                <button class="btn-primary" id="btn-new-scan">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                  New Scan
+                </button>
+              </div>
+            </div>
+            <div class="panel-content">
+              <!-- Active Simulations -->
+              <div class="simulations-list" id="simulations-list">
+                <div class="simulation-item">
+                  <div class="sim-header">
+                    <span class="sim-name">Project: Red Storm</span>
+                    <span class="sim-status running">Running</span>
+                  </div>
+                  <div class="sim-progress">
+                    <div class="progress-bar"><div class="progress-fill" style="width: 67%"></div></div>
+                    <span class="progress-text">67%</span>
+                  </div>
+                  <div class="sim-meta">
+                    <span>Target: internal-api.local</span>
+                    <span>Phase: Enumeration</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Vulnerability Heatmap -->
+              <div class="heatmap-container">
+                <h3>Vulnerability Heatmap</h3>
+                <div class="heatmap" id="vuln-heatmap">
+                  <!-- Generated by JS -->
+                </div>
+                <div class="heatmap-legend">
+                  <span><i class="legend-color critical"></i>Critical</span>
+                  <span><i class="legend-color high"></i>High</span>
+                  <span><i class="legend-color medium"></i>Medium</span>
+                  <span><i class="legend-color low"></i>Low</span>
+                </div>
+              </div>
+
+              <!-- Quick Actions -->
+              <div class="quick-actions">
+                <button class="action-btn" onclick="runQuickScan()">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                  Quick Scan
+                </button>
+                <button class="action-btn" onclick="openVibeCommand()">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+                  </svg>
+                  Vibe Command
+                </button>
+                <button class="action-btn" onclick="checkAuth()">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <polyline points="9 12 11 14 15 10"/>
+                  </svg>
+                  Auth Check
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Global Threat Map -->
+        <div class="panel map-panel">
+          <div class="panel-header">
+            <h2><span class="indicator cyber"></span>Global Threat Intelligence</h2>
+          </div>
+          <div class="panel-content">
+            <div class="cyber-map" id="cyber-map">
+              <svg viewBox="0 0 1000 500" id="world-map">
+                <!-- Simplified world map paths -->
+                <path class="continent" d="M150,120 Q200,100 250,120 L280,150 Q260,200 220,220 L160,200 Q140,160 150,120"/>
+                <path class="continent" d="M300,100 Q400,80 500,100 L520,200 Q480,250 400,240 L320,200 Q290,150 300,100"/>
+                <path class="continent" d="M550,80 Q650,60 750,100 L780,180 Q740,220 650,210 L580,180 Q540,120 550,80"/>
+                <path class="continent" d="M200,280 Q280,260 350,300 L340,380 Q280,400 220,380 L200,320 Q190,300 200,280"/>
+                <path class="continent" d="M700,250 Q780,240 850,280 L840,350 Q780,380 720,360 L700,300 Q690,270 700,250"/>
+                
+                <!-- Attack nodes will be added by JS -->
+                <g id="attack-nodes"></g>
+                <g id="defense-nodes"></g>
+                <g id="attack-lines"></g>
+              </svg>
+              
+              <div class="map-stats">
+                <div class="map-stat">
+                  <span class="map-stat-value" id="map-attacks">0</span>
+                  <span class="map-stat-label">Active Attacks</span>
+                </div>
+                <div class="map-stat">
+                  <span class="map-stat-value" id="map-blocked">0</span>
+                  <span class="map-stat-label">Blocked</span>
+                </div>
+                <div class="map-stat">
+                  <span class="map-stat-value" id="map-sources">0</span>
+                  <span class="map-stat-label">Unique Sources</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Defense Page -->
+      <div class="page" id="page-defense">
+        <div class="page-header">
+          <h1>Defensive Operations</h1>
+          <p>Real-time network monitoring and threat detection</p>
+        </div>
+        <div class="defense-content">
+          <!-- Defense specific content -->
+        </div>
+      </div>
+
+      <!-- Offense Page -->
+      <div class="page" id="page-offense">
+        <div class="page-header">
+          <h1>Offensive Simulations</h1>
+          <p>Ethical penetration testing and vulnerability assessment</p>
+        </div>
+      </div>
+
+      <!-- Bounty Page -->
+      <div class="page" id="page-bounty">
+        <div class="page-header">
+          <h1>Bug Bounty Submissions</h1>
+          <p>Track and manage your vulnerability submissions</p>
+        </div>
+        <div class="bounty-content">
+          <div class="submission-form glass-panel">
+            <h3>New Submission</h3>
+            <form id="submission-form">
+              <div class="form-group">
+                <label>Target Program</label>
+                <select id="bounty-program">
+                  <option value="">Select Program...</option>
+                  <option value="hackerone">HackerOne</option>
+                  <option value="bugcrowd">Bugcrowd</option>
+                  <option value="immunefi">Immunefi</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Vulnerability Type</label>
+                <select id="vuln-type">
+                  <option value="">Select Type...</option>
+                  <option value="xss">XSS</option>
+                  <option value="sqli">SQL Injection</option>
+                  <option value="idor">IDOR</option>
+                  <option value="ssrf">SSRF</option>
+                  <option value="rce">RCE</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>CVSS Score</label>
+                <input type="range" id="cvss-score" min="0" max="10" step="0.1" value="5">
+                <span class="cvss-display">5.0</span>
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <textarea id="vuln-description" rows="4" placeholder="Describe the vulnerability..."></textarea>
+              </div>
+              <div class="form-group">
+                <label>Proof of Concept</label>
+                <div class="code-editor" id="poc-editor">
+                  <textarea placeholder="// Paste your PoC code here..."></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn-primary full-width">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Submit Report
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Targets Page -->
+      <div class="page" id="page-targets">
+        <div class="page-header">
+          <h1>Target Management</h1>
+          <p>Manage authorized testing targets</p>
+        </div>
+        <div class="targets-content">
+          <div class="targets-list glass-panel" id="targets-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Transparency Page -->
+      <div class="page" id="page-transparency">
+        <div class="page-header">
+          <h1>Transparency Portal</h1>
+          <p>Immutable audit logs and compliance documentation</p>
+        </div>
+        <div class="transparency-content">
+          <div class="audit-log glass-panel">
+            <div class="log-header">
+              <h3>Audit Trail</h3>
+              <button class="btn-secondary">Export PDF</button>
+            </div>
+            <div class="log-entries" id="audit-entries">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Authorization Page -->
+      <div class="page" id="page-authorization">
+        <div class="page-header">
+          <h1>Legal Authorization</h1>
+          <p>Manage testing authorizations and compliance</p>
+        </div>
+        <div class="auth-content">
+          <div class="auth-list glass-panel" id="auth-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Page -->
+      <div class="page" id="page-settings">
+        <div class="page-header">
+          <h1>Settings</h1>
+          <p>Configure SafeGuard Fusion</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Vibe Command Modal -->
+  <div class="modal" id="vibe-modal">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <h2>Vibe Command System</h2>
+        <button class="btn-icon" onclick="closeVibeModal()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="vibe-input-container">
+        <input type="text" id="vibe-input" placeholder="Tell me what you want to do..." autofocus>
+        <button class="btn-primary" onclick="executeVibeCommand()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </button>
+      </div>
+      <div class="vibe-suggestions">
+        <span class="suggestion" onclick="setVibeCommand('scan all targets')">scan all targets</span>
+        <span class="suggestion" onclick="setVibeCommand('find vulnerabilities')">find vulnerabilities</span>
+        <span class="suggestion" onclick="setVibeCommand('check authorization')">check authorization</span>
+        <span class="suggestion" onclick="setVibeCommand('show recent results')">show recent results</span>
+      </div>
+      <div class="vibe-output" id="vibe-output"></div>
+    </div>
+  </div>
+
+  <!-- Scan Modal -->
+  <div class="modal" id="scan-modal">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <h2>New Security Scan</h2>
+        <button class="btn-icon" onclick="closeScanModal()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <form id="scan-form">
+        <div class="form-group">
+          <label>Target</label>
+          <input type="text" id="scan-target" placeholder="example.com">
+        </div>
+        <div class="form-group">
+          <label>Scan Tier</label>
+          <div class="tier-selector">
+            <button type="button" class="tier-btn active" data-tier="basic">Basic</button>
+            <button type="button" class="tier-btn" data-tier="comprehensive">Comprehensive</button>
+            <button type="button" class="tier-btn" data-tier="aggressive">Aggressive</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="verify-auth" checked>
+            <span>Verify Authorization First</span>
+          </label>
+        </div>
+        <button type="submit" class="btn-primary full-width">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Start Scan
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scanline Effect -->
+  <div class="scanline"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

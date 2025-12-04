@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Recon Scanner Agent
 # Runs Subfinder + Amass to enumerate subdomains, validates with DNSx
 # Output: ~/recon-stack/output/subs.txt

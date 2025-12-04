@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Immediate ROI Bug Bounty Hunter - Bash Wrapper
 # Idempotent automation for high-value vulnerabilities
 

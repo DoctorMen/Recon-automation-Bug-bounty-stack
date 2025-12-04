@@ -1,0 +1,27 @@
+{
+  "report_metadata": {
+    "vulnerability_type": "clickjacking",
+    "category": "Cross-site Scripting (XSS)",
+    "created_date": "2025-12-01T21:18:04.984461",
+    "researcher": "Security Research Team",
+    "total_findings": 1,
+    "total_bounty_potential": 1500.0
+  },
+  "executive_summary": "\nCLICKJACKING VULNERABILITIES - SECURITY ASSESSMENT\n\nOVERVIEW:\nDiscovered 1 instances of clickjacking vulnerabilities \nacross 1 unique targets.\n\nBUSINESS IMPACT:\n- Total Bounty Potential: $1,500\n- High-Value Findings: 1\n- Average Risk Level: Medium to High\n\nSEVERITY DISTRIBUTION:\n- Medium: 1 findings\n",
+  "technical_details": "\nTECHNICAL ANALYSIS - CLICKJACKING VULNERABILITIES\n\nROOT CAUSE:\nMissing X-Frame-Options and Content-Security-Policy headers \nallow malicious websites to embed target sites in invisible iframes.\n\nATTACK VECTOR:\n1. Attacker creates malicious website with hidden iframe\n2. User visits malicious site and interacts with deceptive UI\n3. Actual actions performed on target site without user consent\n4. Potential for unauthorized transactions or data theft\n\nDETECTION METHOD:\nHTTP header analysis confirms absence of clickjacking protection:\n- X-Frame-Options: Not present\n- CSP frame-ancestors: Not specified\n- iframe embedding: Successfully tested\n\nSTANDARDS:\nOWASP Top 10 A01:2021 - Broken Access Control\nCWE-1021: Improper Restriction of Rendered UI Layers or Frames\n",
+  "individual_findings": [
+    {
+      "target": "kiln.fi",
+      "severity": "medium",
+      "confidence": 0.9,
+      "bounty_estimate": 1500.0,
+      "evidence": {
+        "missing_header": "x-frame-options",
+        "url": "https://kiln.fi"
+      },
+      "proof_of_concept": "\n<html>\n<head><title>Clickjacking PoC - kiln.fi</title></head>\n<body>\n<h2>Clickjacking Proof of Concept</h2>\n<p>This demonstrates that kiln.fi can be embedded in an iframe.</p>\n<iframe src=\"https://kiln.fi\" width=\"800\" height=\"600\" \n        style=\"border: 2px solid red; opacity: 0.7;\">\n</iframe>\n<p><strong>Vulnerability Confirmed:</strong> Site loads in iframe without protection.</p>\n</body>\n</html>\n",
+      "impact_assessment": "\nHIGH IMPACT:\n- Potential for financial loss through UI manipulation\n- User trust and reputation damage\n- Regulatory compliance violations\n- Competitive disadvantage\n",
+      "remediation": "\nIMMEDIATE REMEDIATION:\n1. Add X-Frame-Options header:\n   X-Frame-Options: DENY\n\n2. Implement CSP frame-ancestors:\n   Content-Security-Policy: frame-ancestors 'none';\n\n3. Test iframe embedding attempts are blocked.\n\nLONG-TERM:\n- Implement comprehensive CSP policy\n- Regular security header audits\n- Content Security Policy monitoring\n"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "target": "monad.xyz",
+  "timestamp": "2025-12-01T21:02:46.820180",
+  "verification_summary": {
+    "total_verified": 1,
+    "false_positives_filtered": 16
+  },
+  "findings": [
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "monad.xyz",
+      "evidence": "Resolves to 1 IPs",
+      "verification": {
+        "status": "verified",
+        "reason": "DNS resolves to 1 real IP addresses",
+        "evidence": {
+          "resolved_ips": [
+            "216.230.86.1"
+          ],
+          "real_ips": [
+            "216.230.86.1"
+          ],
+          "count": 1
+        }
+      },
+      "submission_ready": true
+    }
+  ]
+}

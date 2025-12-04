@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Manual Submission Template for Bugcrowd
 
 ## Bug 1: Authentication Bypass - Admin Endpoint

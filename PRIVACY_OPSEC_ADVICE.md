@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🔒 Privacy & OPSEC: Should You Use Your Real Name?
 
 ## ⚠️ RECOMMENDATION: NO - Use a Pseudonym Instead

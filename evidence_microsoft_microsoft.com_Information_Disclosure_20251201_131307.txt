@@ -1,0 +1,25 @@
+# Information Disclosure Evidence - microsoft.com
+# Generated: 2025-12-01T13:13:07.707984
+# Program: Microsoft (MSRC)
+
+Command: curl -I https://www.microsoft.com/
+
+Output:
+HTTP/1.1 200 OK
+Server: AkamaiGHost
+Mime-Version: 1.0
+Content-Type: text/html
+Content-Length: 421
+Expires: Mon, 01 Dec 2025 18:13:07 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Mon, 01 Dec 2025 18:13:07 GMT
+Connection: close
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0   421    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

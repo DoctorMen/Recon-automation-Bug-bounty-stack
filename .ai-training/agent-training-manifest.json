@@ -1,0 +1,165 @@
+{
+  "manifest_version": "1.0.0",
+  "generated": "2025-11-04T02:01:00Z",
+  "repository": "Recon-automation-Bug-bounty-stack",
+  "training_files": {
+    "specifications": [
+      {
+        "file": "openapi-spec.yaml",
+        "type": "OpenAPI",
+        "purpose": "Complete API specification with all endpoints",
+        "priority": "critical"
+      },
+      {
+        "file": "api-schemas.json",
+        "type": "JSON Schema",
+        "purpose": "Data structure definitions and validation",
+        "priority": "critical"
+      }
+    ],
+    "command_references": [
+      {
+        "file": "command-reference.md",
+        "type": "Documentation",
+        "purpose": "Complete command catalog with examples",
+        "priority": "high"
+      },
+      {
+        "file": "intent-patterns.json",
+        "type": "NLP Patterns",
+        "purpose": "Natural language intent recognition",
+        "priority": "high"
+      }
+    ],
+    "examples": [
+      {
+        "file": "usage-examples.md",
+        "type": "Documentation",
+        "purpose": "Real-world usage scenarios",
+        "priority": "medium"
+      },
+      {
+        "file": "integration-patterns.md",
+        "type": "Code Examples",
+        "purpose": "Integration with external systems",
+        "priority": "medium"
+      }
+    ]
+  },
+  "core_concepts": {
+    "idempotency": {
+      "description": "All operations are safe to run multiple times",
+      "implementation": "Check state before executing, skip completed work",
+      "benefits": ["Safe resumption", "No duplicate results", "Crash recovery"]
+    },
+    "agent_orchestration": {
+      "description": "Multi-agent coordination via agents.json",
+      "roles": ["Strategist", "Executor", "Composer 1-4"],
+      "coordination": "scripts/agent_orchestrator.py"
+    },
+    "opsec_first": {
+      "description": "Security and privacy checks before all operations",
+      "checks": ["VPN status", "DNS leaks", "Secrets sanitization"],
+      "tools": ["scripts/opsec_check_all.sh"]
+    }
+  },
+  "entry_points": {
+    "primary": "run_pipeline.py",
+    "stages": {
+      "recon": "run_recon.py",
+      "mapping": "run_httpx.py",
+      "scanning": "run_nuclei.py",
+      "triage": "scripts/triage.py",
+      "reporting": "scripts/generate_report.py"
+    },
+    "orchestration": "scripts/agent_orchestrator.py"
+  },
+  "output_structure": {
+    "subs.txt": "Discovered and validated subdomains",
+    "http.json": "Live HTTP endpoints with metadata",
+    "nuclei-findings.json": "Raw vulnerability findings",
+    "triage.json": "Deduplicated and prioritized findings",
+    "reports/": "Generated reports in multiple formats",
+    "recon-run.log": "Execution logs",
+    ".pipeline_status": "Completed stages tracker"
+  },
+  "environment_variables": {
+    "critical": [
+      "RESUME",
+      "NUCLEI_SEVERITY",
+      "RECON_TIMEOUT"
+    ],
+    "performance": [
+      "SUBFINDER_THREADS",
+      "NUCLEI_RATE_LIMIT",
+      "NUCLEI_THREADS",
+      "AMASS_MAX_DNS"
+    ],
+    "notifications": [
+      "DISCORD_WEBHOOK",
+      "SLACK_WEBHOOK"
+    ]
+  },
+  "safety_protocols": {
+    "always_check": [
+      "OPSEC status before scanning",
+      "Authorization for targets",
+      "Logs for errors"
+    ],
+    "never_do": [
+      "Scan unauthorized targets",
+      "Share unsanitized results",
+      "Expose API keys or credentials"
+    ]
+  },
+  "performance_profiles": {
+    "fast": {
+      "use_when": "Time-critical, speed priority",
+      "settings": {
+        "RECON_TIMEOUT": 600,
+        "SUBFINDER_THREADS": 100,
+        "NUCLEI_RATE_LIMIT": 300,
+        "NUCLEI_SEVERITY": "high,critical"
+      }
+    },
+    "balanced": {
+      "use_when": "Default mode, good coverage",
+      "settings": {
+        "RECON_TIMEOUT": 1800,
+        "SUBFINDER_THREADS": 50,
+        "NUCLEI_RATE_LIMIT": 150,
+        "NUCLEI_SEVERITY": "medium,high,critical"
+      }
+    },
+    "thorough": {
+      "use_when": "Accuracy priority, complete coverage",
+      "settings": {
+        "RECON_TIMEOUT": 3600,
+        "AMASS_MAX_DNS": 20000,
+        "NUCLEI_RATE_LIMIT": 50,
+        "NUCLEI_SEVERITY": "low,medium,high,critical",
+        "NUCLEI_RETRIES": 5
+      }
+    }
+  },
+  "common_workflows": [
+    {
+      "name": "first_scan",
+      "steps": ["setup_tools", "opsec_check", "create_targets", "run_pipeline", "view_results"]
+    },
+    {
+      "name": "resume_scan",
+      "steps": ["check_status", "resume_with_flag", "monitor_progress"]
+    },
+    {
+      "name": "continuous_monitoring",
+      "steps": ["create_cron", "enable_notifications", "schedule_daily"]
+    }
+  ],
+  "error_recovery": {
+    "tool_missing": "Run python3 setup_tools.py",
+    "vpn_down": "Run bash scripts/opsec_check_vpn.sh",
+    "out_of_memory": "Reduce concurrency settings",
+    "scan_stuck": "Kill processes, use RESUME=true"
+  }
+}

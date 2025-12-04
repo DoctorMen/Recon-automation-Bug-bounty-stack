@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Continue Workflow - Prioritize and Test Discovered Endpoints
 
 set -euo pipefail
@@ -56,5 +58,11 @@ echo "2. Start manual testing top priority endpoints"
 echo "3. Use Burp Suite or browser for manual testing"
 echo "4. Focus on one program (e.g., Rapyd or Mastercard)"
 echo ""
+
+
+
+
+
+
 
 

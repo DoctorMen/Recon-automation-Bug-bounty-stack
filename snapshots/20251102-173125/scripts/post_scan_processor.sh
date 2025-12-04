@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Post Scan Processor
 # Processes scan results from subs.txt through the full pipeline
 # Input: ~/recon-stack/output/subs.txt

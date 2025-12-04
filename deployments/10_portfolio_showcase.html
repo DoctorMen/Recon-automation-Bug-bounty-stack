@@ -1,0 +1,120 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Showcase - Upwork Master</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0066FF; --accent: #10B981; --dark: #0A0E27;
+            --dark-card: #1A2332; --dark-border: #2D3748;
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #7C3AED 100%);
+            --gradient-accent: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: #FFFFFF; }
+        .showcase { max-width: 1400px; margin: 0 auto; padding: 40px; }
+        .hero { background: var(--gradient-primary); padding: 100px 40px; border-radius: 24px; text-align: center; margin-bottom: 60px; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3em; margin-bottom: 20px; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin: 60px 0; }
+        .stat { text-align: center; }
+        .stat-number { font-family: 'Space Grotesk', sans-serif; font-size: 3em; font-weight: 700; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { color: rgba(255,255,255,0.7); margin-top: 8px; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .portfolio-card { background: var(--dark-card); padding: 40px; border-radius: 20px; border: 1px solid var(--dark-border); transition: all 0.3s; }
+        .portfolio-card:hover { transform: translateY(-6px); border-color: var(--primary); }
+        .portfolio-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5em; margin-bottom: 16px; color: var(--primary); }
+        .portfolio-card .result { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--dark-border); }
+        .result-value { font-size: 1.3em; font-weight: 700; color: var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="showcase">
+        <div class="hero">
+            <h1>Portfolio Showcase</h1>
+            <p style="font-size: 1.3em; opacity: 0.95;">Proven Results & Success Stories</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Businesses Secured</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2,000+</div>
+                <div class="stat-label">Vulnerabilities Found</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">90%</div>
+                <div class="stat-label">Win Rate (Urgent)</div>
+            </div>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <h3>E-commerce Security Assessment</h3>
+                <p><strong>Challenge:</strong> Payment processing vulnerabilities identified before launch</p>
+                <p><strong>Solution:</strong> Comprehensive API security testing + PCI DSS alignment</p>
+                <div class="result">
+                    <div class="result-value">$1,500 Project</div>
+                    <p style="margin-top: 8px; color: rgba(255,255,255,0.7);">Prevented potential $50K+ breach costs</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <h3>Emergency Security Scan</h3>
+                <p><strong>Challenge:</strong> Urgent security assessment needed before client audit</p>
+                <p><strong>Solution:</strong> 2-hour delivery with comprehensive vulnerability scan</p>
+                <div class="result">
+                    <div class="result-value">$400 Project</div>
+                    <p style="margin-top: 8px; color: rgba(255,255,255,0.7);">Delivered same day, passed audit</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <h3>Monthly Security Monitoring</h3>
+                <p><strong>Challenge:</strong> Ongoing security monitoring for SaaS startup</p>
+                <p><strong>Solution:</strong> Automated monthly scans with trending analysis</p>
+                <div class="result">
+                    <div class="result-value">$1,200/month</div>
+                    <p style="margin-top: 8px; color: rgba(255,255,255,0.7);">Recurring revenue, 6+ months</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <h3>API Security Testing</h3>
+                <p><strong>Challenge:</strong> REST API security assessment for fintech app</p>
+                <p><strong>Solution:</strong> Comprehensive API testing with 60+ endpoints discovered</p>
+                <div class="result">
+                    <div class="result-value">$2,000 Project</div>
+                    <p style="margin-top: 8px; color: rgba(255,255,255,0.7);">Found 12 critical vulnerabilities</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <h3>WordPress Security Audit</h3>
+                <p><strong>Challenge:</strong> WordPress site compromised, needed security hardening</p>
+                <p><strong>Solution:</strong> Complete security audit + hardening guide</p>
+                <div class="result">
+                    <div class="result-value">$600 Project</div>
+                    <p style="margin-top: 8px; color: rgba(255,255,255,0.7);">Site secured, no further breaches</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <h3>Cloud Security Assessment</h3>
+                <p><strong>Challenge:</strong> AWS infrastructure misconfigurations causing risk</p>
+                <p><strong>Solution:</strong> Cloud security audit with CIS benchmark alignment</p>
+                <div class="result">
+                    <div class="result-value">$2,500 Project</div>
+                    <p style="margin-top: 8px; color: rgba(255,255,255,0.7);">Fixed 8 critical misconfigurations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

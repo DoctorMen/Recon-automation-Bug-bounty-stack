@@ -1,22 +1,92 @@
-# ignore downloaded tools and temp
-tools/bin/
-tools/tmp/
-*.log
-.env
-.vscode/
+# Python
 __pycache__/
-.protection/
-node_modules
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.log
 
-# License protection (never commit!)
-.license
-.license.*
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
 
-# Recovery vault (never commit!)
-.recovery/
-.SHADOWSTEP_RECOVERY_VAULT
-*RECOVERY_VAULT*
-*.pyc
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Sensitive data
 *.key
 *.pem
-ai_defense/
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+*.env
+.env.local
+secrets/
+credentials/
+authorizations/*.json
+!authorizations/example_auth.json
+
+# Large binaries (use Git LFS if needed)
+*.tar.gz
+*.zip
+*.exe
+*.dll
+*.so
+*.dylib
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+.cache/
+tmp/
+temp/
+
+# Output and results
+output/*/
+results/
+runs/
+logs/*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Git LFS
+*.pdf
+tools/bin/nuclei
+tools/bin/httpx
+tools/bin/subfinder
+programs/*/go*.tar.gz

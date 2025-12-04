@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Time Comparison: Your Automation vs Industry Standard
 
 ## What Your System Achieved

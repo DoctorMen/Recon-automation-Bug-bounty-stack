@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Enhanced Automation with PDF Knowledge Integration
 
 ## ✅ Crypto Dictionary Integration Complete

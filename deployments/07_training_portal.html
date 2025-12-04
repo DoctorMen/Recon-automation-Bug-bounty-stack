@@ -1,0 +1,78 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Portal - Upwork Master</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0066FF; --accent: #10B981; --dark: #0A0E27;
+            --dark-card: #1A2332; --dark-border: #2D3748;
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #7C3AED 100%);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: #FFFFFF; padding: 40px; }
+        .portal { max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 60px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5em; margin-bottom: 10px; }
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .course-card { background: var(--dark-card); padding: 40px; border-radius: 20px; border: 1px solid var(--dark-border); transition: all 0.3s; }
+        .course-card:hover { transform: translateY(-6px); border-color: var(--primary); }
+        .course-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5em; margin-bottom: 16px; color: var(--primary); }
+        .progress-bar { width: 100%; height: 8px; background: var(--dark-border); border-radius: 4px; margin-top: 16px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--gradient-accent); border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="portal">
+        <div class="header">
+            <h1>🎓 Training Portal</h1>
+            <p>Master the Upwork System</p>
+        </div>
+
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>Module 1: Quick Start</h3>
+                <p>Learn the 2-minute deployment workflow. Master template selection and customization.</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                <p style="margin-top: 8px; font-size: 0.9em; color: rgba(255,255,255,0.6);">Completed</p>
+            </div>
+            <div class="course-card">
+                <h3>Module 2: C.L.I.E.N.T Framework</h3>
+                <p>Understand the proven framework for profile optimization and client qualification.</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                <p style="margin-top: 8px; font-size: 0.9em; color: rgba(255,255,255,0.6);">Completed</p>
+            </div>
+            <div class="course-card">
+                <h3>Module 3: Pricing Strategy</h3>
+                <p>Master progressive pricing, value-based positioning, and tiered offerings.</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                <p style="margin-top: 8px; font-size: 0.9em; color: rgba(255,255,255,0.6);">75% Complete</p>
+            </div>
+            <div class="course-card">
+                <h3>Module 4: Client Psychology</h3>
+                <p>Learn to identify client types and tailor proposals for maximum win rate.</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
+                <p style="margin-top: 8px; font-size: 0.9em; color: rgba(255,255,255,0.6);">50% Complete</p>
+            </div>
+            <div class="course-card">
+                <h3>Module 5: Advanced Tactics</h3>
+                <p>Objection handling, upselling, and scaling strategies for long-term success.</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
+                <p style="margin-top: 8px; font-size: 0.9em; color: rgba(255,255,255,0.6);">25% Complete</p>
+            </div>
+            <div class="course-card">
+                <h3>Module 6: Mastery</h3>
+                <p>Become a master with 40-50% win rates and $20k-40k/month revenue potential.</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                <p style="margin-top: 8px; font-size: 0.9em; color: rgba(255,255,255,0.6);">Not Started</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

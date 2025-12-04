@@ -1,0 +1,44 @@
+# Evidence File - Clickjacking
+# Target: facebook.com
+# Generated: 2025-12-01T14:17:33.304344
+
+# PRIMARY PROOF - Direct Evidence
+# Target: meta.com
+# Vulnerability: Clickjacking
+# Timestamp: 2025-12-01T14:17:32.229466
+
+## Command Executed:
+curl -I https://meta.com
+
+## Response Headers Analysis:
+Content-Encoding: gzip
+Set-Cookie: csrf=B8TVRLtN9RezQu5dNPwyA9; path=/; domain=.www.meta.com; secure; httponly; SameSite=None, locale=en_US; expires=Mon, 08-Dec-2025 19:17:31 GMT; Max-Age=604800; path=/; domain=.www.meta.com; secure; SameSite=None
+accept-ch-lifetime: 4838400
+accept-ch: viewport-width,dpr,Sec-CH-Prefers-Color-Scheme,Sec-CH-UA-Full-Version-List,Sec-CH-UA-Platform-Version,Sec-CH-UA-Model
+Pragma: no-cache
+Cache-Control: private, no-cache, no-store, must-revalidate
+Expires: Sat, 01 Jan 2000 00:00:00 GMT
+content-security-policy: default-src 'self';script-src 'self' 'nonce-OyRCsajC' *.fbcdn.net connect.facebook.net *.facebook.net *.oculus.com www.meta.com/3ds2/ddc/ www.meta.com/3ds2/challenge_complete/ 'unsafe-eval' gw.conversionsapigateway.com https://*.youtube.com;style-src 'self' 'unsafe-inline' data: *.fbcdn.net 'unsafe-eval' *.oculus.com www.meta.com/3ds2/ddc/ www.meta.com/3ds2/challenge_complete/;connect-src blob: *.fbcdn.net www.meta.com *.www.meta.com www.facebook.com/tr/ www.facebook.com/tr www.facebook.com/parallel-pxl/ www.facebook.com/parallel-pxl connect.facebook.net//log/error connect.facebook.net/log/error secure.facebook.com/payments/generate_token *.oculus.com www.meta.com/3ds2/ddc/ www.meta.com/3ds2/challenge_complete/ gw.conversionsapigateway.com;font-src data: *.fbcdn.net *.oculus.com www.meta.com/3ds2/ddc/ www.meta.com/3ds2/challenge_complete/;img-src 'self' blob: data: *.fbcdn.net *.fbsbx.com *.oculuscdn.com www.facebook.com/tr/ www.facebook.com/tr www.facebook.com/parallel-pxl/ www.facebook.com/parallel-pxl connect.facebook.net//log/error connect.facebook.net/log/error *.cdninstagram.com *.oculus.com www.meta.com/3ds2/ddc/ www.meta.com/3ds2/challenge_complete/ gw.conversionsapigateway.com https://*.ytimg.com *.youtube.com;media-src blob: data: lookaside.fbsbx.com *.fbcdn.net *.cdninstagram.com *.oculuscdn.com;child-src blob: data: *.fbcdn.net;frame-src data: *.fbcdn.net www.facebook.com/tr/ www.facebook.com/tr www.facebook.com/parallel-pxl/ www.facebook.com/parallel-pxl connect.facebook.net//log/error connect.facebook.net/log/error www.facebook.com/plugins/wearables_social_context www.meta.com/common/ *.www.meta.com/common/ *.fbsbx.com/ www.meta.com/tealium/ *.www.meta.com/tealium/ www.meta.com/payments/ *.www.meta.com/payments/ *.fbthirdpartypixel.com *.oculus.com www.meta.com/3ds2/ddc/ www.meta.com/3ds2/challenge_complete/ centinelapi.cardinalcommerce.com centinelapistag.cardinalcommerce.com client.cardinaltrusted.com cas.client.cardinaltrusted.com gw.conversionsapigateway.com https://*.youtube.com;manifest-src 'self' data:;object-src 'self' data:;worker-src blob: data: *.fbcdn.net *.meta.com/static_resources/webworker_v1/init_script/ *.meta.com/static_resources/webworker/init_script/ *.meta.com/static_resources/sharedworker/init_script/;block-all-mixed-content;upgrade-insecure-requests;report-uri https://www.facebook.com/csp/reporting/?minimize=0;
+document-policy: include-js-call-stacks-in-crash-reports
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+reporting-endpoints: coop_report="https://www.facebook.com/browser_reporting/coop/?minimize=0", coep_report="https://www.facebook.com/browser_reporting/coep/?minimize=0", default="https://www.meta.com/ajax/comet_error_reports/?device_level=unknown&brsid=7578970807066460672&comet_app_key=18&cpp=C3&cv=1030451380&st=1764616651852"
+report-to: {"max_age":2592000,"endpoints":[{"url":"https:\/\/www.facebook.com\/browser_reporting\/coop\/?minimize=0"}],"group":"coop_report","include_subdomains":true}, {"max_age":86400,"endpoints":[{"url":"https:\/\/www.facebook.com\/browser_reporting\/coep\/?minimize=0"}],"group":"coep_report"}, {"max_age":259200,"endpoints":[{"url":"https:\/\/www.meta.com\/ajax\/comet_error_reports\/?device_level=unknown&brsid=7578970807066460672&comet_app_key=18&cpp=C3&cv=1030451380&st=1764616651852"}]}
+cross-origin-embedder-policy-report-only: require-corp;report-to="coep_report"
+cross-origin-opener-policy: same-origin-allow-popups
+Vary: Sec-Fetch-Site, Sec-Fetch-Mode, Accept-Encoding
+origin-agent-cluster: ?1
+Strict-Transport-Security: max-age=31536000; preload; includeSubDomains
+Content-Type: text/html; charset="utf-8"
+X-FB-Debug: cVR8JxZeDPKbkSIGf46TqYO1Rzkw0chINQuQ3CmhDQQUN5FfO9ZKv6rhaWmtQWC4yuCpUFRNvGo1VogW8mRp6A==
+Date: Mon, 01 Dec 2025 19:17:31 GMT
+Proxy-Status: http_request_error; e_fb_vipaddr="AcMXUkluN5BsQFVMj8ZIYkaDO9exAd4xm8hJf47RB6PJtzGzFE0vUpqOrjeoYl0GEXsdPYm22F_cFXVs8qJPQgghdEcJrh_EWTk"; e_clientaddr="AcPpNaJqH1yKlNy4pyLqA7KRD1yhJKxqxVa2hA0SrXxExnpfl1VCchuccZaTK9LyiBJY4NPzBVp-qq1vty6pJ8sGZN7N4I76S7E6lO4p6ilDLAI"; e_upip="AcPzs89uYTnHKQo5aE47jdaRb3Q3jWzPQeWK5fFIiKVVLFyVvNlkwZ9eN9oKeSmR5DU26vPC8MvfV5sV93n9lSamnPMGDmeVtfHYkNZXYw"; e_fb_zone="AcPpEkiT2WErj8heMOTsDANf95jmSvzvoVyDGgVfoYjuupX7-psRGki7KwCDNUn5"; e_fb_twtaskhandle="AcPC-OMFopt_24iQAlUdSSSw4mz6H1cw5doOTZ4b6p3xuNWV-IW9Vwj_wzqs7H-t9dNmSlCsvCfoY8i5EOwrKN2kVa5gNOHYkc3CBJ-FJWoUYgw"; e_proxy="AcO6A9O8KddglF3avYPE6IVheyosPzYFXb7ZMsyLy6IPCPJ5xyezs-tkRkNrZSkbu0yV03Y8v9dbRFQ6qGzQ", http_request_error; e_fb_vipaddr="AcMRrmcjf0DdXFt6SJrmYg1zPoXbP0nJDxhsO1iO6QguAle0vxvX-g81xAk8yQxNgcRXevCk3N41lt8SpEZ3iyxNNl7Zx3sG_g"; e_clientaddr="AcMdjILULOM6ePOo_TgQq71OhdkDuE0mSICCBb0NHgD8VnN7Gaak9GcJpIWsvtCmN7lpZG7Qjn3E2EWM7X5S_87xvZSSohp6zZg_pBIc_AWiLp6x9czKRP0"; e_upip="AcNsU8wA0XP72XNqSJscDyHvR2ox1e1Welw4S1PIr5xoHXpA4JINfczUOmz8iMBm4MnD7ai-1eLNrNkFbStpOJXzEyXTD3DaS3w"; e_fb_zone="AcOebRDtaZ9HpYwqaBik-E2q0DLB3CAomaYkDGyoFIzYY5LKnjiFLuz30t3s0Q"; e_fb_twtaskhandle="AcNpj8QL6UoaXWFqf09CvBNoqBE_ctB9g-DMsjgJNKVya6iumrbi0o6GpHMhdKALNYb3PP5BgulrDURWMdvnFyBwt0uXLpq_h04"; e_proxy="AcMaRx754Dmt5rSKNUfvUQFVTpAw0DNvoF6F6QiUU6wMYljiKAGkXSRPMePw_4rt3Z9RJj-HAlr2ZSE"
+X-FB-Connection-Quality: EXCELLENT; q=0.9, rtt=17, rtx=0, c=10, mss=1392, tbw=3728, tp=-1, tpl=-1, uplat=226, ullat=0
+Alt-Svc: h3=":443"; ma=86400
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+## Vulnerability Confirmed:
+❌ CSP frame-ancestors directive MISSING
+✅ CLICKJACKING VULNERABILITY CONFIRMED

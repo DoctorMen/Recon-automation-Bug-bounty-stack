@@ -1,0 +1,57 @@
+
+=== WHERE TO SUBMIT THE GITLAB CORS VULNERABILITY ===
+
+1. HACKERONE (RECOMMENDED):
+   URL: https://hackerone.com/gitlab
+   Process:
+   - Create HackerOne account (if you don't have one)
+   - Search for "GitLab" program
+   - Click "Submit a report"
+   - Fill out the report form with the documentation above
+   - Upload evidence files (cors_test_results.json, etc.)
+
+2. GITLAB'S BUG BOUNTY PAGE:
+   URL: https://about.gitlab.com/security/
+   Process:
+   - Visit GitLab's security page
+   - Look for "Vulnerability Disclosure Program"
+   - Follow their submission guidelines
+   - Email security@gitlab.com with the report
+
+3. BUGCROWD (IF APPLICABLE):
+   URL: https://www.bugcrowd.com/programs/gitlab
+   Process:
+   - Check if GitLab has a Bugcrowd program
+   - Submit through Bugcrowd platform
+
+=== SUBMISSION BEST PRACTICES ===
+
+1. USE THE PROFESSIONAL REPORT FORMAT ABOVE
+2. INCLUDE ALL EVIDENCE FILES
+3. BE CLEAR AND CONCISE
+4. PROVIDE REPRODUCTION STEPS
+5. SUGGEST REMEDIATION
+6. BE PROFESSIONAL AND RESPECTFUL
+
+=== EXPECTED TIMELINE ===
+
+- Initial Response: 1-3 days
+- Triage Review: 1-2 weeks  
+- Bounty Decision: 2-4 weeks
+- Payment: 1-2 weeks after acceptance
+
+=== EXPECTED BOUNTY ===
+
+- Range: $1,000 - $5,000
+- Most Likely: $3,000
+- Factors: Clarity of report, impact, reproduction ease
+
+=== WHAT TO INCLUDE IN SUBMISSION ===
+
+✅ Professional report (generated above)
+✅ Test results file (cors_test_results.json)
+✅ Original finding file (real_finding_gitlab.com_cors_misconfiguration.json)
+✅ Proof of concept commands
+✅ Impact assessment
+✅ Remediation recommendations
+✅ Your contact information

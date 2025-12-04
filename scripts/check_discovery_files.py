@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Quick diagnostic - Check what discovery files exist
 """
@@ -70,5 +74,11 @@ else:
     print("")
     print("Now run priority selector:")
     print("  python3 scripts/prioritize_endpoints.py")
+
+
+
+
+
+
 
 

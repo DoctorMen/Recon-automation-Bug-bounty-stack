@@ -1,0 +1,99 @@
+{
+  "mcpServers": {
+    "netlify-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-netlify"],
+      "env": {
+        "NETLIFY_AUTH_TOKEN": "${NETLIFY_AUTH_TOKEN}"
+      },
+      "description": "Deploy web apps to Netlify via AI conversation"
+    },
+    "vercel-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-vercel"],
+      "env": {
+        "VERCEL_TOKEN": "${VERCEL_TOKEN}"
+      },
+      "description": "Deploy to Vercel with AI commands"
+    },
+    "aws-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-aws"],
+      "env": {
+        "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY}",
+        "AWS_REGION": "us-east-1"
+      },
+      "description": "Deploy to AWS Lambda, S3, CloudFront via AI"
+    },
+    "digitalocean-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-digitalocean"],
+      "env": {
+        "DO_TOKEN": "${DO_TOKEN}"
+      },
+      "description": "Deploy to DigitalOcean App Platform via AI"
+    },
+    "github-actions": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "Trigger GitHub Actions workflows via AI"
+    },
+    "docker-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-docker"],
+      "description": "Build and deploy Docker containers via AI"
+    },
+    "kubernetes-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-kubernetes"],
+      "env": {
+        "KUBECONFIG": "${KUBECONFIG}"
+      },
+      "description": "Deploy to Kubernetes clusters via AI"
+    },
+    "cloudflare-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-cloudflare"],
+      "env": {
+        "CLOUDFLARE_API_TOKEN": "${CLOUDFLARE_API_TOKEN}"
+      },
+      "description": "Deploy to Cloudflare Pages/Workers via AI"
+    },
+    "railway-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-railway"],
+      "env": {
+        "RAILWAY_TOKEN": "${RAILWAY_TOKEN}"
+      },
+      "description": "Deploy to Railway via AI conversation"
+    },
+    "render-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-render"],
+      "env": {
+        "RENDER_API_KEY": "${RENDER_API_KEY}"
+      },
+      "description": "Deploy to Render via AI"
+    },
+    "fly-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fly"],
+      "env": {
+        "FLY_API_TOKEN": "${FLY_API_TOKEN}"
+      },
+      "description": "Deploy to Fly.io via AI conversation"
+    },
+    "heroku-deploy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-heroku"],
+      "env": {
+        "HEROKU_API_KEY": "${HEROKU_API_KEY}"
+      },
+      "description": "Deploy to Heroku via AI"
+    }
+  }
+}

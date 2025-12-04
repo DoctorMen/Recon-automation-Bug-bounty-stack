@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # ============================================
 # Recon Report Builder (Markdown Publisher)
 # Converts latest recon results into a GitHub-ready report

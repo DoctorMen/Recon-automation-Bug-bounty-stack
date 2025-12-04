@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Process Nuclei Text Results
 # Converts nuclei text output to JSON and processes through triage/reporting
 

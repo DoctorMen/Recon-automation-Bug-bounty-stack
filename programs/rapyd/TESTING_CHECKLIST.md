@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Rapyd Testing Checklist
 
 ## 📋 Pre-Testing Setup

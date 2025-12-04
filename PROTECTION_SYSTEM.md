@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Protection System - Idempotent & Obfuscated
 
 ## âœ… PROTECTION SYSTEM CREATED

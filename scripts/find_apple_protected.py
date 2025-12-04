@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Apple Bug Bounty - Find Protected Endpoints
 Discover actual protected endpoints to test
@@ -183,5 +187,11 @@ def test_protected_endpoint(url: str) -> dict:
 
 if __name__ == "__main__":
     find_protected_endpoints()
+
+
+
+
+
+
 
 

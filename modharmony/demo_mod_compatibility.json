@@ -1,0 +1,30 @@
+{
+  "mods": {},
+  "compatibility": {
+    "SkyUI|USSEP": {
+      "compatible": false,
+      "tests": 1
+    },
+    "SkyUI|Frostfall": {
+      "compatible": false,
+      "tests": 1
+    },
+    "USSEP|Frostfall": {
+      "compatible": false,
+      "tests": 1
+    }
+  },
+  "tests": [
+    {
+      "id": "968548a659a98b55c6d4b53aecbb86ff",
+      "mods": [
+        "Frostfall",
+        "SkyUI",
+        "USSEP"
+      ],
+      "result": "conflicts_detected",
+      "conflicts": 1,
+      "timestamp": "2025-11-04T01:10:05.531249"
+    }
+  ]
+}

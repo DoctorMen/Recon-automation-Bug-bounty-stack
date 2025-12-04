@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # ⚠️ Important: Apple Endpoints Reality Check
 
 ## What You Have:
@@ -58,5 +61,11 @@ This will:
 - Focus on real Apple domains or other programs
 
 Run `python3 scripts/test_apple_endpoints.py` to verify what they actually are!
+
+
+
+
+
+
 
 

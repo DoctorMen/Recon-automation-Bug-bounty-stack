@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Example Program A",
+    "platform": "HackerOne",
+    "tags": [
+      "web",
+      "api",
+      "saas"
+    ],
+    "scope": {
+      "in_scope_assets": [
+        "*.example.com",
+        "api.example.com"
+      ],
+      "out_of_scope_assets": [
+        "admin.example.com"
+      ],
+      "notes": "Clear scope, no third parties"
+    },
+    "bounties": [
+      {
+        "amount": 500,
+        "paid_date": "2025-11-10"
+      },
+      {
+        "amount": 800,
+        "paid_date": "2025-11-05"
+      }
+    ],
+    "researcher_count": 45,
+    "recent_reports": 12
+  },
+  {
+    "name": "Example Program B",
+    "platform": "Bugcrowd",
+    "tags": [
+      "mobile",
+      "ios",
+      "android"
+    ],
+    "scope": {
+      "in_scope_assets": [],
+      "out_of_scope_assets": [],
+      "notes": "All mobile assets"
+    },
+    "bounties": [
+      {
+        "amount": 300,
+        "paid_date": "2025-09-15"
+      }
+    ],
+    "researcher_count": 120,
+    "recent_reports": 40
+  }
+]

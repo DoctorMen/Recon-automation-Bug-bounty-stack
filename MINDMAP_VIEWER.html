@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+Interactive Mindmap Viewer - Bleeding Edge UI
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
+    <title>ParallelProfit™ - Interactive System Mindmap</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .gradient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            top: -250px;
+            left: -250px;
+        }
+        
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            bottom: -200px;
+            right: -200px;
+            animation-delay: 5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
+        
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 40px;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+        }
+        
+        .title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, #fff, var(--primary), var(--accent), #fff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease infinite;
+            margin-bottom: 10px;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+        
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        
+        /* Mindmap Container */
+        .mindmap-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            margin: 20px 0;
+            min-height: 600px;
+            transition: all 0.3s ease;
+        }
+        
+        .mindmap-container:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+        
+        .mindmap-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        /* Mermaid Styling */
+        .mermaid {
+            background: transparent !important;
+            text-align: center;
+        }
+        
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .mindmap-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+    </div>
+    
+    <!-- Header -->
+    <div class="header">
+        <h1 class="title">ParallelProfit™ System Mindmap</h1>
+        <p class="subtitle">Interactive Visual Intelligence</p>
+    </div>
+    
+    <!-- Container -->
+    <div class="container">
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn" onclick="showDiagram(1)">Master System</button>
+            <button class="btn" onclick="showDiagram(2)">Workflow</button>
+            <button class="btn" onclick="showDiagram(3)">AI Architecture</button>
+            <button class="btn" onclick="showDiagram(4)">Revenue Scaling</button>
+            <button class="btn" onclick="showDiagram(5)">Bottlenecks</button>
+        </div>
+        
+        <!-- Diagram 1: Master System -->
+        <div class="mindmap-container" id="diagram1">
+            <h2 class="mindmap-title">🎯 Master System Architecture</h2>
+            <div class="mermaid">
+mindmap
+  root((💰 Money-Making Master))
+    🔍 Discovery
+      Upwork
+      Fiverr
+      Freelancer
+      Bug Bounty
+    🤖 Proposal AI
+      Templates
+      Customization
+      Pricing
+    📤 Auto-Apply
+      Submission
+      Tracking
+      Follow-up
+    ⚡ Delivery
+      Scanning
+      Reporting
+      Client Comms
+    💰 Revenue
+      Tracking
+      Analytics
+      Optimization
+            </div>
+        </div>
+        
+        <!-- Diagram 2: Workflow -->
+        <div class="mindmap-container" id="diagram2" style="display:none;">
+            <h2 class="mindmap-title">🔄 Complete Workflow</h2>
+            <div class="mermaid">
+graph TD
+    A[🔍 Discover Jobs] --> B[🤖 Generate Proposals]
+    B --> C[📤 Auto-Apply]
+    C --> D{Job Won?}
+    D -->|Yes| E[⚡ Scan Client]
+    D -->|No| A
+    E --> F[📊 Generate Report]
+    F --> G[💰 Get Paid]
+    G --> H[📈 Track Revenue]
+    H --> A
+    
+    style A fill:#6366f1,stroke:#fff,stroke-width:2px,color:#fff
+    style B fill:#8b5cf6,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#ec4899,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#10b981,stroke:#fff,stroke-width:2px,color:#fff
+    style G fill:#f59e0b,stroke:#fff,stroke-width:2px,color:#fff
+            </div>
+        </div>
+        
+        <!-- Diagram 3: AI Architecture -->
+        <div class="mindmap-container" id="diagram3" style="display:none;">
+            <h2 class="mindmap-title">🧠 AI Architecture</h2>
+            <div class="mermaid">
+graph LR
+    A[Job Discovery] --> B[AI Analyzer]
+    B --> C{Job Type?}
+    C -->|Security| D[Security Template]
+    C -->|Pentest| E[Pentest Template]
+    C -->|Bug Bounty| F[Bug Bounty Template]
+    D --> G[Customization Engine]
+    E --> G
+    F --> G
+    G --> H[Pricing Optimizer]
+    H --> I[Final Proposal]
+    
+    style B fill:#6366f1,stroke:#fff,stroke-width:2px,color:#fff
+    style G fill:#8b5cf6,stroke:#fff,stroke-width:2px,color:#fff
+    style H fill:#ec4899,stroke:#fff,stroke-width:2px,color:#fff
+            </div>
+        </div>
+        
+        <!-- Diagram 4: Revenue Scaling -->
+        <div class="mindmap-container" id="diagram4" style="display:none;">
+            <h2 class="mindmap-title">📈 Revenue Scaling Path</h2>
+            <div class="mermaid">
+graph TD
+    A[Month 1: $5K] --> B[Month 3: $15K]
+    B --> C[Month 6: $30K]
+    C --> D[Month 12: $50K+]
+    
+    A --> A1[10 jobs/month]
+    A --> A2[$500 avg]
+    
+    B --> B1[30 jobs/month]
+    B --> B2[$500 avg]
+    
+    C --> C1[60 jobs/month]
+    C --> C2[$500 avg]
+    
+    D --> D1[100+ jobs/month]
+    D --> D2[$500+ avg]
+    
+    style A fill:#10b981,stroke:#fff,stroke-width:2px,color:#fff
+    style B fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#8b5cf6,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#ec4899,stroke:#fff,stroke-width:2px,color:#fff
+            </div>
+        </div>
+        
+        <!-- Diagram 5: Bottlenecks -->
+        <div class="mindmap-container" id="diagram5" style="display:none;">
+            <h2 class="mindmap-title">⚠️ System Bottlenecks & Solutions</h2>
+            <div class="mermaid">
+graph TD
+    A[Bottleneck: Slow Scanning] --> A1[Solution: Parallel Nuclei]
+    A1 --> A2[Result: 6x Faster]
+    
+    B[Bottleneck: Manual Proposals] --> B1[Solution: AI Templates]
+    B1 --> B2[Result: 20x Faster]
+    
+    C[Bottleneck: Context Loss] --> C1[Solution: Snapshot System]
+    C1 --> C2[Result: 15x Faster]
+    
+    D[Bottleneck: Sequential Pipeline] --> D1[Solution: Parallel Execution]
+    D1 --> D2[Result: 3x Faster]
+    
+    style A fill:#ef4444,stroke:#fff,stroke-width:2px,color:#fff
+    style B fill:#ef4444,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#ef4444,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#ef4444,stroke:#fff,stroke-width:2px,color:#fff
+    
+    style A2 fill:#10b981,stroke:#fff,stroke-width:2px,color:#fff
+    style B2 fill:#10b981,stroke:#fff,stroke-width:2px,color:#fff
+    style C2 fill:#10b981,stroke:#fff,stroke-width:2px,color:#fff
+    style D2 fill:#10b981,stroke:#fff,stroke-width:2px,color:#fff
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Error handling wrapper
+        try {
+            // Initialize Mermaid with error handling
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ 
+                    startOnLoad: true,
+                    theme: 'dark',
+                    securityLevel: 'strict',
+                    themeVariables: {
+                        primaryColor: '#6366f1',
+                        primaryTextColor: '#fff',
+                        primaryBorderColor: '#8b5cf6',
+                        lineColor: '#ec4899',
+                        secondaryColor: '#8b5cf6',
+                        tertiaryColor: '#ec4899',
+                        background: 'transparent',
+                        mainBkg: '#1e293b',
+                        secondBkg: '#334155',
+                        tertiaryBkg: '#475569',
+                        darkMode: true
+                    },
+                    logLevel: 'error'
+                });
+            } else {
+                console.error('Mermaid library failed to load');
+                document.body.innerHTML += '<div style="text-align:center;padding:50px;color:#ef4444;">Error: Mermaid library failed to load. Please refresh the page.</div>';
+            }
+        } catch (error) {
+            console.error('Mermaid initialization error:', error);
+        }
+        
+        // Show specific diagram with validation
+        function showDiagram(num) {
+            try {
+                if (num < 1 || num > 5) {
+                    console.error('Invalid diagram number');
+                    return;
+                }
+                
+                // Hide all
+                for (let i = 1; i <= 5; i++) {
+                    const elem = document.getElementById('diagram' + i);
+                    if (elem) {
+                        elem.style.display = 'none';
+                    }
+                }
+                
+                // Show selected
+                const selected = document.getElementById('diagram' + num);
+                if (selected) {
+                    selected.style.display = 'block';
+                } else {
+                    console.error('Diagram not found:', num);
+                }
+            } catch (error) {
+                console.error('Error showing diagram:', error);
+            }
+        }
+        
+        // Prevent XSS and injection attacks
+        window.addEventListener('DOMContentLoaded', function() {
+            // Sanitize all user inputs (if any)
+            document.querySelectorAll('input, textarea').forEach(elem => {
+                elem.addEventListener('input', function(e) {
+                    this.value = this.value.replace(/<script[^>]*>.*?<\/script>/gi, '');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

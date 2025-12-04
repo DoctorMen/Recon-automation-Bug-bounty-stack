@@ -1,0 +1,20 @@
+{
+  "authorizations": [],
+  "templates": {
+    "client_authorization_template": {
+      "client_name": "",
+      "company": "",
+      "contact_email": "",
+      "contact_phone": "",
+      "authorized_domains": [],
+      "authorized_ips": [],
+      "testing_period_start": "",
+      "testing_period_end": "",
+      "authorized_activities": [],
+      "prohibited_activities": [],
+      "emergency_contact": "",
+      "signed_date": "",
+      "authorization_hash": ""
+    }
+  }
+}

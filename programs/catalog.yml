@@ -1,0 +1,12 @@
+- name: Robinhood Crypto
+  domains:
+    - robinhood.com
+    - crypto.robinhood.com
+  scope:
+    include: ["*.robinhood.com", "*.crypto.robinhood.com"]
+    exclude: ["api.robinhood.com"]  # Example exclusion
+  rate_limit: 5 requests/second
+  disallowed:
+    - brute_force
+    - social_engineering
+  bounty_url: https://cantina.xyz/bounties/robinhood-crypto

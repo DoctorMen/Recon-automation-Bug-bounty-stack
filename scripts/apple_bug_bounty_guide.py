@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Apple Bug Bounty - Interactive Guide
 Step-by-step guide for submitting findings
@@ -310,5 +314,11 @@ def interactive_guide():
 
 if __name__ == "__main__":
     interactive_guide()
+
+
+
+
+
+
 
 

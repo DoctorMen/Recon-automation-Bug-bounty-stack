@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Browser Proxy Configuration - Complete Guide
 
 **Burp Suite Proxy:** `127.0.0.1:8080`  

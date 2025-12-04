@@ -1,0 +1,322 @@
+{
+  "context_awareness_engine": {
+    "description": "Advanced context tracking and reasoning for multi-turn conversations",
+    "version": "2.0.0",
+    
+    "conversation_state_management": {
+      "state_tracking": {
+        "current_target": null,
+        "last_command": null,
+        "scan_status": "idle",
+        "findings_loaded": false,
+        "user_preferences": {},
+        "conversation_history": [],
+        "entity_registry": {}
+      },
+      
+      "state_transitions": [
+        {
+          "from": "idle",
+          "to": "scanning",
+          "trigger": "scan_started",
+          "actions": ["update_current_target", "set_start_time"]
+        },
+        {
+          "from": "scanning",
+          "to": "completed",
+          "trigger": "scan_finished",
+          "actions": ["calculate_duration", "load_results", "notify_user"]
+        },
+        {
+          "from": "completed",
+          "to": "analyzing",
+          "trigger": "user_requests_results",
+          "actions": ["parse_triage_json", "prepare_presentation"]
+        }
+      ],
+      
+      "context_preservation": {
+        "preserve_between_turns": [
+          "target_domain",
+          "scan_settings",
+          "filter_preferences",
+          "output_format",
+          "notification_settings"
+        ],
+        "reset_on_new_target": [
+          "findings",
+          "scan_status",
+          "timing_info"
+        ]
+      }
+    },
+    
+    "entity_resolution": {
+      "pronouns": {
+        "it": {
+          "resolve_to": "last_singular_entity",
+          "examples": [
+            "User: 'Scan example.com' → AI: [scans] → User: 'Check if it finished' → IT = example.com scan"
+          ]
+        },
+        "them": {
+          "resolve_to": "last_plural_entity",
+          "examples": [
+            "User: 'Show critical findings' → AI: [shows 5] → User: 'Export them' → THEM = critical findings"
+          ]
+        },
+        "that": {
+          "resolve_to": "last_mentioned_concept",
+          "examples": [
+            "User: 'Generate report' → AI: [creates summary.md] → User: 'Open that' → THAT = summary.md"
+          ]
+        },
+        "those": {
+          "resolve_to": "last_plural_collection",
+          "examples": [
+            "User: 'Filter high severity' → AI: [shows 8] → User: 'Submit those' → THOSE = 8 high severity findings"
+          ]
+        }
+      },
+      
+      "implicit_references": {
+        "the_scan": "current_or_last_scan",
+        "the_results": "latest_triage_json",
+        "the_target": "current_target_domain",
+        "the_findings": "loaded_findings",
+        "the_report": "latest_generated_report"
+      },
+      
+      "coreference_chains": {
+        "example": [
+          "User: 'Scan example.com'",
+          "AI: [stores example.com as @TARGET]",
+          "User: 'Is it done?'",
+          "AI: [resolves 'it' to @TARGET scan]",
+          "User: 'Show me the results'",
+          "AI: [resolves 'the results' to @TARGET findings]",
+          "User: 'Just the critical ones'",
+          "AI: [filters @TARGET findings by severity=critical]"
+        ]
+      }
+    },
+    
+    "conversation_flow_patterns": {
+      "sequential_refinement": {
+        "pattern": ["broad_request", "refinement_1", "refinement_2", "action"],
+        "example": [
+          "User: 'Scan the target' → AI: Which target?",
+          "User: 'example.com' → AI: [starts scan]",
+          "User: 'Show results' → AI: [shows all]",
+          "User: 'Only critical' → AI: [filters critical]",
+          "User: 'Export' → AI: [exports critical findings]"
+        ],
+        "ai_behavior": "maintain_context_through_chain"
+      },
+      
+      "comparative_analysis": {
+        "pattern": ["action_A", "action_B", "compare"],
+        "example": [
+          "User: 'Scan example.com' → AI: [scan A completed]",
+          "User: 'Now scan test.com' → AI: [scan B completed]",
+          "User: 'Which one has more critical findings?' → AI: [compares A vs B]"
+        ],
+        "ai_behavior": "store_both_results_for_comparison"
+      },
+      
+      "troubleshooting_dialogue": {
+        "pattern": ["problem_statement", "diagnostic_questions", "solution"],
+        "example": [
+          "User: 'Scan failed' → AI: What error did you see?",
+          "User: 'Network timeout' → AI: [checks VPN, connectivity]",
+          "User: 'VPN is fine' → AI: [suggests reducing rate limit]",
+          "User: 'Try that' → AI: [reruns with lower rate limit]"
+        ],
+        "ai_behavior": "guided_problem_resolution"
+      },
+      
+      "exploratory_analysis": {
+        "pattern": ["view_data", "drill_down", "drill_down", "extract"],
+        "example": [
+          "User: 'Show all findings' → AI: [displays summary]",
+          "User: 'What's that XSS?' → AI: [expands XSS details]",
+          "User: 'Show the URL' → AI: [displays affected URL]",
+          "User: 'Give me the curl command' → AI: [generates PoC curl]"
+        ],
+        "ai_behavior": "progressive_disclosure"
+      }
+    },
+    
+    "temporal_reasoning": {
+      "relative_time_understanding": {
+        "now": "current_moment",
+        "just_now": "within_last_5_minutes",
+        "earlier": "previous_in_session",
+        "before": "prior_to_reference_point",
+        "after": "subsequent_to_reference_point",
+        "last_time": "most_recent_occurrence",
+        "next_time": "future_occurrence"
+      },
+      
+      "temporal_queries": {
+        "examples": [
+          "Show me what we found last time → retrieve previous scan results",
+          "Run it again like before → use previous settings",
+          "What changed since yesterday → delta analysis",
+          "Schedule for tomorrow → create cron job"
+        ]
+      },
+      
+      "event_sequencing": {
+        "track_order": true,
+        "maintain_timeline": true,
+        "answer_when_questions": true
+      }
+    },
+    
+    "preference_learning": {
+      "implicit_preferences": {
+        "scan_speed": {
+          "learn_from": "frequency of 'quick' vs 'thorough'",
+          "default_after_n_uses": 5,
+          "confidence_threshold": 0.7
+        },
+        "severity_filter": {
+          "learn_from": "which severities user views most",
+          "auto_suggest": true
+        },
+        "output_format": {
+          "learn_from": "export format choices",
+          "remember": true
+        },
+        "notification_preference": {
+          "learn_from": "reaction to notifications",
+          "adjust_frequency": true
+        }
+      },
+      
+      "explicit_preferences": {
+        "remember_commands": [
+          "User: 'Always use fast mode for quick scans'",
+          "User: 'Default to critical + high severity'",
+          "User: 'Never scan without VPN check'"
+        ],
+        "storage": "user_profile.json",
+        "apply_automatically": true
+      }
+    },
+    
+    "semantic_understanding": {
+      "synonym_mapping": {
+        "scan": ["test", "check", "assess", "analyze", "hunt"],
+        "results": ["findings", "output", "discoveries", "vulnerabilities"],
+        "critical": ["severe", "serious", "high-priority", "urgent"],
+        "quick": ["fast", "rapid", "speedy", "swift"],
+        "thorough": ["deep", "comprehensive", "complete", "exhaustive"]
+      },
+      
+      "domain_specific_terms": {
+        "recon": "reconnaissance phase",
+        "nuclei": "vulnerability scanning phase",
+        "triage": "finding prioritization",
+        "opsec": "operational security verification",
+        "poc": "proof of concept demonstration"
+      },
+      
+      "intent_disambiguation": {
+        "scan": {
+          "context_clues": {
+            "with_domain": "start_new_scan",
+            "no_params": "check_current_scan_status",
+            "after_completion": "rescan_same_target"
+          }
+        },
+        "show": {
+          "context_clues": {
+            "show_results": "display_findings",
+            "show_status": "display_progress",
+            "show_logs": "display_execution_logs"
+          }
+        }
+      }
+    },
+    
+    "multi_step_reasoning": {
+      "plan_execution": {
+        "user_says": "I want to find XSS vulnerabilities in example.com and prepare a bug bounty submission",
+        "ai_breaks_down": [
+          "Step 1: Scan example.com",
+          "Step 2: Filter for XSS findings",
+          "Step 3: Triage and validate",
+          "Step 4: Generate proof-of-concept",
+          "Step 5: Create submission package",
+          "Step 6: Sanitize outputs"
+        ],
+        "execute_sequentially": true,
+        "report_progress": true
+      },
+      
+      "conditional_logic": {
+        "user_says": "Scan example.com, and if you find critical issues, alert me immediately",
+        "ai_understands": [
+          "Execute: scan example.com",
+          "Monitor: findings during scan",
+          "Condition: if critical severity found",
+          "Action: send immediate notification"
+        ],
+        "implement_callbacks": true
+      }
+    },
+    
+    "error_recovery_context": {
+      "remember_failures": true,
+      "learn_solutions": true,
+      "suggest_automatically": true,
+      "examples": [
+        {
+          "failure": "scan_timeout_on_example.com",
+          "solution": "increase_RECON_TIMEOUT_to_3600",
+          "next_time": "automatically_suggest_higher_timeout"
+        },
+        {
+          "failure": "out_of_memory_with_AMASS_MAX_DNS_20000",
+          "solution": "reduce_to_10000",
+          "next_time": "warn_before_using_high_values"
+        }
+      ]
+    },
+    
+    "proactive_assistance": {
+      "anticipate_needs": {
+        "after_scan_completion": "Offer to show results",
+        "after_showing_results": "Offer to filter or export",
+        "after_finding_critical": "Offer to generate PoC",
+        "after_error": "Offer troubleshooting steps"
+      },
+      
+      "helpful_suggestions": {
+        "timing": "context_appropriate",
+        "frequency": "not_annoying",
+        "examples": [
+          "Scan completed! Would you like me to show the critical findings?",
+          "I notice this is the 3rd scan of example.com this week. Set up continuous monitoring?",
+          "You often filter for XSS. Want me to do that automatically?"
+        ]
+      }
+    }
+  },
+  
+  "implementation": {
+    "state_storage": ".ai-training/context_state.json",
+    "conversation_log": ".ai-training/conversation_history.jsonl",
+    "user_profile": ".ai-training/user_profile.json",
+    "learning_data": ".ai-training/ml_training_data.json"
+  },
+  
+  "privacy": {
+    "data_retention": "30_days",
+    "anonymization": true,
+    "opt_out_available": true,
+    "no_sensitive_data_storage": true
+  }
+}

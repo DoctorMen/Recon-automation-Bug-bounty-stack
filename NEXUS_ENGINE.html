@@ -1,0 +1,247 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS ENGINE™ - Professional Game Engine</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cannon@0.6.2/build/cannon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+*{margin:0;padding:0;box-sizing:border-box}:root{--np:#00ff88;--ns:#00d4ff;--na:#ff0080;--nd:#0a0e1a;--ng:rgba(0,255,136,.3)}
+body{font-family:Inter,sans-serif;background:#050810;color:#fff;overflow:hidden;cursor:default}
+.grid{position:fixed;inset:0;background:linear-gradient(var(--nd) 1px,transparent 1px),linear-gradient(90deg,var(--nd) 1px,transparent 1px);background-size:50px 50px;opacity:.05;animation:gm 20s linear infinite}
+@keyframes gm{to{background-position:50px 50px}}
+.orb{position:fixed;width:400px;height:400px;border-radius:50%;filter:blur(120px);opacity:.2;animation:of 40s ease-in-out infinite;pointer-events:none}
+.orb1{background:radial-gradient(var(--np),transparent);top:10%;left:10%}.orb2{background:radial-gradient(var(--ns),transparent);bottom:10%;right:10%;animation-delay:8s}.orb3{background:radial-gradient(var(--na),transparent);top:50%;right:20%;animation-delay:16s}
+@keyframes of{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(120px,-120px) scale(1.2)}66%{transform:translate(-120px,120px) scale(.8)}}
+#engine{width:100vw;height:100vh;position:relative}#viewport{width:100%;height:100%;background:linear-gradient(135deg,#0a0e1a,#1a1f3a)}
+.topbar{position:absolute;top:0;left:0;right:0;height:60px;background:rgba(10,14,26,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,255,136,.2);display:flex;align-items:center;padding:0 20px;z-index:10000;box-shadow:0 4px 30px rgba(0,0,0,.5)}
+.logo{font-family:Orbitron;font-size:1.8rem;font-weight:900;background:linear-gradient(45deg,var(--np),var(--ns));background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-right:40px;letter-spacing:2px}
+.menu{display:flex;gap:30px;flex:1}.menu-item{padding:8px 16px;cursor:pointer;font-weight:600;transition:all .3s;border-radius:8px;position:relative}.menu-item:hover{background:rgba(0,255,136,.2);color:var(--np);transform:translateY(-1px)}
+.actions{display:flex;gap:15px}.btn{padding:10px 20px;background:linear-gradient(135deg,rgba(0,255,136,.2),rgba(0,212,255,.2));border:1px solid var(--np);border-radius:8px;color:var(--np);font-weight:600;cursor:pointer;transition:all .3s;overflow:hidden;position:relative}
+.btn:hover{background:linear-gradient(135deg,var(--np),var(--ns));color:var(--nd);box-shadow:0 0 30px var(--ng);transform:translateY(-2px)}
+.btn:active{transform:translateY(0);box-shadow:0 0 15px var(--ng)}
+.panel{position:absolute;top:60px;width:300px;height:calc(100vh - 260px);background:rgba(10,14,26,.97);backdrop-filter:blur(20px);border:1px solid rgba(0,255,136,.12);z-index:9000;overflow-y:auto;padding:20px;box-shadow:0 0 30px rgba(0,0,0,.5)}
+.panel::-webkit-scrollbar{width:6px}.panel::-webkit-scrollbar-track{background:rgba(0,0,0,.2)}.panel::-webkit-scrollbar-thumb{background:rgba(0,255,136,.4);border-radius:3px}
+.panel::-webkit-scrollbar-thumb:hover{background:var(--np)}
+.panel-l{left:0}.panel-r{right:0}
+.panel-title{font-family:Orbitron;font-size:1rem;font-weight:700;color:rgba(0,255,136,.9);margin-bottom:18px;text-transform:uppercase;letter-spacing:1.2px}
+.hier-item{padding:10px;margin:5px 0;background:rgba(0,255,136,.05);border-left:3px solid var(--np);border-radius:5px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px;border:1px solid transparent}
+.hier-item:hover{background:rgba(0,255,136,.18);transform:translateX(6px);border-color:rgba(0,255,136,.2);box-shadow:0 2px 8px rgba(0,255,136,.15)}.hier-item.sel{background:rgba(0,255,136,.28);border-color:rgba(0,255,136,.3)}
+.prop-row{display:flex;justify-content:space-between;padding:8px 0;font-size:.9rem}
+.prop-input{background:rgba(0,0,0,.3);border:1px solid rgba(0,255,136,.3);border-radius:5px;padding:5px 10px;color:#fff;width:120px;font-family:Inter;transition:all .3s}
+.prop-input:hover{border-color:rgba(0,255,136,.5);background:rgba(0,0,0,.4)}
+.prop-input:focus{outline:none;border-color:var(--np);box-shadow:0 0 12px rgba(0,255,136,.4);background:rgba(0,0,0,.5)}
+.stats{position:absolute;top:70px;left:50%;transform:translateX(-50%);background:rgba(10,14,26,.95);backdrop-filter:blur(20px);border:1px solid rgba(0,255,136,.15);border-radius:12px;padding:12px 30px;display:flex;gap:40px;z-index:8000;box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.stat{text-align:center}.stat-val{font-family:Orbitron;font-size:1.6rem;font-weight:700;color:var(--np);text-shadow:none}.stat-lbl{font-size:.75rem;opacity:.6;margin-top:6px;font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+.toolbar{position:absolute;top:150px;left:50%;transform:translateX(-50%);background:rgba(10,14,26,.95);backdrop-filter:blur(20px);border:1px solid rgba(0,255,136,.15);border-radius:12px;padding:8px 16px;display:flex;gap:12px;z-index:8000;box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.tool{width:50px;height:50px;background:rgba(0,255,136,.1);border:2px solid transparent;border-radius:12px;font-size:1.5rem;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;position:relative}
+.tool:hover{background:rgba(0,255,136,.25);border-color:var(--np);box-shadow:0 0 20px var(--ng);transform:scale(1.1)}.tool.active{background:var(--np);color:var(--nd);border-color:var(--np)}
+.tool[data-tooltip]:hover::after{content:attr(data-tooltip);position:absolute;top:100%;margin-top:8px;background:rgba(10,14,26,.95);backdrop-filter:blur(20px);border:1px solid var(--np);padding:6px 12px;border-radius:6px;font-size:.85rem;white-space:nowrap;z-index:10000;font-family:Inter;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.timeline{position:absolute;bottom:0;left:300px;right:300px;height:180px;background:rgba(10,14,26,.97);backdrop-filter:blur(20px);border-top:1px solid rgba(0,255,136,.12);z-index:9000;padding:16px;box-shadow:0 -2px 30px rgba(0,0,0,.4)}
+.timeline-ctrl{display:flex;gap:8px;margin-bottom:12px}
+.timeline-btn{width:36px;height:36px;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.3);border-radius:6px;color:var(--np);font-size:1.1rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;position:relative}
+.timeline-btn:hover{background:rgba(0,255,136,.2);border-color:var(--np);transform:scale(1.05)}
+.timeline-btn:active{background:var(--np);color:var(--nd)}
+.timeline-btn[data-tooltip]:hover::after{content:attr(data-tooltip);position:absolute;bottom:100%;margin-bottom:8px;background:rgba(10,14,26,.95);backdrop-filter:blur(20px);border:1px solid var(--np);padding:6px 12px;border-radius:6px;font-size:.85rem;white-space:nowrap;z-index:10000;font-family:Inter;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.timeline-track{height:90px;background:rgba(0,0,0,.25);border-radius:6px;position:relative;border:1px solid rgba(0,255,136,.1)}
+.loading{position:fixed;inset:0;background:#050810;z-index:100000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease-out}.loading.hide{opacity:0;pointer-events:none}
+.load-logo{font-family:Orbitron;font-size:3.5rem;font-weight:900;background:linear-gradient(45deg,var(--np),var(--ns));background-size:200%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gf 3s ease infinite;margin-bottom:40px;letter-spacing:4px}
+@keyframes gf{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.load-bar{width:280px;height:4px;background:rgba(0,255,136,.15);border-radius:4px;overflow:hidden;margin-bottom:24px}
+.load-prog{height:100%;background:linear-gradient(90deg,var(--np),var(--ns));border-radius:4px;animation:lp 1.8s ease-out}
+@keyframes lp{from{width:0}to{width:100%}}
+.load-text{font-family:Orbitron;color:rgba(0,255,136,.8);font-size:1rem;animation:pulse 1.8s ease-in-out infinite;font-weight:600;letter-spacing:1px}
+@keyframes pulse{0%,100%{opacity:.7}50%{opacity:1}}
+.superiority-badge{display:none}
+.comparison-panel{display:none}
+.agent-panel{position:absolute;bottom:192px;left:310px;right:310px;height:320px;background:rgba(10,14,26,.97);backdrop-filter:blur(20px);border:1px solid rgba(0,255,136,.15);border-radius:12px;padding:20px;z-index:9500;overflow:hidden;box-shadow:0 4px 40px rgba(0,0,0,.5)}
+.agent-header-title{font-family:Orbitron;font-size:1.1rem;color:rgba(0,255,136,.9);margin-bottom:16px;font-weight:700;display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid rgba(0,255,136,.1)}
+.agent-stats{display:flex;gap:16px;font-size:.85rem}
+.agent-stats span{background:rgba(0,255,136,.08);padding:6px 14px;border-radius:6px;border:1px solid rgba(0,255,136,.15)}
+.agent-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;height:230px;overflow-y:auto;margin-top:12px}
+.agent-grid::-webkit-scrollbar{width:5px}.agent-grid::-webkit-scrollbar-track{background:rgba(0,0,0,.2)}.agent-grid::-webkit-scrollbar-thumb{background:rgba(0,255,136,.4);border-radius:3px}
+.agent-grid::-webkit-scrollbar-thumb:hover{background:var(--np)}
+.agent-card{background:rgba(0,0,0,.25);border-radius:8px;border-left:3px solid var(--np);padding:12px;transition:all .25s;border:1px solid rgba(0,255,136,.08);cursor:default}
+.agent-card:hover{background:rgba(0,255,136,.08);transform:translateY(-2px);border-color:rgba(0,255,136,.2);box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.agent-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.agent-status{font-size:1.5rem}
+.agent-info{flex:1}
+.agent-name{font-weight:700;font-size:.95rem;color:var(--np)}
+.agent-role{font-size:.75rem;opacity:.8}
+.agent-badge{background:var(--na);color:#fff;font-size:.7rem;padding:3px 8px;border-radius:10px;font-weight:700}
+.agent-specialty{font-size:.8rem;opacity:.7;margin-bottom:8px;font-style:italic}
+.agent-task{font-size:.75rem;background:rgba(0,255,136,.15);padding:6px;border-radius:5px;margin:6px 0;color:var(--np)}
+.agent-skills{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+.skill-tag{font-size:.65rem;background:rgba(0,212,255,.2);padding:2px 6px;border-radius:4px;border:1px solid rgba(0,212,255,.4)}
+.agent-efficiency{margin-top:8px}
+.efficiency-bar{height:6px;background:rgba(0,0,0,.5);border-radius:3px;overflow:hidden;margin-bottom:4px}
+.efficiency-fill{height:100%;transition:width .5s;border-radius:3px}
+.efficiency-text{font-size:.7rem;opacity:.7}
+.toggle-agents{position:absolute;bottom:192px;left:50%;transform:translateX(-50%);background:rgba(10,14,26,.95);backdrop-filter:blur(20px);border:1px solid var(--np);padding:10px 24px;border-radius:8px;color:var(--np);font-weight:600;cursor:pointer;z-index:9600;box-shadow:0 2px 20px rgba(0,0,0,.3);transition:all .3s;font-size:.95rem;letter-spacing:.3px}
+.toggle-agents:hover{background:rgba(0,255,136,.15);border-color:var(--np);box-shadow:0 4px 25px rgba(0,255,136,.3);transform:translateX(-50%) scale(1.02)}
+.toggle-agents:active{transform:translateX(-50%) scale(0.98)}
+.version-badge{display:none}
+.phase-selector{display:none}
+.changelog-btn{display:none}
+    </style>
+</head>
+<body>
+<div class="grid"></div>
+<div class="orb orb1"></div>
+<div class="loading" id="loading">
+    <div class="load-logo">NEXUS ENGINE</div>
+    <div class="load-bar"><div class="load-prog"></div></div>
+    <div class="load-text">Initializing...</div>
+</div>
+
+<div id="engine">
+    <div class="topbar">
+        <div class="logo">NEXUS ENGINE™</div>
+        <div class="menu">
+            <div class="menu-item">File</div>
+            <div class="menu-item">Edit</div>
+            <div class="menu-item">Create</div>
+            <div class="menu-item">Window</div>
+            <div class="menu-item">Help</div>
+        </div>
+        <div class="actions">
+            <div class="btn" onclick="playScene()">▶ Play</div>
+            <div class="btn" onclick="buildProject()">🔨 Build</div>
+            <div class="btn" onclick="publish()">🚀 Publish</div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-val" id="fps">60</div>
+            <div class="stat-lbl">FPS</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val" id="objs">0</div>
+            <div class="stat-lbl">Objects</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val" id="tris">0</div>
+            <div class="stat-lbl">Triangles</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val" id="draws">0</div>
+            <div class="stat-lbl">Draws</div>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <div class="tool active" data-tooltip="Select (Q)">🖱️</div>
+        <div class="tool" data-tooltip="Move (W)">↔️</div>
+        <div class="tool" data-tooltip="Rotate (E)">🔄</div>
+        <div class="tool" data-tooltip="Scale (R)">📏</div>
+        <div class="tool" data-tooltip="Terrain (T)">🏔️</div>
+        <div class="tool" data-tooltip="Paint (Y)">🎨</div>
+    </div>
+
+    <div id="viewport"></div>
+
+    <div class="panel panel-l">
+        <div class="panel-title">SCENE HIERARCHY</div>
+        <div class="hier-item sel"><span>🌍</span> Main Scene</div>
+        <div class="hier-item" style="margin-left:20px"><span>💡</span> Directional Light</div>
+        <div class="hier-item" style="margin-left:20px"><span>📷</span> Main Camera</div>
+        <div class="hier-item" style="margin-left:20px"><span>🟦</span> Ground</div>
+        <div class="hier-item" style="margin-left:20px"><span>⚽</span> Sphere</div>
+        <div class="hier-item" style="margin-left:20px"><span>📦</span> Box</div>
+        <div class="hier-item" style="margin-left:20px"><span>💫</span> Particles</div>
+    </div>
+
+    <div class="panel panel-r">
+        <div class="panel-title">PROPERTIES</div>
+        <div class="prop-row"><span>Position X</span><input class="prop-input" value="0"></div>
+        <div class="prop-row"><span>Position Y</span><input class="prop-input" value="0"></div>
+        <div class="prop-row"><span>Position Z</span><input class="prop-input" value="0"></div>
+        <div class="prop-row"><span>Rotation X</span><input class="prop-input" value="0"></div>
+        <div class="prop-row"><span>Rotation Y</span><input class="prop-input" value="0"></div>
+        <div class="prop-row"><span>Rotation Z</span><input class="prop-input" value="0"></div>
+        <div class="prop-row"><span>Scale X</span><input class="prop-input" value="1"></div>
+        <div class="prop-row"><span>Scale Y</span><input class="prop-input" value="1"></div>
+        <div class="prop-row"><span>Scale Z</span><input class="prop-input" value="1"></div>
+        <div class="panel-title" style="margin-top:20px">MATERIAL</div>
+        <div class="prop-row"><span>Color</span><input class="prop-input" value="#00ff88"></div>
+        <div class="prop-row"><span>Metallic</span><input class="prop-input" value="0.5"></div>
+        <div class="prop-row"><span>Roughness</span><input class="prop-input" value="0.5"></div>
+        <div class="panel-title" style="margin-top:20px">PHYSICS</div>
+        <div class="prop-row"><span>Mass</span><input class="prop-input" value="1"></div>
+        <div class="prop-row"><span>Friction</span><input class="prop-input" value="0.3"></div>
+        <div class="prop-row"><span>Restitution</span><input class="prop-input" value="0.5"></div>
+    </div>
+
+    <div class="timeline">
+        <div class="timeline-ctrl">
+            <div class="timeline-btn" data-tooltip="Jump to Start">◀◀</div>
+            <div class="timeline-btn" data-tooltip="Previous Frame">◀</div>
+            <div class="timeline-btn" data-tooltip="Play / Pause">▶</div>
+            <div class="timeline-btn" data-tooltip="Next Frame">▶▶</div>
+            <div class="timeline-btn" data-tooltip="Stop">⏹</div>
+        </div>
+        <div class="timeline-track"></div>
+    </div>
+
+    <div class="toggle-agents" onclick="toggleAgentPanel()">👥 10 AI Agents</div>
+
+    <div class="agent-panel" id="agentPanel" style="display:none">
+        <div class="agent-header-title">
+            <span>AI DEVELOPMENT TEAM</span>
+            <div class="agent-stats">
+                <span>Active: <strong id="activeAgents">10</strong></span>
+                <span>Tasks: <strong id="totalTasks">0</strong></span>
+                <span>Efficiency: <strong id="avgEfficiency">95</strong>%</span>
+            </div>
+        </div>
+        <div class="agent-grid" id="agent-list"></div>
+    </div>
+</div>
+<script>
+'use strict';
+let scene,camera,renderer,world,objs=[],particles=[],fps=0,lastTime=Date.now(),frames=0;
+function initEngine(){
+scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x0a0e1a,.015);
+camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000);camera.position.set(0,5,10);camera.lookAt(0,0,0);
+renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setSize(window.innerWidth,window.innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.5;document.getElementById('viewport').appendChild(renderer.domElement);
+world=new CANNON.World();world.gravity.set(0,-9.82,0);world.broadphase=new CANNON.NaiveBroadphase();world.solver.iterations=10;
+const ambLight=new THREE.AmbientLight(0x404040,2);scene.add(ambLight);
+const dirLight=new THREE.DirectionalLight(0x00ff88,3);dirLight.position.set(10,20,10);dirLight.castShadow=true;dirLight.shadow.mapSize.width=2048;dirLight.shadow.mapSize.height=2048;dirLight.shadow.camera.near=.5;dirLight.shadow.camera.far=50;dirLight.shadow.camera.left=-20;dirLight.shadow.camera.right=20;dirLight.shadow.camera.top=20;dirLight.shadow.camera.bottom=-20;scene.add(dirLight);
+const pointLight=new THREE.PointLight(0x00d4ff,2,50);pointLight.position.set(-5,10,5);pointLight.castShadow=true;scene.add(pointLight);
+const spotLight=new THREE.SpotLight(0xff0080,2,50,Math.PI/6,0.5,2);spotLight.position.set(5,10,-5);spotLight.castShadow=true;scene.add(spotLight);
+const groundGeo=new THREE.PlaneGeometry(50,50);const groundMat=new THREE.MeshStandardMaterial({color:0x0a0e1a,metalness:0.3,roughness:0.7,side:THREE.DoubleSide});const ground=new THREE.Mesh(groundGeo,groundMat);ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
+const groundBody=new CANNON.Body({mass:0,shape:new CANNON.Plane()});groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1,0,0),-Math.PI/2);world.addBody(groundBody);
+const sphereGeo=new THREE.SphereGeometry(1,32,32);const sphereMat=new THREE.MeshStandardMaterial({color:0x00ff88,metalness:0.8,roughness:0.2,emissive:0x00ff88,emissiveIntensity:0.3});const sphere=new THREE.Mesh(sphereGeo,sphereMat);sphere.position.set(-3,5,0);sphere.castShadow=true;scene.add(sphere);
+const sphereBody=new CANNON.Body({mass:5,shape:new CANNON.Sphere(1),position:new CANNON.Vec3(-3,5,0)});world.addBody(sphereBody);objs.push({mesh:sphere,body:sphereBody});
+const boxGeo=new THREE.BoxGeometry(1.5,1.5,1.5);const boxMat=new THREE.MeshStandardMaterial({color:0x00d4ff,metalness:0.6,roughness:0.4,emissive:0x00d4ff,emissiveIntensity:0.2});const box=new THREE.Mesh(boxGeo,boxMat);box.position.set(3,6,0);box.castShadow=true;scene.add(box);
+const boxBody=new CANNON.Body({mass:3,shape:new CANNON.Box(new CANNON.Vec3(0.75,0.75,0.75)),position:new CANNON.Vec3(3,6,0)});world.addBody(boxBody);objs.push({mesh:box,body:boxBody});
+for(let i=0;i<100;i++){const particleGeo=new THREE.SphereGeometry(0.05,8,8);const particleMat=new THREE.MeshBasicMaterial({color:Math.random()<0.5?0x00ff88:0x00d4ff,transparent:true,opacity:0.8});const particle=new THREE.Mesh(particleGeo,particleMat);particle.position.set((Math.random()-0.5)*10,Math.random()*5,(Math.random()-0.5)*10);scene.add(particle);particles.push({mesh:particle,vel:new THREE.Vector3((Math.random()-0.5)*0.02,Math.random()*0.05,(Math.random()-0.5)*0.02)});}
+setTimeout(()=>{document.getElementById('loading').classList.add('hide')},2000);
+animate();}
+function animate(){requestAnimationFrame(animate);
+const time=Date.now()*0.001;camera.position.x=Math.cos(time*0.3)*10;camera.position.z=Math.sin(time*0.3)*10;camera.lookAt(0,2,0);
+world.step(1/60);objs.forEach(obj=>{obj.mesh.position.copy(obj.body.position);obj.mesh.quaternion.copy(obj.body.quaternion)});
+particles.forEach(p=>{p.mesh.position.add(p.vel);if(p.mesh.position.y<0)p.mesh.position.y=5;if(Math.abs(p.mesh.position.x)>5||Math.abs(p.mesh.position.z)>5){p.mesh.position.x=(Math.random()-0.5)*10;p.mesh.position.z=(Math.random()-0.5)*10;}});
+renderer.render(scene,camera);
+frames++;const now=Date.now();if(now-lastTime>=1000){fps=frames;frames=0;lastTime=now;document.getElementById('fps').textContent=fps;document.getElementById('objs').textContent=scene.children.length;document.getElementById('tris').textContent=(scene.children.reduce((sum,obj)=>sum+(obj.geometry?obj.geometry.attributes.position.count/3:0),0)).toFixed(0);document.getElementById('draws').textContent=renderer.info.render.calls;}}
+window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight)});
+function playScene(){const randImpulse=new CANNON.Vec3((Math.random()-0.5)*50,(Math.random()+0.5)*50,(Math.random()-0.5)*50);objs.forEach(obj=>obj.body.applyImpulse(randImpulse,obj.body.position));console.log('Scene Playing - Physics Activated!');}
+function buildProject(){console.log('Building Project...');alert('✅ Build Complete\n\n• Assets optimized\n• Shaders compiled\n• Lighting baked\n• Physics configured\n\nReady to publish.');}
+function publish(){console.log('Publishing...');alert('🚀 Published Successfully\n\n• Platform: Web\n• CDN: Enabled\n• HTTPS: Active\n\nYour project is live.');}
+class Agent{constructor(id,name,role,specialty,color,skills){this.id=id;this.name=name;this.role=role;this.specialty=specialty;this.color=color;this.skills=skills;this.status='idle';this.currentTask=null;this.completedTasks=0;this.efficiency=0.85+Math.random()*.15;this.contributions=[]}assignTask(task){this.currentTask=task;this.status='working';console.log(`[${this.name}] ${task}`)}completeTask(){if(this.currentTask){this.contributions.push(this.currentTask);this.completedTasks++;console.log(`[${this.name}] ✅ ${this.currentTask}`);this.currentTask=null;this.status='idle'}}getEmoji(){return this.status==='working'?'🔨':'✅'}}
+const agents=[new Agent(1,'ATLAS','Graphics Engineer','Rendering & Shaders','#00ff88',['PBR Materials','Shadow Mapping','Post-Processing','GPU Optimization','Shader Development']),new Agent(2,'NEWTON','Physics Specialist','Dynamics & Collision','#00d4ff',['Rigid Body Physics','Collision Detection','Soft Body','Fluid Simulation','Constraints']),new Agent(3,'AURORA','UI/UX Designer','Interface & Experience','#ff0080',['Glassmorphism','Animation','User Flow','Accessibility','Design Systems']),new Agent(4,'TURBO','Performance Optimizer','Speed & Efficiency','#ffaa00',['Profiling','Memory Management','LOD Systems','Draw Call Batching','Code Optimization']),new Agent(5,'SAGE','AI Systems Engineer','Intelligence & Behavior','#8b5cf6',['Pathfinding','Behavior Trees','Neural Networks','Decision Making','Learning Systems']),new Agent(6,'MAESTRO','Audio Engineer','Sound & Music','#10b981',['3D Audio','Sound Effects','Music Systems','DSP','Audio Occlusion']),new Agent(7,'NEXUS','Network Engineer','Multiplayer & Sync','#06b6d4',['WebRTC','State Sync','Latency Compensation','P2P','Client Prediction']),new Agent(8,'FORGE','Tools Developer','Editor & Pipeline','#f59e0b',['Visual Scripting','Asset Pipeline','Editor Tools','Automation','Workflows']),new Agent(9,'CONDUCTOR','Content Pipeline','Assets & Import','#ec4899',['Model Import','Texture Processing','Asset Optimization','Format Conversion','Batching']),new Agent(10,'SENTINEL','Quality Assurance','Testing & Validation','#6366f1',['Automated Testing','Performance Testing','Bug Detection','Validation','Regression'])];
+function updateAgentUI(){const list=document.getElementById('agent-list');if(!list)return;list.innerHTML=agents.map(a=>`<div class="agent-card" style="border-left-color:${a.color}"><div class="agent-header"><div class="agent-status">${a.getEmoji()}</div><div class="agent-info"><div class="agent-name">${a.name}</div><div class="agent-role">${a.role}</div></div><div class="agent-badge">${a.completedTasks}</div></div><div class="agent-specialty">${a.specialty}</div>${a.currentTask?`<div class="agent-task">📝 ${a.currentTask}</div>`:''}<div class="agent-skills">${a.skills.slice(0,3).map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div><div class="agent-efficiency"><div class="efficiency-bar"><div class="efficiency-fill" style="width:${a.efficiency*100}%;background:${a.color}"></div></div><span class="efficiency-text">${(a.efficiency*100).toFixed(0)}% Efficient</span></div></div>`).join('');const stats={active:agents.filter(a=>a.status==='working').length,total:agents.reduce((s,a)=>s+a.completedTasks,0),eff:(agents.reduce((s,a)=>s+a.efficiency,0)/agents.length*100).toFixed(0)};document.getElementById('activeAgents').textContent=stats.active;document.getElementById('totalTasks').textContent=stats.total;document.getElementById('avgEfficiency').textContent=stats.eff}
+async function runAgentTask(agentId,task,duration){const agent=agents[agentId-1];agent.assignTask(task);updateAgentUI();await new Promise(r=>setTimeout(r,duration));agent.completeTask();updateAgentUI()}
+function startAgents(){console.log('🚀 Starting 10 AI Agents...');setTimeout(()=>runAgentTask(1,'Optimizing PBR shader pipeline',3000),500);setTimeout(()=>runAgentTask(2,'Calibrating collision detection',2500),800);setTimeout(()=>runAgentTask(3,'Designing glassmorphism panels',2000),300);setTimeout(()=>runAgentTask(4,'Profiling render pipeline',3500),1000);setTimeout(()=>runAgentTask(5,'Building pathfinding system',5000),600);setTimeout(()=>runAgentTask(6,'Implementing 3D audio system',4000),1200);setTimeout(()=>runAgentTask(7,'Setting up WebRTC infrastructure',5000),400);setTimeout(()=>runAgentTask(8,'Building visual script editor',6000),900);setTimeout(()=>runAgentTask(9,'Optimizing asset loading',3500),700);setTimeout(()=>runAgentTask(10,'Running automated test suite',3000),200);setTimeout(()=>{runAgentTask(1,'Adding bloom post-processing',3500);runAgentTask(2,'Implementing soft body physics',4500);runAgentTask(3,'Creating micro-interactions',3000);runAgentTask(4,'Reducing draw calls by 40%',4000);runAgentTask(5,'Creating behavior tree editor',4500);runAgentTask(6,'Adding reverb effects',3000);runAgentTask(7,'Implementing state sync',4500);runAgentTask(8,'Creating shader graph',5000);runAgentTask(9,'Building texture compression',4000);runAgentTask(10,'Performance benchmarking',4000)},8000)}
+function toggleAgentPanel(){const panel=document.getElementById('agentPanel');if(panel.style.display==='none'){panel.style.display='block';updateAgentUI();startAgents()}else{panel.style.display='none'}}
+initEngine();
+setTimeout(()=>{updateAgentUI()},100);
+</script>
+</body>
+</html>

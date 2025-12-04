@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 💰 REALISTIC VALUE ASSESSMENT - NO BS
 
 ## 🔒 Copyright Answer: YES

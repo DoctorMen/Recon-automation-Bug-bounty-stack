@@ -1,0 +1,28 @@
+{
+  "client_name": "Example Corp",
+  "target": "example.com",
+  "scope": [
+    "example.com",
+    "*.example.com",
+    "# Add all authorized domains/IPs here"
+  ],
+  "start_date": "2025-11-28T16:35:41.955756",
+  "end_date": "2025-12-28T16:35:41.955770",
+  "authorized_by": "CLIENT_NAME_HERE",
+  "authorized_by_email": "client@example.com",
+  "authorized_by_title": "CEO/CTO/Authorized Representative",
+  "contact_emergency": "phone_number_here",
+  "testing_types_authorized": [
+    "vulnerability_scanning",
+    "port_scanning",
+    "web_application_testing"
+  ],
+  "testing_types_forbidden": [
+    "dos_testing",
+    "social_engineering",
+    "physical_access"
+  ],
+  "notes": "Replace all placeholder values before use",
+  "signature_date": null,
+  "signature_hash": null
+}

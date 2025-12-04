@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Assistant Agent Helper - Browser Evidence Capture Support
 
 **Created for:** Agent working on IDOR evidence capture for Rapyd bug bounty  
@@ -189,6 +192,12 @@ The scripts automate the manual steps described in these guides.
 **Dependencies:** Python 3.6+, standard library only
 
 The other agent can now use these tools to streamline the IDOR evidence capture process!
+
+
+
+
+
+
 
 
 

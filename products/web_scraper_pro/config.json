@@ -1,0 +1,31 @@
+{
+  "target_url": "https://example.com/products",
+  "selectors": {
+    "product_container": ".product-item",
+    "product_title": ".product-name",
+    "price": ".product-price",
+    "image": "img.product-image",
+    "product_link": "a.product-link",
+    "description": ".product-description",
+    "sku": ".product-sku",
+    "rating": ".product-rating",
+    "availability": ".product-stock"
+  },
+  "pagination": {
+    "enabled": true,
+    "next_button": ".pagination-next",
+    "max_pages": 10
+  },
+  "rate_limit": {
+    "delay_seconds": 1,
+    "requests_per_minute": 30
+  },
+  "output": {
+    "format": "csv",
+    "filename": "products.csv"
+  },
+  "proxy": {
+    "enabled": false,
+    "proxy_list": []
+  }
+}

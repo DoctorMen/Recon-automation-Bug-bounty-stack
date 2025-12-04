@@ -1,0 +1,114 @@
+{
+  "target": "kiln.fi",
+  "timestamp": "2025-12-01T21:02:58.563874",
+  "verification_summary": {
+    "total_verified": 3,
+    "false_positives_filtered": 13
+  },
+  "findings": [
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "kiln.fi",
+      "evidence": "Resolves to 2 IPs",
+      "verification": {
+        "status": "verified",
+        "reason": "DNS resolves to 2 real IP addresses",
+        "evidence": {
+          "resolved_ips": [
+            "99.83.190.102",
+            "75.2.70.75"
+          ],
+          "real_ips": [
+            "99.83.190.102",
+            "75.2.70.75"
+          ],
+          "count": 2
+        }
+      },
+      "submission_ready": true
+    },
+    {
+      "type": "clickjacking_risk",
+      "severity": "medium",
+      "target": "kiln.fi",
+      "evidence": "Missing X-Frame-Options - potential clickjacking of wallet approval",
+      "verification": {
+        "status": "verified",
+        "reason": "Site can be framed - clickjacking confirmed",
+        "evidence": {
+          "missing_x_frame_options": true,
+          "missing_csp_frame_ancestors": true,
+          "iframe_test": {
+            "can_be_framed": true,
+            "method": "header_analysis"
+          },
+          "headers": {
+            "Date": "Tue, 02 Dec 2025 02:02:51 GMT",
+            "Content-Type": "text/html",
+            "Transfer-Encoding": "chunked",
+            "Connection": "keep-alive",
+            "CF-Ray": "9a773e98eda9c952-IAD",
+            "CF-Cache-Status": "HIT",
+            "Age": "395388",
+            "Content-Encoding": "gzip",
+            "Last-Modified": "Thu, 27 Nov 2025 12:13:03 GMT",
+            "Strict-Transport-Security": "max-age=31536000",
+            "surrogate-control": "max-age=432000",
+            "surrogate-key": "www.kiln.fi 625db3caa8abd6c22d5f0ce3 pageId:65df0fb34bb628ec1929e925 65df095903ac144c18cfa4a1 65df095903ac144c18cfa453 65df095903ac144c18cfa501 6762a68cfd3051bc9e287de1 6762a51a8f83cb2cd937a85a",
+            "x-lambda-id": "2e6a20d1-baa8-41b7-8520-3b46eeb92863",
+            "vary": "Accept-Encoding",
+            "Set-Cookie": "_cfuvid=L37EQIYmoO1iixxf2cKNTkM.i6u6HjasvPZ2R.ZQTxo-1764640971714-0.0.1.1-604800000; path=/; domain=.cdn.webflow.com; HttpOnly; Secure; SameSite=None",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "X-Cluster-Name": "us-east-1-prod-hosting-red"
+          }
+        }
+      },
+      "submission_ready": true
+    },
+    {
+      "type": "defi_endpoint",
+      "severity": "medium",
+      "target": "https://kiln.fi/connect/",
+      "evidence": "DeFi endpoint accessible: /connect/",
+      "verification": {
+        "status": "verified",
+        "reason": "DeFi endpoint confirmed with blockchain-related content",
+        "evidence": {
+          "status_code": 200,
+          "content_length": 328099,
+          "defi_indicators": [
+            "contract",
+            "abi",
+            "token",
+            "pool",
+            "ethereum",
+            "0x",
+            "web3",
+            "blockchain"
+          ],
+          "response_headers": {
+            "Date": "Tue, 02 Dec 2025 02:02:56 GMT",
+            "Content-Type": "text/html",
+            "Transfer-Encoding": "chunked",
+            "Connection": "keep-alive",
+            "CF-Ray": "9a773eb8eab3d6e1-IAD",
+            "CF-Cache-Status": "HIT",
+            "Age": "284525",
+            "Content-Encoding": "gzip",
+            "Last-Modified": "Fri, 28 Nov 2025 19:00:51 GMT",
+            "Strict-Transport-Security": "max-age=31536000",
+            "surrogate-control": "max-age=432000",
+            "surrogate-key": "www.kiln.fi 625db3caa8abd6c22d5f0ce3 pageId:65df095903ac144c18cfa4ab 65df095903ac144c18cfa453 6762a68cfd3051bc9e287de1 6762a51a8f83cb2cd937a85a",
+            "x-lambda-id": "beb14218-8c6a-410f-abad-1e74dd59f5c6",
+            "vary": "Accept-Encoding",
+            "Set-Cookie": "_cfuvid=RMZPMApGIV.Lc56mwbV7vPXZVapudSKLpJ3IfV3sZtw-1764640976821-0.0.1.1-604800000; path=/; domain=.cdn.webflow.com; HttpOnly; Secure; SameSite=None",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "X-Cluster-Name": "us-east-1-prod-hosting-red"
+          }
+        }
+      },
+      "submission_ready": true
+    }
+  ]
+}

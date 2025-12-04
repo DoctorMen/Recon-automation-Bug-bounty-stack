@@ -1,0 +1,23 @@
+{
+  "vulnerability_type": "XSS",
+  "target": "gitlab.com",
+  "endpoint": "/api/v1/projects/{id}/issues",
+  "parameter": "title",
+  "payload": "<script>alert(1)</script>",
+  "severity": "Medium",
+  "cvss_score": 6.1,
+  "discovery_method": "Automated XSS Testing",
+  "discovery_timestamp": "2025-11-28T16:55:19.576542",
+  "authorization": "auto_auth_gitlab_com.json",
+  "legal_compliance": true,
+  "copyright_holder": "Khallid Hakeem Nurse",
+  "evidence": {
+    "request": "POST /api/v1/projects/123/issues",
+    "payload": "<script>alert(1)</script>",
+    "response": "200 OK - Script executed in title field",
+    "screenshot": "xss_evidence.png"
+  },
+  "remediation": "Sanitize user input in issue titles",
+  "bounty_estimate": 5000,
+  "report_ready": true
+}

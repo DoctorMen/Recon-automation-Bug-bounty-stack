@@ -1,0 +1,27 @@
+{
+  "file_hashes": {
+    "targets.txt.bak.20251031_105004": "534ed48aed544fa19a2167cd8914cfdbd992c4a478915567a19fcffbac6c7af9",
+    "LEGAL_AUTHORIZATION_SYSTEM.py": "3e38bf536b3f1d6c0b7c054f7026c0279bb515e87dc50c28332730630815b098",
+    "BREACH_GUARDIAN.py": "bc530fc13dc5d4c5bbb1587363f87a8ea45d4584135cc821ee30460c16d5e5e9",
+    "AUTO_COPYRIGHT_GUARDIAN.py": "90f79a845a0b0905067660dd916e847b523e27b50078e691c4da27449a0cea73",
+    "fresh_targets.txt": "02c25f2f0fa661ed577598515468d7b2d66f97d54fed3e36d17f4ec55a7072c4",
+    "targets.txt": "50c8fe065b62523622b30d6f9fc4ceb866040b4f763556c6b878645ed5c5e0bd",
+    "programs\\template\\targets.txt": "941653e437f74aad61f2f33e122827ea9054d1ae6c403063e733fcd4fa7538a5",
+    "programs\\example.bak_20251031_113428\\targets.txt": "94d3955be264e22a143b1d0d9bd7f4c2aa477fde7bcda0edcaf80feb73c6a38d",
+    "programs\\rapyd\\targets.txt": "4749ec390f5396238f6e5d23db7d71d8e5a4bbcf785047567f6fe29977cfd8d4",
+    "programs\\paypal\\recon\\high_priority_targets.txt": "7f617a26ab0a3e11e683b07c5431a7bdbdeee8c20b7c2459412ef8ac66fd2a2a",
+    "snapshots\\20251102-173125\\env\\staging\\targets.txt": "a929fa499608cc5969111e21a2bd9d95396fc5b9b014c82364c1b03852875f40",
+    "snapshots\\current-state\\targets.txt": "4749ec390f5396238f6e5d23db7d71d8e5a4bbcf785047567f6fe29977cfd8d4",
+    "output\\mass-recon\\priority-targets.txt": "495da103e4084330afb22063c94c5780dcc76f0a655d03b2c091afd6b3ec4bfb",
+    "config\\allowed_targets.txt": "180361b7a0c43af8b3c6bfb25718d4b04f2bb566c4d2bec4d7d69e6038c49b53",
+    "env\\staging\\targets.txt": "a929fa499608cc5969111e21a2bd9d95396fc5b9b014c82364c1b03852875f40",
+    "env\\staging\\output\\20251102-175044\\targets.txt": "a929fa499608cc5969111e21a2bd9d95396fc5b9b014c82364c1b03852875f40",
+    "env\\staging\\output\\20251102-183006\\targets.txt": "a929fa499608cc5969111e21a2bd9d95396fc5b9b014c82364c1b03852875f40",
+    "env\\staging\\output\\20251102-183002\\targets.txt": "a929fa499608cc5969111e21a2bd9d95396fc5b9b014c82364c1b03852875f40"
+  },
+  "known_processes": [],
+  "baseline_network": {},
+  "last_check": "2025-11-05T13:00:24.315904",
+  "breach_count": 0,
+  "last_breach": null
+}

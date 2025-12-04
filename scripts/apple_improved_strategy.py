@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Apple Bug Bounty - Improved Strategy
 Focus on finding REAL vulnerabilities, not just endpoints
@@ -138,5 +142,11 @@ def improved_strategy():
 
 if __name__ == "__main__":
     improved_strategy()
+
+
+
+
+
+
 
 

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bug Hunting Execution Plan - High ROI Focus
 
 ## Target: Rapyd Bug Bounty Program

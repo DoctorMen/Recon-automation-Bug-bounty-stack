@@ -1,0 +1,81 @@
+{
+  "report_metadata": {
+    "client": "example-client.com",
+    "audit_date": "2025-12-01T21:31:45.485180",
+    "auditor": "Alpine Security Consulting LLC",
+    "report_version": "1.0",
+    "confidentiality": "CLIENT CONFIDENTIAL"
+  },
+  "executive_summary": {
+    "risk_level": "MEDIUM",
+    "risk_score": "6.5/10",
+    "findings_summary": {
+      "critical": 0,
+      "high": 0,
+      "medium": 2,
+      "low": 1,
+      "total": 3
+    },
+    "business_impact": "Moderate security risks present - should be addressed within 30 days to prevent potential incidents.",
+    "key_concerns": [
+      "Weak SSL/TLS Configuration",
+      "Missing Security Headers"
+    ],
+    "recommendation": "Implement remediation plan within 30-60 days to achieve acceptable security posture."
+  },
+  "technical_findings": [
+    {
+      "finding_id": "SSL-001",
+      "title": "Weak SSL/TLS Configuration",
+      "severity": "Medium",
+      "business_risk": "Moderate - Should be addressed to prevent future incidents",
+      "description": "SSL certificate uses weak encryption algorithms",
+      "evidence": "example-client.com supports TLS 1.0 and weak cipher suites",
+      "potential_impact": "Man-in-the-middle attacks possible",
+      "remediation": "Disable TLS 1.0/1.1, implement strong ciphers only",
+      "estimated_effort": "1-2 weeks (normal priority)",
+      "priority": "MEDIUM"
+    },
+    {
+      "finding_id": "HDR-001",
+      "title": "Missing Security Headers",
+      "severity": "Medium",
+      "business_risk": "Moderate - Should be addressed to prevent future incidents",
+      "description": "Critical security headers not implemented",
+      "evidence": "example-client.com missing X-Frame-Options, CSP, HSTS",
+      "potential_impact": "Clickjacking, XSS, and session hijacking vulnerabilities",
+      "remediation": "Implement X-Frame-Options, CSP, HSTS headers",
+      "estimated_effort": "1-2 weeks (normal priority)",
+      "priority": "MEDIUM"
+    },
+    {
+      "finding_id": "INF-001",
+      "title": "Outdated Software Version",
+      "severity": "Low",
+      "business_risk": "Minor - Security best practice improvement",
+      "description": "Web server running outdated version",
+      "evidence": "Server headers indicate outdated software version",
+      "potential_impact": "Potential for known vulnerabilities",
+      "remediation": "Update to latest stable version",
+      "estimated_effort": "1 month (maintenance priority)",
+      "priority": "LOW"
+    }
+  ],
+  "remediation_plan": {
+    "immediate_actions": [],
+    "short_term_actions": [
+      "Resolve Weak SSL/TLS Configuration - Disable TLS 1.0/1.1, implement strong ciphers only",
+      "Resolve Missing Security Headers - Implement X-Frame-Options, CSP, HSTS headers"
+    ],
+    "long_term_actions": [
+      "Improve Outdated Software Version - Update to latest stable version"
+    ]
+  },
+  "compliance_notes": "\nCOMPLIANCE CONSIDERATIONS:\n        \n\u2022 PCI-DSS: Weak SSL configuration may impact payment card compliance\n\u2022 GDPR: Inadequate encryption could violate data protection requirements\n        \n\u2022 OWASP Top 10: Missing security headers address common web vulnerabilities\n\u2022 Industry Standards: Security headers are considered best practice\n        \n\nRECOMMENDATION:\nImplement identified security measures to maintain regulatory compliance\nand industry best practices. Consider periodic security assessments to\nmaintain ongoing compliance.\n        ",
+  "appendices": {
+    "methodology": "OWASP Testing Guide v4.0 + PTES Framework",
+    "tools_used": "MCP Orchestrator + Custom Assessment Suite",
+    "scan_scope": "External facing infrastructure for example-client.com",
+    "limitations": "External assessment only, no internal testing performed"
+  }
+}

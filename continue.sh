@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Quick Continue - Prioritize and Start Manual Testing
 
 cd ~/Recon-automation-Bug-bounty-stack
@@ -39,5 +41,11 @@ echo "4. Use Burp Suite or browser for manual testing"
 echo ""
 echo "See: CONTINUE_WORKFLOW.md for detailed guide"
 echo "============================================================"
+
+
+
+
+
+
 
 

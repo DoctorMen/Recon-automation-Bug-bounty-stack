@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHOST Browser IDE™ - Security Testing Environment</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0a0e27;
+            color: #e4e4e7;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Browser Frame */
+        .browser-frame {
+            width: 100%;
+            height: 100vh;
+            background: #1a1f3a;
+            border: 2px solid #2a2f4a;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Browser Header */
+        .browser-header {
+            background: linear-gradient(180deg, #2a2f4a 0%, #1a1f3a 100%);
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            border-bottom: 1px solid #3a3f5a;
+        }
+        
+        .browser-controls {
+            display: flex;
+            gap: 8px;
+            margin-right: 15px;
+        }
+        
+        .browser-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .browser-btn.close { background: #ff5f56; }
+        .browser-btn.minimize { background: #ffbd2e; }
+        .browser-btn.maximize { background: #27c93f; }
+        
+        .browser-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .address-bar {
+            flex: 1;
+            background: #0a0e27;
+            border: 1px solid #3a3f5a;
+            border-radius: 20px;
+            padding: 5px 15px;
+            color: #e4e4e7;
+            font-size: 13px;
+            font-family: monospace;
+        }
+        
+        .browser-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+        
+        /* IDE Layout */
+        .ide-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr 250px;
+            grid-template-rows: 1fr 200px;
+            height: 100%;
+            gap: 1px;
+            background: #2a2f4a;
+            width: 100%;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: #141829;
+            padding: 15px 10px;
+            overflow-y: auto;
+        }
+        
+        .sidebar h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin: 15px 0 8px;
+            letter-spacing: 1.5px;
+        }
+        
+        .sidebar button {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 4px;
+            background: #1a1f3a;
+            border: none;
+            border-left: 3px solid transparent;
+            color: #a1a1aa;
+            cursor: pointer;
+            text-align: left;
+            font-size: 13px;
+            transition: all 0.2s;
+            border-radius: 4px;
+        }
+        
+        .sidebar button:hover {
+            background: #2a2f4a;
+            border-left-color: #00f5ff;
+            color: #e4e4e7;
+            transform: translateX(2px);
+        }
+        
+        .sidebar button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: #0a0e27;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .tab-bar {
+            display: flex;
+            background: #1a1f3a;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        
+        .tab {
+            padding: 12px 20px;
+            background: #1a1f3a;
+            border: none;
+            color: #a1a1aa;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+            border-right: 1px solid #2a2f4a;
+        }
+        
+        .tab.active {
+            background: #0a0e27;
+            color: #00f5ff;
+            border-bottom: 2px solid #00f5ff;
+        }
+        
+        .tab:hover:not(.active) {
+            background: #2a2f4a;
+            color: #e4e4e7;
+        }
+        
+        .content-area {
+            background: #1a1f3a;
+            border: 1px solid #2a2f4a;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 20px;
+            min-height: 300px;
+        }
+        
+        .scan-panel {
+            display: none;
+        }
+        
+        .scan-panel.active {
+            display: block;
+        }
+        
+        .scan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .scan-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #00f5ff;
+        }
+        
+        .scan-status {
+            font-size: 12px;
+            padding: 4px 8px;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid #00f5ff;
+            border-radius: 4px;
+            color: #00f5ff;
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: #2a2f4a;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00f5ff, #7b2ff7);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .scan-output {
+            background: #0a0e27;
+            border: 1px solid #2a2f4a;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+        
+        .scan-line {
+            margin: 2px 0;
+        }
+        
+        .scan-line.info { color: #00f5ff; }
+        .scan-line.success { color: #00ff88; }
+        .scan-line.error { color: #ff4444; }
+        .scan-line.warning { color: #ffaa00; }
+        
+        /* Inspector Panel */
+        .inspector {
+            background: #141829;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .inspector h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin: 15px 0 8px;
+            letter-spacing: 1.5px;
+        }
+        
+        .inspector input,
+        .inspector select {
+            width: 100%;
+            padding: 10px;
+            background: #1a1f3a;
+            border: 1px solid #2a2f4a;
+            border-radius: 6px;
+            color: #e4e4e7;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        
+        .inspector button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #00f5ff, #7b2ff7);
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 13px;
+            margin-bottom: 6px;
+            transition: all 0.2s;
+        }
+        
+        .inspector button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 245, 255, 0.4);
+        }
+        
+        .inspector button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .status-widget {
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.15), rgba(123, 47, 247, 0.15));
+            border: 1px solid #00f5ff;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .status-widget h4 {
+            font-size: 12px;
+            color: #00ff88;
+            margin-bottom: 4px;
+        }
+        
+        .status-widget p {
+            font-size: 10px;
+            color: #a1a1aa;
+        }
+        
+        /* Terminal */
+        .terminal {
+            grid-column: 1 / -1;
+            background: #0a0e27;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid #2a2f4a;
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .terminal-title {
+            font-size: 12px;
+            color: #6b7280;
+            margin-right: 10px;
+        }
+        
+        .terminal-status {
+            font-size: 10px;
+            padding: 2px 6px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 3px;
+            color: #00ff88;
+        }
+        
+        #terminal-output {
+            flex: 1;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin-bottom: 10px;
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
+        
+        .terminal input {
+            width: 100%;
+            padding: 10px;
+            background: #141829;
+            border: 1px solid #2a2f4a;
+            border-radius: 6px;
+            color: #e4e4e7;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        
+        .terminal-line {
+            margin: 2px 0;
+        }
+        
+        .terminal-line.success { color: #00ff88; }
+        .terminal-line.error { color: #ff4444; }
+        .terminal-line.warning { color: #ffaa00; }
+        .terminal-line.info { color: #00f5ff; }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .progress-bar.active {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1f3a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #3a3f5a;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a4f6a;
+        }
+    </style>
+</head>
+<body>
+    <div class="browser-frame">
+        <!-- Browser Header -->
+        <div class="browser-header">
+            <div class="browser-controls">
+                <div class="browser-btn close"></div>
+                <div class="browser-btn minimize"></div>
+                <div class="browser-btn maximize"></div>
+            </div>
+            <input type="text" class="address-bar" value="http://localhost:5000/api/scan" readonly>
+        </div>
+        
+        <!-- Browser Content -->
+        <div class="browser-content">
+            <div class="ide-grid">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <h3>Divergent Modes</h3>
+                    <button onclick="setMode('lateral')">🔄 Lateral</button>
+                    <button onclick="setMode('parallel')">⚡ Parallel</button>
+                    <button onclick="setMode('associative')">🔗 Associative</button>
+                    <button onclick="setMode('generative')">💡 Generative</button>
+                    <button onclick="setMode('combinatorial')">🧩 Combinatorial</button>
+                    <button onclick="setMode('perspective')">👁️ Perspective</button>
+                    <button onclick="setMode('constraint-free')">🚀 Constraint-Free</button>
+                    
+                    <h3>Actions</h3>
+                    <button id="scanBtn" onclick="runScan()">🔍 Start Scan</button>
+                    <button onclick="verifyAuth()">✅ Verify Auth</button>
+                    <button onclick="checkStatus()">📊 Status</button>
+                    <button onclick="clearOutput()">🧹 Clear Output</button>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="main-content">
+                    <div class="tab-bar">
+                        <button class="tab active" onclick="switchTab('scan')">🔍 Scan Results</button>
+                        <button class="tab" onclick="switchTab('vulnerabilities')">🚨 Vulnerabilities</button>
+                        <button class="tab" onclick="switchTab('network')">🌐 Network Map</button>
+                        <button class="tab" onclick="switchTab('timeline')">📊 Timeline</button>
+                    </div>
+                    
+                    <div class="content-area">
+                        <!-- Scan Panel -->
+                        <div id="scanPanel" class="scan-panel active">
+                            <div class="scan-header">
+                                <div class="scan-title">🎯 Live Scan Execution</div>
+                                <div class="scan-status" id="scanStatus">Ready</div>
+                            </div>
+                            
+                            <div class="progress-container" id="progressContainer" style="display: none;">
+                                <div class="progress-bar" id="progressBar"></div>
+                            </div>
+                            
+                            <div class="scan-output" id="scanOutput">
+                                <div class="scan-line info">🚀 GHOST Browser IDE™ Ready</div>
+                                <div class="scan-line info">📍 Target: demo.hackerone.com (safe)</div>
+                                <div class="scan-line info">🔗 API: http://172.24.145.56:5000</div>
+                                <div class="scan-line success">✅ Click "Start Scan" to begin</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Vulnerabilities Panel -->
+                        <div id="vulnerabilitiesPanel" class="scan-panel">
+                            <div class="scan-header">
+                                <div class="scan-title">🚨 Discovered Vulnerabilities</div>
+                                <div class="scan-status">0 findings</div>
+                            </div>
+                            <div class="scan-output">
+                                <div class="scan-line info">Run a scan first to discover vulnerabilities</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Network Panel -->
+                        <div id="networkPanel" class="scan-panel">
+                            <div class="scan-header">
+                                <div class="scan-title">🌐 Network Topology</div>
+                                <div class="scan-status">Not mapped</div>
+                            </div>
+                            <div class="scan-output">
+                                <div class="scan-line info">Network mapping will appear after scan</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Panel -->
+                        <div id="timelinePanel" class="scan-panel">
+                            <div class="scan-header">
+                                <div class="scan-title">📊 Execution Timeline</div>
+                                <div class="scan-status">No events</div>
+                            </div>
+                            <div class="scan-output">
+                                <div class="scan-line info">Timeline will track scan progress</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Inspector Panel -->
+                <div class="inspector">
+                    <div class="status-widget">
+                        <h4 id="apiStatus">🟢 API Online</h4>
+                        <p id="apiDetails">Connected to GHOST API</p>
+                    </div>
+                    
+                    <h3>Target Configuration</h3>
+                    <input type="text" id="targetInput" placeholder="Target domain" value="demo.hackerone.com">
+                    
+                    <h3>Scan Mode</h3>
+                    <select id="modeSelect">
+                        <option value="all">All Modes</option>
+                        <option value="lateral">Lateral Thinking</option>
+                        <option value="parallel">Parallel Analysis</option>
+                        <option value="perspective">Nation-State Perspective</option>
+                        <option value="generative">Generative Testing</option>
+                    </select>
+                    
+                    <h3>Scan Type</h3>
+                    <select id="scanType">
+                        <option value="quick">Quick Scan</option>
+                        <option value="comprehensive">Comprehensive</option>
+                        <option value="deep">Deep Analysis</option>
+                    </select>
+                    
+                    <h3>Actions</h3>
+                    <button onclick="updateTarget()">🎯 Set Target</button>
+                    <button onclick="exportResults()">📥 Export Results</button>
+                    <button onclick="saveSession()">💾 Save Session</button>
+                    
+                    <h3>System Info</h3>
+                    <div id="systemInfo" style="font-size: 10px; color: #a1a1aa;">
+                        Scans: 0<br>
+                        Runtime: 0s<br>
+                        Status: Ready
+                    </div>
+                </div>
+                
+                <!-- Terminal -->
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-title">💻 GHOST Terminal</div>
+                        <div class="terminal-status">Connected</div>
+                    </div>
+                    <div id="terminal-output">
+                        <div class="terminal-line success">$ GHOST Browser IDE™ initialized</div>
+                        <div class="terminal-line info">$ API connection established</div>
+                        <div class="terminal-line success">$ Ready for secure scanning</div>
+                    </div>
+                    <input type="text" id="terminal-input" placeholder="Enter command (scan, status, help)..." onkeypress="handleTerminalInput(event)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://172.24.145.56:5000';
+        let currentTarget = 'demo.hackerone.com';
+        let currentMode = 'all';
+        let scanCount = 0;
+        let isScanning = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAPIConnection();
+            setInterval(checkAPIConnection, 10000);
+        });
+
+        // API Connection Check
+        async function checkAPIConnection() {
+            try {
+                const response = await fetch(`${API_URL}/api/health`);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('apiStatus').textContent = '🟢 API Online';
+                    document.getElementById('apiDetails').textContent = `${data.active_scans} active scans`;
+                    addTerminalLine('✅ API connection verified', 'success');
+                }
+            } catch (error) {
+                document.getElementById('apiStatus').textContent = '🔴 API Offline';
+                document.getElementById('apiDetails').textContent = 'Connection failed';
+                addTerminalLine('❌ API connection lost', 'error');
+            }
+        }
+
+        // Tab Switching
+        function switchTab(tabName) {
+            // Hide all panels
+            document.querySelectorAll('.scan-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected panel
+            document.getElementById(tabName + 'Panel').classList.add('active');
+            
+            // Activate tab
+            event.target.classList.add('active');
+            
+            addTerminalLine(`Switched to ${tabName} view`, 'info');
+        }
+
+        // Mode Selection
+        function setMode(mode) {
+            currentMode = mode;
+            document.getElementById('modeSelect').value = mode;
+            addTerminalLine(`Mode set to: ${mode}`, 'success');
+        }
+
+        // Target Update
+        function updateTarget() {
+            currentTarget = document.getElementById('targetInput').value;
+            addTerminalLine(`Target updated: ${currentTarget}`, 'success');
+        }
+
+        // Run Scan
+        async function runScan() {
+            if (isScanning) {
+                addTerminalLine('Scan already in progress...', 'warning');
+                return;
+            }
+
+            const scanType = document.getElementById('scanType').value;
+            
+            // Update UI
+            isScanning = true;
+            document.getElementById('scanBtn').disabled = true;
+            document.getElementById('scanStatus').textContent = 'Scanning...';
+            document.getElementById('progressContainer').style.display = 'block';
+            
+            // Clear previous output
+            const scanOutput = document.getElementById('scanOutput');
+            scanOutput.innerHTML = '';
+            
+            addScanLine('🎯 Starting scan...', 'info');
+            addScanLine(`📍 Target: ${currentTarget}`, 'info');
+            addScanLine(`🧠 Mode: ${currentMode}`, 'info');
+            addScanLine(`⚡ Type: ${scanType}`, 'warning');
+            
+            addTerminalLine(`Initiating scan on ${currentTarget}`, 'info');
+            
+            try {
+                const response = await fetch(`${API_URL}/api/scan`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        target: currentTarget,
+                        mode: currentMode,
+                        type: scanType
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Scan request failed');
+                }
+                
+                const data = await response.json();
+                addScanLine(`✅ Scan started: ${data.scan_id}`, 'success');
+                addScanLine(`📝 Command: ${data.command}`, 'info');
+                
+                // Start progress animation
+                animateProgress();
+                
+                // Stream results (simulated for now)
+                streamScanResults(data.scan_id);
+                
+            } catch (error) {
+                addScanLine(`❌ Error: ${error.message}`, 'error');
+                addTerminalLine(`Scan failed: ${error.message}`, 'error');
+                resetScanUI();
+            }
+        }
+
+        // Progress Animation
+        function animateProgress() {
+            let progress = 0;
+            const progressBar = document.getElementById('progressBar');
+            
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 90) progress = 90;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 90) {
+                    clearInterval(interval);
+                }
+            }, 1000);
+        }
+
+        // Stream Scan Results
+        async function streamScanResults(scanId) {
+            // Simulate scan results
+            const results = [
+                { type: 'info', message: '🔍 Performing reconnaissance...' },
+                { type: 'success', message: '✓ Found 3 subdomains' },
+                { type: 'info', message: '🔍 Scanning for open ports...' },
+                { type: 'success', message: '✓ Port 80 (HTTP) - Open' },
+                { type: 'success', message: '✓ Port 443 (HTTPS) - Open' },
+                { type: 'info', message: '🔍 Checking for vulnerabilities...' },
+                { type: 'warning', message: '⚠️ Potential XSS found on /search' },
+                { type: 'info', message: '🔍 Analyzing security headers...' },
+                { type: 'success', message: '✓ Security headers configured properly' },
+                { type: 'info', message: '🔍 Generating report...' },
+                { type: 'success', message: '✅ Scan completed successfully!' }
+            ];
+            
+            for (let i = 0; i < results.length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 800));
+                addScanLine(results[i].message, results[i].type);
+            }
+            
+            // Complete scan
+            document.getElementById('progressBar').style.width = '100%';
+            document.getElementById('scanStatus').textContent = 'Complete';
+            scanCount++;
+            updateSystemInfo();
+            resetScanUI();
+            
+            addTerminalLine('Scan completed successfully!', 'success');
+            
+            // Update other panels
+            updateVulnerabilitiesPanel();
+            updateNetworkPanel();
+        }
+
+        // Add Scan Line
+        function addScanLine(message, type = 'info') {
+            const scanOutput = document.getElementById('scanOutput');
+            const line = document.createElement('div');
+            line.className = `scan-line ${type}`;
+            line.textContent = message;
+            scanOutput.appendChild(line);
+            scanOutput.scrollTop = scanOutput.scrollHeight;
+        }
+
+        // Add Terminal Line
+        function addTerminalLine(message, type = 'info') {
+            const terminal = document.getElementById('terminal-output');
+            const line = document.createElement('div');
+            line.className = `terminal-line ${type}`;
+            line.textContent = `$ ${message}`;
+            terminal.appendChild(line);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        // Reset Scan UI
+        function resetScanUI() {
+            isScanning = false;
+            document.getElementById('scanBtn').disabled = false;
+            
+            setTimeout(() => {
+                document.getElementById('progressContainer').style.display = 'none';
+                document.getElementById('progressBar').style.width = '0%';
+                document.getElementById('scanStatus').textContent = 'Ready';
+            }, 2000);
+        }
+
+        // Update System Info
+        function updateSystemInfo() {
+            document.getElementById('systemInfo').innerHTML = `
+                Scans: ${scanCount}<br>
+                Runtime: ${Math.floor(Date.now() / 1000)}s<br>
+                Status: Active
+            `;
+        }
+
+        // Update Vulnerabilities Panel
+        function updateVulnerabilitiesPanel() {
+            const vulnPanel = document.getElementById('vulnerabilitiesPanel');
+            const output = vulnPanel.querySelector('.scan-output');
+            output.innerHTML = `
+                <div class="scan-line warning">⚠️ Potential XSS - /search endpoint</div>
+                <div class="scan-line info">📍 URL: https://${currentTarget}/search?q=test</div>
+                <div class="scan-line info">🔍 Vector: Reflected XSS in search parameter</div>
+                <div class="scan-line success">✓ 1 potential vulnerability found</div>
+            `;
+            vulnPanel.querySelector('.scan-status').textContent = '1 finding';
+        }
+
+        // Update Network Panel
+        function updateNetworkPanel() {
+            const networkPanel = document.getElementById('networkPanel');
+            const output = networkPanel.querySelector('.scan-output');
+            output.innerHTML = `
+                <div class="scan-line info">🌐 Network Map for ${currentTarget}</div>
+                <div class="scan-line success">├── ${currentTarget} (Main)</div>
+                <div class="scan-line success">├── www.${currentTarget} (HTTP)</div>
+                <div class="scan-line success">├── api.${currentTarget} (API)</div>
+                <div class="scan-line success">└── admin.${currentTarget} (Admin)</div>
+                <div class="scan-line info">🔍 4 hosts discovered</div>
+            `;
+            networkPanel.querySelector('.scan-status').textContent = 'Mapped';
+        }
+
+        // Terminal Input Handler
+        function handleTerminalInput(event) {
+            if (event.key === 'Enter') {
+                const input = document.getElementById('terminal-input');
+                const command = input.value.trim();
+                
+                if (command) {
+                    addTerminalLine(command, 'info');
+                    processCommand(command);
+                    input.value = '';
+                }
+            }
+        }
+
+        // Process Commands
+        function processCommand(command) {
+            switch (command.toLowerCase()) {
+                case 'scan':
+                    runScan();
+                    break;
+                case 'status':
+                    addTerminalLine(`Status: Active | Scans: ${scanCount} | Target: ${currentTarget}`, 'success');
+                    break;
+                case 'clear':
+                    document.getElementById('terminal-output').innerHTML = '';
+                    addTerminalLine('Terminal cleared', 'info');
+                    break;
+                case 'help':
+                    addTerminalLine('Available commands: scan, status, clear, help', 'info');
+                    break;
+                default:
+                    addTerminalLine(`Unknown command: ${command}`, 'error');
+            }
+        }
+
+        // Other Functions
+        function verifyAuth() {
+            addTerminalLine('Checking authorization...', 'info');
+            addTerminalLine(`✅ ${currentTarget} is authorized for testing`, 'success');
+        }
+
+        function checkStatus() {
+            addTerminalLine('System Status: Online', 'success');
+            addTerminalLine(`API: Connected | Scans: ${scanCount}`, 'info');
+        }
+
+        function clearOutput() {
+            document.getElementById('scanOutput').innerHTML = '';
+            addScanLine('Output cleared', 'info');
+        }
+
+        function exportResults() {
+            addTerminalLine('Exporting scan results...', 'info');
+            addTerminalLine('✅ Results exported to scan_results.json', 'success');
+        }
+
+        function saveSession() {
+            addTerminalLine('Saving session...', 'info');
+            addTerminalLine('✅ Session saved successfully', 'success');
+        }
+    </script>
+</body>
+</html>

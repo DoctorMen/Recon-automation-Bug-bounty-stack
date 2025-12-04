@@ -1,0 +1,217 @@
+{
+  "validation_rules": {
+    "command_validation": {
+      "before_execution": [
+        {
+          "rule": "check_authorization",
+          "description": "Verify user has permission to scan target",
+          "severity": "critical",
+          "action": "block_if_failed"
+        },
+        {
+          "rule": "check_opsec",
+          "command": "bash scripts/opsec_check_all.sh",
+          "description": "Verify VPN and privacy settings",
+          "severity": "high",
+          "action": "warn_if_failed"
+        },
+        {
+          "rule": "validate_targets",
+          "description": "Ensure targets.txt exists and contains valid domains",
+          "severity": "critical",
+          "action": "block_if_failed"
+        },
+        {
+          "rule": "check_tool_availability",
+          "description": "Verify required tools are installed",
+          "severity": "high",
+          "action": "auto_fix_with_setup_tools"
+        }
+      ],
+      "during_execution": [
+        {
+          "rule": "monitor_resources",
+          "description": "Track CPU, memory, disk usage",
+          "severity": "medium",
+          "thresholds": {
+            "memory_percent": 90,
+            "disk_percent": 95
+          }
+        },
+        {
+          "rule": "check_network",
+          "description": "Ensure network connectivity",
+          "severity": "high",
+          "action": "pause_if_failed"
+        }
+      ],
+      "after_execution": [
+        {
+          "rule": "sanitize_outputs",
+          "command": "bash scripts/opsec_secrets_manager.sh",
+          "description": "Remove sensitive data from outputs",
+          "severity": "critical",
+          "action": "required"
+        },
+        {
+          "rule": "validate_output_files",
+          "description": "Ensure expected output files exist",
+          "severity": "medium",
+          "expected_files": [
+            "output/subs.txt",
+            "output/http.json",
+            "output/nuclei-findings.json"
+          ]
+        }
+      ]
+    },
+    "input_validation": {
+      "domain": {
+        "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
+        "max_length": 253,
+        "examples": ["example.com", "sub.domain.org"],
+        "invalid_examples": ["example", "http://example.com", "-example.com"]
+      },
+      "severity": {
+        "allowed_values": ["info", "low", "medium", "high", "critical"],
+        "comma_separated": true,
+        "case_insensitive": true
+      },
+      "timeout": {
+        "type": "integer",
+        "min": 60,
+        "max": 7200,
+        "default": 1800,
+        "unit": "seconds"
+      },
+      "threads": {
+        "type": "integer",
+        "min": 1,
+        "max": 200,
+        "recommended_max": 100,
+        "depends_on": "available_ram"
+      }
+    },
+    "safety_checks": {
+      "destructive_operations": [
+        {
+          "operation": "opsec_system_panic",
+          "require_confirmation": true,
+          "warning": "This will stop all scans and clear sensitive data"
+        },
+        {
+          "operation": "delete_results",
+          "require_confirmation": true,
+          "warning": "This will permanently delete scan results"
+        }
+      ],
+      "sensitive_operations": [
+        {
+          "operation": "start_scan",
+          "checks": ["authorization", "opsec", "target_validation"]
+        },
+        {
+          "operation": "export_results",
+          "checks": ["sanitization", "authorization"]
+        }
+      ]
+    },
+    "error_conditions": {
+      "critical_errors": [
+        {
+          "condition": "targets_not_found",
+          "message": "targets.txt not found. Create it with authorized domains (one per line)",
+          "recovery": "prompt_user_for_targets"
+        },
+        {
+          "condition": "no_permission",
+          "message": "You don't have permission to scan this target",
+          "recovery": "abort_operation"
+        },
+        {
+          "condition": "tool_missing",
+          "message": "Required tools not installed",
+          "recovery": "run_setup_tools"
+        }
+      ],
+      "recoverable_errors": [
+        {
+          "condition": "network_timeout",
+          "message": "Network timeout occurred",
+          "recovery": "retry_with_backoff"
+        },
+        {
+          "condition": "partial_results",
+          "message": "Scan interrupted but partial results available",
+          "recovery": "offer_resume"
+        },
+        {
+          "condition": "out_of_memory",
+          "message": "Insufficient memory",
+          "recovery": "suggest_lower_settings"
+        }
+      ]
+    },
+    "success_criteria": {
+      "pipeline_success": {
+        "conditions": [
+          "all_stages_completed",
+          "output_files_exist",
+          "no_critical_errors"
+        ],
+        "partial_success": [
+          "recon_completed",
+          "at_least_one_finding"
+        ]
+      },
+      "quality_checks": {
+        "minimum_subdomains": 1,
+        "minimum_http_endpoints": 1,
+        "log_file_exists": true,
+        "reports_generated": true
+      }
+    }
+  },
+  "ai_agent_constraints": {
+    "must_always": [
+      "Check OPSEC before scanning",
+      "Verify authorization for targets",
+      "Sanitize outputs before sharing",
+      "Check logs for errors",
+      "Provide clear user communication"
+    ],
+    "must_never": [
+      "Scan unauthorized targets",
+      "Ignore OPSEC warnings",
+      "Expose API keys or credentials",
+      "Make up or guess command syntax",
+      "Skip safety checks"
+    ],
+    "should_prefer": [
+      "Resume over restart when possible",
+      "Balanced settings over extreme settings",
+      "Clear explanations over technical jargon",
+      "Preventive checks over reactive fixes"
+    ]
+  },
+  "performance_constraints": {
+    "system_ram_8gb": {
+      "SUBFINDER_THREADS": 30,
+      "AMASS_MAX_DNS": 5000,
+      "DNSX_THREADS": 50,
+      "NUCLEI_THREADS": 25
+    },
+    "system_ram_16gb": {
+      "SUBFINDER_THREADS": 50,
+      "AMASS_MAX_DNS": 10000,
+      "DNSX_THREADS": 100,
+      "NUCLEI_THREADS": 50
+    },
+    "system_ram_24gb_plus": {
+      "SUBFINDER_THREADS": 100,
+      "AMASS_MAX_DNS": 20000,
+      "DNSX_THREADS": 150,
+      "NUCLEI_THREADS": 100
+    }
+  }
+}

@@ -1,0 +1,404 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Recon Automation API Schemas",
+  "description": "JSON schemas for all API interfaces and data structures",
+  "definitions": {
+    "Target": {
+      "type": "object",
+      "properties": {
+        "domain": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
+          "description": "Valid domain name"
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "In-scope patterns"
+        },
+        "out_of_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Out-of-scope patterns"
+        },
+        "program_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": ["domain"]
+    },
+    
+    "Finding": {
+      "type": "object",
+      "properties": {
+        "template": {
+          "type": "string",
+          "description": "Nuclei template ID"
+        },
+        "template-id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "description": "Vulnerability name"
+        },
+        "info": {
+          "type": "object",
+          "properties": {
+            "severity": {
+              "type": "string",
+              "enum": ["info", "low", "medium", "high", "critical"]
+            },
+            "description": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "cvss-score": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 10.0
+            },
+            "cve": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^CVE-\\d{4}-\\d+$"
+              }
+            },
+            "cwe": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^CWE-\\d+$"
+              }
+            }
+          },
+          "required": ["severity"]
+        },
+        "matched-at": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL where vulnerability was found"
+        },
+        "extracted-results": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "curl-command": {
+          "type": "string",
+          "description": "cURL command to reproduce"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["template", "info", "matched-at"]
+    },
+    
+    "PipelineConfig": {
+      "type": "object",
+      "properties": {
+        "targets_file": {
+          "type": "string",
+          "default": "targets.txt",
+          "description": "Path to targets file"
+        },
+        "output_dir": {
+          "type": "string",
+          "default": "output",
+          "description": "Output directory path"
+        },
+        "resume": {
+          "type": "boolean",
+          "default": false,
+          "description": "Resume from last checkpoint"
+        },
+        "stages": {
+          "type": "object",
+          "properties": {
+            "recon": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "timeout": {
+                  "type": "integer",
+                  "default": 1800
+                },
+                "tools": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": ["subfinder", "amass", "dnsx"]
+                  },
+                  "default": ["subfinder", "amass", "dnsx"]
+                }
+              }
+            },
+            "httpx": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "threads": {
+                  "type": "integer",
+                  "default": 50
+                }
+              }
+            },
+            "nuclei": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "severity": {
+                  "type": "string",
+                  "default": "medium,high,critical"
+                },
+                "rate_limit": {
+                  "type": "integer",
+                  "default": 150
+                },
+                "threads": {
+                  "type": "integer",
+                  "default": 50
+                }
+              }
+            },
+            "triage": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "default": true
+                }
+              }
+            },
+            "reporting": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "formats": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": ["markdown", "json", "html"]
+                  },
+                  "default": ["markdown", "json"]
+                }
+              }
+            }
+          }
+        },
+        "notifications": {
+          "type": "object",
+          "properties": {
+            "discord_webhook": {
+              "type": "string",
+              "format": "uri"
+            },
+            "slack_webhook": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      }
+    },
+    
+    "AgentTask": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": [
+            "Strategist",
+            "Executor",
+            "Composer 1 — Automation Engineer",
+            "Composer 2 — Parallelization & Optimization",
+            "Composer 3 — Documentation & Reporting",
+            "Composer 4 — CI/CD & Security Ops"
+          ],
+          "description": "Agent role from agents.json"
+        },
+        "task": {
+          "type": "string",
+          "description": "Task name specific to the role"
+        },
+        "parameters": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Task-specific parameters"
+        }
+      },
+      "required": ["role", "task"]
+    },
+    
+    "ScanResult": {
+      "type": "object",
+      "properties": {
+        "scan_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "target": {
+          "$ref": "#/definitions/Target"
+        },
+        "start_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_seconds": {
+          "type": "integer"
+        },
+        "statistics": {
+          "type": "object",
+          "properties": {
+            "subdomains_discovered": {
+              "type": "integer"
+            },
+            "http_endpoints": {
+              "type": "integer"
+            },
+            "vulnerabilities_found": {
+              "type": "integer"
+            },
+            "severity_distribution": {
+              "type": "object",
+              "properties": {
+                "critical": {
+                  "type": "integer"
+                },
+                "high": {
+                  "type": "integer"
+                },
+                "medium": {
+                  "type": "integer"
+                },
+                "low": {
+                  "type": "integer"
+                },
+                "info": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Finding"
+          }
+        },
+        "output_files": {
+          "type": "object",
+          "properties": {
+            "subdomains": {
+              "type": "string",
+              "description": "Path to subdomains file"
+            },
+            "http_endpoints": {
+              "type": "string",
+              "description": "Path to HTTP endpoints JSON"
+            },
+            "findings": {
+              "type": "string",
+              "description": "Path to findings JSON"
+            },
+            "reports": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Paths to generated reports"
+            }
+          }
+        }
+      },
+      "required": ["scan_id", "target", "start_time", "statistics"]
+    },
+    
+    "CommandReference": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string",
+          "description": "Command to execute"
+        },
+        "description": {
+          "type": "string",
+          "description": "What the command does"
+        },
+        "script": {
+          "type": "string",
+          "description": "Script file path"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["string", "integer", "boolean", "array", "object"]
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "default": {
+                "description": "Default value"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "env_vars": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Environment variables used"
+        }
+      },
+      "required": ["command", "description"]
+    }
+  }
+}

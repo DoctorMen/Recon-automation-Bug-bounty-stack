@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Quick process script - handles file location automatically
 
 cd "$(dirname "$0")/.." || exit 1

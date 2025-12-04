@@ -1,0 +1,38 @@
+# Evidence File - Privacy Leakage
+# Target: gitlab.com
+# Generated: 2025-12-01T14:17:32.434391
+
+# PRIMARY PROOF - Direct Evidence
+# Target: gitlab.com
+# Vulnerability: Privacy Leakage
+# Timestamp: 2025-12-01T14:17:15.854203
+
+## Command Executed:
+curl -I https://gitlab.com
+
+## Response Headers Analysis:
+Date: Mon, 01 Dec 2025 19:17:15 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: keep-alive
+Content-Encoding: gzip
+CF-Ray: 9a74ec73da5fb916-ATL
+CF-Cache-Status: HIT
+Age: 13
+Cache-Control: public, max-age=14400
+ETag: W/"d692cbac7cff552d7a0e25ffc2b1220d"
+Expires: Mon, 01 Dec 2025 23:17:15 GMT
+Last-Modified: Mon, 01 Dec 2025 19:16:17 GMT
+Strict-Transport-Security: max-age=31536000
+Vary: Accept-Encoding, Origin
+alt-svc: h3=":443"; ma=86400
+x-goog-generation: 1764616577439497
+x-goog-hash: crc32c=TzNXMQ==, md5=1pLLrHz/VS16DiX/wrEiDQ==
+x-goog-metageneration: 1
+x-goog-storage-class: MULTI_REGIONAL
+x-goog-stored-content-encoding: identity
+x-goog-stored-content-length: 232769
+x-guploader-uploadid: AOCedOELzaCQ8wdTLwsrNIP5LZ5BQQX4R4Xm98Lu7CoiHJEaktg5LlsLAbPz5WllLx-nMmVo
+Server: cloudflare
+
+## Vulnerability Confirmed:

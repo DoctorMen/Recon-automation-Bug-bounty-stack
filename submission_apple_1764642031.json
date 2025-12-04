@@ -1,0 +1,64 @@
+{
+  "submission_metadata": {
+    "program": "Apple",
+    "submission_date": "2025-12-01T21:20:31.096342",
+    "researcher": "Security Research Team",
+    "total_findings": 2,
+    "high_value_findings": 0,
+    "total_bounty_estimate": 400,
+    "submission_method": "HackerOne Platform"
+  },
+  "executive_summary": {
+    "overview": "Security assessment discovered 2 vulnerabilities across Apple's infrastructure.",
+    "business_impact": "Medium to high risk vulnerabilities requiring immediate attention to prevent potential security incidents.",
+    "bounty_recommendation": "Total bounty recommendation: $400 based on severity and exploit potential."
+  },
+  "findings": [
+    {
+      "title": "Missing_Security_Headers Vulnerability",
+      "target": "apple.com",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "vulnerability_type": "missing_security_headers",
+      "description": "Security vulnerability discovered on apple.com: missing_security_headers",
+      "proof_of_concept": "Proof of concept for missing_security_headers on apple.com",
+      "evidence": {
+        "missing_headers": [
+          "Permissions-Policy"
+        ],
+        "url": "https://apple.com"
+      },
+      "impact_assessment": "\nLOW IMPACT:\n- Minor security weakness requiring attention\n- Information disclosure risks\n- Best practices compliance issues\n",
+      "remediation": "Implement security best practices for missing_security_headers",
+      "timeline": {
+        "discovered": "2025-12-01T21:18:32.706446",
+        "reported": "2025-12-01T21:20:31.096353",
+        "expected_fix": "2-4 weeks"
+      }
+    },
+    {
+      "title": "Missing_Security_Headers Vulnerability",
+      "target": "apple.com",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "vulnerability_type": "missing_security_headers",
+      "description": "Security vulnerability discovered on apple.com: missing_security_headers",
+      "proof_of_concept": "Proof of concept for missing_security_headers on apple.com",
+      "evidence": {
+        "missing_headers": [
+          "Permissions-Policy"
+        ],
+        "url": "https://apple.com"
+      },
+      "impact_assessment": "\nLOW IMPACT:\n- Minor security weakness requiring attention\n- Information disclosure risks\n- Best practices compliance issues\n",
+      "remediation": "Implement security best practices for missing_security_headers",
+      "timeline": {
+        "discovered": "2025-12-01T21:18:32.965211",
+        "reported": "2025-12-01T21:20:31.096357",
+        "expected_fix": "2-4 weeks"
+      }
+    }
+  ]
+}

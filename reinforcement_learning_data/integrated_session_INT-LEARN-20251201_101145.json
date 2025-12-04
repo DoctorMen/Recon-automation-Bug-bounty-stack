@@ -1,0 +1,65 @@
+{
+  "session_id": "INT-LEARN-20251201_101145",
+  "target": "https://example.com",
+  "assessment_type": "comprehensive",
+  "timestamp": "2025-12-01T10:11:45.684714",
+  "learning_applied": false,
+  "optimization_used": false,
+  "assessment_results": {
+    "target": "https://example.com",
+    "assessment_type": "comprehensive",
+    "timestamp": "2025-12-01T10:11:45.684920",
+    "optimized": false,
+    "optimization_strategy": {},
+    "results": {
+      "vulnerabilities_found": 1,
+      "critical_findings": 0,
+      "assessment_duration": "standard",
+      "success_rate": 0.65
+    },
+    "technical_findings": {
+      "validation": {
+        "vulnerabilities": [
+          {
+            "type": "missing_security_headers",
+            "severity": "medium",
+            "success": true,
+            "technique": "header_analysis"
+          }
+        ]
+      },
+      "pentest": {
+        "vulnerabilities": [
+          {
+            "type": "information_disclosure",
+            "severity": "low",
+            "success": true,
+            "technique": "reconnaissance"
+          }
+        ]
+      }
+    }
+  },
+  "learning_insights": {
+    "post_assessment_learning": {
+      "session_id": "MOCK-20251201_101145",
+      "learned_patterns": [
+        {
+          "type": "mock_pattern",
+          "description": "Mock learning"
+        }
+      ],
+      "updated_models": [
+        "mock_model"
+      ],
+      "recommendations": [
+        {
+          "type": "mock",
+          "recommendation": "Mock recommendation"
+        }
+      ]
+    }
+  },
+  "performance_improvements": {},
+  "recommendations": []
+}

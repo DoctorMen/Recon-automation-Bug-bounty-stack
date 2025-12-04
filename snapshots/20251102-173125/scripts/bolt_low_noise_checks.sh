@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # bolt_low_noise_checks.sh
 # Low-noise recon: fetch primary pages, extract candidate paths + JS chunks.
 # Adds retry + exponential backoff + error logging.

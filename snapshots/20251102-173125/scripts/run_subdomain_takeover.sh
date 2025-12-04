@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Subdomain Takeover Scanner
 # Checks discovered subdomains for takeover vulnerabilities
 # Uses nuclei and custom checks for common subdomain takeover vectors

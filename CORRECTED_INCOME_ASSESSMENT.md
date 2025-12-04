@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🎯 Does System Circumvent Skill/Experience/Luck? - Honest Reassessment
 
 ## 💡 YOUR POINT IS VALID

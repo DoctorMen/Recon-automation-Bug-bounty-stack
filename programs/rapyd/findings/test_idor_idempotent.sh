@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Complete Idempotent IDOR Testing Framework
 # Tests Payments & Customers - Fully resumable and state-tracked
 

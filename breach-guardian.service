@@ -1,0 +1,23 @@
+# Copyright © 2025 DoctorMen. All Rights Reserved.
+# Systemd service file for Breach Guardian
+# Install: sudo cp breach-guardian.service /etc/systemd/system/
+# Enable: sudo systemctl enable breach-guardian
+# Start: sudo systemctl start breach-guardian
+# Status: sudo systemctl status breach-guardian
+
+[Unit]
+Description=Breach Guardian - Real-time security breach detection
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Recon-automation-Bug-bounty-stack
+ExecStart=/usr/bin/python3 /home/ubuntu/Recon-automation-Bug-bounty-stack/BREACH_GUARDIAN.py --daemon --interval 5
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/ubuntu/Recon-automation-Bug-bounty-stack/.breach_alerts.log
+StandardError=append:/home/ubuntu/Recon-automation-Bug-bounty-stack/.breach_alerts.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Time Savings Analysis - Ultra-Fast Exploitation System
 
 ## ⏱️ Time Comparison

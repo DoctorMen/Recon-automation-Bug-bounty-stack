@@ -1,3 +1,6 @@
+/**
+ * Copyright © 2025 DoctorMen. All Rights Reserved.
+ */
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
@@ -304,4 +307,10 @@ if (require.main === module) {
 }
 
 module.exports = SecureStackProServer;
+
+
+
+
+
+
 

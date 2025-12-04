@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Apple Bug Bounty - Fix False Positives
 Public websites returning 200 is NOT a vulnerability
@@ -124,5 +128,11 @@ def fix_false_positives():
 
 if __name__ == "__main__":
     fix_false_positives()
+
+
+
+
+
+
 
 

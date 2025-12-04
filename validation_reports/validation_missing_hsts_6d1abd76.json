@@ -1,0 +1,66 @@
+{
+  "session_id": "6d1abd76",
+  "target_url": "https://example.com",
+  "vulnerability_type": "missing_hsts",
+  "endpoint_tested": "https://example.com",
+  "validation_timestamp": "2025-12-01T08:32:00.102529",
+  "validation_status": "vulnerable",
+  "evidence": {
+    "headers_received": {
+      "Accept-Ranges": "bytes",
+      "Content-Type": "text/html",
+      "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+      "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+      "Vary": "Accept-Encoding",
+      "Content-Encoding": "gzip",
+      "Cache-Control": "max-age=86000",
+      "Date": "Mon, 01 Dec 2025 13:32:08 GMT",
+      "Content-Length": "20",
+      "Connection": "keep-alive",
+      "Alt-Svc": "h3=\":443\"; ma=93600"
+    },
+    "hsts_header": "",
+    "hsts_present": false,
+    "https_available": true,
+    "hsts_analysis": null
+  },
+  "reproduction_steps": [
+    "1. Test HTTPS availability: YES",
+    "2. Check HSTS header: MISSING",
+    "3. If missing, vulnerable to SSL stripping attacks",
+    "4. Test HTTP connection downgrade",
+    "5. Vulnerability confirmed: YES"
+  ],
+  "proof_of_vulnerability": {
+    "type": "missing HSTS",
+    "severity": "medium",
+    "impact_description": "Vulnerable to SSL stripping and man-in-the-middle attacks",
+    "exploit_scenario": "Attackers can downgrade HTTPS to HTTP and intercept credentials",
+    "business_impact": "Credential theft, session hijacking, data interception"
+  },
+  "risk_assessment": {},
+  "responsible_disclosure": {
+    "summary": "MISSING_HSTS VULNERABILITY CONFIRMED",
+    "security_focus": "The security flaw itself, not attack automation",
+    "technical_details": {
+      "type": "missing HSTS",
+      "severity": "medium",
+      "impact_description": "Vulnerable to SSL stripping and man-in-the-middle attacks",
+      "exploit_scenario": "Attackers can downgrade HTTPS to HTTP and intercept credentials",
+      "business_impact": "Credential theft, session hijacking, data interception"
+    },
+    "remediation_priority": "medium",
+    "compliance_impact": [
+      "PCI-DSS",
+      "SOC 2",
+      "NIST CSF"
+    ],
+    "next_steps": [
+      "Review validation evidence",
+      "Assess business impact",
+      "Plan remediation",
+      "Test fix implementation",
+      "Monitor for regressions"
+    ]
+  }
+}

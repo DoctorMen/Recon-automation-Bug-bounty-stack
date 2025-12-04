@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Analyze Existing Scan Results
 # Processes existing subs.txt to generate full pipeline results
 

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+ParallelProfit™ - Professional Client Demo Presentation
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParallelProfit™ - Live Demo Presentation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--darker);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+            top: -300px;
+            right: -300px;
+            animation: pulse 8s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            color: #94a3b8;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 50px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+            margin: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.6);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 80px 20px;
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--success), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .feature-desc {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+        
+        /* Demo Section */
+        .demo-section {
+            padding: 80px 20px;
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        .demo-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .demo-frame {
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--primary);
+            margin-top: 40px;
+        }
+        
+        .demo-frame iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+            display: block;
+        }
+        
+        .demo-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .demo-btn {
+            background: rgba(99, 102, 241, 0.2);
+            border: 2px solid var(--primary);
+            color: white;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .demo-btn.active {
+            background: var(--primary);
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 30px 80px rgba(99, 102, 241, 0.4);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+        
+        .price-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        
+        .plan-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        .plan-period {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .plan-features li {
+            padding: 12px 0;
+            color: #94a3b8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .plan-features li::before {
+            content: '✓ ';
+            color: var(--success);
+            font-weight: 900;
+            margin-right: 10px;
+        }
+        
+        .plan-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        .final-cta h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+        
+        /* Instructions */
+        .instructions {
+            background: rgba(99, 102, 241, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+        
+        .instructions h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .instructions ol {
+            color: #94a3b8;
+            line-height: 2;
+            margin-left: 20px;
+        }
+        
+        .instructions ol li {
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .logo { font-size: 2rem; }
+            .tagline { font-size: 1.3rem; }
+            .section-title { font-size: 2rem; }
+            .final-cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo">💎 ParallelProfit™</div>
+            <h1 class="tagline">Automated Money-Making System</h1>
+            <p class="subtitle">5x Faster Delivery • 85% Profit Margins • $5k-$30k/Month Potential</p>
+            <div>
+                <button class="cta-button" onclick="scrollToDemo()">🚀 See Live Demo</button>
+                <button class="cta-button cta-secondary" onclick="scrollToPricing()">💰 View Pricing</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">40x</div>
+                <div class="stat-label">Faster Execution</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Profit Margin</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">30%</div>
+                <div class="stat-label">Win Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Automated</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Complete Automation Stack</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">Recon Automation</h3>
+                <p class="feature-desc">Automated vulnerability scanning with Subfinder, HTTPX, and Nuclei. Discover security issues 5x faster than manual methods.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Vibe Command System</h3>
+                <p class="feature-desc">Natural language interface. Execute complex workflows with simple English commands. 10x faster than traditional CLI.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">Multi-Agent Execution</h3>
+                <p class="feature-desc">8 specialized AI agents working in parallel. One person = 5-person team output. Enterprise-level delivery at solo capacity.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">Job Discovery</h3>
+                <p class="feature-desc">Automated scanning of Upwork, Fiverr, and Freelancer. Find 10-25 high-value security jobs daily without manual searching.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3 class="feature-title">AI Proposal Generation</h3>
+                <p class="feature-desc">Leverages your security expertise to generate winning proposals. Pricing intelligence: $500-$2000/audit based on complexity.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Business Analytics</h3>
+                <p class="feature-desc">Real-time ROI tracking. Win rate analysis. Revenue projections. Scalability metrics. Data-driven business decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="demo-container">
+            <h2 class="section-title">Live Interactive Demo</h2>
+            
+            <div class="instructions">
+                <h3>📋 Demo Instructions</h3>
+                <ol>
+                    <li><strong>Click "🚀 Start Full Pipeline"</strong> - Watch the complete 20-second execution cycle</li>
+                    <li><strong>Observe the 3D Mind Map</strong> - Nodes light up as each stage completes</li>
+                    <li><strong>Watch Metrics Update</strong> - Real-time revenue calculations with 30% win rate</li>
+                    <li><strong>See Business Analytics</strong> - ROI projections and scalability metrics</li>
+                    <li><strong>Try "🔍 Recon Scan"</strong> - Demo the security automation tools</li>
+                    <li><strong>Click "⚡ Vibe Command"</strong> - See natural language interface in action</li>
+                </ol>
+            </div>
+
+            <div class="demo-frame">
+                <iframe src="PARALLELPROFIT_BLEEDING_EDGE.html" id="demoFrame"></iframe>
+            </div>
+
+            <div class="demo-controls">
+                <button class="demo-btn active" onclick="resetDemo()">🔄 Reset Demo</button>
+                <button class="demo-btn" onclick="fullscreenDemo()">⛶ Fullscreen</button>
+                <button class="demo-btn" onclick="openNewTab()">↗ Open in New Tab</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Investment Options</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="plan-name">Service Model</h3>
+                <div class="plan-price">$750</div>
+                <div class="plan-period">per audit delivered</div>
+                <ul class="plan-features">
+                    <li>Full automation stack access</li>
+                    <li>10-15 clients/week capacity</li>
+                    <li>85% profit margins</li>
+                    <li>$5k-$30k/month potential</li>
+                    <li>Pay per use</li>
+                    <li>No monthly fees</li>
+                </ul>
+                <button class="plan-button">Get Started</button>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="price-badge">MOST POPULAR</div>
+                <h3 class="plan-name">SaaS License</h3>
+                <div class="plan-price">$297</div>
+                <div class="plan-period">per month</div>
+                <ul class="plan-features">
+                    <li>Unlimited job scanning</li>
+                    <li>Unlimited proposals</li>
+                    <li>All automation tools</li>
+                    <li>Priority support</li>
+                    <li>Monthly updates</li>
+                    <li>90-98% profit margins</li>
+                    <li>ROI: 10-40x first month</li>
+                </ul>
+                <button class="plan-button">Start Trial</button>
+            </div>
+
+            <div class="pricing-card">
+                <h3 class="plan-name">Enterprise White-Label</h3>
+                <div class="plan-price">$5k</div>
+                <div class="plan-period">per month</div>
+                <ul class="plan-features">
+                    <li>Full system white-labeling</li>
+                    <li>Your branding</li>
+                    <li>Resale rights</li>
+                    <li>50+ concurrent jobs</li>
+                    <li>Dedicated support</li>
+                    <li>Custom integrations</li>
+                    <li>$15k-$50k/month scale</li>
+                </ul>
+                <button class="plan-button">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Ready to Scale Your Security Business?</h2>
+        <p>Join the 99.99th percentile: Security Expertise × Automation × AI × Business Execution</p>
+        <button class="cta-button" onclick="alert('Demo complete! Contact: DoctorMen for production access')">
+            🚀 Get Production Access
+        </button>
+        <button class="cta-button cta-secondary" onclick="window.location.href='mailto:demo@parallelprofit.com?subject=ParallelProfit Demo Request'">
+            📧 Schedule Call
+        </button>
+    </section>
+
+    <script>
+        function scrollToDemo() {
+            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToPricing() {
+            document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetDemo() {
+            const iframe = document.getElementById('demoFrame');
+            iframe.src = iframe.src;
+        }
+
+        function fullscreenDemo() {
+            const iframe = document.getElementById('demoFrame');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            }
+        }
+
+        function openNewTab() {
+            window.open('PARALLELPROFIT_BLEEDING_EDGE.html', '_blank');
+        }
+
+        // Auto-scroll hint animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const hint = document.createElement('div');
+                hint.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(99, 102, 241, 0.9);
+                    color: white;
+                    padding: 15px 30px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    animation: bounce 2s infinite;
+                    cursor: pointer;
+                    z-index: 1000;
+                `;
+                hint.textContent = '↓ Scroll to see live demo ↓';
+                hint.onclick = scrollToDemo;
+                document.body.appendChild(hint);
+
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes bounce {
+                        0%, 100% { transform: translateX(-50%) translateY(0); }
+                        50% { transform: translateX(-50%) translateY(-10px); }
+                    }
+                `;
+                document.head.appendChild(style);
+
+                // Remove hint after 5 seconds
+                setTimeout(() => hint.remove(), 8000);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

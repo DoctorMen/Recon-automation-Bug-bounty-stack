@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bug Bounty Attack Categories
 
 This document outlines the comprehensive attack surface coverage in the recon stack pipeline.

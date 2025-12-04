@@ -1,278 +1,120 @@
-# Public Bug Bounty & Bugcrowd Programs Only
-# ✅ NO vouchers needed - Submit immediately
-# ✅ Fast payout - Get paid quickly after validation
-# ✅ Direct submission - No approval wait
-# ✅ Using hackingapis.pdf methodology for API testing
+# Authorized Target List – Uniswap Labs Bug Bounty (Cantina)
+# Updated: 2025-11-06
+# Safe Harbor Source: https://cantina.xyz/bounties/f9df94db-c7b1-434b-bb06-d1360abdd1be
+# Confirmation Email: Gabi (Uniswap Labs Support) – 2025-11-06 09:35 EST
+# ---------------------------------------------------------------
+# Only include assets explicitly permitted by the Uniswap program.
+# All other domains have been removed to ensure legal compliance.
+# ---------------------------------------------------------------
 
-# ============================================
-# BUGCROWD - Public Programs (No Premium Required)
-# ============================================
-# Platform: Bugcrowd (Public Access)
-# Website: https://bugcrowd.com/programs
-# Signup: Free account (public programs available)
-# Access: ✅ Public programs - no premium needed
+# Web Interfaces
+uniswap.org
+app.uniswap.org
+interface.uniswap.org
 
-# RAPYD - Bugcrowd
-# Scope: rapyd.net, API endpoints
-# Max Reward: Up to $5,000
-# Program: https://bugcrowd.com/rapyd
-# Access: ✅ Public program
-# Focus: API vulnerabilities (perfect for hackingapis.pdf methodology)
-rapyd.net
-api.rapyd.net
-dashboard.rapyd.net
-sandboxapi.rapyd.net
+# Additional approved hosts (documented in authorization JSON)
+info.uniswap.org
+status.uniswap.org
 
-# MASTERCARD - Bugcrowd
-# Scope: mastercard.com, developer.mastercard.com, API endpoints
-# Max Reward: Up to $5,000
-# Program: https://bugcrowd.com/mastercard
-# Access: ✅ Public program
-# Focus: Payment APIs, Fintech APIs
-mastercard.com
-developer.mastercard.com
-api.mastercard.com
+# Note: Smart contract repositories are tracked separately and
+# require manual handling (auditing via git, not HTTP scanning).
 
-# APPLE - Bugcrowd
-# Scope: apple.com, API endpoints
-# Max Reward: Up to $2,000,000
-# Program: https://bugcrowd.com/apple
-# Access: ✅ Public program
-# Focus: Web APIs, Authentication APIs
-apple.com
-api.apple.com
+# ---------------------------------------------------------------
+# DoorDash Bug Bounty Program (HackerOne) – Added 2025-11-10 08:58 EST
+# Researcher handle: shadowstep_131 (consumer account created via
+# shadowstep_131@wearehackerone.com)
+# Scope reference: https://hackerone.com/doordash
+# ---------------------------------------------------------------
 
-# MICROSOFT - Bugcrowd
-# Scope: microsoft.com, API endpoints
-# Max Reward: Up to $250,000
-# Program: https://bugcrowd.com/microsoft
-# Access: ✅ Public program
-# Focus: Azure APIs, Office APIs
-microsoft.com
-api.microsoft.com
+# Consumer Web & APIs
+www.doordash.com
+api.doordash.com
 
-# ATLASSIAN - Bugcrowd
-# Scope: atlassian.com, API endpoints
-# Max Reward: Up to $20,000
-# Program: https://bugcrowd.com/atlassian
-# Access: ✅ Public program
-# Focus: API vulnerabilities, Jira/Confluence APIs
-atlassian.com
-api.atlassian.com
+# Note: DoorDash forbids automated scanners—manual testing only. Use the
+# verified consumer account registered with the HackerOne forwarding address.
 
-# ============================================
-# PUBLIC BUG BOUNTY PROGRAMS - Direct Access
-# ============================================
-# These are public programs with direct access
-# No platform signup needed - submit directly
+# ---------------------------------------------------------------
+# MongoDB Atlas Bug Bounty Program (HackerOne) – Added 2025-11-11 11:24 EST
+# Researcher handle: shadowstep_131 (primary) / shadowstep_alt (secondary)
+# Required header: X-HackerOne-Research: shadowstep_131
+# Scope reference: https://hackerone.com/mongodb
+# ---------------------------------------------------------------
 
-# OPEN BUG BOUNTY - Instant Submission, No Signup
-# Platform: Open Bug Bounty (Completely Open)
-# Website: https://www.openbugbounty.org
-# Signup: NO SIGNUP REQUIRED - Submit immediately
-# Payout: Direct to your wallet (crypto)
-# Validation: Fast (usually 24-48 hours)
-# Payment: Immediate after validation
-# Focus: Any crypto/API site using non-intrusive testing
+# Control Plane & APIs
+cloud.mongodb.com
+app.mongodb.com
+charts.mongodb.com
+mongodbcloudfront.azureedge.net
+data.mongodb-api.com
 
-# ============================================
-# DIRECT EMAIL SUBMISSION - Bypass Platforms
-# ============================================
-# These programs accept DIRECT email submission
-# Submit directly via email - no platform needed
-# Get paid directly - faster than platforms
+# Notes:
+# - Use only self-owned Atlas organizations and projects (free tier unless otherwise authorized).
+# - Add X-HackerOne-Research header to every request.
+# - Manual or tightly scoped automated testing only; avoid disruptive actions.
 
-# KRAKEN - Direct Email Submission
-# Email: security@kraken.com
-# Payout: Bitcoin (direct to wallet)
-# Validation: Fast (usually 3-5 days)
-# Payment: Immediate after validation
-# Max Reward: Up to $100,000
-# Access: ✅ Public - Just email them
-# Submit: Email bug report directly
-# Note: Need Kraken account for payout (free to create)
-# Focus: Exchange APIs, Trading APIs (perfect for hackingapis.pdf)
-kraken.com
-api.kraken.com
-www.kraken.com
+# ---------------------------------------------------------------
+# Kong Bug Bounty Program (HackerOne) – Added 2025-11-11 13:58 EST
+# Researcher handle: shadowstep_131 (primary) / shadowstep_alt (secondary)
+# Required header: X-HackerOne-Research: shadowstep_131
+# Scope reference: https://hackerone.com/kong
+# ---------------------------------------------------------------
 
-# BYTE FEDERAL - Direct Email Submission
-# Email: security@bytefederal.com
-# Payout: Crypto or Fiat (direct)
-# Validation: Fast (usually 5-7 days)
-# Payment: Immediate after validation
-# Max Reward: Up to $20,000
-# Access: ✅ Public - Just email them
-# Submit: Email bug report directly
-# Products: Bitcoin ATMs, wallets, crypto products
-# Focus: API vulnerabilities, Payment APIs
-bytefederal.com
-www.bytefederal.com
+# Control Plane & Cloud Interfaces
+konghq.com
+cloud.konghq.com
+konnect.konghq.com
+manager.konghq.com
+api.konghq.com
 
-# ============================================
-# PUBLIC CRYPTO SITES - API Testing Focus
-# ============================================
-# Test these sites using hackingapis.pdf methodology
-# Submit via Open Bug Bounty or direct email
-# Focus: API endpoints, authentication, payment flows
+# Notes:
+# - Test only workspaces you create. Capture invite flows for each role change.
+# - Focus on authorization, cross-workspace isolation, and secret exposure.
 
-# WHITEBIT - Public Site
-# Test: whitebit.com
-# Submit: Via Open Bug Bounty OR direct email
-# Payout: Direct crypto
-# Max Reward: $10,000
-# Access: ✅ Public site - test immediately
-# Focus: Exchange APIs, Trading APIs (hackingapis.pdf methodology)
-whitebit.com
-api.whitebit.com
-trade.whitebit.com
+# ---------------------------------------------------------------
+# Robinhood Markets Bug Bounty Program (HackerOne) – Added 2025-11-11 14:05 EST
+# Researcher handle: shadowstep_131 (primary) / shadowstep_alt (secondary)
+# Required header: X-HackerOne-Research: shadowstep_131
+# Scope reference: https://hackerone.com/robinhood
+# ---------------------------------------------------------------
 
-# NICEHASH - Public Site
-# Test: nicehash.com
-# Submit: Via Open Bug Bounty OR direct email
-# Payout: Direct crypto
-# Max Reward: $22,500
-# Access: ✅ Public site - test immediately
-# Focus: Mining APIs, Platform APIs (hackingapis.pdf methodology)
-nicehash.com
-api.nicehash.com
-www.nicehash.com
+# Trading & Brokerage APIs
+robinhood.com
+api.robinhood.com
+api.robinhoodcryptodev.com
+*.robinhood.com # Robinhood Crypto Bug Bounty - $3.2M bounty pool
 
-# ============================================
-# API HACKING METHODOLOGY (hackingapis.pdf)
-# ============================================
-# Using hackingapis.pdf techniques:
-# 1. API Discovery
-#    - Endpoint enumeration (/api/, /v1/, /v2/, /graphql)
-#    - Swagger/OpenAPI detection
-#    - GraphQL introspection
-#    - REST API discovery
-#
-# 2. API Authentication Testing
-#    - JWT token manipulation
-#    - OAuth flow testing
-#    - API key enumeration
-#    - Session management
-#    - Bearer token testing
-#
-# 3. API Authorization Testing
-#    - IDOR in API endpoints
-#    - Privilege escalation
-#    - Role-based access control
-#    - API permission bypass
-#
-# 4. API Input Validation
-#    - Parameter manipulation
-#    - Mass assignment
-#    - Parameter pollution
-#    - Injection in API parameters
-#
-# 5. API Business Logic
-#    - Rate limiting bypass
-#    - Batch operations
-#    - Race conditions
-#    - State manipulation
-#
-# 6. API Information Disclosure
-#    - Error messages
-#    - Debug endpoints
-#    - Version disclosure
-#    - Stack traces
+# Notes:
+# - Use only HackerOne-approved test accounts; capture invite and funding flows.
+# - Focus on authorization around account linking, fund transfers, trade submission, and document access.
 
-# ============================================
-# RECOMMENDED TARGETS FOR API TESTING
-# ============================================
-# Priority 1: Bugcrowd Programs (Structured)
-# - Rapyd (api.rapyd.net) - Payment APIs
-# - Mastercard (developer.mastercard.com) - Fintech APIs
-# - Atlassian (api.atlassian.com) - Platform APIs
-#
-# Priority 2: Direct Email (Fast)
-# - Kraken (api.kraken.com) - Exchange APIs
-# - Byte Federal - Crypto APIs
-#
-# Priority 3: Public Sites + Open Bug Bounty
-# - WhiteBIT (api.whitebit.com) - Exchange APIs
-# - NiceHash (api.nicehash.com) - Mining APIs
+# ---------------------------------------------------------------
+# Wallet (Telegram) Bug Bounty Program – Added 2025-11-11 14:31 EST
+# Researcher handle: shadowstep_131 (primary) / shadowstep_alt (secondary)
+# Required header: X-HackerOne-Research: shadowstep_131
+# Scope reference: https://hackerone.com/wallet
+# ---------------------------------------------------------------
 
-# ============================================
-# INSTANT SUBMISSION STRATEGY
-# ============================================
-# Method 1: Open Bug Bounty (Fastest)
-# - No signup needed
-# - Submit immediately
-# - Get paid directly (crypto)
-# - Validation: 24-48 hours
-# - Best for: Web/API vulnerabilities
+# Wallet Web & API Interfaces
+wallet.telegram.org
+api.wallet.telegram.org
+web.telegram.org
 
-# Method 2: Direct Email (Fast)
-# - Email security team directly
-# - Bypass platforms
-# - Faster validation
-# - Best for: Critical bugs
+# Notes:
+# - Use only KYC-compliant Telegram Wallet accounts you control or have written approval for.
+# - Focus on custody sharing, transaction authorization, off-chain ↔ on-chain flows, and document/notification exposures.
 
-# Method 3: Bugcrowd (Structured)
-# - Free account (public programs)
-# - Submit via platform
-# - Structured process
-# - Best for: Organized submission
+# ---------------------------------------------------------------
+# Euler V2 Bug Bounty Program (Cantina) – Added 2025-12-01 13:30 EST
+# Researcher: Verified Cantina account
+# Program: https://cantina.xyz/bounties/4d285eee-602e-440a-845e-25e155cec26a
+# No deposit required - $7,500,000 total reward pool
+# ---------------------------------------------------------------
 
-# ============================================
-# IMPORTANT NOTES
-# ============================================
-# ✅ ALL programs: NO vouchers needed
-# ✅ ALL programs: Submit immediately
-# ✅ ALL programs: Fast payout after validation
-# ✅ Bugcrowd: Public programs available (no premium)
-# ✅ Open Bug Bounty: NO signup required
-# ✅ Direct email: Bypass platforms entirely
-# ✅ Use hackingapis.pdf methodology for API testing
-# ✅ Use penetration testing PDF techniques
-# ✅ Maintain idempotency (checkpoints)
-# ✅ Original findings only (duplicate detection)
-# ✅ Scope-aware (only tests in-scope endpoints)
+# Web Interfaces (Only site in scope)
+app.euler.finance
 
-# ⚠️ Always verify current scope before scanning!
-# ⚠️ Use non-intrusive testing methods
-# ⚠️ Respect rate limits
-# ⚠️ Don't test production databases or perform DoS
-
-# ============================================
-# CODE4RENA - Competitive Audit Contests
-# ============================================
-# Platform: Code4rena (Competitive Audit Platform)
-# Website: https://code4rena.com
-# Access: ✅ Public - Sign up and compete
-# Format: Competitive audit contests
-# Focus: Smart contracts, DeFi protocols
-
-# BLACKHOLE - Code4rena
-# Type: DEX (Decentralized Exchange)
-# Chain: Avalanche
-# Max Bounty: $100,000 in $BLACK tokens
-# Program: https://code4rena.com/bounties/blackhole
-# Description: Largest DEX on Avalanche by daily trading volume
-# Scope: Smart contracts, web frontend, API endpoints
-# Focus Areas:
-#   - Reentrancy attacks
-#   - Flash loan vulnerabilities
-#   - Price manipulation
-#   - Liquidity pool exploits
-#   - Access control issues
-#   - Integer overflow/underflow
-#   - Front-running vulnerabilities
-#   - MEV exploitation
-#   - Token approval issues
-#   - Router vulnerabilities
-# Submission: Via Code4rena platform
-# GitHub: Check program page for repository link
-# Access: ✅ Public - Sign up and compete
-blackhole-exchange.com
-app.blackhole-exchange.com
-api.blackhole-exchange.com
-www.blackhole-exchange.com
-# Note: Smart contracts tested via GitHub repo (check program page)
-
-# Focus: API endpoints using hackingapis.pdf methodology
-# Targets: Public bug bounty programs + Bugcrowd + Code4rena
-# Access: All public, no vouchers, immediate submission
+# Notes:
+# - Only https://app.euler.finance is in scope per program documentation
+# - Focus on authentication, XSS, CSRF, sensitive data disclosure
+# - High severity: $5,000, Medium: $1,000, Critical: $25,000
+# - Do not test clickjacking on pages with no sensitive actions

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Universal Bug Bounty Scanner - Fixed!
 
 ## The Problem

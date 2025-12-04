@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Self-Contained Recon Stack - Zero Host Dependencies!
 
 **100% Self-Contained - Everything in Cursor Workspace**

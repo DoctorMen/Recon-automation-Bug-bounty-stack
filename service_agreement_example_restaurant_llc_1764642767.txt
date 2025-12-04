@@ -1,0 +1,78 @@
+
+PROFESSIONAL SECURITY AUDIT SERVICES AGREEMENT
+==============================================
+
+AGREEMENT DATE: December 01, 2025
+
+PARTIES:
+Provider: Alpine Security Consulting LLC
+Client: Example Restaurant LLC
+
+SERVICES:
+Professional Website Security Audit
+
+Scope of Work:
+External security assessment of client's website and online infrastructure
+
+Deliverables:
+• Comprehensive security vulnerability assessment
+• Professional security audit report with executive summary
+• Detailed remediation recommendations
+• 30-day follow-up consultation
+
+Exclusions:
+• Internal network testing
+• Social engineering assessments
+• Physical security assessments
+• Source code review
+
+TIMELINE:
+Start Date: December 01, 2025
+Delivery Date: December 03, 2025
+Consultation Period: 30 days from delivery
+
+PAYMENT TERMS:
+Total Fee: $997.00
+Payment Schedule:
+• 50% due upon signing ($498.50)
+• 50% due upon report delivery ($498.50)
+
+Payment Methods: Bank transfer, Business check, PayPal Business
+Late Payment: 1.5% per month on overdue amounts
+
+LIABILITY LIMITATION:
+Liability limited to fees paid for services
+No guarantee of complete security or zero vulnerabilities
+Client responsible for implementing remediation
+Client indemnifies provider against third-party claims
+
+CONFIDENTIALITY:
+Duration: 5 years from agreement date
+Scope: All client information and assessment results
+Exceptions: Legal requirements, court orders, or with client consent
+
+TERMINATION:
+By Client: 48 hours written notice, payment for services rendered
+By Provider: Material breach of agreement, 24 hours written notice
+Effect: Payment for all services performed up to termination date
+
+SIGNATURES:
+
+PROVIDER:
+_________________________
+Alpine Security Consulting LLC
+Date: December 01, 2025
+
+CLIENT:
+_________________________
+Example Restaurant LLC
+Date: December 01, 2025
+
+GOVERNING LAW:
+This agreement shall be governed by the laws of the State of Wyoming.
+Any disputes shall be resolved through binding arbitration.
+
+ENTIRE AGREEMENT:
+This document represents the entire agreement between the parties
+and supersedes all prior discussions and understandings.
+        

@@ -1,0 +1,58 @@
+# Henkel Bug Bounty - Priority Targets
+# Focus: SQLi, RCE, Personal Data Leakage, Privilege Escalation
+
+# === TIER 1: Chinese Infrastructure (Higher Risk) ===
+smartshelf.henkel.cn
+smc-analyzer.henkel-consumer-brands.cn
+auth.eshop-henkel-adhesives.cn
+scrm-weconnect-api.schwarzkopfclub.com.cn
+scrm-sreadmin.schwarzkopfclub.com.cn
+scrm-csr.schwarzkopfclub.com.cn
+pattex.com.cn
+aigc.henkel.cn
+aigc.magic-mirror.cn
+fc.henkel-consumer-brands.cn
+base.henkel-consumer-brands.cn
+tpm.henkel-consumer-brands.cn
+md.rebate-henkel-adhesives.cn
+chatbotdatacon.wechat-henkel-adhesives.cn
+shrndconsumer.henkel-consumer-brands.cn
+ipad.shrndconsumer.henkel-consumer-brands.cn
+aliyunportal.henkel.cn
+aliportal.henkel.cn
+
+# === TIER 2: UAT/Test Environments (Often Less Hardened) ===
+uat.www.shrndconsumer.henkel-consumer-brands.cn
+uat.ipad.shrndconsumer.henkel-consumer-brands.cn
+uat-smc-analyzer.henkel-consumer-brands.cn
+test-console.ar.magic-mirror.cn
+test-api.mini.magic-mirror.cn
+test-api.ar.magic-mirror.cn
+tpm-qa.henkel-consumer-brands.cn
+fc-qa.henkel-consumer-brands.cn
+base-qa.henkel-consumer-brands.cn
+aliyunportal-dev.henkel.cn
+aliportal-dev.henkel.cn
+
+# === TIER 3: Consumer Portals (PII/Account Data) ===
+www.joico.com
+www.joico.eu
+www.joico.lat
+www.joico.ca
+www.joico.com.au
+www.joico.com.br
+alternahaircare.cn
+alternahaircare.com.cn
+k2r-products.cn
+docdownload-webinar.tryloctite.cn
+console.ar.magic-mirror.cn
+api.mini.magic-mirror.cn
+api.ar.magic-mirror.cn
+
+# === TIER 4: API Endpoints (SQLi/Data Leakage) ===
+# These need subdomain enumeration first
+# *.loctite.com
+# *.schwarzkopf.de
+# *.henkel-consumer-brands.cn
+# *.wechat-henkel-adhesives.cn
+# *.tryloctite.cn

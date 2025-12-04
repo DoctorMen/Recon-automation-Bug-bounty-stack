@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Recon Stack Improvements Summary
 
 This document outlines all improvements made to maximize the efficacy of the recon stack pipeline.

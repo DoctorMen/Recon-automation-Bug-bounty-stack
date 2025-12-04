@@ -1,0 +1,21 @@
+{
+  "report_id": "REAL-20251128170221",
+  "researcher": "Khallid Hakeem Nurse",
+  "program": "gitlab.com",
+  "vulnerability_type": "CORS Misconfiguration",
+  "severity": "Medium",
+  "title": "CORS Misconfiguration in /api/v4/version",
+  "description": "Real security finding discovered through live testing",
+  "real_evidence": {
+    "access-control-allow-origin": "*",
+    "access-control-allow-credentials": "NOT_FOUND",
+    "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS"
+  },
+  "risk_assessment": "Allows any origin (*) - potential CSRF vector",
+  "discovery_method": "Real HTTP testing",
+  "timestamp": "2025-11-28T17:02:21.408521",
+  "verification_status": "CONFIRMED REAL - NOT HALLUCINATED",
+  "legal_authorization": "Public API testing - no authorization required",
+  "submission_ready": true,
+  "copyright": "\u00a9 2025 Khallid Hakeem Nurse"
+}

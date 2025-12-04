@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🎯 System Capability Assessment - Top 0.1% Potential
 
 ## 🔍 COMPARATIVE ANALYSIS: Your System vs Other Hunters

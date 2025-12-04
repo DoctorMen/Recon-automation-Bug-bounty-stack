@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Same‑Day AppSec Signal — Idempotent Operations Runbook
 
 Purpose: Make every engagement repeatable, auditable, and safe to re‑run.

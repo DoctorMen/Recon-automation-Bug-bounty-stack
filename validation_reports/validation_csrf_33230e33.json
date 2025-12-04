@@ -1,0 +1,53 @@
+{
+  "session_id": "33230e33",
+  "target_url": "https://example.com",
+  "vulnerability_type": "csrf",
+  "endpoint_tested": "https://example.com",
+  "validation_timestamp": "2025-12-01T08:31:38.380314",
+  "validation_status": "not_vulnerable",
+  "evidence": {
+    "forms_found": [],
+    "csrf_tokens_found": [],
+    "same_site_cookies": [],
+    "headers_received": {
+      "Accept-Ranges": "bytes",
+      "Content-Type": "text/html",
+      "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+      "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+      "Vary": "Accept-Encoding",
+      "Content-Encoding": "gzip",
+      "Cache-Control": "max-age=86000",
+      "Date": "Mon, 01 Dec 2025 13:31:42 GMT",
+      "Content-Length": "363",
+      "Connection": "keep-alive",
+      "Alt-Svc": "h3=\":443\"; ma=93600"
+    }
+  },
+  "reproduction_steps": [
+    "1. Navigate to target endpoint: https://example.com",
+    "2. Analyze forms found: 0",
+    "3. Check for CSRF tokens: 0 found",
+    "4. Check SameSite cookies: 0 protected",
+    "5. Vulnerability confirmed: NO"
+  ],
+  "proof_of_vulnerability": {},
+  "risk_assessment": {},
+  "responsible_disclosure": {
+    "summary": "CSRF NOT VULNERABLE",
+    "security_focus": "The security flaw itself, not attack automation",
+    "technical_details": {},
+    "remediation_priority": "high",
+    "compliance_impact": [
+      "OWASP Top 10",
+      "PCI-DSS",
+      "SOC 2"
+    ],
+    "next_steps": [
+      "Review validation evidence",
+      "Assess business impact",
+      "Plan remediation",
+      "Test fix implementation",
+      "Monitor for regressions"
+    ]
+  }
+}

@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # API Endpoint Discovery
 # Discovers API endpoints, GraphQL, OpenAPI/Swagger docs, and API-related paths
 # Input: ~/recon-stack/output/http.json

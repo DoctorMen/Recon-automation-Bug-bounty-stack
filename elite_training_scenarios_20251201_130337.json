@@ -1,0 +1,136 @@
+{
+  "santiago_lopez_patterns": {
+    "medium_bounty_focus": [
+      {
+        "vulnerability": "stored_xss",
+        "avg_bounty": "$2500",
+        "time_investment": "2 hours"
+      },
+      {
+        "vulnerability": "idor",
+        "avg_bounty": "$1500",
+        "time_investment": "1 hour"
+      },
+      {
+        "vulnerability": "ssrf",
+        "avg_bounty": "$3000",
+        "time_investment": "3 hours"
+      },
+      {
+        "vulnerability": "csrf",
+        "avg_bounty": "$1000",
+        "time_investment": "1.5 hours"
+      }
+    ],
+    "avoid_patterns": [
+      {
+        "vulnerability": "rce",
+        "avg_bounty": "$10000",
+        "time_investment": "40 hours"
+      },
+      {
+        "vulnerability": "buffer_overflow",
+        "avg_bounty": "$5000",
+        "time_investment": "30 hours"
+      }
+    ]
+  },
+  "frans_rosen_patterns": {
+    "dom_analysis": [
+      {
+        "technique": "postMessage interception",
+        "success_rate": 0.3
+      },
+      {
+        "technique": "DOM clobbering",
+        "success_rate": 0.25
+      },
+      {
+        "technique": "Prototype pollution",
+        "success_rate": 0.2
+      },
+      {
+        "technique": "CSP bypass",
+        "success_rate": 0.35
+      }
+    ],
+    "parameter_discovery": [
+      {
+        "tool": "Param Miner",
+        "new_params_found": " avg 5 per target"
+      },
+      {
+        "tool": "DomLogger++",
+        "data_leaks": " avg 3 per target"
+      },
+      {
+        "tool": "postMessage-tracker",
+        "handlers": " avg 8 per target"
+      }
+    ]
+  },
+  "rhynorater_patterns": {
+    "deep_dive_strategy": [
+      {
+        "min_hours": 30,
+        "success_probability": 0.7
+      },
+      {
+        "crown_jewels_focus": "payment systems",
+        "impact_multiplier": 3.0
+      },
+      {
+        "crown_jewels_focus": "user data",
+        "impact_multiplier": 2.5
+      },
+      {
+        "crown_jewels_focus": "admin functions",
+        "impact_multiplier": 2.0
+      }
+    ],
+    "intuition_signals": [
+      {
+        "pattern": "unusual parameter names",
+        "vulnerability_likelihood": 0.4
+      },
+      {
+        "pattern": "legacy endpoints",
+        "vulnerability_likelihood": 0.6
+      },
+      {
+        "pattern": "debug parameters",
+        "vulnerability_likelihood": 0.5
+      }
+    ]
+  },
+  "monke_patterns": {
+    "automation_integration": [
+      {
+        "tool": "Caido",
+        "efficiency_gain": 1.5
+      },
+      {
+        "tool": "ProjectDiscovery suite",
+        "coverage_increase": 2.0
+      },
+      {
+        "tool": "Obsidian mind maps",
+        "pattern_recognition": 1.8
+      }
+    ],
+    "mental_endurance": [
+      {
+        "technique": "Pomodoro",
+        "hours_effective": 6
+      },
+      {
+        "technique": "Regular breaks",
+        "burnout_prevention": 0.9
+      },
+      {
+        "technique": "Walk breaks",
+        "creativity_boost": 1.3
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "generation_timestamp": "2025-12-01T14:06:05.434411",
+  "total_vulnerabilities": 10,
+  "validation_method": "undeniable_proof",
+  "reputation_protection": "maximum",
+  "vulnerabilities": [
+    {
+      "target": "shopify.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "recreation_steps_count": 10,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    },
+    {
+      "target": "shopify.com",
+      "vulnerability_type": "XSS/Content Injection",
+      "severity": "Medium",
+      "recreation_steps_count": 10,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    },
+    {
+      "target": "shopify.com",
+      "vulnerability_type": "XSS Protection",
+      "severity": "Low",
+      "recreation_steps_count": 8,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    },
+    {
+      "target": "shopify.com",
+      "vulnerability_type": "Privacy Leakage",
+      "severity": "Low",
+      "recreation_steps_count": 8,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    },
+    {
+      "target": "shopify.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "recreation_steps_count": 10,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    },
+    {
+      "target": "shopify.com",
+      "vulnerability_type": "Information Disclosure",
+      "severity": "Low",
+      "recreation_steps_count": 10,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    },
+    {
+      "target": "gitlab.com",
+      "vulnerability_type": "Clickjacking",
+      "severity": "Medium",
+      "recreation_steps_count": 10,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    },
+    {
+      "target": "gitlab.com",
+      "vulnerability_type": "MIME Sniffing",
+      "severity": "Low",
+      "recreation_steps_count": 8,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    },
+    {
+      "target": "gitlab.com",
+      "vulnerability_type": "XSS/Content Injection",
+      "severity": "Medium",
+      "recreation_steps_count": 10,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    },
+    {
+      "target": "gitlab.com",
+      "vulnerability_type": "XSS Protection",
+      "severity": "Low",
+      "recreation_steps_count": 8,
+      "proof_layers": 3,
+      "verification_hashes_count": 4,
+      "has_automated_test": true,
+      "has_manual_verification": true,
+      "has_impact_demonstration": true,
+      "has_reputation_protection": true
+    }
+  ]
+}

@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Vulnerability Hunter Agent (Nuclei)
 # Performs Nuclei scans on discovered endpoints
 # Input: ~/recon-stack/output/http.json

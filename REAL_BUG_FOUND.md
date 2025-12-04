@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🎉 REAL BUG BOUNTY TEST - RESULTS
 
 ## ✅ CONFIRMED VULNERABILITY FOUND!

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Multi-Target Automated Exploitation Testing
 
 ## âœ… EXPANDED SCOPE - NO LONGER JUST BOLT!

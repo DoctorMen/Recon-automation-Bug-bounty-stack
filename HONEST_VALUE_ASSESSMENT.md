@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 💰 BRUTALLY HONEST DOLLAR VALUE ASSESSMENT
 
 ## 🎯 CURRENT VALUE (What You Have RIGHT NOW)

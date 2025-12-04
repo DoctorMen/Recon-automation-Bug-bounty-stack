@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Test Apple Endpoints - Verify what they actually are
 Check if they're real Apple APIs or just CDN subdomains

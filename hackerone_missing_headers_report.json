@@ -1,0 +1,27 @@
+{
+  "report_metadata": {
+    "vulnerability_type": "missing_headers",
+    "category": "Security Misconfiguration",
+    "created_date": "2025-12-01T21:18:04.984787",
+    "researcher": "Security Research Team",
+    "total_findings": 1,
+    "total_bounty_potential": 500.0
+  },
+  "executive_summary": "\nMISSING_HEADERS VULNERABILITIES - SECURITY ASSESSMENT\n\nOVERVIEW:\nDiscovered 1 instances of missing_headers vulnerabilities \nacross 1 unique targets.\n\nBUSINESS IMPACT:\n- Total Bounty Potential: $500\n- High-Value Findings: 0\n- Average Risk Level: Medium to High\n\nSEVERITY DISTRIBUTION:\n- Medium: 1 findings\n",
+  "technical_details": "Technical analysis for missing_headers vulnerabilities.",
+  "individual_findings": [
+    {
+      "target": "kiln.fi",
+      "severity": "medium",
+      "confidence": 0.9,
+      "bounty_estimate": 500.0,
+      "evidence": {
+        "missing_header": "x-content-type-options",
+        "url": "https://kiln.fi"
+      },
+      "proof_of_concept": "Proof of concept for mime_sniffing on kiln.fi",
+      "impact_assessment": "\nMEDIUM IMPACT:\n- Security posture weakness\n- Potential for data exposure\n- User experience risks\n- Compliance concerns\n",
+      "remediation": "Implement security best practices for mime_sniffing"
+    }
+  ]
+}

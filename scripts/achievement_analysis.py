@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 What We've Accomplished - Achievement Analysis
 Even without payment, this is impressive work
@@ -246,5 +250,11 @@ def achievement_analysis():
 
 if __name__ == "__main__":
     achievement_analysis()
+
+
+
+
+
+
 
 

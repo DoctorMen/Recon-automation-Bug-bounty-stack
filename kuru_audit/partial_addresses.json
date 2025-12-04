@@ -1,0 +1,56 @@
+{
+  "note": "Partial addresses from Kuru bug bounty scope",
+  "network": "Monad Mainnet",
+  "rpc": "https://rpc.monad.xyz",
+  "addresses": {
+    "KuruFlowEntrypoint": [
+      "0xb3",
+      "13cb"
+    ],
+    "KuruFlowRouter": [
+      "0x46",
+      "7040"
+    ],
+    "KuruAMMVaultImpl": [
+      "0xDC",
+      "70F4"
+    ],
+    "KuruForwarder": [
+      "0x97",
+      "3FAA"
+    ],
+    "KuruForwarderImpl": [
+      "0xbf",
+      "Fe2A"
+    ],
+    "KuruUtils": [
+      "0xD8",
+      "27f6"
+    ],
+    "MarginAccount": [
+      "0x2A",
+      "90c5"
+    ],
+    "MarginAccountImpl": [
+      "0x57",
+      "0ca7"
+    ],
+    "MonadDeployer": [
+      "0xe2",
+      "7D1E"
+    ],
+    "OrderBookImpl": [
+      "0xea",
+      "23CD"
+    ],
+    "Router": [
+      "0xd6",
+      "95CC"
+    ],
+    "RouterImpl": [
+      "0x0F",
+      "A9CD"
+    ]
+  },
+  "instructions": "Use monadscan.com to find full addresses"
+}

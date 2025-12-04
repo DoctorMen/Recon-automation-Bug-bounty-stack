@@ -1,0 +1,34 @@
+# Information Disclosure Evidence - uber.com
+# Generated: 2025-12-01T13:12:24.482280
+# Program: Uber (HackerOne)
+
+Command: curl -I https://www.uber.com/
+
+Output:
+HTTP/1.1 406 Not Acceptable
+Date: Mon, 01 Dec 2025 18:12:24 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 14
+Connection: keep-alive
+CF-RAY: 9a748d73b8bbc015-ATL
+Set-Cookie: _ua={"session_id":"efa29317-f799-451b-b6ca-872289ad85f1","session_time_ms":1764612744334}; path=/; secure
+Set-Cookie: marketing_vistor_id=f4adabc8-83cc-4c4f-a570-81ae4a8a6def; path=/; expires=Tue, 01 Dec 2026 18:12:24 GMT; domain=.uber.com; secure
+Set-Cookie: user_city_ids=23; path=/; secure; httponly
+Set-Cookie: jwt-session=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InNsYXRlLWV4cGlyZXMtYXQiOjE3NjQ2MTQ1NDQzMzV9LCJpYXQiOjE3NjQ2MTI3NDQsImV4cCI6MTc2NDY5OTE0NH0.YxESYAiMJHy40gf_uBR6Mlz92lT90IR_eHUwbXjl5EU; path=/; expires=Tue, 02 Dec 2025 18:12:24 GMT; secure; httponly
+Set-Cookie: __cf_bm=9z0kKsLS2NyWPLSIs1SFztTIKziDSEgstNvBJjG.Sbw-1764612744-1.0.1.1-qda7xGLjLnfyvfwhG_VbRRuyCbn6Xe_ImNLskf4Okls4utbv1yUeOpQH2sLqC.lpAc9AE.RC2ZWw2ce8UGoEcFz45pqDHoXjojTSJZ8fI5o; path=/; expires=Mon, 01-Dec-25 18:42:24 GMT; domain=.uber.com; HttpOnly; Secure; SameSite=None
+x-frame-options: SAMEORIGIN
+Cache-Control: max-age=0
+x-envoy-upstream-service-time: 31
+strict-transport-security: max-age=31536000
+x-content-type-options: nosniff
+CF-Cache-Status: BYPASS
+x-uber-edge: e4-dca24:w:1272244899,ufe:production-cloudflare:compute-0:dca24,cloudflare:production:default
+Server: cloudflare
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0    14    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

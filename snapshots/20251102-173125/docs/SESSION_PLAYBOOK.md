@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 ## Session Playbook: Recon Automation (Portable + Secure)
 
 This playbook lets you quickly follow, recreate, and redeploy the recon workflow, and securely back up/restore your session anywhere (Windows, Linux/WSL).

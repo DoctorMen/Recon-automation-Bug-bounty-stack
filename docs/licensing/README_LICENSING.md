@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Licensing README (Model #2: Training & System Licensing)
 
 This folder contains the materials to sell and deliver the Bug Bounty Automation System as a licensed product.
@@ -39,6 +42,12 @@ The script creates `dist/system_release_YYYYMMDD_HHMM.zip` excluding `output/`, 
 
 ---
 Owner: DoctorMen • Contact: doctormen131@outlook.com
+
+
+
+
+
+
 
 
 

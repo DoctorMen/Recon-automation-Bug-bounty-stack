@@ -1,0 +1,66 @@
+{
+  "session_id": "6d1abd76",
+  "target_url": "https://example.com",
+  "vulnerability_type": "missing_csp",
+  "endpoint_tested": "https://example.com",
+  "validation_timestamp": "2025-12-01T08:32:00.102529",
+  "validation_status": "vulnerable",
+  "evidence": {
+    "headers_received": {
+      "Accept-Ranges": "bytes",
+      "Content-Type": "text/html",
+      "ETag": "\"bc2473a18e003bdb249eba5ce893033f:1760028122.592274\"",
+      "Last-Modified": "Thu, 09 Oct 2025 16:42:02 GMT",
+      "Vary": "Accept-Encoding",
+      "Content-Encoding": "gzip",
+      "Cache-Control": "max-age=86000",
+      "Date": "Mon, 01 Dec 2025 13:32:07 GMT",
+      "Content-Length": "20",
+      "Connection": "keep-alive",
+      "Alt-Svc": "h3=\":443\"; ma=93600"
+    },
+    "csp_header": "",
+    "csp_present": false,
+    "csp_analysis": null,
+    "risk_assessment": null
+  },
+  "reproduction_steps": [
+    "1. Navigate to target endpoint: https://example.com",
+    "2. Check HTTP headers for CSP: MISSING",
+    "3. If missing, site lacks XSS protection",
+    "4. Test script injection in various contexts",
+    "5. Vulnerability confirmed: YES"
+  ],
+  "proof_of_vulnerability": {
+    "type": "missing content security policy",
+    "severity": "medium",
+    "impact_description": "No protection against XSS and other injection attacks",
+    "exploit_scenario": "Attackers can inject scripts, steal data, and perform malicious actions",
+    "business_impact": "XSS vulnerabilities, data theft, compliance violations"
+  },
+  "risk_assessment": {},
+  "responsible_disclosure": {
+    "summary": "MISSING_CSP VULNERABILITY CONFIRMED",
+    "security_focus": "The security flaw itself, not attack automation",
+    "technical_details": {
+      "type": "missing content security policy",
+      "severity": "medium",
+      "impact_description": "No protection against XSS and other injection attacks",
+      "exploit_scenario": "Attackers can inject scripts, steal data, and perform malicious actions",
+      "business_impact": "XSS vulnerabilities, data theft, compliance violations"
+    },
+    "remediation_priority": "medium",
+    "compliance_impact": [
+      "OWASP Top 10",
+      "PCI-DSS",
+      "SOC 2"
+    ],
+    "next_steps": [
+      "Review validation evidence",
+      "Assess business impact",
+      "Plan remediation",
+      "Test fix implementation",
+      "Monitor for regressions"
+    ]
+  }
+}

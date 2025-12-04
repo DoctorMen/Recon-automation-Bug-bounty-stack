@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Action Plan: From Findings to Earnings
 
 ## Current Status ✅

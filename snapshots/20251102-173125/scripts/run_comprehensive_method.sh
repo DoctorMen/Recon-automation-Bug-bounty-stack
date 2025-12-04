@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Quick Start - Comprehensive Bug Bounty Method
 # Runs the unified PDF-enhanced bug bounty method
 

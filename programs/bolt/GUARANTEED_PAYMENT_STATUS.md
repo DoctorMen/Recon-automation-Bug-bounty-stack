@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bolt Technologies - Guaranteed Payment Status
 
 ## Current Status
@@ -21,7 +24,8 @@ Run this command to check:
 
 ## Current Findings
 
-Check econ/output/findings.json for all findings.
+Check 
+econ/output/findings.json for all findings.
 Check submissions/ for submission-ready files.
 
 ## Next Steps

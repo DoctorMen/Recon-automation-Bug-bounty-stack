@@ -1,0 +1,22 @@
+# Transport Security Evidence - verizon.com
+# Generated: 2025-12-01T13:17:45.209408
+# Program: Verizon (HackerOne)
+
+Command: curl -I https://verizon.com
+
+Output:
+HTTP/1.1 301 Moved Permanently
+Location: https://www.verizon.com
+Content-Length: 231
+Content-Type: text/html; charset=iso-8859-1
+Date: Mon, 01 Dec 2025 18:17:45 GMT
+Connection: keep-alive
+Akamai-GRN: 0.414d6168.1764613065.1f312fce
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0   231    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

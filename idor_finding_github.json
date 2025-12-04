@@ -1,0 +1,23 @@
+{
+  "vulnerability_type": "IDOR",
+  "target": "github.com",
+  "endpoint": "/api/v3/repos/{owner}/{repo}/issues/{id}",
+  "parameter": "issue_id",
+  "payload": "Access unauthorized issue by changing ID",
+  "severity": "High",
+  "cvss_score": 7.5,
+  "discovery_method": "Automated IDOR Testing",
+  "discovery_timestamp": "2025-11-28T16:55:19.577745",
+  "authorization": "auto_auth_github_com.json",
+  "legal_compliance": true,
+  "copyright_holder": "Khallid Hakeem Nurse",
+  "evidence": {
+    "request": "GET /api/v3/repos/owner/repo/issues/456",
+    "payload": "Changed issue_id from 123 to 456",
+    "response": "200 OK - Accessed unauthorized issue",
+    "screenshot": "idor_evidence.png"
+  },
+  "remediation": "Implement proper authorization checks",
+  "bounty_estimate": 7500,
+  "report_ready": true
+}

@@ -1,0 +1,39 @@
+{
+  "client_name": "Bugcrowd - bugcrowd",
+  "target": "bugcrowd",
+  "program_handle": "bugcrowd",
+  "program_name": "bugcrowd",
+  "scope": [
+    "favicon.ico",
+    "application-6f85d7c76fd21e5c926e00268406ffe73ef5d387792622e06539994665a9af9f.js",
+    "bugcrowd-logo-b90c52e691ace97f54db4d459c246639e26907e862b4c58b39173d2fac146fd0.svg",
+    "reveal.json",
+    "bugcrowd.com",
+    "tracker.bugcrowd.com",
+    "fames.json",
+    "opensearch.xml",
+    "users.json",
+    "www.bugcrowd.com"
+  ],
+  "start_date": "2025-11-28T21:51:46.709187Z",
+  "end_date": "2026-11-28T21:51:46.709203Z",
+  "authorized_by": "Bugcrowd Program Terms",
+  "authorized_by_email": "support@bugcrowd.com",
+  "authorized_by_title": "Bug Bounty Program",
+  "contact_emergency": "support@bugcrowd.com",
+  "testing_types_authorized": [
+    "vulnerability_scanning",
+    "web_application_testing"
+  ],
+  "testing_types_forbidden": [
+    "dos_testing",
+    "social_engineering"
+  ],
+  "program_policy": "",
+  "program_url": "https://bugcrowd.com/bugcrowd",
+  "signature_date": "2025-11-28T21:51:46.709211Z",
+  "signature_hash": "bugcrowd_terms_accepted",
+  "notes": "Auto-discovered from Bugcrowd program. Verify official terms before testing.",
+  "discovery_method": "bugcrowd_scraping",
+  "discovery_timestamp": "2025-11-28T21:51:46.709214Z"
+}

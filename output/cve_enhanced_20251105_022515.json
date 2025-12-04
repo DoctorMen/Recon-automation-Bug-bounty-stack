@@ -1,0 +1,38 @@
+{
+  "target": "https://polygon.technology",
+  "scan_date": "2025-11-05T02:25:15.742672",
+  "total_findings": 2,
+  "cve_findings": 2,
+  "crypto_findings": 0,
+  "bounty_potential": "$1,500 - $8,000",
+  "findings": [
+    {
+      "type": "cve_exposure",
+      "cve_id": "CVE-2020-13598",
+      "severity": "HIGH",
+      "cvss": 6.1,
+      "epss": "2.84%",
+      "description": "jQuery XSS vulnerability",
+      "impact": "Cross-site scripting",
+      "bounty_estimate": "$500-$3,000",
+      "affected_tech": "jQuery",
+      "url": "https://polygon.technology",
+      "verified": false,
+      "note": "Technology jQuery detected - may be vulnerable to CVE-2020-13598"
+    },
+    {
+      "type": "cve_exposure",
+      "cve_id": "CVE-2024-4588",
+      "severity": "HIGH",
+      "cvss": 5.4,
+      "epss": "2.90%",
+      "description": "Lifeway Portal XSS",
+      "impact": "Cross-site scripting",
+      "bounty_estimate": "$1,000-$5,000",
+      "affected_tech": "Portal",
+      "url": "https://polygon.technology",
+      "verified": false,
+      "note": "Technology Portal detected - may be vulnerable to CVE-2024-4588"
+    }
+  ]
+}

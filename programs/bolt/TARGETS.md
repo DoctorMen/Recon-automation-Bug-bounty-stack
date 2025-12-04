@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Bolt Technologies - Bug Bounty Targets
 
 ## Primary Targets (High ROI)

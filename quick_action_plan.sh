@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Fastest Time-to-Dollar Action Plan
 # Run this to see what to do RIGHT NOW
 
@@ -105,5 +107,11 @@ echo "4. Submit findings as you find them"
 echo ""
 echo "See: FASTEST_TIME_TO_DOLLAR.md for complete guide"
 echo "============================================================"
+
+
+
+
+
+
 
 

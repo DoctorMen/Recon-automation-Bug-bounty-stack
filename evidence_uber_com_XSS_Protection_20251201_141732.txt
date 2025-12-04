@@ -1,0 +1,30 @@
+# Evidence File - XSS Protection
+# Target: uber.com
+# Generated: 2025-12-01T14:17:32.592905
+
+# PRIMARY PROOF - Direct Evidence
+# Target: uber.com
+# Vulnerability: XSS Protection
+# Timestamp: 2025-12-01T14:17:16.841962
+
+## Command Executed:
+curl -I https://uber.com
+
+## Response Headers Analysis:
+Date: Mon, 01 Dec 2025 19:17:16 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 14
+Connection: keep-alive
+CF-RAY: 9a74ec79fd43b07a-ATL
+Set-Cookie: _ua={"session_id":"d7eba6ec-a09e-44e4-98b9-adea8a906c4d","session_time_ms":1764616636547}; path=/; secure, marketing_vistor_id=771d4429-648d-48e6-8131-1ad8054c620a; path=/; expires=Tue, 01 Dec 2026 19:17:16 GMT; domain=.uber.com; secure, user_city_ids=23; path=/; secure; httponly, jwt-session=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InNsYXRlLWV4cGlyZXMtYXQiOjE3NjQ2MTg0MzY1NTB9LCJpYXQiOjE3NjQ2MTY2MzYsImV4cCI6MTc2NDcwMzAzNn0.130GvoCtDXPle0iPpXPSBSNYJ5nAZRhdJhUvEjwsmyY; path=/; expires=Tue, 02 Dec 2025 19:17:16 GMT; secure; httponly, __cf_bm=NNGBaPgYTiimCo4moatn2OdrOAGDOpG2C6Dsk9AwMx4-1764616636-1.0.1.1-ja_Gs1SUlgHiTeopC4ssATMqyvkChujjvESO4mrXfRYRB0y2dBzJq3KOZYphMYprpk7j4jnmWgS7gGl4a_rCPtIc6xtYcnVLeoUvKOvBjMY; path=/; expires=Mon, 01-Dec-25 19:47:16 GMT; domain=.uber.com; HttpOnly; Secure; SameSite=None
+x-frame-options: SAMEORIGIN
+Cache-Control: max-age=0
+x-envoy-upstream-service-time: 25
+strict-transport-security: max-age=31536000
+x-content-type-options: nosniff
+CF-Cache-Status: BYPASS
+Vary: Accept-Encoding
+x-uber-edge: e4-dca51:w:534151970,ufe:production-cloudflare:compute-0:dca22,cloudflare:production:default
+Server: cloudflare
+
+## Vulnerability Confirmed:

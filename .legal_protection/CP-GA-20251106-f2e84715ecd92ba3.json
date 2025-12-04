@@ -1,0 +1,30 @@
+{
+  "protection": {
+    "id": "CP-GA-20251106-f2e84715ecd92ba3",
+    "title": "MILLION_DOLLAR_FINDINGS_SUMMARY.md",
+    "category": "Security Findings",
+    "content_hash": "f2e84715ecd92ba3ce81ff88b2dbebb1e9f05513d3c70559e8ac20cc3e08c8a8",
+    "timestamp": "2025-11-06T02:13:11.057657",
+    "owner": "DoctorMen",
+    "jurisdiction": [
+      "Georgia, USA",
+      "United States",
+      "International (Berne Convention)"
+    ],
+    "legal_basis": [
+      "17 U.S.C. \u00a7 102 (Federal Copyright)",
+      "O.C.G.A. \u00a7 10-1-350 et seq. (Georgia Trade Secrets)",
+      "Berne Convention Article 5(2) (International)"
+    ],
+    "rights_reserved": [
+      "Reproduction rights",
+      "Distribution rights",
+      "Derivative works rights",
+      "Public display rights",
+      "Public performance rights"
+    ],
+    "protection_notice": "Copyright \u00a9 2025 DoctorMen. All Rights Reserved."
+  },
+  "content_preview": "# Million Dollar Web3 Vulnerability Findings\n\n**Researcher:** DoctorMen (Cascade session)\n**Date:** 2025-11-06\n**Scope:** Million-dollar crypto bug bounty targets identified by Million Dollar Scanner ...",
+  "full_content_hash": "f2e84715ecd92ba3ce81ff88b2dbebb1e9f05513d3c70559e8ac20cc3e08c8a8"
+}

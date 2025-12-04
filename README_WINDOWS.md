@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Recon Stack - Windows Native (Cursor Workspace)
 
 **100% Native Windows - No WSL/Ubuntu Required!**

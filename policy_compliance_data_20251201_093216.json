@@ -1,0 +1,101 @@
+{
+  "compliance_timestamp": "2025-12-01T09:32:16.020826",
+  "total_checks": 3,
+  "fully_compliant": 2,
+  "partially_compliant": 0,
+  "non_compliant": 1,
+  "compliance_checks": [
+    {
+      "target_company": "paypal",
+      "vulnerability_type": "Missing Security Headers",
+      "proposed_actions": [
+        "Security header analysis",
+        "XSS testing on paypal.com",
+        "Rate limited automated scanning"
+      ],
+      "compliance_status": "FULLY_COMPLIANT",
+      "violations": [],
+      "recommendations": [],
+      "approved_actions": [
+        "Security header analysis",
+        "XSS testing on paypal.com",
+        "Rate limited automated scanning"
+      ],
+      "policy_references": [
+        "PayPal Bug Bounty Policy",
+        "CFAA compliance",
+        "PayPal Terms of Service",
+        "Explicit authorization for testing",
+        "Stay within defined scope",
+        "Report findings immediately",
+        "Provide detailed technical documentation",
+        "Follow responsible disclosure",
+        "Comply with all applicable laws",
+        "Respect user privacy and data protection",
+        "Do not cause service disruption"
+      ]
+    },
+    {
+      "target_company": "stripe",
+      "vulnerability_type": "Authentication Bypass",
+      "proposed_actions": [
+        "API testing on api.stripe.com",
+        "Authentication mechanism testing"
+      ],
+      "compliance_status": "FULLY_COMPLIANT",
+      "violations": [],
+      "recommendations": [],
+      "approved_actions": [
+        "API testing on api.stripe.com",
+        "Authentication mechanism testing"
+      ],
+      "policy_references": [
+        "Stripe Bug Bounty Policy",
+        "HackerOne Terms of Service",
+        "PCI DSS requirements",
+        "Explicit authorization for testing",
+        "Stay within defined scope",
+        "Report findings immediately",
+        "Provide detailed technical documentation",
+        "Follow responsible disclosure",
+        "Comply with all applicable laws",
+        "Respect user privacy and data protection",
+        "Do not cause service disruption"
+      ]
+    },
+    {
+      "target_company": "apple",
+      "vulnerability_type": "XSS Vulnerability",
+      "proposed_actions": [
+        "Social engineering of Apple employees",
+        "Denial of service testing"
+      ],
+      "compliance_status": "NON-COMPLIANT",
+      "violations": [
+        "Universally forbidden: Social engineering of Apple employees",
+        "Universally forbidden: Denial of service testing"
+      ],
+      "recommendations": [
+        "Review company's bug bounty policy thoroughly",
+        "Obtain explicit authorization for testing",
+        "Stay within defined scope limitations",
+        "Implement proper rate limiting",
+        "Use test accounts only"
+      ],
+      "approved_actions": [],
+      "policy_references": [
+        "Apple Security Research Program",
+        "Apple Developer Agreement",
+        "DMCA compliance",
+        "Explicit authorization for testing",
+        "Stay within defined scope",
+        "Report findings immediately",
+        "Provide detailed technical documentation",
+        "Follow responsible disclosure",
+        "Comply with all applicable laws",
+        "Respect user privacy and data protection",
+        "Do not cause service disruption"
+      ]
+    }
+  ]
+}

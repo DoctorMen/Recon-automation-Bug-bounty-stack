@@ -1,0 +1,95 @@
+TROUBLESHOOTING
+===============
+
+COMMON ISSUES:
+-------------
+
+1. "Command not found: subfinder/httpx/nuclei"
+   Solution: Add ~/go/bin to PATH
+   export PATH=$PATH:~/go/bin
+
+2. "Permission denied"
+   Solution: Make scripts executable
+   chmod +x *.sh
+   chmod +x scripts/*.sh
+
+3. "Module not found"
+   Solution: Install Python dependencies
+   pip3 install -r requirements.txt
+
+4. "No results found"
+   Solution: Check internet connection and target accessibility
+
+5. "Nuclei templates not found"
+   Solution: Update nuclei templates
+   nuclei -update-templates
+
+
+PERFORMANCE ISSUES:
+------------------
+
+Slow scans:
+- Reduce concurrency in config
+- Use --tier basic for faster scans
+- Check network speed
+
+High memory usage:
+- Scan fewer targets at once
+- Use --quiet mode
+- Close other applications
+
+
+INSTALLATION ISSUES:
+-------------------
+
+Go tools not installing:
+1. Verify Go is installed: go version
+2. Check GOPATH: echo $GOPATH
+3. Manually install tools (see INSTALLATION.txt)
+
+Python errors:
+1. Verify Python 3.8+: python3 --version
+2. Use virtual environment
+3. Install dependencies one by one
+
+
+SCANNING ISSUES:
+---------------
+
+No subdomains found:
+- Target may not have subdomains
+- DNS resolution issues
+- Try different DNS servers
+
+No vulnerabilities found:
+- Good! Target may be secure
+- Try advanced tier
+- Update nuclei templates
+
+Scan hangs:
+- Check target is accessible
+- Reduce timeout values
+- Use Ctrl+C to cancel
+
+
+GETTING HELP:
+------------
+
+1. Check documentation files
+2. Review error messages carefully
+3. Search error messages online
+4. Verify all requirements installed
+5. Test with known-good target
+
+
+LEGAL ISSUES:
+------------
+
+⚠️ IMPORTANT:
+- Only scan authorized targets
+- Get written permission
+- Follow responsible disclosure
+- Respect scope limitations
+- Stop if asked by target owner
+
+For legal questions, consult an attorney.

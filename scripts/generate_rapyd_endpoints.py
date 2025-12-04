@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Rapyd Endpoint Generator
 Creates priority list of known Rapyd endpoints for manual testing
@@ -270,5 +274,11 @@ def generate_rapyd_priority_list():
 
 if __name__ == "__main__":
     generate_rapyd_priority_list()
+
+
+
+
+
+
 
 

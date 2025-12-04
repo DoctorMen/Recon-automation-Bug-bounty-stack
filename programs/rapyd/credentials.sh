@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Rapyd API Credentials Setup
 # IMPORTANT: This file contains sensitive credentials - DO NOT COMMIT
 

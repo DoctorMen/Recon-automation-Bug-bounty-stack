@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # ⚡ Speed Optimization - Complete Integration
 
 ## ✅ Speed Optimization Enabled

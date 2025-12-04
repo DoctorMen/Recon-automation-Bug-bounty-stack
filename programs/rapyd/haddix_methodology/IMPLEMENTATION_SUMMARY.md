@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Jason Haddix Methodology - Implementation Complete
 
 ## âœ… Implementation Status

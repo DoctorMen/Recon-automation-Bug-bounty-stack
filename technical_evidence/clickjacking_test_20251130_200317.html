@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clickjacking Test - https://api.vectra.ai/</title>
+</head>
+<body>
+    <h1>Clickjacking Vulnerability Test</h1>
+    <p>Testing iframe embedding for: https://api.vectra.ai/</p>
+    <iframe src="https://api.vectra.ai/" width="800" height="600" style="border: 2px solid red;">
+        Iframe loading failed - site may be protected
+    </iframe>
+    <script>
+        console.log('Clickjacking test initiated');
+        var iframe = document.querySelector('iframe');
+        iframe.onload = function() {
+            console.log('Iframe loaded successfully - Clickjacking VULNERABILITY CONFIRMED');
+            window.parent.postMessage({
+                type: 'clickjacking_result',
+                status: 'success',
+                target: 'https://api.vectra.ai/',
+                evidence: 'iframe_loaded_successfully'
+            }, '*');
+        };
+        iframe.onerror = function() {
+            console.log('Iframe failed to load - site may be protected');
+            window.parent.postMessage({
+                type: 'clickjacking_result',
+                status: 'failed',
+                target: 'https://api.vectra.ai/',
+                evidence: 'iframe_load_failed'
+            }, '*');
+        };
+    </script>
+</body>
+</html>

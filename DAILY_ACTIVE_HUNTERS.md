@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 📊 Daily Active Bug Bounty Hunters - Real Numbers
 
 ## 🎯 Daily Active Hunters

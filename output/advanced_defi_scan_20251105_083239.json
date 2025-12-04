@@ -1,0 +1,23 @@
+{
+  "scan_date": "2025-11-05T08:32:39.163534",
+  "target": "https://aerodrome.finance",
+  "total_findings": 1,
+  "severity_breakdown": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 1,
+    "LOW": 0
+  },
+  "findings": [
+    {
+      "type": "missing_rate_limiting",
+      "severity": "MEDIUM",
+      "url": "https://aerodrome.finance/api/v1/swap",
+      "description": "No rate limiting detected - 50/50 requests succeeded",
+      "impact": "Enables automated attacks, scraping, brute force",
+      "bounty_estimate": "$500-$3,000",
+      "cwe": "CWE-770"
+    }
+  ],
+  "endpoints_discovered": 0
+}

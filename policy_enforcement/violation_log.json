@@ -1,0 +1,459 @@
+[
+  {
+    "timestamp": "2025-12-01T09:51:01.302708",
+    "exploit_file": "ART_OF_EXPLOITATION_INTEGRATION.py",
+    "target_company": "str",
+    "vulnerability_type": "xss",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.350210",
+    "exploit_file": "ENHANCED_VULNERABILITY_FRAMEWORK.py",
+    "target_company": "elements",
+    "vulnerability_type": "clickjacking",
+    "is_compliant": false,
+    "violations": [
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: data exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: Data exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      }
+    ],
+    "approved_actions": [],
+    "blocked_actions": [
+      "data exfiltration",
+      "Data exfiltration",
+      "privilege escalation",
+      "Credential theft",
+      "Session hijacking",
+      "session hijacking",
+      "account takeover",
+      "credential theft",
+      "Account takeover",
+      "Session Hijacking"
+    ],
+    "recommendations": [
+      "Review company's bug bounty policy thoroughly",
+      "Obtain explicit authorization for testing",
+      "Stay within defined scope limitations",
+      "Implement proper rate limiting",
+      "Use test accounts only"
+    ]
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.386883",
+    "exploit_file": "EXPLOITATION_ENHANCEMENT_SYSTEM.py",
+    "target_company": "str",
+    "vulnerability_type": "missing security headers",
+    "is_compliant": false,
+    "violations": [
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: Data exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: Social engineering",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: Social Engineering",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "HIGH",
+        "violation_type": "POLICY_VIOLATION",
+        "description": "Company policy violation: Social engineering",
+        "required_action": "STOP - This violates company's bug bounty policy",
+        "legal_references": [
+          "Company Bug Bounty Policy",
+          "Terms of Service"
+        ]
+      }
+    ],
+    "approved_actions": [],
+    "blocked_actions": [
+      "Account Takeover",
+      "Data exfiltration",
+      "Privilege Escalation",
+      "Credential theft",
+      "Social engineering",
+      "session hijacking",
+      "Credential Theft",
+      "Privilege escalation",
+      "Social Engineering",
+      "Session Hijacking"
+    ],
+    "recommendations": [
+      "Review company's bug bounty policy thoroughly",
+      "Obtain explicit authorization for testing",
+      "Stay within defined scope limitations",
+      "Implement proper rate limiting",
+      "Use test accounts only"
+    ]
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.424791",
+    "exploit_file": "JOHN_DEERE_ATTACK_STRATEGY.py",
+    "target_company": "authentication",
+    "vulnerability_type": "idor",
+    "is_compliant": false,
+    "violations": [
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: data exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: social engineering",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: Data Exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: denial of service",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      }
+    ],
+    "approved_actions": [],
+    "blocked_actions": [
+      "data exfiltration",
+      "Account Takeover",
+      "Privilege Escalation",
+      "privilege escalation",
+      "social engineering",
+      "Data Exfiltration",
+      "Session hijacking",
+      "session hijacking",
+      "Privilege escalation",
+      "denial of service",
+      "account takeover",
+      "XSS testing",
+      "Account takeover"
+    ],
+    "recommendations": [
+      "Review company's bug bounty policy thoroughly",
+      "Obtain explicit authorization for testing",
+      "Stay within defined scope limitations",
+      "Implement proper rate limiting",
+      "Use test accounts only"
+    ]
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.491407",
+    "exploit_file": "VULNERABILITY_CHAINING_ENGINE.py",
+    "target_company": "str",
+    "vulnerability_type": "clickjacking",
+    "is_compliant": false,
+    "violations": [
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: data exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: Data exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: Data Exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      }
+    ],
+    "approved_actions": [],
+    "blocked_actions": [
+      "data exfiltration",
+      "Data exfiltration",
+      "Privilege Escalation",
+      "privilege escalation",
+      "Credential theft",
+      "Data Exfiltration",
+      "Session hijacking",
+      "Privilege escalation",
+      "account takeover",
+      "Account takeover",
+      "Session Hijacking"
+    ],
+    "recommendations": [
+      "Review company's bug bounty policy thoroughly",
+      "Obtain explicit authorization for testing",
+      "Stay within defined scope limitations",
+      "Implement proper rate limiting",
+      "Use test accounts only"
+    ]
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.532040",
+    "exploit_file": "VULNERABILITY_VALIDATION_FRAMEWORK.py",
+    "target_company": "endpoint",
+    "vulnerability_type": "idor",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [
+      "Credential theft",
+      "Session hijacking",
+      "session hijacking",
+      "account takeover",
+      "credential theft",
+      "Account takeover"
+    ],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.569237",
+    "exploit_file": "advanced_vulnerability_hunter.py",
+    "target_company": "for",
+    "vulnerability_type": "xss",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [
+      "Session hijacking"
+    ],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.625612",
+    "exploit_file": "attack_template_ssrf.py",
+    "target_company": "google",
+    "vulnerability_type": "ssrf",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.686097",
+    "exploit_file": "automated_exploitation_test.py",
+    "target_company": "str",
+    "vulnerability_type": "authentication bypass",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.717909",
+    "exploit_file": "automated_vulnerability_revenue.py",
+    "target_company": "in",
+    "vulnerability_type": "missing security headers",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.963929",
+    "exploit_file": "complete_vulnerability_description.py",
+    "target_company": "gitlab",
+    "vulnerability_type": "csrf",
+    "is_compliant": false,
+    "violations": [
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: data exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      },
+      {
+        "severity": "CRITICAL",
+        "violation_type": "UNIVERSAL_VIOLATION",
+        "description": "Universally forbidden: Data Exfiltration",
+        "required_action": "IMMEDIATELY STOP - This action is illegal and unethical",
+        "legal_references": [
+          "CFAA",
+          "Computer Fraud and Abuse Act",
+          "State Laws"
+        ]
+      }
+    ],
+    "approved_actions": [],
+    "blocked_actions": [
+      "data exfiltration",
+      "Data Exfiltration"
+    ],
+    "recommendations": [
+      "Review company's bug bounty policy thoroughly",
+      "Obtain explicit authorization for testing",
+      "Stay within defined scope limitations",
+      "Implement proper rate limiting",
+      "Use test accounts only"
+    ]
+  },
+  {
+    "timestamp": "2025-12-01T09:51:01.984401",
+    "exploit_file": "gumroad_products\\product_1_security_toolkit\\automated_exploitation_test.py",
+    "target_company": "str",
+    "vulnerability_type": "authentication bypass",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:02.087229",
+    "exploit_file": "scripts\\attack_launcher.py",
+    "target_company": "path",
+    "vulnerability_type": "ssrf",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:02.248624",
+    "exploit_file": "technical_exploitation_capture.py",
+    "target_company": "in",
+    "vulnerability_type": "clickjacking",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:02.290878",
+    "exploit_file": "tomtom_actual_exploitation_test.py",
+    "target_company": "https",
+    "vulnerability_type": "clickjacking",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:02.339302",
+    "exploit_file": "vectra_vpn_exploitation_test.py",
+    "target_company": "https",
+    "vulnerability_type": "clickjacking",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:02.394819",
+    "exploit_file": "vectra_xss_exploitation_test.py",
+    "target_company": "https",
+    "vulnerability_type": "clickjacking",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  },
+  {
+    "timestamp": "2025-12-01T09:51:02.529529",
+    "exploit_file": "visual_exploitation_capture.py",
+    "target_company": "google",
+    "vulnerability_type": "clickjacking",
+    "is_compliant": true,
+    "violations": [],
+    "approved_actions": [],
+    "blocked_actions": [],
+    "recommendations": []
+  }
+]

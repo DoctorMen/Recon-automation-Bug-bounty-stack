@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Jason Haddix Methodology - Automated Implementation
 
 Complete automation of Jason Haddix Bug Hunter Methodology for Application Analysis.

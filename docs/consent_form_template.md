@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 ## Consent & Scope — Google Form Template
 
 Create a new Google Form with the following fields (all Required unless noted):

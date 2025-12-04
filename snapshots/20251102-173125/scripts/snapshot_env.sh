@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 set -euo pipefail
 
 SNAP_DIR="snapshots/$(date +%Y%m%d-%H%M%S)"

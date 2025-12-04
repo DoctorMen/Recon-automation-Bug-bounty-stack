@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Quick IDOR Test Helper - Run this from Ubuntu terminal
 # Usage: bash run_idor_test.sh [PAYMENT_ID]
 

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # API Credentials Setup Complete
 
 **Date:** $(date +%Y-%m-%d)  
@@ -85,6 +88,8 @@ You now have:
 - ✅ IDOR testing script available
 
 **Next:** Run the IDOR test script or manually test in dashboard!
+
+
 
 
 

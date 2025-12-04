@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🧩 Recon Summary Report
 
 **Generated:** 2025-10-31 23:34:44 UTC

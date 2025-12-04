@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Jason Haddix - Bug Hunter's Methodology: Application Analysis
 
 **Video:** https://www.youtube.com/watch?v=FqnSAa2KmBI  

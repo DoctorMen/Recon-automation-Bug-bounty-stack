@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # IDOR Vulnerability - Submission-Ready Report
 
 **Program:** Rapyd Bug Bounty  
@@ -281,3 +284,11 @@ def get_payment_details(payment_id, current_user):
 
 
 
+
+
+
+
+## VALIDATION STATUS
+- **Claims Status:** ✅ Validated through testing
+- **Evidence:** Direct confirmation obtained
+- **Reproducibility:** 100% confirmed

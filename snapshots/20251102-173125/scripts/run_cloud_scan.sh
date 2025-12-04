@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Cloud Misconfiguration Scanner
 # Scans for cloud service misconfigurations (S3, Azure, GCP, etc.)
 # Input: ~/recon-stack/output/http.json

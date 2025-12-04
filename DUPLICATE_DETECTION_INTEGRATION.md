@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # ✅ Duplicate Detection System Integrated
 
 ## 🎯 What's Been Added

@@ -1,0 +1,21 @@
+{
+  "assessment_metadata": {
+    "target": "https://app.vetrafi.com",
+    "start_time": "2025-12-01T21:55:40.013146",
+    "methodology": "Advanced CWE-focused testing",
+    "bounty_potential": "$8,000"
+  },
+  "findings": [],
+  "exploit_chains": [],
+  "summary": {
+    "total_findings": 0,
+    "severity_breakdown": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "category_breakdown": {},
+    "potential_bounty": 0
+  }
+}

@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 📊 Bug Bounty Programs vs Hunters - Supply/Demand Ratio
 
 ## 🎯 Active Bug Bounty Programs

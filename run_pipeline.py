@@ -32,6 +32,37 @@ except SystemExit:
     # License check failed, exit
     raise
 
+# SAFETY SYSTEM - Critical protection layer
+try:
+    from MASTER_SAFETY_SYSTEM import verify_safe
+    SAFETY_ENABLED = True
+except ImportError:
+    print("⚠️  WARNING: MASTER_SAFETY_SYSTEM not found - safety checks disabled")
+    print("⚠️  This is dangerous - install safety system immediately")
+    SAFETY_ENABLED = False
+
+# LEGAL AUTHORIZATION SHIELD - MANDATORY for all scanning
+try:
+    from LEGAL_AUTHORIZATION_SYSTEM import LegalAuthorizationShield
+    LEGAL_SHIELD_ENABLED = True
+    print("✅ Legal Authorization Shield loaded")
+except ImportError:
+    print("❌ CRITICAL ERROR: Legal Authorization Shield not found!")
+    print("   All scanning operations are DISABLED without authorization system")
+    print("   Required file: LEGAL_AUTHORIZATION_SYSTEM.py")
+    sys.exit(1)
+
+# NEURAL NETWORK BRAIN - Intelligence integration
+try:
+    from NEURAL_INTEGRATION_WRAPPER import get_neural_integration
+    NEURAL_BRAIN_ENABLED = True
+    neural = get_neural_integration()
+    print("✅ Neural Network Brain loaded")
+except ImportError:
+    NEURAL_BRAIN_ENABLED = False
+    neural = None
+    print("⚠️  Neural Network Brain not found - using standard pipeline")
+
 REPO_ROOT = Path(__file__).parent
 OUTPUT_DIR = REPO_ROOT / "output"
 STATUS_FILE = OUTPUT_DIR / ".pipeline_status"
@@ -101,6 +132,98 @@ def main():
         log("ERROR: No valid targets found in targets.txt")
         sys.exit(1)
     
+    # LEGAL AUTHORIZATION CHECK - MANDATORY (Cannot be bypassed)
+    log("")
+    log("⚖️  LEGAL AUTHORIZATION SHIELD - Verifying written authorization...")
+    log("="* 60)
+    
+    shield = LegalAuthorizationShield()
+    all_authorized = True
+    
+    for target in targets:
+        authorized, reason, auth_data = shield.check_authorization(target)
+        if not authorized:
+            log(f"❌ BLOCKED: {target}")
+            log(f"   Reason: {reason}")
+            log(f"   Required: python3 CREATE_AUTHORIZATION.py --target {target} --client 'CLIENT_NAME'")
+            all_authorized = False
+        else:
+            client = auth_data.get('client_name', 'Unknown')
+            log(f"✅ AUTHORIZED: {target} (Client: {client})")
+    
+    if not all_authorized:
+        log("")
+        log("🚫 LEGAL AUTHORIZATION FAILED")
+        log("="* 60)
+        log("⚠️  CRITICAL: Cannot scan without written authorization")
+        log("   Scanning unauthorized targets = FEDERAL CRIME (CFAA violation)")
+        log("   Penalty: Up to 10 years prison + fines")
+        log("")
+        log("REQUIRED ACTIONS:")
+        log("1. Get written authorization from target owner")
+        log("2. Create authorization file using CREATE_AUTHORIZATION.py")
+        log("3. Get client signature on authorization")
+        log("4. Try again")
+        log("="* 60)
+        sys.exit(1)
+    
+    log("")
+    log("✅ All targets legally authorized - proceeding with scan")
+    log("="* 60)
+    
+    # SAFETY CHECK - Verify all targets are authorized
+    if SAFETY_ENABLED:
+        log("")
+        log("🛡️  SAFETY SYSTEM - Verifying all targets...")
+        log("="* 60)
+        
+        all_safe = True
+        for target in targets:
+            log(f"Checking: {target}")
+            if not verify_safe(target, "full_scan"):
+                log(f"❌ BLOCKED: {target} failed safety checks")
+                all_safe = False
+            else:
+                log(f"✅ SAFE: {target}")
+        
+        if not all_safe:
+            log("")
+            log("🚨 SAFETY CHECK FAILED - Some targets are not authorized")
+            log("Fix authorization issues before scanning")
+            log("See above for details")
+            sys.exit(1)
+        
+        log("")
+        log("✅ All targets passed safety checks")
+        log("="* 60)
+    else:
+        log("")
+        log("⚠️  WARNING: Safety checks disabled - scanning without verification")
+        log("="* 60)
+    
+    # NEURAL ENHANCEMENT: Prioritize targets before scanning
+    if NEURAL_BRAIN_ENABLED and neural:
+        log("")
+        log("🧠 NEURAL BRAIN - Prioritizing targets...")
+        log("="* 60)
+        
+        # Create asset representations
+        asset_targets = [{'name': target, 'type': 'domain'} for target in targets]
+        
+        # Get neural prioritization
+        ranked_targets = neural.prioritize_targets(asset_targets, top_n=len(targets))
+        
+        if ranked_targets:
+            log(f"Neural prioritization complete:")
+            for i, (asset, score) in enumerate(ranked_targets[:5], 1):
+                log(f"  {i}. {asset['name']}: {score:.3f}")
+            
+            # Update targets order based on neural scoring
+            targets = [asset['name'] for asset, score in ranked_targets]
+            log(f"Scanning order optimized by neural brain")
+        else:
+            log("Neural prioritization failed - using default order")
+    
     # Agent 1: Recon Scanner
     log("")
     log(">>> Starting Agent 1: Recon Scanner")
@@ -109,6 +232,23 @@ def main():
     else:
         if run_agent("run_recon.py", "Recon Scanner"):
             mark_stage_complete("recon")
+            
+            # NEURAL ENHANCEMENT: Score recon results
+            if NEURAL_BRAIN_ENABLED and neural:
+                log("🧠 Neural scoring of recon results...")
+                try:
+                    # Load recon results
+                    recon_file = OUTPUT_DIR / "recon.json"
+                    if recon_file.exists():
+                        with open(recon_file) as f:
+                            recon_data = json.load(f)
+                        
+                        # Enhance with neural scoring
+                        enhancement = neural.enhance_pipeline_stage('recon', recon_data)
+                        if 'ranked_assets' in enhancement:
+                            log(f"  Ranked {len(enhancement['ranked_assets'])} assets by neural score")
+                except Exception as e:
+                    log(f"  Neural enhancement failed: {e}")
         else:
             log("ERROR: Recon scanner failed")
             sys.exit(1)
@@ -156,6 +296,26 @@ def main():
             mark_stage_complete("reports")
         else:
             log("WARNING: Report generation failed (continuing)")
+    
+    # Agent 6: Unified Scanner (Quantum Accelerator V2)
+    log("")
+    log(">>> Starting Agent 6: Unified Scanner (Quantum Accelerator V2)")
+    if RESUME and is_stage_complete("unified_scan"):
+        log("Skipping unified scan (already complete)")
+    else:
+        try:
+            from UNIFIED_SCANNER_INTEGRATION import UnifiedScanner
+            scanner = UnifiedScanner(dry_run=False)
+            for target in targets:
+                log(f"   Running unified scan on: {target}")
+                results = scanner.scan_target(target, scan_type="comprehensive")
+                if results.get("findings"):
+                    log(f"   Found {len(results['findings'])} vulnerabilities")
+            mark_stage_complete("unified_scan")
+        except ImportError as e:
+            log(f"WARNING: Unified Scanner not available: {e}")
+        except Exception as e:
+            log(f"WARNING: Unified scanner failed: {e}")
     
     end_time = datetime.now()
     duration = (end_time - start_time).total_seconds()
@@ -208,6 +368,19 @@ def main():
         report_files = list((OUTPUT_DIR / "reports").glob("*.md"))
         log(f"Reports Generated: {len(report_files)}")
     
+    # Unified Scanner (Quantum Accelerator V2) results
+    unified_results = list(REPO_ROOT.glob("unified_scan_*.json"))
+    if unified_results:
+        log(f"Unified Scan Results: {len(unified_results)} files")
+        try:
+            with open(unified_results[-1], "r", encoding="utf-8") as f:
+                latest = json.load(f)
+            log(f"  - Latest scan findings: {len(latest.get('findings', []))}")
+            if latest.get('submissions'):
+                log(f"  - Submissions prepared: {len(latest['submissions'])}")
+        except:
+            pass
+    
     log("")
     log("=== Output Files ===")
     log(f"  - Subdomains: {OUTPUT_DIR / 'subs.txt'}")
@@ -215,10 +388,14 @@ def main():
     log(f"  - Nuclei Findings: {OUTPUT_DIR / 'nuclei-findings.json'}")
     log(f"  - Triaged Findings: {OUTPUT_DIR / 'triage.json'}")
     log(f"  - Reports: {OUTPUT_DIR / 'reports'}")
+    log(f"  - Unified Scan: unified_scan_*.json")
+    log(f"  - Submissions: submission_*.md")
     log("")
     log(f"View summary report: {OUTPUT_DIR / 'reports' / 'summary.md'}")
     log("")
     log("To rerun from start: RESUME=false python run_pipeline.py")
+    log("")
+    log("⚠️  REMINDER: Review submission_*.md files before submitting to bug bounty platforms")
     log("")
 
 if __name__ == "__main__":

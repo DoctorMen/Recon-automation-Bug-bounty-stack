@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 📊 Bug Bounty Hunter Market Size - Real Numbers
 
 ## 🎯 Current Market Size

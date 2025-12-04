@@ -1,0 +1,51 @@
+District Name,State,Students,Budget,Tier,Decision Maker,Title,Email,LinkedIn,Phone,Email Sent,Response,Demo Date,Pilot Start,Contract Value,Status,Notes
+New York City DOE,NY,1000000,$38B,Large Urban,TBD,CTO,TBD,TBD,TBD,,,,,$250000,identified,Largest district - high priority
+Los Angeles USD,CA,600000,$18B,Large Urban,TBD,Technology Director,TBD,TBD,TBD,,,,,$250000,identified,Second largest - STEM focus
+Chicago Public Schools,IL,355000,$9.4B,Large Urban,TBD,CTO,TBD,TBD,TBD,,,,,$250000,identified,Strong tech adoption
+Miami-Dade County,FL,334000,$5.4B,Large Urban,TBD,Technology Director,TBD,TBD,TBD,,,,,$250000,identified,Florida market entry
+Clark County NV,NV,320000,$3.5B,Large Urban,TBD,CTO,TBD,TBD,TBD,,,,,$250000,identified,Las Vegas - gaming connection
+Broward County,FL,271000,$4.2B,Large Urban,TBD,Technology Director,TBD,TBD,TBD,,,,,$250000,identified,Florida expansion
+Houston ISD,TX,194000,$2.3B,Large Urban,TBD,CTO,TBD,TBD,TBD,,,,,$250000,identified,Texas market entry
+Hillsborough County,FL,220000,$3.8B,Large Urban,TBD,Technology Director,TBD,TBD,TBD,,,,,$250000,identified,Tampa area
+Orange County,FL,208000,$3.2B,Large Urban,TBD,CTO,TBD,TBD,TBD,,,,,$250000,identified,Orlando - tech hub
+Fairfax County,VA,180000,$3.3B,Large Urban,TBD,Technology Director,TBD,TBD,TBD,,,,,$250000,identified,DC area - high budget
+Palo Alto USD,CA,12000,$200M,Wealthy Suburban,TBD,STEM Coordinator,TBD,TBD,TBD,,,,,$75000,identified,Silicon Valley - tech forward
+Scarsdale UFSD,NY,5000,$150M,Wealthy Suburban,TBD,Technology Director,TBD,TBD,TBD,,,,,$50000,identified,Wealthy NY suburb
+Princeton Public Schools,NJ,6500,$180M,Wealthy Suburban,TBD,STEM Coordinator,TBD,TBD,TBD,,,,,$50000,identified,University town - education focus
+Greenwich Public Schools,CT,9000,$220M,Wealthy Suburban,TBD,Technology Director,TBD,TBD,TBD,,,,,$75000,identified,Wealthy CT - high per pupil
+Wellesley Public Schools,MA,5500,$140M,Wealthy Suburban,TBD,STEM Coordinator,TBD,TBD,TBD,,,,,$50000,identified,Boston area - education focused
+Highland Park ISD,TX,7000,$120M,Wealthy Suburban,TBD,Technology Director,TBD,TBD,TBD,,,,,$50000,identified,Dallas wealthy suburb
+Naperville CUSD 203,IL,18000,$280M,Wealthy Suburban,TBD,CTO,TBD,TBD,TBD,,,,,$75000,identified,Chicago suburb - tech forward
+Plano ISD,TX,53000,$650M,Wealthy Suburban,TBD,Technology Director,TBD,TBD,TBD,,,,,$150000,identified,Large wealthy district
+Montgomery County,MD,162000,$3.1B,Wealthy Suburban,TBD,CTO,TBD,TBD,TBD,,,,,$250000,identified,DC area - large budget
+Loudoun County,VA,82000,$1.8B,Wealthy Suburban,TBD,Technology Director,TBD,TBD,TBD,,,,,$150000,identified,Fastest growing county
+KIPP Foundation,Multi,100000,$800M,Charter Network,TBD,Chief Academic Officer,TBD,TBD,TBD,,,,,$200000,identified,270 schools nationwide
+Success Academy,NY,20000,$250M,Charter Network,TBD,Technology Director,TBD,TBD,TBD,,,,,$75000,identified,NYC - high performing
+Uncommon Schools,Multi,19000,$220M,Charter Network,TBD,CTO,TBD,TBD,TBD,,,,,$75000,identified,53 schools - NJ/NY/MA
+Achievement First,Multi,15000,$180M,Charter Network,TBD,Technology Director,TBD,TBD,TBD,,,,,$75000,identified,41 schools - CT/NY/RI
+Rocketship Education,Multi,11000,$140M,Charter Network,TBD,STEM Coordinator,TBD,TBD,TBD,,,,,$50000,identified,21 schools - tech focused
+Aspire Public Schools,CA,16000,$200M,Charter Network,TBD,Technology Director,TBD,TBD,TBD,,,,,$75000,identified,40 schools - California
+Green Dot Public Schools,CA,12000,$150M,Charter Network,TBD,CTO,TBD,TBD,TBD,,,,,$50000,identified,24 schools - LA area
+Alliance College-Ready,CA,13000,$160M,Charter Network,TBD,Technology Director,TBD,TBD,TBD,,,,,$50000,identified,28 schools - college prep
+Basis Schools,Multi,24000,$300M,Charter Network,TBD,STEM Coordinator,TBD,TBD,TBD,,,,,$100000,identified,38 schools - STEM focus
+Great Hearts Academies,Multi,24000,$280M,Charter Network,TBD,Technology Director,TBD,TBD,TBD,,,,,$100000,identified,45 schools - classical education
+Phillips Exeter Academy,NH,1100,$350M endowment,Private School,TBD,Technology Director,TBD,TBD,TBD,,,,,$50000,identified,Elite boarding school
+Phillips Academy Andover,MA,1150,$1.2B endowment,Private School,TBD,CTO,TBD,TBD,TBD,,,,,$50000,identified,Top boarding school
+Lakeside School,WA,850,$180M endowment,Private School,TBD,Technology Director,TBD,TBD,TBD,,,,,$40000,identified,Bill Gates' school
+Harvard-Westlake,CA,1600,$450M endowment,Private School,TBD,STEM Coordinator,TBD,TBD,TBD,,,,,$50000,identified,LA elite school
+Horace Mann School,NY,1800,$320M endowment,Private School,TBD,Technology Director,TBD,TBD,TBD,,,,,$50000,identified,NYC private school
+Dalton School,NY,1400,$280M endowment,Private School,TBD,CTO,TBD,TBD,TBD,,,,,$50000,identified,Progressive education
+Collegiate School,NY,650,$250M endowment,Private School,TBD,Technology Director,TBD,TBD,TBD,,,,,$40000,identified,All-boys NYC
+Trinity School,NY,1000,$300M endowment,Private School,TBD,STEM Coordinator,TBD,TBD,TBD,,,,,$50000,identified,NYC elite
+Sidwell Friends,DC,1150,$200M endowment,Private School,TBD,Technology Director,TBD,TBD,TBD,,,,,$50000,identified,Presidential children school
+St. Paul's School,NH,540,$600M endowment,Private School,TBD,CTO,TBD,TBD,TBD,,,,,$40000,identified,Elite boarding school
+Austin ISD,TX,75000,$1.5B,Tech-Forward,TBD,CTO,TBD,TBD,TBD,,,,,$150000,identified,Tech hub - innovation focus
+Seattle Public Schools,WA,53000,$1.2B,Tech-Forward,TBD,Technology Director,TBD,TBD,TBD,,,,,$150000,identified,Microsoft/Amazon area
+San Francisco USD,CA,57000,$1.4B,Tech-Forward,TBD,CTO,TBD,TBD,TBD,,,,,$150000,identified,Silicon Valley - tech forward
+Boulder Valley,CO,30000,$600M,Tech-Forward,TBD,Technology Director,TBD,TBD,TBD,,,,,$100000,identified,Colorado - innovation
+Portland Public Schools,OR,48000,$900M,Tech-Forward,TBD,CTO,TBD,TBD,TBD,,,,,$150000,identified,Oregon - tech adoption
+Raleigh-Durham,NC,35000,$700M,Tech-Forward,TBD,Technology Director,TBD,TBD,TBD,,,,,$100000,identified,Research Triangle
+Boston Public Schools,MA,55000,$1.3B,Tech-Forward,TBD,CTO,TBD,TBD,TBD,,,,,$150000,identified,Education hub
+Denver Public Schools,CO,92000,$1.8B,Tech-Forward,TBD,Technology Director,TBD,TBD,TBD,,,,,$200000,identified,Colorado - large district
+San Diego USD,CA,121000,$2.4B,Tech-Forward,TBD,CTO,TBD,TBD,TBD,,,,,$250000,identified,California - tech forward
+Arlington Public Schools,VA,28000,$700M,Tech-Forward,TBD,Technology Director,TBD,TBD,TBD,,,,,$100000,identified,DC area - innovation

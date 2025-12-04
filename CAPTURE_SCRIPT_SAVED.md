@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Browser Evidence Capture Scripts - Saved for Future Use
 
 **Location:** Multiple locations for easy access
@@ -95,6 +98,12 @@ To use for other bug bounty programs:
 
 **Status:** ✅ Saved and ready for future use  
 **Last Updated:** 2025-10-31
+
+
+
+
+
+
 
 
 

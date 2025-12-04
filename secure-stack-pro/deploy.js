@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+/**
+ * Copyright © 2025 DoctorMen. All Rights Reserved.
+ */
 
 /**
  * SecureStack Pro - Automated Deployment System
@@ -714,4 +717,10 @@ if (require.main === module) {
 }
 
 module.exports = SecureStackProDeployer;
+
+
+
+
+
+
 

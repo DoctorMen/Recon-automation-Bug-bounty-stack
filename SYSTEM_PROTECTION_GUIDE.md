@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 🔒 Protecting Your Bug Bounty System - Security Analysis
 
 ## ⚠️ Current Vulnerability Assessment

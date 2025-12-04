@@ -1,0 +1,17 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.24"
+
+[fuzz]
+runs = 256
+max_test_rejects = 65536
+
+[invariant]
+runs = 256
+depth = 15
+
+# Ethereum mainnet fork for testing
+[profile.mainnet]
+eth_rpc_url = "https://eth.llamarpc.com"

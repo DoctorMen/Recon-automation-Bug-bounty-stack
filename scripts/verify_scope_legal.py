@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Legal & Scope Verification Guide
 Verify what's legal and in-scope BEFORE testing
@@ -229,5 +233,11 @@ def scope_verification_guide():
 
 if __name__ == "__main__":
     scope_verification_guide()
+
+
+
+
+
+
 
 

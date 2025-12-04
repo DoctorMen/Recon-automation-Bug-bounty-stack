@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Fully automated: Install tools and run post_scan_processor
 
 set -euo pipefail

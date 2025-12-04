@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Process Existing Scan Results
 # Takes existing subs.txt and processes through full pipeline or locates existing results
 

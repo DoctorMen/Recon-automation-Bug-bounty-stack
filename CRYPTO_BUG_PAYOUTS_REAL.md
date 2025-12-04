@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 💰 Crypto Bug Bounty Payouts - REAL NUMBERS
 
 ## ✅ YES - Crypto Bugs Pay Well IF You Have Good Methodology

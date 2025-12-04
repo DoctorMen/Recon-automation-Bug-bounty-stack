@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
+"""
+Copyright © 2025 DoctorMen. All Rights Reserved.
+"""
 """
 Quick Apple Endpoint Test & Capture
 Automatically tests Apple endpoints and captures results
@@ -208,5 +212,11 @@ def test_and_capture():
 
 if __name__ == "__main__":
     test_and_capture()
+
+
+
+
+
+
 
 

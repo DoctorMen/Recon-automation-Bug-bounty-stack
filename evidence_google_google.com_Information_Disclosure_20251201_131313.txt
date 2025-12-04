@@ -1,0 +1,30 @@
+# Information Disclosure Evidence - google.com
+# Generated: 2025-12-01T13:13:13.146406
+# Program: Google (VRP)
+
+Command: curl -I https://www.google.com/
+
+Output:
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=ISO-8859-1
+Content-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-shkm0kZ818vQPjjEIRkBow' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+Accept-CH: Sec-CH-Prefers-Color-Scheme
+P3P: CP="This is not a P3P policy! See g.co/p3phelp for more info."
+Date: Mon, 01 Dec 2025 18:13:12 GMT
+Server: gws
+X-XSS-Protection: 0
+X-Frame-Options: SAMEORIGIN
+Expires: Mon, 01 Dec 2025 18:13:12 GMT
+Cache-Control: private
+Set-Cookie: AEC=AaJma5sUERfyFENG30OT4h8EVAz-kt0apHbz12kYSR2ZZUNCHM_Zh-OsoOY; expires=Sat, 30-May-2026 18:13:12 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax
+Set-Cookie: NID=526=MM-okoH7Xgl0d4T57n76jWRiZ2_7wy11g4TIA6wTN10PaVTg9VxE-bJ8L-vmbEwkunOHy3vJAiDF5Z_wBheebAY9486Hy9_6nfYhI757xPBtc541MCeMuMovp9TQjCKdUmZ3ZbIMtF-m1ZF65QD5yMf_aFXOT0phRFSI6bmyrx_JpMJIkIPAm8yBxR12j1e_TtwqqpyZCfKycYpCzTodzK5zRuSpTlqzd9g; expires=Tue, 02-Jun-2026 18:13:12 GMT; path=/; domain=.google.com; HttpOnly
+Transfer-Encoding: chunked
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

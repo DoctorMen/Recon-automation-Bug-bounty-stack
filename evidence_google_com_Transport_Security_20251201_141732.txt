@@ -1,0 +1,32 @@
+# Evidence File - Transport Security
+# Target: google.com
+# Generated: 2025-12-01T14:17:32.993694
+
+# PRIMARY PROOF - Direct Evidence
+# Target: google.com
+# Vulnerability: Transport Security
+# Timestamp: 2025-12-01T14:17:27.101081
+
+## Command Executed:
+curl -I https://google.com
+
+## Response Headers Analysis:
+Date: Mon, 01 Dec 2025 19:17:26 GMT
+Expires: -1
+Cache-Control: private, max-age=0
+Content-Type: text/html; charset=UTF-8
+Content-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-KENxBY7HSgyhK9rlN2aXvQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+Accept-CH: Sec-CH-Prefers-Color-Scheme, Downlink, RTT, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version, Sec-CH-UA-Arch, Sec-CH-UA-Model, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version-List, Sec-CH-UA-WoW64
+Permissions-Policy: unload=()
+P3P: CP="This is not a P3P policy! See g.co/p3phelp for more info."
+Content-Encoding: gzip
+Server: gws
+X-XSS-Protection: 0
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: AEC=AaJma5vQ2QBz5SpsxZb-nZxxinS8aUrHX0TZuDFHuzwWtBCb2RnjkNaUMw; expires=Sat, 30-May-2026 19:17:26 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax, NID=526=TXu2h9ubNSP-NIktdlaLe9MFKk21Ezt8KBJC33bTM-kpBOG82XRVI3QH1AuHpy6l9ctuYkq6HyJLeRxHiYj-REW8X39RtALLXkfW6Bn5ty2xxWm39pErZY-ucGKV7qxfcowXk0Zf0sW4kLoYJVKTp6cesDCa5FnGN_tAUpBberu9ICmIteTdEMyieELjDE6UfftPEyynF6RIBpCoqoaCu_Tbvc0pc8pg09WIBw; expires=Tue, 02-Jun-2026 19:17:26 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=none
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Transfer-Encoding: chunked
+
+## Vulnerability Confirmed:
+❌ Strict-Transport-Security header MISSING
+✅ TRANSPORT SECURITY VULNERABILITY CONFIRMED

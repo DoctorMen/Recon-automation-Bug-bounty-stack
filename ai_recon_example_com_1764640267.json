@@ -1,0 +1,27 @@
+{
+  "target": "example.com",
+  "timestamp": "2025-12-01T20:51:07.161277",
+  "duration": 0.6027510166168213,
+  "ai_decision": "systematic_scan",
+  "findings": [
+    {
+      "type": "dns_resolution",
+      "severity": "info",
+      "target": "example.com",
+      "evidence": "Resolves to 6 IPs: 23.215.0.138, 23.192.228.84, 23.220.75.245"
+    },
+    {
+      "type": "missing_security_headers",
+      "severity": "medium",
+      "target": "example.com",
+      "evidence": "Missing headers: x-frame-options, x-content-type-options, content-security-policy, strict-transport-security"
+    }
+  ],
+  "statistics": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 1
+  }
+}

@@ -1,0 +1,27 @@
+# Privacy Leakage Evidence - google.com
+# Generated: 2025-12-01T13:18:29.636997
+# Program: Google (VRP)
+
+Command: curl -I https://google.com
+
+Output:
+HTTP/1.1 301 Moved Permanently
+Location: https://www.google.com/
+Content-Type: text/html; charset=UTF-8
+Content-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-A3ABSwXT6pOhTrAP-xdo5g' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+Date: Mon, 01 Dec 2025 18:18:29 GMT
+Expires: Wed, 31 Dec 2025 18:18:29 GMT
+Cache-Control: public, max-age=2592000
+Server: gws
+Content-Length: 220
+X-XSS-Protection: 0
+X-Frame-Options: SAMEORIGIN
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0   220    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

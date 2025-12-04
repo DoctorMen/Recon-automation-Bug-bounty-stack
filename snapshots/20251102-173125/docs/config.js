@@ -1,3 +1,6 @@
+/**
+ * Copyright © 2025 DoctorMen. All Rights Reserved.
+ */
 window.appConfig = {
   // Replace these with your live URLs
   stripeCheckoutUrl: 'https://buy.stripe.com/your-checkout-link',

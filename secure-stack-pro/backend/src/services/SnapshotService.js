@@ -1,3 +1,6 @@
+/**
+ * Copyright © 2025 DoctorMen. All Rights Reserved.
+ */
 const crypto = require('crypto');
 const { v4: uuidv4 } = require('uuid');
 const logger = require('../utils/logger');
@@ -512,4 +515,10 @@ class SnapshotService {
 }
 
 module.exports = SnapshotService;
+
+
+
+
+
+
 

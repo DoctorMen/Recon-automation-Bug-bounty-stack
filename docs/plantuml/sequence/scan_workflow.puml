@@ -1,0 +1,63 @@
+@startuml GHOST Scan Workflow
+!define GHOST_ORANGE #FF6B35
+!define GHOST_BLUE #004E89
+
+skinparam backgroundColor #FFFFFF
+skinparam sequence {
+    ArrowColor #333333
+    ActorBorderColor #333333
+    LifeLineBorderColor #666666
+    LifeLineBackgroundColor #FFFFFF
+    ParticipantBorderColor GHOST_BLUE
+    ParticipantBackgroundColor GHOST_BLUE
+    ParticipantFontColor #FFFFFF
+    ActorBackgroundColor GHOST_ORANGE
+    ActorFontColor #FFFFFF
+}
+
+title GHOST Security Scan Workflow
+
+actor User as U #GHOST_ORANGE
+participant "Web Interface" as W #GHOST_BLUE
+participant "API Gateway" as A #GHOST_ORANGE
+participant "Scan Controller" as SC #GHOST_BLUE
+participant "Security Modules" as SM #GHOST_ORANGE
+participant "Report Generator" as RG #GHOST_BLUE
+
+group Authentication & Authorization
+    U -> W: Login with credentials
+    W -> A: Request API token
+    A --> W: Return JWT token
+end
+
+group Scan Initiation
+    U -> W: Start New Scan (target, type)
+    W -> A: POST /api/scans {target, type}
+    A -> SC: Validate & Queue Scan
+    SC --> A: {scan_id, status: 'queued'}
+    A --> W: 202 Accepted
+    W --> U: Show scan queued
+end
+
+group Scan Execution
+    loop For each module
+        SC -> SM: Execute scan module
+        SM --> SC: Return results
+    end
+    
+    SC -> RG: Generate Report
+    RG --> SC: Final Report
+    SC -> A: Update scan status
+    A -> W: Push notification (WebSocket)
+    W --> U: Show scan complete
+end
+
+group Results Review
+    U -> W: View Results
+    W -> A: GET /api/scans/{id}
+    A --> W: Return scan results
+    W --> U: Display interactive report
+end
+
+footer %date('yyyy-MM-dd') - © 2025 Khallid Hakeem Nurse - All Rights Reserved
+@enduml

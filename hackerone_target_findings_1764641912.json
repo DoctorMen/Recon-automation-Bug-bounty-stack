@@ -1,0 +1,757 @@
+{
+  "scan_metadata": {
+    "scanner": "HackerOne Target Scanner",
+    "scan_date": "2025-12-01T21:18:32.965289",
+    "programs_scanned": 5,
+    "total_findings": 24,
+    "total_bounty_potential": 19000
+  },
+  "program_results": {
+    "Shopify": {
+      "findings": [
+        {
+          "target": "shopify.com",
+          "program": "Shopify",
+          "vulnerability_type": "clickjacking",
+          "severity": "medium",
+          "confidence": 0.8,
+          "bounty_estimate": 1500,
+          "evidence": {
+            "missing_xfo": true,
+            "missing_csp": true,
+            "url": "https://shopify.com"
+          },
+          "discovered_at": "2025-12-01T21:18:29.681485"
+        },
+        {
+          "target": "shopify.com",
+          "program": "Shopify",
+          "vulnerability_type": "missing_csp",
+          "severity": "medium",
+          "confidence": 0.7,
+          "bounty_estimate": 1000,
+          "evidence": {
+            "missing_header": "Content-Security-Policy",
+            "url": "https://shopify.com"
+          },
+          "discovered_at": "2025-12-01T21:18:29.681498"
+        },
+        {
+          "target": "shopify.com",
+          "program": "Shopify",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "X-Frame-Options",
+              "Permissions-Policy",
+              "Referrer-Policy"
+            ],
+            "url": "https://shopify.com"
+          },
+          "discovered_at": "2025-12-01T21:18:29.681501"
+        },
+        {
+          "target": "shopify.com",
+          "program": "Shopify",
+          "vulnerability_type": "clickjacking",
+          "severity": "medium",
+          "confidence": 0.8,
+          "bounty_estimate": 1500,
+          "evidence": {
+            "missing_xfo": true,
+            "missing_csp": true,
+            "url": "https://shopify.com"
+          },
+          "discovered_at": "2025-12-01T21:18:30.336742"
+        },
+        {
+          "target": "shopify.com",
+          "program": "Shopify",
+          "vulnerability_type": "missing_csp",
+          "severity": "medium",
+          "confidence": 0.7,
+          "bounty_estimate": 1000,
+          "evidence": {
+            "missing_header": "Content-Security-Policy",
+            "url": "https://shopify.com"
+          },
+          "discovered_at": "2025-12-01T21:18:30.336755"
+        },
+        {
+          "target": "shopify.com",
+          "program": "Shopify",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "X-Frame-Options",
+              "Permissions-Policy",
+              "Referrer-Policy"
+            ],
+            "url": "https://shopify.com"
+          },
+          "discovered_at": "2025-12-01T21:18:30.336757"
+        }
+      ],
+      "total_bounty": 5400,
+      "high_value_count": 4
+    },
+    "Uber": {
+      "findings": [
+        {
+          "target": "uber.com",
+          "program": "Uber",
+          "vulnerability_type": "missing_csp",
+          "severity": "medium",
+          "confidence": 0.7,
+          "bounty_estimate": 1000,
+          "evidence": {
+            "missing_header": "Content-Security-Policy",
+            "url": "https://uber.com"
+          },
+          "discovered_at": "2025-12-01T21:18:30.658975"
+        },
+        {
+          "target": "uber.com",
+          "program": "Uber",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "Permissions-Policy",
+              "Referrer-Policy"
+            ],
+            "url": "https://uber.com"
+          },
+          "discovered_at": "2025-12-01T21:18:30.658993"
+        },
+        {
+          "target": "uber.com",
+          "program": "Uber",
+          "vulnerability_type": "missing_csp",
+          "severity": "medium",
+          "confidence": 0.7,
+          "bounty_estimate": 1000,
+          "evidence": {
+            "missing_header": "Content-Security-Policy",
+            "url": "https://uber.com"
+          },
+          "discovered_at": "2025-12-01T21:18:31.339397"
+        },
+        {
+          "target": "uber.com",
+          "program": "Uber",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "Permissions-Policy",
+              "Referrer-Policy"
+            ],
+            "url": "https://uber.com"
+          },
+          "discovered_at": "2025-12-01T21:18:31.339416"
+        }
+      ],
+      "total_bounty": 2400,
+      "high_value_count": 2
+    },
+    "GitLab": {
+      "findings": [
+        {
+          "target": "gitlab.com",
+          "program": "GitLab",
+          "vulnerability_type": "clickjacking",
+          "severity": "medium",
+          "confidence": 0.8,
+          "bounty_estimate": 1500,
+          "evidence": {
+            "missing_xfo": true,
+            "missing_csp": true,
+            "url": "https://gitlab.com"
+          },
+          "discovered_at": "2025-12-01T21:18:31.781775"
+        },
+        {
+          "target": "gitlab.com",
+          "program": "GitLab",
+          "vulnerability_type": "missing_csp",
+          "severity": "medium",
+          "confidence": 0.7,
+          "bounty_estimate": 1000,
+          "evidence": {
+            "missing_header": "Content-Security-Policy",
+            "url": "https://gitlab.com"
+          },
+          "discovered_at": "2025-12-01T21:18:31.781788"
+        },
+        {
+          "target": "gitlab.com",
+          "program": "GitLab",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "X-Content-Type-Options",
+              "X-Frame-Options",
+              "Permissions-Policy",
+              "Referrer-Policy"
+            ],
+            "url": "https://gitlab.com"
+          },
+          "discovered_at": "2025-12-01T21:18:31.781791"
+        },
+        {
+          "target": "gitlab.com",
+          "program": "GitLab",
+          "vulnerability_type": "clickjacking",
+          "severity": "medium",
+          "confidence": 0.8,
+          "bounty_estimate": 1500,
+          "evidence": {
+            "missing_xfo": true,
+            "missing_csp": true,
+            "url": "https://gitlab.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.222457"
+        },
+        {
+          "target": "gitlab.com",
+          "program": "GitLab",
+          "vulnerability_type": "missing_csp",
+          "severity": "medium",
+          "confidence": 0.7,
+          "bounty_estimate": 1000,
+          "evidence": {
+            "missing_header": "Content-Security-Policy",
+            "url": "https://gitlab.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.222469"
+        },
+        {
+          "target": "gitlab.com",
+          "program": "GitLab",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "X-Content-Type-Options",
+              "X-Frame-Options",
+              "Permissions-Policy",
+              "Referrer-Policy"
+            ],
+            "url": "https://gitlab.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.222471"
+        }
+      ],
+      "total_bounty": 5400,
+      "high_value_count": 4
+    },
+    "Tesla": {
+      "findings": [
+        {
+          "target": "tesla.com",
+          "program": "Tesla",
+          "vulnerability_type": "clickjacking",
+          "severity": "medium",
+          "confidence": 0.8,
+          "bounty_estimate": 1500,
+          "evidence": {
+            "missing_xfo": true,
+            "missing_csp": true,
+            "url": "https://tesla.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.327828"
+        },
+        {
+          "target": "tesla.com",
+          "program": "Tesla",
+          "vulnerability_type": "missing_csp",
+          "severity": "medium",
+          "confidence": 0.7,
+          "bounty_estimate": 1000,
+          "evidence": {
+            "missing_header": "Content-Security-Policy",
+            "url": "https://tesla.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.327839"
+        },
+        {
+          "target": "tesla.com",
+          "program": "Tesla",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "X-Content-Type-Options",
+              "X-Frame-Options",
+              "Referrer-Policy"
+            ],
+            "url": "https://tesla.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.327842"
+        },
+        {
+          "target": "tesla.com",
+          "program": "Tesla",
+          "vulnerability_type": "clickjacking",
+          "severity": "medium",
+          "confidence": 0.8,
+          "bounty_estimate": 1500,
+          "evidence": {
+            "missing_xfo": true,
+            "missing_csp": true,
+            "url": "https://tesla.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.445039"
+        },
+        {
+          "target": "tesla.com",
+          "program": "Tesla",
+          "vulnerability_type": "missing_csp",
+          "severity": "medium",
+          "confidence": 0.7,
+          "bounty_estimate": 1000,
+          "evidence": {
+            "missing_header": "Content-Security-Policy",
+            "url": "https://tesla.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.445062"
+        },
+        {
+          "target": "tesla.com",
+          "program": "Tesla",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "X-Content-Type-Options",
+              "X-Frame-Options",
+              "Referrer-Policy"
+            ],
+            "url": "https://tesla.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.445067"
+        }
+      ],
+      "total_bounty": 5400,
+      "high_value_count": 4
+    },
+    "Apple": {
+      "findings": [
+        {
+          "target": "apple.com",
+          "program": "Apple",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "Permissions-Policy"
+            ],
+            "url": "https://apple.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.706446"
+        },
+        {
+          "target": "apple.com",
+          "program": "Apple",
+          "vulnerability_type": "missing_security_headers",
+          "severity": "low",
+          "confidence": 0.8,
+          "bounty_estimate": 200,
+          "evidence": {
+            "missing_headers": [
+              "Permissions-Policy"
+            ],
+            "url": "https://apple.com"
+          },
+          "discovered_at": "2025-12-01T21:18:32.965211"
+        }
+      ],
+      "total_bounty": 400,
+      "high_value_count": 0
+    }
+  },
+  "all_findings": [
+    {
+      "target": "shopify.com",
+      "program": "Shopify",
+      "vulnerability_type": "clickjacking",
+      "severity": "medium",
+      "confidence": 0.8,
+      "bounty_estimate": 1500,
+      "evidence": {
+        "missing_xfo": true,
+        "missing_csp": true,
+        "url": "https://shopify.com"
+      },
+      "discovered_at": "2025-12-01T21:18:29.681485"
+    },
+    {
+      "target": "shopify.com",
+      "program": "Shopify",
+      "vulnerability_type": "missing_csp",
+      "severity": "medium",
+      "confidence": 0.7,
+      "bounty_estimate": 1000,
+      "evidence": {
+        "missing_header": "Content-Security-Policy",
+        "url": "https://shopify.com"
+      },
+      "discovered_at": "2025-12-01T21:18:29.681498"
+    },
+    {
+      "target": "shopify.com",
+      "program": "Shopify",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "X-Frame-Options",
+          "Permissions-Policy",
+          "Referrer-Policy"
+        ],
+        "url": "https://shopify.com"
+      },
+      "discovered_at": "2025-12-01T21:18:29.681501"
+    },
+    {
+      "target": "shopify.com",
+      "program": "Shopify",
+      "vulnerability_type": "clickjacking",
+      "severity": "medium",
+      "confidence": 0.8,
+      "bounty_estimate": 1500,
+      "evidence": {
+        "missing_xfo": true,
+        "missing_csp": true,
+        "url": "https://shopify.com"
+      },
+      "discovered_at": "2025-12-01T21:18:30.336742"
+    },
+    {
+      "target": "shopify.com",
+      "program": "Shopify",
+      "vulnerability_type": "missing_csp",
+      "severity": "medium",
+      "confidence": 0.7,
+      "bounty_estimate": 1000,
+      "evidence": {
+        "missing_header": "Content-Security-Policy",
+        "url": "https://shopify.com"
+      },
+      "discovered_at": "2025-12-01T21:18:30.336755"
+    },
+    {
+      "target": "shopify.com",
+      "program": "Shopify",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "X-Frame-Options",
+          "Permissions-Policy",
+          "Referrer-Policy"
+        ],
+        "url": "https://shopify.com"
+      },
+      "discovered_at": "2025-12-01T21:18:30.336757"
+    },
+    {
+      "target": "uber.com",
+      "program": "Uber",
+      "vulnerability_type": "missing_csp",
+      "severity": "medium",
+      "confidence": 0.7,
+      "bounty_estimate": 1000,
+      "evidence": {
+        "missing_header": "Content-Security-Policy",
+        "url": "https://uber.com"
+      },
+      "discovered_at": "2025-12-01T21:18:30.658975"
+    },
+    {
+      "target": "uber.com",
+      "program": "Uber",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "Permissions-Policy",
+          "Referrer-Policy"
+        ],
+        "url": "https://uber.com"
+      },
+      "discovered_at": "2025-12-01T21:18:30.658993"
+    },
+    {
+      "target": "uber.com",
+      "program": "Uber",
+      "vulnerability_type": "missing_csp",
+      "severity": "medium",
+      "confidence": 0.7,
+      "bounty_estimate": 1000,
+      "evidence": {
+        "missing_header": "Content-Security-Policy",
+        "url": "https://uber.com"
+      },
+      "discovered_at": "2025-12-01T21:18:31.339397"
+    },
+    {
+      "target": "uber.com",
+      "program": "Uber",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "Permissions-Policy",
+          "Referrer-Policy"
+        ],
+        "url": "https://uber.com"
+      },
+      "discovered_at": "2025-12-01T21:18:31.339416"
+    },
+    {
+      "target": "gitlab.com",
+      "program": "GitLab",
+      "vulnerability_type": "clickjacking",
+      "severity": "medium",
+      "confidence": 0.8,
+      "bounty_estimate": 1500,
+      "evidence": {
+        "missing_xfo": true,
+        "missing_csp": true,
+        "url": "https://gitlab.com"
+      },
+      "discovered_at": "2025-12-01T21:18:31.781775"
+    },
+    {
+      "target": "gitlab.com",
+      "program": "GitLab",
+      "vulnerability_type": "missing_csp",
+      "severity": "medium",
+      "confidence": 0.7,
+      "bounty_estimate": 1000,
+      "evidence": {
+        "missing_header": "Content-Security-Policy",
+        "url": "https://gitlab.com"
+      },
+      "discovered_at": "2025-12-01T21:18:31.781788"
+    },
+    {
+      "target": "gitlab.com",
+      "program": "GitLab",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "X-Content-Type-Options",
+          "X-Frame-Options",
+          "Permissions-Policy",
+          "Referrer-Policy"
+        ],
+        "url": "https://gitlab.com"
+      },
+      "discovered_at": "2025-12-01T21:18:31.781791"
+    },
+    {
+      "target": "gitlab.com",
+      "program": "GitLab",
+      "vulnerability_type": "clickjacking",
+      "severity": "medium",
+      "confidence": 0.8,
+      "bounty_estimate": 1500,
+      "evidence": {
+        "missing_xfo": true,
+        "missing_csp": true,
+        "url": "https://gitlab.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.222457"
+    },
+    {
+      "target": "gitlab.com",
+      "program": "GitLab",
+      "vulnerability_type": "missing_csp",
+      "severity": "medium",
+      "confidence": 0.7,
+      "bounty_estimate": 1000,
+      "evidence": {
+        "missing_header": "Content-Security-Policy",
+        "url": "https://gitlab.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.222469"
+    },
+    {
+      "target": "gitlab.com",
+      "program": "GitLab",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "X-Content-Type-Options",
+          "X-Frame-Options",
+          "Permissions-Policy",
+          "Referrer-Policy"
+        ],
+        "url": "https://gitlab.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.222471"
+    },
+    {
+      "target": "tesla.com",
+      "program": "Tesla",
+      "vulnerability_type": "clickjacking",
+      "severity": "medium",
+      "confidence": 0.8,
+      "bounty_estimate": 1500,
+      "evidence": {
+        "missing_xfo": true,
+        "missing_csp": true,
+        "url": "https://tesla.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.327828"
+    },
+    {
+      "target": "tesla.com",
+      "program": "Tesla",
+      "vulnerability_type": "missing_csp",
+      "severity": "medium",
+      "confidence": 0.7,
+      "bounty_estimate": 1000,
+      "evidence": {
+        "missing_header": "Content-Security-Policy",
+        "url": "https://tesla.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.327839"
+    },
+    {
+      "target": "tesla.com",
+      "program": "Tesla",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "X-Content-Type-Options",
+          "X-Frame-Options",
+          "Referrer-Policy"
+        ],
+        "url": "https://tesla.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.327842"
+    },
+    {
+      "target": "tesla.com",
+      "program": "Tesla",
+      "vulnerability_type": "clickjacking",
+      "severity": "medium",
+      "confidence": 0.8,
+      "bounty_estimate": 1500,
+      "evidence": {
+        "missing_xfo": true,
+        "missing_csp": true,
+        "url": "https://tesla.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.445039"
+    },
+    {
+      "target": "tesla.com",
+      "program": "Tesla",
+      "vulnerability_type": "missing_csp",
+      "severity": "medium",
+      "confidence": 0.7,
+      "bounty_estimate": 1000,
+      "evidence": {
+        "missing_header": "Content-Security-Policy",
+        "url": "https://tesla.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.445062"
+    },
+    {
+      "target": "tesla.com",
+      "program": "Tesla",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "X-Content-Type-Options",
+          "X-Frame-Options",
+          "Referrer-Policy"
+        ],
+        "url": "https://tesla.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.445067"
+    },
+    {
+      "target": "apple.com",
+      "program": "Apple",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "Permissions-Policy"
+        ],
+        "url": "https://apple.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.706446"
+    },
+    {
+      "target": "apple.com",
+      "program": "Apple",
+      "vulnerability_type": "missing_security_headers",
+      "severity": "low",
+      "confidence": 0.8,
+      "bounty_estimate": 200,
+      "evidence": {
+        "missing_headers": [
+          "Permissions-Policy"
+        ],
+        "url": "https://apple.com"
+      },
+      "discovered_at": "2025-12-01T21:18:32.965211"
+    }
+  ],
+  "submission_readiness": {
+    "ready": true,
+    "confidence": "HIGH",
+    "reason": "Multiple high-value findings ($19,000 total)",
+    "recommendation": "Submit immediately to maximize acceptance"
+  }
+}

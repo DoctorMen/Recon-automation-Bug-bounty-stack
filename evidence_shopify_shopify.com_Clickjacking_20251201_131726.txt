@@ -1,0 +1,33 @@
+# Clickjacking Evidence - shopify.com
+# Generated: 2025-12-01T13:17:26.932739
+# Program: Shopify (HackerOne)
+
+Command: curl -I https://shopify.com
+
+Output:
+HTTP/1.1 301 Moved Permanently
+Date: Mon, 01 Dec 2025 18:17:26 GMT
+Content-Type: text/html
+Content-Length: 167
+Connection: keep-alive
+Cache-Control: max-age=3600
+Expires: Mon, 01 Dec 2025 19:17:26 GMT
+Location: https://www.shopify.com/
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=jN7ZMPGFm3lWJ0qoxaXz%2Fdd8YP95woGD7LcYvanrLTGHob8jxJMtqNIljRflWnLjHJYVCfM%2FnRF9BvusZbaBEecFL8srWoB3aAe9ZiXVEuog%2FBA6%2FV%2BwY3Do%2FpEA"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}
+Server-Timing: cfRequestDuration;dur=6.000042
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Permitted-Cross-Domain-Policies: none
+X-Download-Options: noopen
+Server: cloudflare
+CF-RAY: 9a7494d60d5d135d-ATL
+alt-svc: h3=":443"; ma=86400
+
+
+Errors:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0   167    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0

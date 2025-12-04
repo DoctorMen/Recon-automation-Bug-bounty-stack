@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 ## Multi-Agent Roles and Mappings
 
 This repository supports a team-of-agents model to coordinate recon automation. The following roles are defined in `agents.json` and mapped to existing scripts.
@@ -27,6 +30,12 @@ This repository supports a team-of-agents model to coordinate recon automation. 
 - **Composer 4 — CI/CD & Security Ops (composer)**: CI workflows and hardening
   - CI: `ci/cursor-ci.yml`
   - Workflows helpers: `workflows/run_program.sh`
+
+- **Divergent Thinker (gpt-5)**: Creative exploration and alternative approaches
+  - Engine: `DIVERGENT_THINKING_ENGINE.py`
+  - Integration: `DIVERGENT_THINKING_INTEGRATION.py`
+  - Documentation: `DIVERGENT_THINKING_EXPLAINED.md`
+  - 7 Thinking Modes: lateral, parallel, associative, generative, combinatorial, perspective, constraint-free
 
 ### Orchestrator (optional)
 

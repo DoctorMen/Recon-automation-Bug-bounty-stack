@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Licensing Onboarding Email Sequence
 
 Use with ConvertKit/Beehiiv. Replace {{first_name}} and links.
@@ -39,6 +42,12 @@ Subject: Final 24h: lock in founder pricing
 
 ---
 Owner: DoctorMen • Contact: doctormen131@outlook.com
+
+
+
+
+
+
 
 
 

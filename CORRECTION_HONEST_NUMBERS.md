@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # 💰 BRUTALLY HONEST CORRECTION - $20 Million Was Wrong
 
 ## ⚠️ I WAS WRONG - Let Me Correct This

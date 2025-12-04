@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Web Mapper Agent
 # Uses httpx to probe alive hosts and fingerprint technologies
 # Input: ~/recon-stack/output/subs.txt

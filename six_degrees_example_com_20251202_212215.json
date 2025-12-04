@@ -1,0 +1,52 @@
+{
+  "seed_target": "example.com",
+  "timestamp": "2025-12-02T21:22:15.628773",
+  "max_degree": 1,
+  "statistics": {
+    "total_nodes": 1,
+    "total_edges": 0,
+    "nodes_by_type": {
+      "domain": 1
+    },
+    "nodes_by_degree": {
+      "0": 1
+    },
+    "explored": 1,
+    "unexplored": 0,
+    "in_scope": 1,
+    "out_of_scope": 0,
+    "vulnerabilities_found": 0
+  },
+  "findings": [],
+  "graph": {
+    "nodes": [
+      {
+        "id": "5ababd603b22",
+        "type": "domain",
+        "value": "example.com",
+        "degree": 0,
+        "metadata": {},
+        "discovered_at": "2025-12-02T21:22:15.627231",
+        "explored": true,
+        "in_scope": true,
+        "findings": []
+      }
+    ],
+    "edges": [],
+    "statistics": {
+      "total_nodes": 1,
+      "total_edges": 0,
+      "nodes_by_type": {
+        "domain": 1
+      },
+      "nodes_by_degree": {
+        "0": 1
+      },
+      "explored": 1,
+      "unexplored": 0,
+      "in_scope": 1,
+      "out_of_scope": 0,
+      "vulnerabilities_found": 0
+    }
+  }
+}

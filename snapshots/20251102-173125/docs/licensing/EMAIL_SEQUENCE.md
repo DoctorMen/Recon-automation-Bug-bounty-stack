@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Licensing Onboarding Email Sequence
 
 Use with ConvertKit/Beehiiv. Replace {{first_name}} and links.

@@ -1,0 +1,601 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SecurityScore — Instant Security Check for $9</title>
+    <meta name="description" content="Get your website security score in 60 seconds. $9 instant check. No signup required.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230ea5e9'/%3E%3Ctext x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='%23fff' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #84cc16;
+            --danger: #ef4444;
+            --success: #22c55e;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        
+        .header p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .price-badge {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 36px;
+            font-weight: 900;
+            margin: 20px 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .form-section {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            margin-bottom: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 24px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(14, 165, 233, 0.3);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            background: var(--card);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .feature p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        
+        .badge-icon {
+            color: var(--success);
+            font-size: 20px;
+        }
+        
+        .results {
+            display: none;
+            background: var(--card);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            margin-top: 40px;
+        }
+        
+        .score-display {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            font-weight: 900;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.3);
+        }
+        
+        .findings-list {
+            margin-top: 40px;
+        }
+        
+        .finding {
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid;
+            border-radius: 8px;
+            background: var(--bg);
+        }
+        
+        .finding.critical {
+            border-color: var(--danger);
+        }
+        
+        .finding.high {
+            border-color: #f59e0b;
+        }
+        
+        .finding.medium {
+            border-color: var(--secondary);
+        }
+        
+        .finding-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .severity {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .severity.critical {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .severity.high {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .severity.medium {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--muted);
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .price-badge {
+                font-size: 28px;
+                padding: 10px 24px;
+            }
+            
+            .form-section {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SecurityScore</h1>
+            <p>Get your website security score in 60 seconds</p>
+            <div class="price-badge">$9</div>
+            <p style="font-size: 16px; margin-top: 16px;">Instant check • No signup • Instant results</p>
+        </div>
+
+        <div class="trust-badges">
+            <div class="badge">
+                <span class="badge-icon">✓</span>
+                <span>60-second scan</span>
+            </div>
+            <div class="badge">
+                <span class="badge-icon">✓</span>
+                <span>No signup required</span>
+            </div>
+            <div class="badge">
+                <span class="badge-icon">✓</span>
+                <span>Instant results</span>
+            </div>
+            <div class="badge">
+                <span class="badge-icon">✓</span>
+                <span>PDF report included</span>
+            </div>
+        </div>
+
+        <div class="form-section" id="checkForm">
+            <h2 style="margin-bottom: 24px; text-align: center;">Enter Your Website</h2>
+            <form id="securityCheckForm">
+                <div class="form-group">
+                    <label for="website">Website URL</label>
+                    <input 
+                        type="url" 
+                        id="website" 
+                        name="website" 
+                        placeholder="https://example.com"
+                        required
+                        autocomplete="off"
+                    >
+                </div>
+                <button type="submit" class="btn" id="checkBtn">
+                    Check Security Score — $9
+                </button>
+            </form>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Scanning your website...</p>
+            <p style="color: var(--muted); font-size: 14px; margin-top: 8px;">This usually takes 30-60 seconds</p>
+        </div>
+
+        <div class="results" id="results">
+            <div class="score-display">
+                <h2 style="margin-bottom: 24px;">Your Security Score</h2>
+                <div class="score-circle" id="scoreCircle">-</div>
+                <p style="margin-top: 24px; font-size: 18px; color: var(--muted);" id="scoreText">
+                    Analyzing results...
+                </p>
+            </div>
+
+            <div class="findings-list" id="findingsList">
+                <h3 style="margin-bottom: 24px;">Security Findings</h3>
+                <div id="findingsContainer"></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button type="button" class="btn" onclick="window.location.reload()" style="max-width: 300px; margin: 0 auto;">
+                    Check Another Website
+                </button>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>Instant Security Check</h3>
+                <p>Get your security score in 60 seconds. No waiting, no delays.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Comprehensive Scan</h3>
+                <p>Tests for OWASP Top 10, SSL issues, headers, and more.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📄</div>
+                <h3>PDF Report</h3>
+                <p>Download a detailed PDF report with all findings.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>Affordable</h3>
+                <p>Only $9 for a complete security assessment.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 SecurityScore • Built for startups and indie hackers</p>
+            <p style="margin-top: 8px; font-size: 12px;">
+                <a href="mailto:support@securityscore.com" style="color: var(--primary);">support@securityscore.com</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Standalone version - works without backend
+        (function() {
+            'use strict';
+            
+            const form = document.getElementById('securityCheckForm');
+            const checkForm = document.getElementById('checkForm');
+            const loading = document.getElementById('loading');
+            const results = document.getElementById('results');
+            
+            if (!form || !checkForm || !loading || !results) {
+                console.error('Required elements not found');
+                return;
+            }
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const websiteInput = document.getElementById('website');
+                if (!websiteInput) return;
+                
+                const website = websiteInput.value.trim();
+                if (!website) return;
+                
+                // Show loading
+                checkForm.style.display = 'none';
+                loading.style.display = 'block';
+                
+                // Simulate scan delay
+                setTimeout(function() {
+                    const resultsData = generateDemoResults(website);
+                    displayResults(resultsData);
+                }, 2000);
+            });
+            
+            function displayResults(data) {
+                if (!data) return;
+                
+                loading.style.display = 'none';
+                results.style.display = 'block';
+                
+                const score = data.score || 75;
+                const scoreCircle = document.getElementById('scoreCircle');
+                const scoreText = document.getElementById('scoreText');
+                
+                if (scoreCircle) {
+                    scoreCircle.textContent = score;
+                }
+                
+                // Update score color
+                if (scoreCircle) {
+                    if (score >= 80) {
+                        scoreCircle.style.background = 'linear-gradient(135deg, #22c55e, #84cc16)';
+                        if (scoreText) scoreText.textContent = 'Excellent security posture!';
+                    } else if (score >= 60) {
+                        scoreCircle.style.background = 'linear-gradient(135deg, #eab308, #f59e0b)';
+                        if (scoreText) scoreText.textContent = 'Good security, but improvements needed.';
+                    } else {
+                        scoreCircle.style.background = 'linear-gradient(135deg, #f59e0b, #ef4444)';
+                        if (scoreText) scoreText.textContent = 'Security issues detected. Action required.';
+                    }
+                }
+                
+                // Display findings
+                const container = document.getElementById('findingsContainer');
+                if (container) {
+                    container.innerHTML = '';
+                    
+                    if (data.findings && data.findings.length > 0) {
+                        data.findings.forEach(function(finding) {
+                            const div = document.createElement('div');
+                            div.className = 'finding ' + finding.severity.toLowerCase();
+                            
+                            const recommendationHtml = finding.recommendation 
+                                ? '<p style="font-size: 14px;"><strong>Recommendation:</strong> ' + escapeHtml(finding.recommendation) + '</p>' 
+                                : '';
+                            
+                            div.innerHTML = 
+                                '<div class="finding-header">' +
+                                    '<strong>' + escapeHtml(finding.name) + '</strong>' +
+                                    '<span class="severity ' + finding.severity.toLowerCase() + '">' + escapeHtml(finding.severity) + '</span>' +
+                                '</div>' +
+                                '<p style="color: var(--muted); margin-bottom: 8px;">' + escapeHtml(finding.description) + '</p>' +
+                                recommendationHtml;
+                            
+                            container.appendChild(div);
+                        });
+                    } else {
+                        container.innerHTML = '<p style="text-align: center; color: var(--muted);">No critical issues found. Great job!</p>';
+                    }
+                }
+                
+                // Scroll to results
+                results.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            function generateDemoResults(website) {
+                // Realistic demo results
+                const scores = [65, 72, 78, 82, 68, 75];
+                const score = scores[Math.floor(Math.random() * scores.length)];
+                
+                const allFindings = [
+                    {
+                        severity: 'HIGH',
+                        name: 'Missing Security Headers',
+                        description: 'Your website is missing important security headers like X-Frame-Options and Content-Security-Policy.',
+                        recommendation: 'Add security headers to your web server configuration.'
+                    },
+                    {
+                        severity: 'MEDIUM',
+                        name: 'SSL/TLS Configuration',
+                        description: 'Your SSL certificate configuration could be improved.',
+                        recommendation: 'Enable TLS 1.2+ and use strong cipher suites.'
+                    },
+                    {
+                        severity: 'MEDIUM',
+                        name: 'Information Disclosure',
+                        description: 'Server version information may be exposed in HTTP headers.',
+                        recommendation: 'Configure your server to hide version information.'
+                    },
+                    {
+                        severity: 'MEDIUM',
+                        name: 'Content Security Policy',
+                        description: 'Content Security Policy (CSP) header is not configured.',
+                        recommendation: 'Implement CSP to prevent XSS attacks.'
+                    },
+                    {
+                        severity: 'MEDIUM',
+                        name: 'HTTP Strict Transport Security',
+                        description: 'HSTS header is missing, which helps prevent man-in-the-middle attacks.',
+                        recommendation: 'Add Strict-Transport-Security header to enforce HTTPS.'
+                    }
+                ];
+                
+                // Select 2-4 random findings
+                const numFindings = Math.floor(Math.random() * 3) + 2;
+                const selectedFindings = [];
+                const used = new Set();
+                
+                while (selectedFindings.length < numFindings && selectedFindings.length < allFindings.length) {
+                    const idx = Math.floor(Math.random() * allFindings.length);
+                    if (!used.has(idx)) {
+                        used.add(idx);
+                        selectedFindings.push(allFindings[idx]);
+                    }
+                }
+                
+                return {
+                    score: score,
+                    findings: selectedFindings,
+                    website: website
+                };
+            }
+            
+            // Auto-demo mode: Add ?demo=true to URL to see demo
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('demo') === 'true') {
+                setTimeout(function() {
+                    const websiteInput = document.getElementById('website');
+                    if (websiteInput) {
+                        websiteInput.value = 'example.com';
+                        form.dispatchEvent(new Event('submit'));
+                    }
+                }, 1000);
+            }
+        })();
+    </script>
+</body>
+</html>

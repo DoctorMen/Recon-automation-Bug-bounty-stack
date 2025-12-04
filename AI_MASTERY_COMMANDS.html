@@ -1,0 +1,638 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mastery Commands - Strategic Interaction Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0066FF; --secondary: #7C3AED; --accent: #10B981; --accent-dark: #059669;
+            --dark: #0A0E27; --dark-lighter: #141B2D; --dark-card: #1A2332; --dark-border: #2D3748;
+            --text-primary: #FFFFFF; --text-secondary: rgba(255,255,255,0.8); --text-muted: rgba(255,255,255,0.6);
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #7C3AED 100%);
+            --gradient-accent: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            --shadow-xl: 0 16px 64px rgba(0,102,255,0.25);
+        }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--dark); 
+            color: var(--text-primary); 
+            line-height: 1.7; 
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        .hero { 
+            background: var(--gradient-primary); 
+            padding: clamp(40px, 8vh, 100px) clamp(20px, 4vw, 40px); 
+            text-align: center; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .hero::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%); 
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+        .hero h1 { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: clamp(2em, 5vw, 4em); 
+            font-weight: 700; 
+            margin-bottom: clamp(16px, 3vh, 24px); 
+            letter-spacing: -0.02em; 
+            line-height: 1.1;
+        }
+        .hero .subtitle { 
+            font-size: clamp(1em, 2vw, 1.4em); 
+            opacity: 0.95; 
+            margin-bottom: clamp(10px, 2vh, 20px);
+        }
+        .hero .tagline { 
+            font-size: clamp(0.85em, 1.5vw, 1em); 
+            opacity: 0.9; 
+            margin-top: clamp(15px, 3vh, 30px);
+        }
+        .container { 
+            max-width: min(1400px, 95vw); 
+            margin: 0 auto; 
+            padding: clamp(40px, 6vh, 80px) clamp(20px, 3vw, 40px); 
+        }
+        .flowchart { 
+            display: flex; 
+            flex-direction: column; 
+            gap: clamp(20px, 3vh, 30px); 
+            margin: clamp(40px, 6vh, 60px) 0; 
+        }
+        .flow-step { 
+            background: var(--dark-card); 
+            padding: clamp(24px, 4vw, 32px); 
+            border-radius: clamp(16px, 2vw, 20px); 
+            border: 1px solid var(--dark-border); 
+            position: relative; 
+            transition: all 0.3s; 
+        }
+        .flow-step:hover { 
+            transform: translateY(-4px); 
+            border-color: var(--primary); 
+            box-shadow: var(--shadow-xl); 
+        }
+        .flow-step::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 4px; 
+            background: var(--gradient-primary); 
+        }
+        .step-number { 
+            display: inline-flex; 
+            width: clamp(40px, 6vw, 48px); 
+            height: clamp(40px, 6vw, 48px); 
+            background: var(--gradient-primary); 
+            border-radius: clamp(10px, 1.5vw, 12px); 
+            align-items: center; 
+            justify-content: center; 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: clamp(1.1em, 2vw, 1.3em); 
+            font-weight: 700; 
+            margin-bottom: clamp(16px, 2.5vh, 20px); 
+        }
+        .step-title { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: clamp(1.2em, 2.5vw, 1.5em); 
+            margin-bottom: clamp(12px, 2vh, 16px); 
+            color: var(--primary); 
+            line-height: 1.3;
+        }
+        .step-category { 
+            display: inline-block; 
+            padding: clamp(4px, 0.8vw, 6px) clamp(10px, 2vw, 14px); 
+            background: rgba(16,185,129,0.2); 
+            border: 1px solid rgba(16,185,129,0.3); 
+            border-radius: 20px; 
+            font-size: clamp(0.75em, 1.2vw, 0.85em); 
+            font-weight: 600; 
+            color: var(--accent); 
+            margin-bottom: clamp(12px, 2vh, 16px); 
+        }
+        .command-box { 
+            background: rgba(0,0,0,0.4); 
+            border: 2px solid var(--dark-border); 
+            padding: clamp(16px, 2.5vw, 20px); 
+            border-radius: clamp(10px, 1.5vw, 12px); 
+            margin: clamp(12px, 2vh, 16px) 0; 
+            position: relative; 
+        }
+        .command-box code { 
+            font-family: 'Courier New', monospace; 
+            font-size: clamp(0.8em, 1.5vw, 0.95em); 
+            color: var(--accent); 
+            line-height: 1.8; 
+            display: block; 
+            white-space: pre-wrap; 
+            word-break: break-word;
+        }
+        .copy-btn { 
+            position: absolute; 
+            top: clamp(8px, 1.5vh, 12px); 
+            right: clamp(8px, 1.5vw, 12px); 
+            padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px); 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            border-radius: clamp(6px, 1vw, 8px); 
+            font-size: clamp(0.75em, 1.2vw, 0.85em); 
+            cursor: pointer; 
+            transition: all 0.2s; 
+            font-weight: 600;
+        }
+        .copy-btn:hover { 
+            background: var(--secondary); 
+            transform: scale(1.05); 
+        }
+        .copy-btn.copied { 
+            background: var(--accent); 
+        }
+        .step-description { 
+            color: var(--text-secondary); 
+            margin-bottom: clamp(12px, 2vh, 16px); 
+            line-height: 1.8; 
+            font-size: clamp(0.9em, 1.5vw, 1em);
+        }
+        .arrow { 
+            text-align: center; 
+            font-size: clamp(1.5em, 3vw, 2em); 
+            color: var(--primary); 
+            margin: clamp(-15px, -2vh, -10px) 0; 
+            line-height: 1;
+        }
+        .section-header { 
+            text-align: center; 
+            margin-bottom: clamp(40px, 6vh, 60px); 
+        }
+        .section-header h2 { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: clamp(1.8em, 4vw, 3em); 
+            margin-bottom: clamp(16px, 2.5vh, 20px); 
+            color: var(--primary); 
+            line-height: 1.2;
+        }
+        .section-header p { 
+            font-size: clamp(1em, 2vw, 1.2em); 
+            color: var(--text-secondary); 
+            max-width: min(700px, 90vw); 
+            margin: 0 auto; 
+        }
+        .usage-tip { 
+            background: rgba(0,102,255,0.1); 
+            border-left: 4px solid var(--primary); 
+            padding: clamp(12px, 2vw, 16px); 
+            border-radius: clamp(6px, 1vw, 8px); 
+            margin-top: clamp(12px, 2vh, 16px); 
+            font-size: clamp(0.85em, 1.3vw, 0.9em);
+        }
+        .usage-tip strong { 
+            color: var(--primary); 
+            font-weight: 600;
+        }
+        .master-pattern { 
+            background: var(--gradient-primary); 
+            padding: clamp(40px, 6vh, 60px) clamp(20px, 3vw, 40px); 
+            border-radius: clamp(20px, 3vw, 24px); 
+            text-align: center; 
+            margin: clamp(60px, 8vh, 80px) 0; 
+        }
+        .master-pattern h3 { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: clamp(1.5em, 3vw, 2em); 
+            margin-bottom: clamp(16px, 2.5vh, 20px); 
+        }
+        .master-pattern p { 
+            font-size: clamp(1em, 2vw, 1.2em); 
+            margin-bottom: clamp(20px, 3vh, 30px); 
+            opacity: 0.95; 
+        }
+        .master-pattern code { 
+            font-family: 'Courier New', monospace; 
+            font-size: clamp(0.85em, 1.5vw, 0.95em); 
+            color: white; 
+            line-height: 1.8; 
+            display: block; 
+            text-align: left; 
+            background: rgba(0,0,0,0.3); 
+            padding: clamp(20px, 3vw, 24px); 
+            border-radius: clamp(10px, 1.5vw, 12px); 
+            max-width: min(800px, 90vw); 
+            margin: 0 auto;
+        }
+        .master-pattern code strong { 
+            color: rgba(255,255,255,0.95);
+        }
+        
+        /* Responsive optimizations */
+        @media (max-width: 768px) {
+            .container { padding: clamp(30px, 5vh, 40px) clamp(15px, 4vw, 20px); }
+            .hero { padding: clamp(50px, 10vh, 80px) clamp(15px, 4vw, 20px); }
+            .command-box code { font-size: 0.8em; }
+            .arrow { margin: -8px 0; }
+        }
+        
+        @media (min-width: 1920px) {
+            .container { max-width: 1600px; }
+        }
+        
+        /* Print optimization */
+        @media print {
+            .copy-btn { display: none; }
+            .flow-step { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>AI Mastery Commands</h1>
+            <p class="subtitle">20 Strategic Copy-Paste Commands for Maximum AI Effectiveness</p>
+            <p class="tagline">Fortune 500 Quality | Flowchart Style | Master Knowledge Base Integration</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-header">
+            <h2>Knowledge Base Reference Commands</h2>
+            <p>Leverage your master knowledge base for optimal AI assistance</p>
+        </div>
+
+        <div class="flowchart">
+            <div class="flow-step">
+                <div class="step-number">1</div>
+                <span class="step-category">Knowledge Reference</span>
+                <h3 class="step-title">Reference Master Knowledge Base</h3>
+                <p class="step-description">Start any request by referencing your master knowledge base to ensure AI has full context.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Based on my master knowledge base @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md, [your request here]</code>
+                </div>
+                <div class="usage-tip">
+                    <strong>Usage:</strong> Always prefix complex requests with this to ensure AI accesses your complete knowledge repository.
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">2</div>
+                <span class="step-category">Multi-File Reference</span>
+                <h3 class="step-title">Reference Multiple Knowledge Files</h3>
+                <p class="step-description">When you need AI to synthesize information from multiple sources.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Using @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md, @UPWORK_FAST_DEPLOY.md, and @QUICKEST_PATH_FIRST_DOLLAR_TODAY.md, [your request]</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">3</div>
+                <span class="step-category">Context Restoration</span>
+                <h3 class="step-title">Restore Full Context</h3>
+                <p class="step-description">When starting a new conversation or need AI to remember everything.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Review my entire master knowledge base and all related files, then [your request]. Ensure you understand the complete context first.</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: clamp(60px, 10vh, 100px);">
+            <h2>Strategic Execution Commands</h2>
+            <p>Commands for executing plans and workflows</p>
+        </div>
+
+        <div class="flowchart">
+            <div class="flow-step">
+                <div class="step-number">4</div>
+                <span class="step-category">Plan Execution</span>
+                <h3 class="step-title">Execute First Dollar Plan</h3>
+                <p class="step-description">Start the complete first dollar workflow with full automation.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Based on @QUICKEST_PATH_FIRST_DOLLAR_TODAY.md, execute the complete plan. Use automation scripts and reference all templates. Show me step-by-step progress.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">5</div>
+                <span class="step-category">Template Deployment</span>
+                <h3 class="step-title">Deploy Upwork Template</h3>
+                <p class="step-description">Generate and deploy Upwork proposals using your templates.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Using @UPWORK_FAST_DEPLOY.md Template [1-10], generate a proposal for [client name] with price $[amount]. Customize based on job description: [paste description]</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">6</div>
+                <span class="step-category">Automation</span>
+                <h3 class="step-title">Run Automation Script</h3>
+                <p class="step-description">Execute automation commands with AI assistance.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Run the automation: ./scripts/first_dollar_cli.sh [command] [args]. Show me the output and next steps.</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: clamp(60px, 10vh, 100px);">
+            <h2>Content Generation Commands</h2>
+            <p>Create content leveraging your knowledge base</p>
+        </div>
+
+        <div class="flowchart">
+            <div class="flow-step">
+                <div class="step-number">7</div>
+                <span class="step-category">Content Creation</span>
+                <h3 class="step-title">Generate Website/HTML</h3>
+                <p class="step-description">Create Fortune 500-quality web presentations.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Using @[knowledge_file].md, create a Fortune 500-quality HTML website with the same design standards as @upwork_master_website.html. Make it visually stunning and immediately deployable.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">8</div>
+                <span class="step-category">Documentation</span>
+                <h3 class="step-title">Create Documentation</h3>
+                <p class="step-description">Generate comprehensive documentation from knowledge base.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Based on @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md, create comprehensive documentation for [topic]. Include examples, use cases, and quick reference sections.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">9</div>
+                <span class="step-category">Report Generation</span>
+                <h3 class="step-title">Generate Executive Report</h3>
+                <p class="step-description">Create professional reports using your templates.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Using the report templates from @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md, generate an executive summary report for [topic]. Format: PDF-ready markdown with professional styling.</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: clamp(60px, 10vh, 100px);">
+            <h2>Analysis & Optimization Commands</h2>
+            <p>Analyze and optimize using your knowledge base</p>
+        </div>
+
+        <div class="flowchart">
+            <div class="flow-step">
+                <div class="step-number">10</div>
+                <span class="step-category">Analysis</span>
+                <h3 class="step-title">Analyze Performance</h3>
+                <p class="step-description">Get AI to analyze your tracking data and suggest improvements.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Analyze output/first_dollar_automation/tracking.json. Compare against success metrics in @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md. Provide optimization recommendations.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">11</div>
+                <span class="step-category">Optimization</span>
+                <h3 class="step-title">Optimize Strategy</h3>
+                <p class="step-description">Get strategic optimization based on your patterns.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Based on @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md patterns and my current results [describe], optimize my strategy. Reference pricing strategies, win rates, and success metrics.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">12</div>
+                <span class="step-category">Comparison</span>
+                <h3 class="step-title">Compare Against Master</h3>
+                <p class="step-description">Compare your approach against master knowledge base patterns.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Compare my current [approach/results/strategy] against the patterns in @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md. Identify gaps and alignment opportunities.</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: clamp(60px, 10vh, 100px);">
+            <h2>Deployment & Integration Commands</h2>
+            <p>Deploy and integrate new capabilities</p>
+        </div>
+
+        <div class="flowchart">
+            <div class="flow-step">
+                <div class="step-number">13</div>
+                <span class="step-category">Deployment</span>
+                <h3 class="step-title">Deploy Template System</h3>
+                <p class="step-description">Deploy ready-to-use templates based on your knowledge base.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Using @UPWORK_FAST_DEPLOY.md, deploy all 10 templates as ready-to-use files. Reference @FORTUNE_500_WEBSITE_TEMPLATE.html for design standards. Make them immediately usable.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">14</div>
+                <span class="step-category">Integration</span>
+                <h3 class="step-title">Integrate New Feature</h3>
+                <p class="step-description">Add new features that integrate with existing systems.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Based on @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md and existing automation in scripts/, create [feature]. Ensure it integrates with tracking.json and follows existing patterns.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">15</div>
+                <span class="step-category">System Extension</span>
+                <h3 class="step-title">Extend Automation System</h3>
+                <p class="step-description">Add new automation capabilities.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Extend scripts/automate_first_dollar.py with [new capability]. Reference @AUTOMATION_GUIDE.md for patterns. Maintain compatibility with existing workflow.</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: clamp(60px, 10vh, 100px);">
+            <h2>Training & Knowledge Commands</h2>
+            <p>Train and enhance your knowledge base</p>
+        </div>
+
+        <div class="flowchart">
+            <div class="flow-step">
+                <div class="step-number">16</div>
+                <span class="step-category">Knowledge Extraction</span>
+                <h3 class="step-title">Extract Patterns</h3>
+                <p class="step-description">Extract patterns from new information and add to knowledge base.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Analyze [source/information] and extract patterns. Add to @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md following existing structure. Ensure it integrates with current strategies.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">17</div>
+                <span class="step-category">Knowledge Update</span>
+                <h3 class="step-title">Update Master Knowledge</h3>
+                <p class="step-description">Update your master knowledge base with new learnings.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Update @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md with [new information/insights]. Maintain consistency with existing format. Cross-reference related sections.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">18</div>
+                <span class="step-category">Pattern Documentation</span>
+                <h3 class="step-title">Document New Pattern</h3>
+                <p class="step-description">Document successful patterns for future use.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Document this successful pattern/strategy in @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md: [describe pattern]. Include use cases, examples, and success metrics.</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: clamp(60px, 10vh, 100px);">
+            <h2>Advanced Mastery Commands</h2>
+            <p>Power commands for maximum effectiveness</p>
+        </div>
+
+        <div class="flowchart">
+            <div class="flow-step">
+                <div class="step-number">19</div>
+                <span class="step-category">Multi-Step Execution</span>
+                <h3 class="step-title">Execute Complex Workflow</h3>
+                <p class="step-description">Execute multi-step workflows with full context.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Using @AI_UPWORK_MASTER_KNOWLEDGE_BASE.md and @QUICKEST_PATH_FIRST_DOLLAR_TODAY.md, execute this workflow: [step 1], then [step 2], then [step 3]. Show progress at each step and reference relevant knowledge files.</code>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="step-number">20</div>
+                <span class="step-category">Perfect Execution</span>
+                <h3 class="step-title">Perfect Quality Request</h3>
+                <p class="step-description">The ultimate command for Fortune 500 quality output.</p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+                    <code>Based on my complete master knowledge base (@AI_UPWORK_MASTER_KNOWLEDGE_BASE.md, @UPWORK_FAST_DEPLOY.md, @QUICKEST_PATH_FIRST_DOLLAR_TODAY.md), create [request] with Fortune 500 quality matching @upwork_master_website.html design standards. Ensure it's immediately deployable, well-documented, and follows all established patterns. Show me progress and final result.</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="master-pattern">
+            <h3>Master Command Pattern</h3>
+            <p>The Formula for Maximum AI Effectiveness</p>
+            <code>
+<strong>1. Context:</strong> Based on @[master_knowledge_file].md<br>
+<strong>2. References:</strong> Reference @[related_files] for [specific aspect]<br>
+<strong>3. Quality:</strong> Create with Fortune 500 quality matching @[design_reference]<br>
+<strong>4. Action:</strong> [Your specific request]<br>
+<strong>5. Output:</strong> Make it immediately deployable/usable<br>
+<strong>6. Documentation:</strong> Include documentation and examples
+            </code>
+        </div>
+    </div>
+
+    <script>
+        function copyCommand(btn) {
+            const codeElement = btn.nextElementSibling;
+            const text = codeElement.textContent.trim();
+            
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+        
+        // Dynamic optimization based on screen size
+        function optimizeForScreen() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const root = document.documentElement;
+            
+            // Set CSS custom properties based on screen size
+            root.style.setProperty('--vw', `${width / 100}px`);
+            root.style.setProperty('--vh', `${height / 100}px`);
+            
+            // Optimize font sizes for screen
+            if (width < 768) {
+                root.style.setProperty('--base-font', '14px');
+            } else if (width < 1920) {
+                root.style.setProperty('--base-font', '16px');
+            } else {
+                root.style.setProperty('--base-font', '18px');
+            }
+        }
+        
+        // Run on load and resize
+        optimizeForScreen();
+        window.addEventListener('resize', optimizeForScreen);
+    </script>
+</body>
+</html>

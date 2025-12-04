@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # Processing Your 772 Nuclei Results
 
 Found your scan results! You have **772 findings** from a 1-hour nuclei scan stored in:

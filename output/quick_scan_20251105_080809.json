@@ -1,0 +1,264 @@
+{
+  "scan_date": "2025-11-05T08:08:09.508149",
+  "programs_tested": 9,
+  "total_vulnerabilities": 31,
+  "findings": {
+    "polygon": [
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: X-Content-Type-Options",
+        "url": "https://polygon.technology",
+        "bounty_estimate": "$200-$1,000"
+      }
+    ],
+    "avalanche": [
+      {
+        "type": "information_disclosure",
+        "severity": "low",
+        "description": "Server header exposed: Vercel",
+        "url": "https://avax.network",
+        "bounty_estimate": "$100-$500"
+      }
+    ],
+    "chainlink": [
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: X-Content-Type-Options",
+        "url": "https://chain.link",
+        "bounty_estimate": "$200-$1,000"
+      }
+    ],
+    "nicehash": [
+      {
+        "type": "information_disclosure",
+        "severity": "low",
+        "description": "Server header exposed: nginx",
+        "url": "https://nicehash.com",
+        "bounty_estimate": "$100-$500"
+      },
+      {
+        "type": "information_disclosure",
+        "severity": "low",
+        "description": "Server header exposed: nginx",
+        "url": "https://nicehash.com/graphql",
+        "bounty_estimate": "$100-$500"
+      }
+    ],
+    "coinscope": [
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, Content-Security-Policy",
+        "url": "https://coinscope.com",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, Content-Security-Policy",
+        "url": "https://coinscope.com/api",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, Content-Security-Policy",
+        "url": "https://coinscope.com/api/v1",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, Content-Security-Policy",
+        "url": "https://coinscope.com/api/v2",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, Content-Security-Policy",
+        "url": "https://coinscope.com/graphql",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "ssl_issue",
+        "severity": "medium",
+        "description": "SSL/TLS certificate problem",
+        "url": "https://api.coinscope.com",
+        "bounty_estimate": "$500-$3,000"
+      },
+      {
+        "type": "ssl_issue",
+        "severity": "medium",
+        "description": "SSL/TLS certificate problem",
+        "url": "https://api.coinscope.com/api",
+        "bounty_estimate": "$500-$3,000"
+      },
+      {
+        "type": "ssl_issue",
+        "severity": "medium",
+        "description": "SSL/TLS certificate problem",
+        "url": "https://api.coinscope.com/api/v1",
+        "bounty_estimate": "$500-$3,000"
+      },
+      {
+        "type": "ssl_issue",
+        "severity": "medium",
+        "description": "SSL/TLS certificate problem",
+        "url": "https://api.coinscope.com/api/v2",
+        "bounty_estimate": "$500-$3,000"
+      },
+      {
+        "type": "ssl_issue",
+        "severity": "medium",
+        "description": "SSL/TLS certificate problem",
+        "url": "https://api.coinscope.com/graphql",
+        "bounty_estimate": "$500-$3,000"
+      }
+    ],
+    "1inch": [
+      {
+        "type": "weak_randomness",
+        "severity": "high",
+        "description": "Weak randomness function detected: timestamp",
+        "cwe": "CWE-330",
+        "function": "timestamp",
+        "exploitability": 8,
+        "bounty_estimate": "$500-$3,000",
+        "url": "https://1inch.io",
+        "source": "crypto_scanner",
+        "unique_id": "da3a14e1",
+        "scope_check": "In scope: 1inch (public) - varies",
+        "scan_timestamp": 1762348086.5570767
+      },
+      {
+        "type": "information_disclosure",
+        "severity": "low",
+        "description": "Server header exposed: cloudflare",
+        "url": "https://1inch.io",
+        "bounty_estimate": "$100-$500"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options",
+        "url": "https://1inch.io",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "weak_randomness",
+        "severity": "high",
+        "description": "Weak randomness function detected: timestamp",
+        "cwe": "CWE-330",
+        "function": "timestamp",
+        "exploitability": 8,
+        "bounty_estimate": "$500-$3,000",
+        "url": "https://1inch.io/api",
+        "source": "crypto_scanner",
+        "unique_id": "26b31960",
+        "scope_check": "In scope: 1inch (public) - varies",
+        "scan_timestamp": 1762348086.7968676
+      },
+      {
+        "type": "information_disclosure",
+        "severity": "low",
+        "description": "Server header exposed: cloudflare",
+        "url": "https://1inch.io/api",
+        "bounty_estimate": "$100-$500"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options",
+        "url": "https://1inch.io/api",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "weak_randomness",
+        "severity": "high",
+        "description": "Weak randomness function detected: timestamp",
+        "cwe": "CWE-330",
+        "function": "timestamp",
+        "exploitability": 8,
+        "bounty_estimate": "$500-$3,000",
+        "url": "https://1inch.io/api/v1",
+        "source": "crypto_scanner",
+        "unique_id": "0670d6e9",
+        "scope_check": "In scope: 1inch (public) - varies",
+        "scan_timestamp": 1762348087.0852158
+      },
+      {
+        "type": "information_disclosure",
+        "severity": "low",
+        "description": "Server header exposed: cloudflare",
+        "url": "https://1inch.io/api/v1",
+        "bounty_estimate": "$100-$500"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options",
+        "url": "https://1inch.io/api/v1",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "weak_randomness",
+        "severity": "high",
+        "description": "Weak randomness function detected: timestamp",
+        "cwe": "CWE-330",
+        "function": "timestamp",
+        "exploitability": 8,
+        "bounty_estimate": "$500-$3,000",
+        "url": "https://1inch.io/api/v2",
+        "source": "crypto_scanner",
+        "unique_id": "11c46ac1",
+        "scope_check": "In scope: 1inch (public) - varies",
+        "scan_timestamp": 1762348087.2933974
+      },
+      {
+        "type": "information_disclosure",
+        "severity": "low",
+        "description": "Server header exposed: cloudflare",
+        "url": "https://1inch.io/api/v2",
+        "bounty_estimate": "$100-$500"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options",
+        "url": "https://1inch.io/api/v2",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "information_disclosure",
+        "severity": "low",
+        "description": "Server header exposed: cloudflare",
+        "url": "https://1inch.io/graphql",
+        "bounty_estimate": "$100-$500"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options",
+        "url": "https://1inch.io/graphql",
+        "bounty_estimate": "$200-$1,000"
+      },
+      {
+        "type": "information_disclosure",
+        "severity": "low",
+        "description": "Server header exposed: cloudflare",
+        "url": "https://api.1inch.io",
+        "bounty_estimate": "$100-$500"
+      },
+      {
+        "type": "missing_security_headers",
+        "severity": "low",
+        "description": "Missing headers: Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, Content-Security-Policy",
+        "url": "https://api.1inch.io",
+        "bounty_estimate": "$200-$1,000"
+      }
+    ]
+  }
+}

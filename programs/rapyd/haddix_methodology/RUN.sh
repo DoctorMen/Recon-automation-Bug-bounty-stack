@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+# Copyright © 2025 DoctorMen. All Rights Reserved.
 # Quick runner script for Jason Haddix Methodology
 
 cd ~/Recon-automation-Bug-bounty-stack/programs/rapyd/haddix_methodology

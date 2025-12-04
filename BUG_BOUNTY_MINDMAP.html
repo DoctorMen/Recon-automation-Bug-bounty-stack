@@ -1,0 +1,190 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bug Bounty Master Mind Map - Planning Tool</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" rel="stylesheet">
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0a0e27; color: #fff; }
+        #mindmap { width: 100%; height: 100vh; background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%); }
+        #controls { position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.8); padding: 20px; border-radius: 10px; z-index: 1000; max-width: 350px; }
+        #legend { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.8); padding: 15px; border-radius: 10px; z-index: 1000; }
+        .legend-item { display: flex; align-items: center; margin: 8px 0; }
+        .legend-color { width: 20px; height: 20px; border-radius: 50%; margin-right: 10px; }
+        h2 { margin: 0 0 15px 0; color: #00ff88; font-size: 18px; }
+        button { background: #00ff88; color: #000; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #00dd77; }
+        .status { background: rgba(0,255,136,0.1); padding: 10px; border-radius: 5px; margin: 10px 0; border-left: 3px solid #00ff88; }
+    </style>
+</head>
+<body>
+    <div id="mindmap"></div>
+    
+    <div id="controls">
+        <h2>🎯 Bug Bounty Command Center</h2>
+        <div class="status">
+            <strong>1inch Status:</strong> Pending<br>
+            <strong>Expected:</strong> $1K-$3K<br>
+            <strong>Timeline:</strong> 7-30 days
+        </div>
+        <button onclick="focusNode('current')">Current Status</button>
+        <button onclick="focusNode('strategy')">Strategy</button>
+        <button onclick="focusNode('next')">Next Actions</button>
+        <button onclick="network.fit()">Reset View</button>
+    </div>
+    
+    <div id="legend">
+        <h2>📊 Mind Map Legend</h2>
+        <div class="legend-item"><div class="legend-color" style="background:#ff3366;"></div>CRITICAL Priority</div>
+        <div class="legend-item"><div class="legend-color" style="background:#ff9933;"></div>HIGH Value</div>
+        <div class="legend-item"><div class="legend-color" style="background:#ffcc00;"></div>MEDIUM Task</div>
+        <div class="legend-item"><div class="legend-color" style="background:#00ff88;"></div>Action Item</div>
+        <div class="legend-item"><div class="legend-color" style="background:#3399ff;"></div>Strategy</div>
+        <div class="legend-item"><div class="legend-color" style="background:#9933ff;"></div>Learning</div>
+    </div>
+
+    <script>
+        var nodes = new vis.DataSet([
+            // CENTER
+            {id: 1, label: '💰 BUG BOUNTY\nMASTER PLAN', color: '#00ff88', font: {size: 24, color: '#fff'}, shape: 'box', size: 40},
+            
+            // CURRENT STATUS BRANCH
+            {id: 10, label: '📊 CURRENT STATUS', color: '#3399ff', font: {size: 18, color: '#fff'}, shape: 'box'},
+            {id: 11, label: '✅ 1inch Submitted\nReport: 1INWEB-45\nSeverity: HIGH\nBounty: $1K-$3K', color: '#00ff88', shape: 'box'},
+            {id: 12, label: '⏳ Pending Review\n7-30 days\n70% accept chance', color: '#ffcc00', shape: 'box'},
+            {id: 13, label: '❌ 46 Low Findings\nNot worth submitting', color: '#666', shape: 'box'},
+            
+            // TRIAGER VIEW BRANCH
+            {id: 20, label: '👀 TRIAGER PERSPECTIVE', color: '#ff9933', font: {size: 18, color: '#fff'}, shape: 'box'},
+            {id: 21, label: '🎲 30% Accept\n$2K-$10K payout', color: '#00ff88', shape: 'box'},
+            {id: 22, label: '🎲 70% Reject\n$0 payout\nFalse positive', color: '#ff3366', shape: 'box'},
+            {id: 23, label: '❓ Key Question:\nTimestamp for auth?\nOR analytics only?', color: '#ffcc00', shape: 'box'},
+            
+            // STRATEGY BRANCH
+            {id: 30, label: '🎯 HUNTING STRATEGY', color: '#3399ff', font: {size: 18, color: '#fff'}, shape: 'box'},
+            {id: 31, label: '❌ OLD: Quick Scans\n95% LOW findings\n$0-$500/week', color: '#ff3366', shape: 'box'},
+            {id: 32, label: '✅ NEW: Manual Testing\n60% MEDIUM+\n$5K-$50K/hunt', color: '#00ff88', shape: 'box'},
+            {id: 33, label: '📚 10hrs deep testing\nIDOR focus\nBusiness logic', color: '#9933ff', shape: 'box'},
+            
+            // NEXT ACTIONS BRANCH
+            {id: 40, label: '🚀 NEXT ACTIONS', color: '#ff9933', font: {size: 18, color: '#fff'}, shape: 'box'},
+            {id: 41, label: '📧 Check email daily\nRespond <24hrs\nTrack 1inch status', color: '#00ff88', shape: 'box'},
+            {id: 42, label: '📖 Read Playbook\nMANUAL_TESTING\n_PLAYBOOK.md', color: '#00ff88', shape: 'box'},
+            {id: 43, label: '🎯 Pick NEW target\n<90 days old\n>$25K pool', color: '#00ff88', shape: 'box'},
+            {id: 44, label: '⏸️ OR Wait for 1inch\nLearn from feedback\nImprove next hunt', color: '#ffcc00', shape: 'box'},
+            
+            // TOOLS BRANCH
+            {id: 50, label: '🛠️ TOOL ARSENAL', color: '#3399ff', font: {size: 18, color: '#fff'}, shape: 'box'},
+            {id: 51, label: 'advanced_defi\n_hunter.py\nBusiness logic', color: '#9933ff', shape: 'box'},
+            {id: 52, label: 'MANUAL_TESTING\n_PLAYBOOK.md\nHour-by-hour', color: '#9933ff', shape: 'box'},
+            {id: 53, label: 'Burp Suite\nIDOR testing\nAuth bypass', color: '#9933ff', shape: 'box'},
+            
+            // REVENUE PROJECTION BRANCH
+            {id: 60, label: '💵 REVENUE MODEL', color: '#ff9933', font: {size: 18, color: '#fff'}, shape: 'box'},
+            {id: 61, label: 'Month 1:\n1-2 bugs\n$2K-$8K', color: '#ffcc00', shape: 'box'},
+            {id: 62, label: 'Month 3:\n5-10 bugs\n$15K-$60K', color: '#00ff88', shape: 'box'},
+            {id: 63, label: 'Month 6+:\n8-15 bugs/mo\n$30K-$150K/mo', color: '#00ff88', shape: 'box'},
+            
+            // LEARNING PATH BRANCH
+            {id: 70, label: '📚 LEARNING PATH', color: '#9933ff', font: {size: 18, color: '#fff'}, shape: 'box'},
+            {id: 71, label: 'Master IDOR\n80% of $10K+ bugs', color: '#ff9933', shape: 'box'},
+            {id: 72, label: 'GraphQL attacks\nBatch queries\nIntrospection', color: '#ff9933', shape: 'box'},
+            {id: 73, label: 'Race conditions\nDouble-claim bugs\nTiming attacks', color: '#ff9933', shape: 'box'},
+            
+            // TARGET SELECTION BRANCH
+            {id: 80, label: '🎯 TARGET CRITERIA', color: '#3399ff', font: {size: 18, color: '#fff'}, shape: 'box'},
+            {id: 81, label: '✅ Launched <90 days\nFresh = less dupes', color: '#00ff88', shape: 'box'},
+            {id: 82, label: '✅ Pool >$25K\nWorth the effort', color: '#00ff88', shape: 'box'},
+            {id: 83, label: '❌ Mega programs\nUniswap/Aave\nToo competitive', color: '#ff3366', shape: 'box'},
+        ]);
+
+        var edges = new vis.DataSet([
+            // Center connections
+            {from: 1, to: 10, color: {color:'#3399ff'}, width: 3},
+            {from: 1, to: 20, color: {color:'#ff9933'}, width: 3},
+            {from: 1, to: 30, color: {color:'#3399ff'}, width: 3},
+            {from: 1, to: 40, color: {color:'#ff9933'}, width: 3},
+            {from: 1, to: 50, color: {color:'#3399ff'}, width: 3},
+            {from: 1, to: 60, color: {color:'#ff9933'}, width: 3},
+            {from: 1, to: 70, color: {color:'#9933ff'}, width: 3},
+            {from: 1, to: 80, color: {color:'#3399ff'}, width: 3},
+            
+            // Current Status
+            {from: 10, to: 11}, {from: 10, to: 12}, {from: 10, to: 13},
+            
+            // Triager View
+            {from: 20, to: 21}, {from: 20, to: 22}, {from: 20, to: 23},
+            
+            // Strategy
+            {from: 30, to: 31}, {from: 30, to: 32}, {from: 30, to: 33},
+            
+            // Next Actions
+            {from: 40, to: 41}, {from: 40, to: 42}, {from: 40, to: 43}, {from: 40, to: 44},
+            
+            // Tools
+            {from: 50, to: 51}, {from: 50, to: 52}, {from: 50, to: 53},
+            
+            // Revenue
+            {from: 60, to: 61}, {from: 61, to: 62}, {from: 62, to: 63},
+            
+            // Learning
+            {from: 70, to: 71}, {from: 70, to: 72}, {from: 70, to: 73},
+            
+            // Targets
+            {from: 80, to: 81}, {from: 80, to: 82}, {from: 80, to: 83},
+        ]);
+
+        var container = document.getElementById('mindmap');
+        var data = { nodes: nodes, edges: edges };
+        var options = {
+            physics: {
+                enabled: true,
+                barnesHut: {
+                    gravitationalConstant: -30000,
+                    centralGravity: 0.3,
+                    springLength: 200,
+                    springConstant: 0.04
+                }
+            },
+            nodes: {
+                font: { size: 14, color: '#ffffff', face: 'Arial' },
+                borderWidth: 2,
+                shadow: true
+            },
+            edges: {
+                width: 2,
+                smooth: { type: 'continuous' },
+                arrows: { to: { enabled: true, scaleFactor: 0.5 } }
+            },
+            interaction: {
+                hover: true,
+                tooltipDelay: 100,
+                navigationButtons: true,
+                keyboard: true
+            }
+        };
+
+        var network = new vis.Network(container, data, options);
+
+        function focusNode(type) {
+            var nodeId;
+            if (type === 'current') nodeId = 10;
+            else if (type === 'strategy') nodeId = 30;
+            else if (type === 'next') nodeId = 40;
+            network.focus(nodeId, {scale: 1.5, animation: true});
+            network.selectNodes([nodeId]);
+        }
+
+        network.on("click", function(params) {
+            if (params.nodes.length > 0) {
+                var nodeId = params.nodes[0];
+                var node = nodes.get(nodeId);
+                console.log('Clicked:', node.label);
+            }
+        });
+    </script>
+</body>
+</html>

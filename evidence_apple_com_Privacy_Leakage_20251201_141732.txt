@@ -1,0 +1,36 @@
+# Evidence File - Privacy Leakage
+# Target: apple.com
+# Generated: 2025-12-01T14:17:33.227101
+
+# PRIMARY PROOF - Direct Evidence
+# Target: icloud.com
+# Vulnerability: Privacy Leakage
+# Timestamp: 2025-12-01T14:17:30.148069
+
+## Command Executed:
+curl -I https://icloud.com
+
+## Response Headers Analysis:
+Server: AppleHttpServer/69c341085968
+Content-Type: text/html
+Content-Length: 11046
+ETag: "199b345dbe02b26"
+Content-Language: en-us
+Content-Encoding: gzip
+Content-Location: /system/icloud.com/index.html.en-us.gz
+Vary: accept-encoding
+Content-Version: V1
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Cache-Control: public, max-age=300
+X-Content-Type-Options: nosniff
+Content-Security-Policy: img-src 'self' blob: data: icloud.com *.icloud.com *.apple.com *.cdn-apple.com *.icloud-content.com *.icloud-content.com.cn *.apple-mapkit.com *.mzstatic.com; media-src 'self' blob: data: *.icloud.com *.apple.com *.cdn-apple.com *.icloud-content.com *.icloud-content.com.cn; font-src 'self' blob: data: icloud.com *.icloud.com *.apple.com *.cdn-apple.com; connect-src blob: 'self' data: icloud.com *.icloud.com *.apple.com *.cdn-apple.com *.icloud-content.com *.icloud-content.com.cn *.apple-mapkit.com wss://*.push.apple.com; frame-src 'self' blob: mailto: sms: tel: *.icloud.com *.apple.com *.icloud-sandbox.com *.icloud-content.com *.icloud-content.com.cn; frame-ancestors 'self' *.icloud.com *.apple.com; form-action 'self' *.icloud.com *.apple.com; child-src blob: 'self'; base-uri 'self' *.icloud.com *.cdn-apple.com; report-uri https://feedbackws.icloud.com/reportRaw
+X-XSS-Protection: 1; mode=block
+Expect-CT: max-age=30, report-uri="https://feedbackws.icloud.com/reportRaw"
+X-Apple-Request-UUID: 5cf396c1-0e46-4c36-b1d4-ee0913c863cb
+Access-Control-Expose-Headers: X-Apple-Request-UUID,Via
+Date: Mon, 01 Dec 2025 19:17:29 GMT
+Connection: keep-alive
+Set-Cookie: x-apple-group=false; path=/; secure; HttpOnly
+
+## Vulnerability Confirmed:

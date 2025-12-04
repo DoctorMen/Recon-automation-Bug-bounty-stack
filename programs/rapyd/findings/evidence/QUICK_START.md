@@ -1,3 +1,6 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+-->
 # IDOR Evidence Capture - Quick Start
 
 ## Status: Ready to Execute
