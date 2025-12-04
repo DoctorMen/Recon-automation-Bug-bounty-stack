@@ -43,12 +43,14 @@ SEVERITY_SCORES = {
 }
 
 # False positive indicators (keywords that might indicate false positives)
-FP_INDICATORS = [
+# Pre-compile regex patterns for better performance (avoids recompilation on each call)
+FP_INDICATORS_RAW = [
     r"test\.example\.com",
     r"localhost",
     r"127\.0\.0\.1",
     r"example\.com",
 ]
+FP_INDICATORS = [re.compile(pattern, re.IGNORECASE) for pattern in FP_INDICATORS_RAW]
 
 
 def log(message: str):
@@ -63,19 +65,18 @@ def log(message: str):
 def is_false_positive(finding: Dict[str, Any]) -> bool:
     """Check if a finding might be a false positive"""
     url = finding.get("matched-at", finding.get("host", ""))
-    name = finding.get("name", "").lower()
     info = finding.get("info", {})
     description = info.get("description", "").lower()
-    template_id = finding.get("template-id", "").lower()
     
-    # Check against FP indicators
-    for indicator in FP_INDICATORS:
-        if re.search(indicator, url, re.IGNORECASE):
+    # Check against pre-compiled FP indicator patterns (performance optimization)
+    for pattern in FP_INDICATORS:
+        if pattern.search(url):
             return True
-        if re.search(indicator, description, re.IGNORECASE):
+        if pattern.search(description):
             return True
     
     # Check for common false positive patterns
+    name = finding.get("name", "").lower()
     if "test" in name and ("environment" in description or "staging" in description):
         # Might be intentional test endpoints
         pass

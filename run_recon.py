@@ -188,12 +188,13 @@ def main():
         if temp_file.exists():
             combined.update(temp_file.read_text(encoding="utf-8").strip().splitlines())
     
-    combined = sorted([s for s in combined if s])
-    temp_combined.write_text("\n".join(combined), encoding="utf-8")
-    log(f"Combined results: {len(combined)} unique subdomains")
+    # Filter empty strings and sort (keep as list for later use)
+    combined_list = sorted(s for s in combined if s)
+    temp_combined.write_text("\n".join(combined_list), encoding="utf-8")
+    log(f"Combined results: {len(combined_list)} unique subdomains")
     
     # Validate with DNSx if available - OPTIMIZED
-    if dnsx_available and combined:
+    if dnsx_available and combined_list:
         log(f"Validating subdomains with DNSx (threads: {DNSX_THREADS})...")
         try:
             result = subprocess.run(
@@ -214,20 +215,22 @@ def main():
                     final_subs.write_text("\n".join(validated), encoding="utf-8")
                 else:
                     log("WARNING: DNSx validation found no live subdomains, using raw results")
-                    final_subs.write_text("\n".join(combined), encoding="utf-8")
+                    final_subs.write_text("\n".join(combined_list), encoding="utf-8")
             else:
                 log("WARNING: DNSx validation failed, using raw results")
-                final_subs.write_text("\n".join(combined), encoding="utf-8")
+                final_subs.write_text("\n".join(combined_list), encoding="utf-8")
         except Exception as e:
             log(f"WARNING: DNSx validation failed: {e}, using raw results")
-            final_subs.write_text("\n".join(combined), encoding="utf-8")
+            final_subs.write_text("\n".join(combined_list), encoding="utf-8")
     else:
         # No DNSx, use raw results
-        final_subs.write_text("\n".join(combined), encoding="utf-8")
+        final_subs.write_text("\n".join(combined_list), encoding="utf-8")
     
-    # Final count
+    # Final count - avoid re-reading file by using the data we already have
     if final_subs.exists():
-        sub_count = len(final_subs.read_text(encoding="utf-8").strip().splitlines())
+        # Read file once to get content and count lines
+        final_content = final_subs.read_text(encoding="utf-8").strip()
+        sub_count = len(final_content.splitlines()) if final_content else 0
         log(f"Final result: {sub_count} validated subdomains")
         if sub_count == 0:
             log("WARNING: No subdomains discovered. Check your targets and network connectivity.")

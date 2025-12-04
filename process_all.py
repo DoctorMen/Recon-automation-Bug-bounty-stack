@@ -24,21 +24,24 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, Any, List
 
-# Import parse function from the parser script
+# Pre-compile regex patterns for better performance (avoid recompilation on each line)
+NUCLEI_PATTERN_FULL = re.compile(r'\[([^\]]+)\] \[([^\]]+)\] \[([^\]]+)\] ([^\s]+(?:\s+[^\[]+)?)(?:\s+\[(.*)\])?$')
+NUCLEI_PATTERN_SIMPLE = re.compile(r'\[([^\]]+)\] \[([^\]]+)\] \[([^\]]+)\] (.+)$')
+EXTRACT_PATTERN = re.compile(r'"([^"]+)"|([^,]+)')
+
 def parse_nuclei_text_line(line: str):
-    """Parse a single line of nuclei text output"""
+    """Parse a single line of nuclei text output (uses pre-compiled regex)"""
     line = line.strip()
     if not line or (line.startswith('[') and 'INF]' in line):
         return None
     if 'Scan completed' in line or 'matches found' in line:
         return None
     
-    pattern = r'\[([^\]]+)\] \[([^\]]+)\] \[([^\]]+)\] ([^\s]+(?:\s+[^\[]+)?)(?:\s+\[(.*)\])?$'
-    match = re.match(pattern, line)
+    # Use pre-compiled patterns for better performance
+    match = NUCLEI_PATTERN_FULL.match(line)
     
     if not match:
-        pattern2 = r'\[([^\]]+)\] \[([^\]]+)\] \[([^\]]+)\] (.+)$'
-        match = re.match(pattern2, line)
+        match = NUCLEI_PATTERN_SIMPLE.match(line)
         if not match:
             return None
         tag, finding_type, severity, target = match.groups()
@@ -58,7 +61,7 @@ def parse_nuclei_text_line(line: str):
         if extra_info.startswith('[') and extra_info.endswith(']'):
             extra_info = extra_info[1:-1]
         if extra_info:
-            parts = re.findall(r'"([^"]+)"|([^,]+)', extra_info)
+            parts = EXTRACT_PATTERN.findall(extra_info)
             extracted = [p[0] if p[0] else p[1].strip().strip('"') for p in parts if p[0] or p[1].strip()]
     
     matched_at = target

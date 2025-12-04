@@ -19,9 +19,11 @@ Useful for tracking progress while scans run
 
 import json
 import sys
+import os
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List
+from collections import deque
 
 REPO_ROOT = Path(__file__).parent.parent
 OUTPUT_DIR = REPO_ROOT / "output"
@@ -35,15 +37,22 @@ def format_size(size_bytes: int) -> str:
     return f"{size_bytes:.1f} TB"
 
 def get_file_info(file_path: Path) -> Dict:
-    """Get file information"""
+    """Get file information with optimized line counting"""
     if not file_path.exists():
         return {"exists": False, "size": 0, "lines": 0, "modified": None}
     
     stat = file_path.stat()
     lines = 0
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            lines = sum(1 for _ in f)
+        # Optimized line counting using buffer reading (faster for large files)
+        with open(file_path, "rb") as f:
+            # Read file in chunks and count newlines
+            buffer_size = 1024 * 1024  # 1MB chunks
+            while True:
+                chunk = f.read(buffer_size)
+                if not chunk:
+                    break
+                lines += chunk.count(b'\n')
     except:
         pass
     
@@ -56,14 +65,18 @@ def get_file_info(file_path: Path) -> Dict:
     }
 
 def read_log_tail(file_path: Path, lines: int = 10) -> List[str]:
-    """Read last N lines of log file"""
+    """
+    Read last N lines of log file efficiently.
+    Uses deque with maxlen for memory-efficient tail reading.
+    """
     if not file_path.exists():
         return []
     
     try:
+        # Use deque with maxlen for efficient tail reading (O(1) per line vs O(n) for full read)
         with open(file_path, "r", encoding="utf-8") as f:
-            all_lines = f.readlines()
-            return [line.strip() for line in all_lines[-lines:]]
+            tail = deque(f, maxlen=lines)
+            return [line.strip() for line in tail]
     except:
         return []
 
