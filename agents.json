@@ -64,7 +64,7 @@
     "data_analytics": [
       {"name": "Data Engineering", "aliases": ["Data Platform", "Data Infra", "Data Infrastructure"]},
       {"name": "Analytics", "aliases": ["Product Analytics", "Data Analytics", "BI", "Business Intelligence", "Insights", "Decision Science"]},
-      {"name": "Data Science", "aliases": ["Applied Data Science", "Quant", "Decision Science"]},
+      {"name": "Data Science", "aliases": ["Applied Data Science", "Quant"]},
       {"name": "ML Engineering", "aliases": ["Machine Learning Engineering", "Applied ML", "AI Engineering", "AI Platform", "ML Platform"]},
       {"name": "Experimentation Platform", "aliases": ["Experimentation & Personalization", "A/B Testing Platform", "Growth Platform", "Growth Engineering"]}
     ],

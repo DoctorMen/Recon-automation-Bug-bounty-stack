@@ -62,7 +62,8 @@ This document provides a comprehensive taxonomy of teams and departments, includ
 - **Aliases**: Product Analytics / Data Analytics / BI / Business Intelligence / Insights / Decision Science
 
 ### Data Science
-- **Aliases**: Applied Data Science / Quant / Decision Science (sometimes overlaps with Analytics)
+- **Aliases**: Applied Data Science / Quant
+- **Note**: "Decision Science" may overlap with Analytics depending on organizational structure
 
 ### ML Engineering
 - **Aliases**: Machine Learning Engineering / Applied ML / AI Engineering / AI Platform / ML Platform
