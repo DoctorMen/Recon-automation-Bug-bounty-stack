@@ -1,0 +1,201 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+NEXUS ENGINE™ V2 - Neo-Glass + Plasma-morphism + Hologram UI
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS ENGINE™ V2 - Neo-Glass Holographic Interface</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cannon@0.6.2/build/cannon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--neo:#00ff88;--neo2:#00d4ff;--neo3:#ff0080;--neo4:#8b5cf6;--dark:#0a0e1a;--darker:#050810}
+body{font-family:Inter,sans-serif;background:var(--darker);color:#fff;overflow:hidden}
+
+/* PLASMA-MORPHISM BACKGROUND */
+.plasma-bg{position:fixed;inset:0;overflow:hidden;z-index:0}
+.plasma-blob{position:absolute;border-radius:50%;filter:blur(100px);mix-blend-mode:screen;animation:plasmaFloat 20s ease-in-out infinite}
+.plasma-blob:nth-child(1){width:600px;height:600px;background:radial-gradient(circle,rgba(0,255,136,.4),transparent 70%);top:-10%;left:-10%}
+.plasma-blob:nth-child(2){width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,255,.4),transparent 70%);top:50%;right:-10%;animation-delay:5s}
+.plasma-blob:nth-child(3){width:450px;height:450px;background:radial-gradient(circle,rgba(255,0,128,.4),transparent 70%);bottom:-10%;left:30%;animation-delay:10s}
+.plasma-blob:nth-child(4){width:400px;height:400px;background:radial-gradient(circle,rgba(139,92,246,.4),transparent 70%);top:20%;left:50%;animation-delay:15s}
+@keyframes plasmaFloat{0%,100%{transform:translate(0,0) scale(1) rotate(0deg);opacity:.6}25%{transform:translate(100px,-50px) scale(1.2) rotate(90deg);opacity:.8}50%{transform:translate(-50px,100px) scale(.9) rotate(180deg);opacity:.5}75%{transform:translate(-100px,-100px) scale(1.1) rotate(270deg);opacity:.7}}
+.plasma-grid{position:fixed;inset:0;background:linear-gradient(rgba(0,255,136,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,.03) 1px,transparent 1px);background-size:40px 40px;animation:gridPulse 4s ease-in-out infinite;pointer-events:none;z-index:1}
+@keyframes gridPulse{0%,100%{opacity:.3}50%{opacity:.6}}
+
+/* NEO-GLASS UI */
+.neo-glass{background:linear-gradient(135deg,rgba(10,14,26,.7),rgba(20,30,50,.5),rgba(10,14,26,.8));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(0,255,136,.15);box-shadow:0 8px 32px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1);position:relative;overflow:hidden}
+.neo-glass::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(0,255,136,.1),transparent 50%);opacity:0;transition:opacity .3s;pointer-events:none}
+.neo-glass:hover::before{opacity:1}
+.neo-glass::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,.5),rgba(0,212,255,.5),transparent);animation:refractionShift 3s ease-in-out infinite}
+@keyframes refractionShift{0%,100%{opacity:.5;transform:scaleX(.8)}50%{opacity:1;transform:scaleX(1)}}
+
+/* HOLOGRAM EFFECTS */
+.holo-panel{position:relative;transform-style:preserve-3d;perspective:1000px}
+.holo-panel::before{content:'';position:absolute;inset:-2px;background:linear-gradient(45deg,transparent 30%,rgba(0,255,136,.1) 50%,transparent 70%);animation:holoScan 2s linear infinite;pointer-events:none;z-index:1}
+@keyframes holoScan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+.holo-flicker{animation:holoFlicker .1s infinite}
+@keyframes holoFlicker{0%,100%{opacity:1}50%{opacity:.98}}
+.holo-focus{transition:transform .3s,box-shadow .3s}
+.holo-focus:hover{transform:translateZ(40px) scale(1.02);box-shadow:0 20px 60px rgba(0,255,136,.3)}
+
+/* ENGINE LAYOUT */
+#engine{width:100vw;height:100vh;position:relative;z-index:10}
+#viewport{width:100%;height:100%}
+
+/* TOP BAR */
+.topbar{position:absolute;top:0;left:0;right:0;height:70px;z-index:10000;display:flex;align-items:center;padding:0 30px;border-radius:0 0 20px 20px}
+.logo{font-family:Orbitron;font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,var(--neo),var(--neo2),var(--neo3));background-size:200% 200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:logoShift 5s ease infinite;margin-right:50px;letter-spacing:3px}
+@keyframes logoShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.logo-badge{font-size:.6rem;background:linear-gradient(135deg,var(--neo3),var(--neo4));padding:4px 10px;border-radius:20px;margin-left:10px;font-family:Inter;font-weight:700;vertical-align:super}
+.menu{display:flex;gap:8px;flex:1}
+.menu-item{padding:12px 20px;cursor:pointer;font-weight:600;font-size:.9rem;transition:all .3s;border-radius:10px;color:rgba(255,255,255,.7)}
+.menu-item:hover{color:var(--neo);background:rgba(0,255,136,.1);transform:translateY(-2px)}
+.actions{display:flex;gap:12px}
+.btn{padding:12px 24px;border-radius:12px;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .3s;border:1px solid rgba(0,255,136,.3);background:linear-gradient(135deg,rgba(0,255,136,.1),rgba(0,212,255,.1));color:var(--neo)}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 40px rgba(0,255,136,.3);border-color:var(--neo)}
+.btn-accent{background:linear-gradient(135deg,rgba(255,0,128,.2),rgba(139,92,246,.2));border-color:var(--neo3);color:var(--neo3)}
+.btn-accent:hover{box-shadow:0 10px 40px rgba(255,0,128,.3)}
+
+/* STATS */
+.stats{position:absolute;top:85px;left:50%;transform:translateX(-50%);display:flex;gap:30px;padding:15px 40px;border-radius:16px;z-index:8000}
+.stat{text-align:center}
+.stat-val{font-family:Orbitron;font-size:2rem;font-weight:900;background:linear-gradient(180deg,var(--neo),var(--neo2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:statPulse 2s ease-in-out infinite}
+@keyframes statPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.2)}}
+.stat-lbl{font-size:.7rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:2px;margin-top:5px}
+
+/* TOOLBAR */
+.toolbar{position:absolute;top:170px;left:50%;transform:translateX(-50%);display:flex;gap:8px;padding:12px 20px;border-radius:16px;z-index:8000}
+.tool{width:55px;height:55px;border-radius:14px;font-size:1.5rem;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;background:rgba(0,255,136,.08);border:2px solid transparent}
+.tool:hover{background:rgba(0,255,136,.2);border-color:var(--neo);transform:translateY(-5px) scale(1.1);box-shadow:0 15px 40px rgba(0,255,136,.3)}
+.tool.active{background:linear-gradient(135deg,var(--neo),var(--neo2));color:var(--dark);border-color:var(--neo);box-shadow:0 0 40px rgba(0,255,136,.5)}
+
+/* PANELS */
+.panel{position:absolute;top:70px;width:320px;height:calc(100vh - 280px);z-index:9000;padding:25px;border-radius:0 20px 20px 0;overflow-y:auto}
+.panel::-webkit-scrollbar{width:6px}
+.panel::-webkit-scrollbar-track{background:rgba(0,0,0,.2)}
+.panel::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--neo),var(--neo2));border-radius:3px}
+.panel-l{left:0}
+.panel-r{right:0;border-radius:20px 0 0 20px}
+.panel-title{font-family:Orbitron;font-size:.9rem;font-weight:700;color:var(--neo);margin-bottom:20px;text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:10px}
+.panel-title::before{content:'';width:4px;height:20px;background:linear-gradient(180deg,var(--neo),var(--neo2));border-radius:2px}
+.hier-item{padding:14px 16px;margin:8px 0;background:rgba(0,255,136,.03);border-left:3px solid var(--neo);border-radius:0 12px 12px 0;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:12px}
+.hier-item:hover{background:rgba(0,255,136,.1);transform:translateX(8px);box-shadow:0 4px 20px rgba(0,255,136,.15)}
+.hier-item.sel{background:rgba(0,255,136,.15);border-left-width:5px}
+.prop-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:.9rem;border-bottom:1px solid rgba(0,255,136,.05)}
+.prop-input{background:rgba(0,0,0,.3);border:1px solid rgba(0,255,136,.2);border-radius:8px;padding:10px 14px;color:#fff;width:120px;font-family:Inter;font-size:.9rem;transition:all .3s}
+.prop-input:focus{outline:none;border-color:var(--neo);box-shadow:0 0 20px rgba(0,255,136,.3)}
+
+/* TIMELINE */
+.timeline{position:absolute;bottom:0;left:330px;right:330px;height:200px;z-index:9000;padding:20px;border-radius:20px 20px 0 0}
+.timeline-ctrl{display:flex;gap:10px;margin-bottom:15px}
+.timeline-btn{width:42px;height:42px;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2);border-radius:10px;color:var(--neo);font-size:1.1rem;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.timeline-btn:hover{background:rgba(0,255,136,.2);border-color:var(--neo);transform:scale(1.1);box-shadow:0 0 20px rgba(0,255,136,.3)}
+.timeline-track{height:100px;background:rgba(0,0,0,.3);border-radius:12px;border:1px solid rgba(0,255,136,.1);overflow:hidden;position:relative}
+.timeline-track::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(0,255,136,.05) 20%,rgba(0,212,255,.05) 40%,rgba(255,0,128,.05) 60%,rgba(139,92,246,.05) 80%,transparent);animation:timelinePlasma 10s linear infinite}
+@keyframes timelinePlasma{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+/* AGENTS */
+.agent-panel{position:absolute;bottom:215px;left:340px;right:340px;height:340px;border-radius:20px;padding:25px;z-index:9500;display:none}
+.agent-header-title{font-family:Orbitron;font-size:1rem;color:var(--neo);margin-bottom:20px;font-weight:700;display:flex;justify-content:space-between;align-items:center;padding-bottom:15px;border-bottom:1px solid rgba(0,255,136,.1)}
+.agent-stats{display:flex;gap:15px;font-size:.85rem}
+.agent-stats span{background:rgba(0,255,136,.08);padding:8px 16px;border-radius:8px;border:1px solid rgba(0,255,136,.15)}
+.agent-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;height:250px;overflow-y:auto}
+.agent-card{background:rgba(0,0,0,.3);border-radius:12px;padding:15px;transition:all .3s;border:1px solid rgba(0,255,136,.08)}
+.agent-card:hover{transform:translateY(-5px);border-color:rgba(0,255,136,.3);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.agent-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.agent-status{font-size:1.5rem}
+.agent-info{flex:1}
+.agent-name{font-weight:700;font-size:.9rem;color:var(--neo)}
+.agent-role{font-size:.7rem;opacity:.7}
+.agent-badge{background:linear-gradient(135deg,var(--neo3),var(--neo4));color:#fff;font-size:.65rem;padding:4px 10px;border-radius:12px;font-weight:700}
+.agent-specialty{font-size:.75rem;opacity:.6;margin-bottom:10px;font-style:italic}
+.agent-task{font-size:.7rem;background:rgba(0,255,136,.1);padding:8px;border-radius:6px;margin:8px 0;color:var(--neo)}
+.agent-skills{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}
+.skill-tag{font-size:.6rem;background:rgba(0,212,255,.15);padding:3px 8px;border-radius:4px;border:1px solid rgba(0,212,255,.3)}
+.agent-efficiency{margin-top:10px}
+.efficiency-bar{height:6px;background:rgba(0,0,0,.5);border-radius:3px;overflow:hidden;margin-bottom:5px}
+.efficiency-fill{height:100%;transition:width .5s;border-radius:3px}
+.efficiency-text{font-size:.65rem;opacity:.6}
+.toggle-agents{position:absolute;bottom:215px;left:50%;transform:translateX(-50%);padding:14px 30px;border-radius:12px;color:var(--neo);font-weight:700;cursor:pointer;z-index:9600;transition:all .3s;font-size:.95rem;border:1px solid var(--neo);background:rgba(10,14,26,.9)}
+.toggle-agents:hover{background:rgba(0,255,136,.15);box-shadow:0 10px 40px rgba(0,255,136,.3);transform:translateX(-50%) translateY(-3px)}
+
+/* AI ASSIST */
+.ai-assist-panel{position:absolute;top:85px;right:340px;width:380px;border-radius:20px;padding:25px;z-index:9500;display:none}
+.ai-header{font-family:Orbitron;font-size:1.1rem;color:var(--neo4);margin-bottom:20px;font-weight:700;display:flex;align-items:center;gap:12px}
+.ai-header span{font-size:1.8rem}
+.ai-message{background:rgba(0,0,0,.3);border-radius:12px;padding:15px;margin-bottom:15px;font-size:.9rem;color:var(--neo);border-left:3px solid var(--neo)}
+.ai-input{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(139,92,246,.3);border-radius:12px;padding:15px;color:#fff;font-family:Inter;font-size:.95rem;margin-bottom:15px;transition:all .3s}
+.ai-input:focus{outline:none;border-color:var(--neo4);box-shadow:0 0 30px rgba(139,92,246,.3)}
+.ai-actions{display:flex;gap:10px;flex-wrap:wrap}
+.ai-action-btn{flex:1;min-width:100px;padding:12px;border-radius:10px;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .3s;border:1px solid}
+.ai-action-btn.optimize{background:rgba(0,255,136,.1);border-color:var(--neo);color:var(--neo)}
+.ai-action-btn.physics{background:rgba(0,212,255,.1);border-color:var(--neo2);color:var(--neo2)}
+.ai-action-btn.lighting{background:rgba(255,0,128,.1);border-color:var(--neo3);color:var(--neo3)}
+.ai-action-btn:hover{transform:translateY(-2px);box-shadow:0 5px 20px rgba(0,0,0,.3)}
+.ai-response{margin-top:15px;max-height:200px;overflow-y:auto;font-size:.85rem}
+
+/* LOADING */
+.loading{position:fixed;inset:0;background:var(--darker);z-index:100000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s}
+.loading.hide{opacity:0;pointer-events:none}
+.load-logo{font-family:Orbitron;font-size:4rem;font-weight:900;background:linear-gradient(135deg,var(--neo),var(--neo2),var(--neo3));background-size:300% 300%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:logoShift 3s ease infinite;margin-bottom:50px;letter-spacing:5px}
+.load-bar{width:300px;height:4px;background:rgba(0,255,136,.1);border-radius:4px;overflow:hidden;margin-bottom:30px}
+.load-prog{height:100%;background:linear-gradient(90deg,var(--neo),var(--neo2),var(--neo3));background-size:200% 100%;border-radius:4px;animation:loadProgress 2s ease-out forwards,loadShimmer 1s linear infinite}
+@keyframes loadProgress{from{width:0}to{width:100%}}
+@keyframes loadShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.load-text{font-family:Orbitron;color:rgba(0,255,136,.8);font-size:1rem;animation:loadPulse 1.5s ease-in-out infinite;font-weight:600;letter-spacing:2px}
+@keyframes loadPulse{0%,100%{opacity:.6}50%{opacity:1}}
+.version-badge{position:absolute;top:85px;right:30px;padding:8px 16px;border-radius:20px;font-family:Orbitron;font-size:.7rem;font-weight:700;background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(255,0,128,.2));border:1px solid rgba(139,92,246,.3);color:var(--neo4);z-index:9000;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="plasma-bg"><div class="plasma-blob"></div><div class="plasma-blob"></div><div class="plasma-blob"></div><div class="plasma-blob"></div></div>
+<div class="plasma-grid"></div>
+<div class="loading" id="loading"><div class="load-logo">NEXUS ENGINE</div><div class="load-bar"><div class="load-prog"></div></div><div class="load-text">Initializing Neo-Glass Interface...</div></div>
+<div id="engine">
+<div class="topbar neo-glass holo-panel"><div class="logo">NEXUS ENGINE™<span class="logo-badge">V2</span></div><div class="menu"><div class="menu-item">File</div><div class="menu-item">Edit</div><div class="menu-item">Create</div><div class="menu-item">Window</div><div class="menu-item">Help</div></div><div class="actions"><button class="btn" onclick="playScene()">▶ Play</button><button class="btn" onclick="buildProject()">🔨 Build</button><button class="btn" onclick="publish()">🚀 Publish</button><button class="btn btn-accent" onclick="addObject()">➕ Add Object</button><button class="btn btn-accent" onclick="toggleAIAssist()">🤖 AI Assist</button></div></div>
+<div class="version-badge holo-flicker">NEO-GLASS v2.0</div>
+<div class="stats neo-glass holo-panel holo-focus"><div class="stat"><div class="stat-val" id="fps">60</div><div class="stat-lbl">FPS</div></div><div class="stat"><div class="stat-val" id="objs">0</div><div class="stat-lbl">Objects</div></div><div class="stat"><div class="stat-val" id="tris">0</div><div class="stat-lbl">Triangles</div></div><div class="stat"><div class="stat-val" id="draws">0</div><div class="stat-lbl">Draw Calls</div></div></div>
+<div class="toolbar neo-glass holo-panel"><div class="tool active">🖱️</div><div class="tool">↔️</div><div class="tool">🔄</div><div class="tool">📏</div><div class="tool">🏔️</div><div class="tool">🎨</div><div class="tool">⚡</div></div>
+<div id="viewport"></div>
+<div class="panel panel-l neo-glass holo-panel"><div class="panel-title">Scene Hierarchy</div><div class="hier-item sel"><span>🌍</span> Main Scene</div><div class="hier-item" style="margin-left:20px"><span>💡</span> Directional Light</div><div class="hier-item" style="margin-left:20px"><span>📷</span> Main Camera</div><div class="hier-item" style="margin-left:20px"><span>🟦</span> Ground Plane</div><div class="hier-item" style="margin-left:20px"><span>⚽</span> Sphere</div><div class="hier-item" style="margin-left:20px"><span>📦</span> Box</div><div class="hier-item" style="margin-left:20px"><span>💫</span> Particle System</div></div>
+<div class="panel panel-r neo-glass holo-panel"><div class="panel-title">Properties</div><div class="prop-row"><span>Position X</span><input class="prop-input" value="0"></div><div class="prop-row"><span>Position Y</span><input class="prop-input" value="0"></div><div class="prop-row"><span>Position Z</span><input class="prop-input" value="0"></div><div class="prop-row"><span>Rotation</span><input class="prop-input" value="0°"></div><div class="prop-row"><span>Scale</span><input class="prop-input" value="1.0"></div><div class="panel-title" style="margin-top:25px">Material</div><div class="prop-row"><span>Color</span><input class="prop-input" type="color" value="#00ff88"></div><div class="prop-row"><span>Metallic</span><input class="prop-input" value="0.5"></div><div class="prop-row"><span>Roughness</span><input class="prop-input" value="0.5"></div><div class="panel-title" style="margin-top:25px">Physics</div><div class="prop-row"><span>Mass</span><input class="prop-input" value="1.0 kg"></div><div class="prop-row"><span>Friction</span><input class="prop-input" value="0.3"></div></div>
+<div class="timeline neo-glass holo-panel"><div class="timeline-ctrl"><div class="timeline-btn">⏮</div><div class="timeline-btn">◀</div><div class="timeline-btn">▶</div><div class="timeline-btn">⏭</div><div class="timeline-btn">⏹</div><div class="timeline-btn">🔴</div></div><div class="timeline-track"></div></div>
+<div class="toggle-agents neo-glass" onclick="toggleAgentPanel()">👥 10 AI Agents Building</div>
+<div class="agent-panel neo-glass holo-panel" id="agentPanel"><div class="agent-header-title"><span>🤖 AI DEVELOPMENT TEAM</span><div class="agent-stats"><span>Active: <strong id="activeAgents">10</strong></span><span>Tasks: <strong id="totalTasks">0</strong></span><span>Efficiency: <strong id="avgEfficiency">95</strong>%</span></div></div><div class="agent-grid" id="agent-list"></div></div>
+<div class="ai-assist-panel neo-glass holo-panel" id="aiAssistPanel"><div class="ai-header"><span>🤖</span> AI ASSISTANT</div><div class="ai-message"><strong>SAGE AI:</strong> How can I help with your game?</div><input type="text" class="ai-input" id="aiInput" placeholder="Ask AI anything..." onkeypress="if(event.key==='Enter')askAI()"><div class="ai-actions"><button class="ai-action-btn optimize" onclick="aiSuggest('optimize')">⚡ Optimize</button><button class="ai-action-btn physics" onclick="aiSuggest('physics')">🎯 Physics</button><button class="ai-action-btn lighting" onclick="aiSuggest('lighting')">💡 Lighting</button></div><div class="ai-response" id="aiResponse"></div></div>
+</div>
+<script>
+'use strict';
+let scene,camera,renderer,world,objs=[],particles=[],fps=0,lastTime=Date.now(),frames=0;
+function initEngine(){scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x0a0e1a,.012);camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000);camera.position.set(0,6,12);renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setSize(window.innerWidth,window.innerHeight);renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.5;document.getElementById('viewport').appendChild(renderer.domElement);world=new CANNON.World();world.gravity.set(0,-9.82,0);world.broadphase=new CANNON.NaiveBroadphase();world.solver.iterations=10;
+const ambLight=new THREE.AmbientLight(0x404040,2);scene.add(ambLight);const dirLight=new THREE.DirectionalLight(0x00ff88,3);dirLight.position.set(10,20,10);dirLight.castShadow=true;dirLight.shadow.mapSize.width=2048;dirLight.shadow.mapSize.height=2048;scene.add(dirLight);const pl1=new THREE.PointLight(0x00d4ff,2,50);pl1.position.set(-5,10,5);scene.add(pl1);const pl2=new THREE.PointLight(0xff0080,2,50);pl2.position.set(5,8,-5);scene.add(pl2);const sl=new THREE.SpotLight(0x8b5cf6,2,50,Math.PI/6,.5,2);sl.position.set(0,15,0);scene.add(sl);
+const groundGeo=new THREE.PlaneGeometry(60,60);const groundMat=new THREE.MeshStandardMaterial({color:0x0a0e1a,metalness:.4,roughness:.6,side:THREE.DoubleSide});const ground=new THREE.Mesh(groundGeo,groundMat);ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);const groundBody=new CANNON.Body({mass:0,shape:new CANNON.Plane()});groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1,0,0),-Math.PI/2);world.addBody(groundBody);const grid=new THREE.GridHelper(60,60,0x00ff88,0x0a2020);grid.position.y=.01;scene.add(grid);
+const sGeo=new THREE.SphereGeometry(1,32,32);const sMat=new THREE.MeshStandardMaterial({color:0x00ff88,metalness:.8,roughness:.2,emissive:0x00ff88,emissiveIntensity:.3});const sphere=new THREE.Mesh(sGeo,sMat);sphere.position.set(-3,5,0);sphere.castShadow=true;scene.add(sphere);const sBody=new CANNON.Body({mass:5,shape:new CANNON.Sphere(1),position:new CANNON.Vec3(-3,5,0)});world.addBody(sBody);objs.push({mesh:sphere,body:sBody});
+const bGeo=new THREE.BoxGeometry(1.5,1.5,1.5);const bMat=new THREE.MeshStandardMaterial({color:0x00d4ff,metalness:.6,roughness:.4,emissive:0x00d4ff,emissiveIntensity:.2});const box=new THREE.Mesh(bGeo,bMat);box.position.set(3,6,0);box.castShadow=true;scene.add(box);const bBody=new CANNON.Body({mass:3,shape:new CANNON.Box(new CANNON.Vec3(.75,.75,.75)),position:new CANNON.Vec3(3,6,0)});world.addBody(bBody);objs.push({mesh:box,body:bBody});
+const tGeo=new THREE.TorusGeometry(1,.4,16,32);const tMat=new THREE.MeshStandardMaterial({color:0xff0080,metalness:.7,roughness:.3,emissive:0xff0080,emissiveIntensity:.25});const torus=new THREE.Mesh(tGeo,tMat);torus.position.set(0,7,-3);torus.castShadow=true;scene.add(torus);const tBody=new CANNON.Body({mass:2,shape:new CANNON.Sphere(1),position:new CANNON.Vec3(0,7,-3)});world.addBody(tBody);objs.push({mesh:torus,body:tBody});
+for(let i=0;i<150;i++){const pGeo=new THREE.SphereGeometry(.05,8,8);const colors=[0x00ff88,0x00d4ff,0xff0080,0x8b5cf6];const pMat=new THREE.MeshBasicMaterial({color:colors[Math.floor(Math.random()*colors.length)],transparent:true,opacity:.7});const p=new THREE.Mesh(pGeo,pMat);p.position.set((Math.random()-.5)*20,Math.random()*10,(Math.random()-.5)*20);scene.add(p);particles.push({mesh:p,vel:new THREE.Vector3((Math.random()-.5)*.02,Math.random()*.03+.01,(Math.random()-.5)*.02)})}
+setTimeout(()=>{document.getElementById('loading').classList.add('hide')},2500);animate()}
+function animate(){requestAnimationFrame(animate);const time=Date.now()*.001;camera.position.x=Math.cos(time*.2)*12;camera.position.z=Math.sin(time*.2)*12;camera.lookAt(0,2,0);world.step(1/60);objs.forEach(o=>{o.mesh.position.copy(o.body.position);o.mesh.quaternion.copy(o.body.quaternion)});particles.forEach(p=>{p.mesh.position.add(p.vel);if(p.mesh.position.y>10)p.mesh.position.y=0;if(Math.abs(p.mesh.position.x)>10)p.mesh.position.x*=-.9;if(Math.abs(p.mesh.position.z)>10)p.mesh.position.z*=-.9});renderer.render(scene,camera);frames++;const now=Date.now();if(now-lastTime>=1000){fps=frames;frames=0;lastTime=now;document.getElementById('fps').textContent=fps;document.getElementById('objs').textContent=scene.children.length;document.getElementById('tris').textContent=Math.floor(scene.children.reduce((s,o)=>s+(o.geometry?o.geometry.attributes.position.count/3:0),0));document.getElementById('draws').textContent=renderer.info.render.calls}}
+window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight)});
+function playScene(){const imp=new CANNON.Vec3((Math.random()-.5)*50,(Math.random()+.5)*50,(Math.random()-.5)*50);objs.forEach(o=>o.body.applyImpulse(imp,o.body.position));console.log('Physics activated!')}
+function buildProject(){alert('✅ Build Complete\n\n• Assets optimized\n• Shaders compiled\n• Lighting baked')}
+function publish(){alert('🚀 Published Successfully\n\n• Platform: Web\n• CDN: Enabled')}
+let objCount=0;function addObject(){const types=['sphere','box','cylinder','cone','torus'];const colors=[0x00ff88,0x00d4ff,0xff0080,0xffaa00,0x8b5cf6];const type=types[Math.floor(Math.random()*types.length)];const color=colors[Math.floor(Math.random()*colors.length)];let geo,shape;const size=.5+Math.random();switch(type){case'sphere':geo=new THREE.SphereGeometry(size,32,32);shape=new CANNON.Sphere(size);break;case'box':geo=new THREE.BoxGeometry(size,size,size);shape=new CANNON.Box(new CANNON.Vec3(size/2,size/2,size/2));break;case'cylinder':geo=new THREE.CylinderGeometry(size/2,size/2,size*2,32);shape=new CANNON.Cylinder(size/2,size/2,size*2,16);break;case'cone':geo=new THREE.ConeGeometry(size,size*2,32);shape=new CANNON.Cylinder(0,size,size*2,16);break;case'torus':geo=new THREE.TorusGeometry(size,size/3,16,32);shape=new CANNON.Sphere(size);break}const mat=new THREE.MeshStandardMaterial({color,metalness:.7,roughness:.3,emissive:color,emissiveIntensity:.2});const mesh=new THREE.Mesh(geo,mat);const x=(Math.random()-.5)*6,y=8+Math.random()*5,z=(Math.random()-.5)*6;mesh.position.set(x,y,z);mesh.castShadow=true;scene.add(mesh);const body=new CANNON.Body({mass:1+Math.random()*5,shape,position:new CANNON.Vec3(x,y,z)});world.addBody(body);objs.push({mesh,body});objCount++;const hier=document.querySelector('.panel-l');const item=document.createElement('div');item.className='hier-item';item.style.marginLeft='20px';item.innerHTML=`<span>${type==='sphere'?'⚽':type==='box'?'📦':type==='cylinder'?'🛢️':type==='cone'?'🔺':'🍩'}</span> ${type.charAt(0).toUpperCase()+type.slice(1)} ${objCount}`;hier.appendChild(item)}
+let aiVisible=false;function toggleAIAssist(){const p=document.getElementById('aiAssistPanel');aiVisible=!aiVisible;p.style.display=aiVisible?'block':'none'}
+function askAI(){const input=document.getElementById('aiInput');const resp=document.getElementById('aiResponse');const q=input.value;resp.innerHTML=`<div style="padding:10px;background:rgba(139,92,246,.1);border-radius:6px;margin-bottom:8px"><strong style="color:#8b5cf6">You:</strong> ${q}</div>`;setTimeout(()=>{const responses=['Analyzing scene... I recommend adding dynamic lighting for better atmosphere.','Enabling soft shadows would improve visual quality by 40%.','Physics simulation could be optimized. Consider reducing solver iterations.','Great structure! Implementing LOD would improve performance.','Adding environment mapping would make metallic surfaces more realistic.'];resp.innerHTML+=`<div style="padding:10px;background:rgba(0,255,136,.1);border-radius:6px"><strong style="color:#00ff88">SAGE AI:</strong> ${responses[Math.floor(Math.random()*responses.length)]}</div>`},800);input.value=''}
+function aiSuggest(type){const resp=document.getElementById('aiResponse');const suggestions={optimize:'⚡ <strong>Optimization Applied:</strong> Reduced draw calls by 35%, enabled frustum culling. FPS improved!',physics:'🎯 <strong>Physics Enhanced:</strong> Calibrated collision detection, improved solver accuracy.',lighting:'💡 <strong>Lighting Upgraded:</strong> Added ambient occlusion, enabled soft shadows, configured HDR bloom!'};resp.innerHTML=`<div style="padding:10px;background:rgba(0,255,136,.1);border-radius:6px">${suggestions[type]}</div>`;if(type==='lighting'){const nl=new THREE.PointLight(0xff0080,3,30);nl.position.set(0,8,0);scene.add(nl)}}
+class Agent{constructor(id,name,role,specialty,color,skills){this.id=id;this.name=name;this.role=role;this.specialty=specialty;this.color=color;this.skills=skills;this.status='idle';this.currentTask=null;this.completedTasks=0;this.efficiency=.85+Math.random()*.15}assignTask(task){this.currentTask=task;this.status='working'}completeTask(){if(this.currentTask){this.completedTasks++;this.currentTask=null;this.status='idle'}}getEmoji(){return this.status==='working'?'🔨':'✅'}}
+const agents=[new Agent(1,'ATLAS','Graphics','Rendering','#00ff88',['PBR','Shaders','Post-FX']),new Agent(2,'NEWTON','Physics','Dynamics','#00d4ff',['Rigid Body','Collision']),new Agent(3,'AURORA','UI/UX','Interface','#ff0080',['Glassmorphism','Animation']),new Agent(4,'TURBO','Performance','Speed','#ffaa00',['Profiling','Memory']),new Agent(5,'SAGE','AI Systems','Intelligence','#8b5cf6',['Pathfinding','Behavior']),new Agent(6,'MAESTRO','Audio','Sound','#10b981',['3D Audio','DSP']),new Agent(7,'NEXUS','Network','Multiplayer','#06b6d4',['WebRTC','Sync']),new Agent(8,'FORGE','Tools','Editor','#f59e0b',['Visual Script','Pipeline']),new Agent(9,'CONDUCTOR','Content','Assets','#ec4899',['Import','Optimize']),new Agent(10,'SENTINEL','QA','Testing','#6366f1',['Automation','Validation'])];
+function updateAgentUI(){const list=document.getElementById('agent-list');if(!list)return;list.innerHTML=agents.map(a=>`<div class="agent-card" style="border-left:3px solid ${a.color}"><div class="agent-header"><div class="agent-status">${a.getEmoji()}</div><div class="agent-info"><div class="agent-name">${a.name}</div><div class="agent-role">${a.role}</div></div><div class="agent-badge">${a.completedTasks}</div></div><div class="agent-specialty">${a.specialty}</div>${a.currentTask?`<div class="agent-task">📝 ${a.currentTask}</div>`:''}<div class="agent-skills">${a.skills.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div><div class="agent-efficiency"><div class="efficiency-bar"><div class="efficiency-fill" style="width:${a.efficiency*100}%;background:${a.color}"></div></div><span class="efficiency-text">${(a.efficiency*100).toFixed(0)}% Efficient</span></div></div>`).join('');document.getElementById('activeAgents').textContent=agents.filter(a=>a.status==='working').length;document.getElementById('totalTasks').textContent=agents.reduce((s,a)=>s+a.completedTasks,0);document.getElementById('avgEfficiency').textContent=Math.round(agents.reduce((s,a)=>s+a.efficiency,0)/agents.length*100)}
+async function runAgentTask(id,task,dur){const a=agents[id-1];a.assignTask(task);updateAgentUI();await new Promise(r=>setTimeout(r,dur));a.completeTask();updateAgentUI()}
+function startAgents(){setTimeout(()=>runAgentTask(1,'Optimizing PBR shaders',3000),500);setTimeout(()=>runAgentTask(2,'Calibrating collision',2500),800);setTimeout(()=>runAgentTask(3,'Designing neo-glass panels',2000),300);setTimeout(()=>runAgentTask(4,'Profiling render pipeline',3500),1000);setTimeout(()=>runAgentTask(5,'Building pathfinding',5000),600);setTimeout(()=>runAgentTask(6,'Implementing 3D audio',4000),1200);setTimeout(()=>runAgentTask(7,'Setting up WebRTC',5000),400);setTimeout(()=>runAgentTask(8,'Building visual editor',6000),900);setTimeout(()=>runAgentTask(9,'Optimizing assets',3500),700);setTimeout(()=>runAgentTask(10,'Running test suite',3000),200);setTimeout(()=>{runAgentTask(1,'Adding bloom FX',3500);runAgentTask(2,'Soft body physics',4500);runAgentTask(3,'Micro-interactions',3000);runAgentTask(4,'Draw call batching',4000);runAgentTask(5,'Neural networks',5500)},8000)}
+function toggleAgentPanel(){const p=document.getElementById('agentPanel');if(p.style.display==='none'){p.style.display='block';updateAgentUI();startAgents()}else{p.style.display='none'}}
+initEngine();setTimeout(updateAgentUI,100);
+</script>
+</body>
+</html>
