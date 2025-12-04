@@ -1,0 +1,259 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+Ghost Protocol™ V2 - Neo-Glass + Plasma-morphism + Hologram UI
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghost Protocol™ V2 - Neo-Glass Holographic Interface</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ghost:#8b5cf6;--neo:#00ff88;--neo2:#00d4ff;--neo3:#ff0080;--dark:#0a0e1a;--darker:#050810}
+body{font-family:Inter,sans-serif;background:var(--darker);color:#fff;overflow-x:hidden}
+
+/* PLASMA-MORPHISM BACKGROUND */
+.plasma-bg{position:fixed;inset:0;overflow:hidden;z-index:0}
+.plasma-blob{position:absolute;border-radius:50%;filter:blur(120px);mix-blend-mode:screen;animation:plasmaFloat 25s ease-in-out infinite}
+.plasma-blob:nth-child(1){width:700px;height:700px;background:radial-gradient(circle,rgba(139,92,246,.5),transparent 70%);top:-15%;left:-15%}
+.plasma-blob:nth-child(2){width:600px;height:600px;background:radial-gradient(circle,rgba(0,255,136,.4),transparent 70%);bottom:-10%;right:-10%;animation-delay:8s}
+.plasma-blob:nth-child(3){width:500px;height:500px;background:radial-gradient(circle,rgba(255,0,128,.4),transparent 70%);top:40%;left:40%;animation-delay:16s}
+.plasma-blob:nth-child(4){width:450px;height:450px;background:radial-gradient(circle,rgba(0,212,255,.4),transparent 70%);top:60%;left:10%;animation-delay:12s}
+@keyframes plasmaFloat{0%,100%{transform:translate(0,0) scale(1) rotate(0deg);opacity:.6}25%{transform:translate(80px,-60px) scale(1.15) rotate(90deg);opacity:.8}50%{transform:translate(-40px,80px) scale(.9) rotate(180deg);opacity:.5}75%{transform:translate(-80px,-80px) scale(1.1) rotate(270deg);opacity:.7}}
+.plasma-grid{position:fixed;inset:0;background:linear-gradient(rgba(139,92,246,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.02) 1px,transparent 1px);background-size:50px 50px;animation:gridPulse 5s ease-in-out infinite;pointer-events:none;z-index:1}
+@keyframes gridPulse{0%,100%{opacity:.2}50%{opacity:.5}}
+
+/* NEO-GLASS UI */
+.neo-glass{background:linear-gradient(135deg,rgba(10,14,26,.75),rgba(139,92,246,.1),rgba(10,14,26,.8));backdrop-filter:blur(25px) saturate(200%);-webkit-backdrop-filter:blur(25px) saturate(200%);border:1px solid rgba(139,92,246,.2);box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.1);position:relative;overflow:hidden}
+.neo-glass::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(139,92,246,.15),transparent 50%);opacity:0;transition:opacity .3s;pointer-events:none}
+.neo-glass:hover::before{opacity:1}
+.neo-glass::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.6),rgba(0,255,136,.4),transparent);animation:refractionShift 4s ease-in-out infinite}
+@keyframes refractionShift{0%,100%{opacity:.4;transform:scaleX(.7)}50%{opacity:1;transform:scaleX(1)}}
+
+/* HOLOGRAM EFFECTS */
+.holo-panel{position:relative}
+.holo-panel::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(139,92,246,.1) 0%,transparent 50%,rgba(0,255,136,.05) 100%);pointer-events:none;animation:holoScan 3s linear infinite}
+@keyframes holoScan{0%{background-position:0 -100%}100%{background-position:0 200%}}
+.holo-flicker{animation:flicker .15s infinite}
+@keyframes flicker{0%,100%{opacity:1}50%{opacity:.97}}
+.holo-depth:hover{transform:translateZ(30px) scale(1.02);box-shadow:0 25px 80px rgba(139,92,246,.4)}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;padding:20px 40px;z-index:1000;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Orbitron,sans-serif;font-size:1.6rem;font-weight:900;background:linear-gradient(135deg,var(--ghost),var(--neo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:12px}
+.logo-icon{font-size:2.2rem;filter:drop-shadow(0 0 20px rgba(139,92,246,.6))}
+.nav-links{display:flex;gap:30px}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-weight:500;transition:all .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--ghost);transition:width .3s}
+.nav-links a:hover{color:var(--ghost)}
+.nav-links a:hover::after{width:100%}
+.cta-btn{padding:14px 35px;background:linear-gradient(135deg,var(--ghost),#6d28d9);border:none;border-radius:10px;color:#fff;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 4px 20px rgba(139,92,246,.3)}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 15px 50px rgba(139,92,246,.5)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;position:relative;z-index:10}
+.hero-content{max-width:950px;text-align:center}
+.badge{display:inline-block;padding:10px 25px;border-radius:50px;font-size:.9rem;color:var(--ghost);margin-bottom:35px;animation:badgePulse 2s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 20px rgba(139,92,246,.3)}50%{box-shadow:0 0 40px rgba(139,92,246,.6)}}
+.hero h1{font-family:Orbitron,sans-serif;font-size:4.5rem;font-weight:900;line-height:1.1;margin-bottom:30px;background:linear-gradient(135deg,#fff 0%,var(--ghost) 40%,var(--neo) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 80px rgba(139,92,246,.3)}
+.hero p{font-size:1.35rem;color:rgba(255,255,255,.75);margin-bottom:45px;max-width:750px;margin-left:auto;margin-right:auto}
+.hero-stats{display:flex;justify-content:center;gap:70px;margin-bottom:55px}
+.stat{text-align:center;padding:25px;border-radius:16px;transition:all .3s}
+.stat:hover{transform:translateY(-5px)}
+.stat-value{font-family:Orbitron,sans-serif;font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,var(--neo),var(--neo2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:statPulse 2s ease-in-out infinite}
+@keyframes statPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.3)}}
+.stat-label{font-size:.9rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:2px;margin-top:8px}
+.hero-cta{display:flex;gap:25px;justify-content:center}
+.primary-btn{padding:20px 55px;background:linear-gradient(135deg,var(--ghost),#6d28d9);border:none;border-radius:14px;color:#fff;font-size:1.15rem;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:12px;box-shadow:0 8px 30px rgba(139,92,246,.4)}
+.primary-btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 20px 60px rgba(139,92,246,.5)}
+.secondary-btn{padding:20px 55px;background:transparent;border:2px solid rgba(139,92,246,.5);border-radius:14px;color:var(--ghost);font-size:1.15rem;font-weight:600;cursor:pointer;transition:all .3s}
+.secondary-btn:hover{background:rgba(139,92,246,.15);border-color:var(--ghost);transform:translateY(-2px)}
+
+/* SECTIONS */
+.section{padding:120px 40px;position:relative;z-index:10}
+.section-title{font-family:Orbitron,sans-serif;font-size:2.8rem;font-weight:700;text-align:center;margin-bottom:25px;background:linear-gradient(135deg,#fff,var(--ghost));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-subtitle{text-align:center;color:rgba(255,255,255,.6);font-size:1.15rem;max-width:650px;margin:0 auto 70px}
+
+/* MODE CARDS */
+.modes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:35px;max-width:1300px;margin:0 auto}
+.mode-card{padding:35px;border-radius:20px;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.mode-card:hover{transform:translateY(-8px) scale(1.02)}
+.mode-icon{font-size:3rem;margin-bottom:22px;filter:drop-shadow(0 0 15px rgba(139,92,246,.5))}
+.mode-title{font-family:Orbitron,sans-serif;font-size:1.25rem;font-weight:700;color:var(--ghost);margin-bottom:12px}
+.mode-desc{color:rgba(255,255,255,.65);font-size:.95rem;margin-bottom:18px;line-height:1.6}
+.mode-example{background:rgba(0,255,136,.1);border-left:3px solid var(--neo);padding:14px;border-radius:0 10px 10px 0;font-size:.85rem;color:var(--neo)}
+
+/* COMPARISON */
+.comparison-table{max-width:950px;margin:0 auto;border-radius:20px;overflow:hidden}
+.comparison-row{display:grid;grid-template-columns:2fr 1fr 1fr;padding:22px 35px;border-bottom:1px solid rgba(139,92,246,.1);align-items:center;transition:background .3s}
+.comparison-row:hover{background:rgba(139,92,246,.05)}
+.comparison-row:last-child{border-bottom:none}
+.comparison-header{background:rgba(139,92,246,.15);font-weight:700}
+.comparison-header span{font-family:Orbitron,sans-serif;color:var(--ghost)}
+.check{color:var(--neo);font-size:1.6rem;text-shadow:0 0 10px rgba(0,255,136,.5)}
+.cross{color:rgba(255,255,255,.25);font-size:1.6rem}
+
+/* PRICING */
+.price-card{max-width:550px;margin:0 auto;padding:55px;border-radius:28px;position:relative;overflow:hidden}
+.price-card::before{content:'BEST VALUE';position:absolute;top:25px;right:-40px;background:linear-gradient(135deg,var(--neo),#00cc6a);color:var(--dark);padding:10px 55px;font-size:.75rem;font-weight:800;transform:rotate(45deg);box-shadow:0 4px 15px rgba(0,255,136,.3)}
+.price-title{font-family:Orbitron,sans-serif;font-size:1.6rem;color:var(--ghost);margin-bottom:12px}
+.price-value{font-family:Orbitron,sans-serif;font-size:4.5rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--ghost));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.price-period{color:rgba(255,255,255,.5);margin-bottom:35px}
+.price-features{text-align:left;margin-bottom:45px}
+.price-feature{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(139,92,246,.1)}
+.price-feature:last-child{border-bottom:none}
+.feature-check{color:var(--neo);font-size:1.3rem}
+.buy-btn{width:100%;padding:22px;background:linear-gradient(135deg,var(--ghost),#6d28d9);border:none;border-radius:14px;color:#fff;font-size:1.25rem;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 8px 30px rgba(139,92,246,.4)}
+.buy-btn:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(139,92,246,.5)}
+.guarantee{margin-top:35px;padding:22px;background:rgba(0,255,136,.1);border-radius:14px;display:flex;align-items:center;gap:18px;border:1px solid rgba(0,255,136,.2)}
+.guarantee-icon{font-size:2.5rem}
+.guarantee-text{text-align:left;font-size:.9rem;color:rgba(255,255,255,.85)}
+
+/* ROI */
+.roi-card{max-width:750px;margin:0 auto;padding:45px;border-radius:20px}
+.roi-row{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid rgba(139,92,246,.1)}
+.roi-label{color:rgba(255,255,255,.7)}
+.roi-value{font-family:Orbitron,sans-serif;font-weight:700}
+.roi-value.negative{color:var(--neo3)}
+.roi-value.positive{color:var(--neo)}
+.roi-total{margin-top:25px;padding:25px;background:rgba(0,255,136,.1);border-radius:14px;text-align:center;border:1px solid rgba(0,255,136,.2)}
+.roi-total-label{font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:8px}
+.roi-total-value{font-family:Orbitron,sans-serif;font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--neo),var(--neo2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* FOOTER */
+.footer{padding:70px 40px;text-align:center;border-top:1px solid rgba(139,92,246,.1);position:relative;z-index:10}
+.footer-logo{font-family:Orbitron,sans-serif;font-size:1.6rem;font-weight:900;color:var(--ghost);margin-bottom:22px}
+.footer-text{color:rgba(255,255,255,.5);font-size:.9rem}
+
+/* RESPONSIVE */
+@media(max-width:768px){.hero h1{font-size:2.8rem}.hero-stats{flex-direction:column;gap:25px}.hero-cta{flex-direction:column}.comparison-row{grid-template-columns:1fr;gap:12px;text-align:center}.nav-links{display:none}.header{padding:15px 20px}}
+</style>
+</head>
+<body>
+<div class="plasma-bg">
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+</div>
+<div class="plasma-grid"></div>
+
+<header class="header neo-glass">
+    <div class="logo"><span class="logo-icon">👻</span>Ghost Protocol™ V2</div>
+    <nav class="nav-links">
+        <a href="#modes">7 Thinking Modes</a>
+        <a href="#comparison">Comparison</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#roi">ROI</a>
+    </nav>
+    <a href="#pricing" class="cta-btn">Get Access →</a>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="badge neo-glass holo-panel">🔒 Elite Security Framework</div>
+        <h1 class="holo-flicker">Think Like a Nation-State.<br>Hunt Like a Ghost.</h1>
+        <p>The proprietary 7-mode divergent thinking system that transforms ordinary bug hunters into elite security researchers earning 33x more per vulnerability.</p>
+        <div class="hero-stats">
+            <div class="stat neo-glass holo-depth" style="border-radius:16px">
+                <div class="stat-value">33x</div>
+                <div class="stat-label">Higher Bounties</div>
+            </div>
+            <div class="stat neo-glass holo-depth" style="border-radius:16px">
+                <div class="stat-value">7</div>
+                <div class="stat-label">Thinking Modes</div>
+            </div>
+            <div class="stat neo-glass holo-depth" style="border-radius:16px">
+                <div class="stat-value">$475K</div>
+                <div class="stat-label">Year 1 Potential</div>
+            </div>
+        </div>
+        <div class="hero-cta">
+            <button class="primary-btn" onclick="scrollToSection('pricing')">🚀 Get Ghost Protocol™ - $997/year</button>
+            <button class="secondary-btn" onclick="scrollToSection('modes')">Learn the 7 Modes</button>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="modes">
+    <h2 class="section-title">The 7 Divergent Thinking Modes</h2>
+    <p class="section-subtitle">Each mode unlocks a different dimension of security analysis that traditional hunters never access.</p>
+    <div class="modes-grid">
+        <div class="mode-card neo-glass holo-panel holo-depth"><div class="mode-icon">🔀</div><div class="mode-title">LATERAL THINKING</div><div class="mode-desc">Approach problems from the opposite direction. What if the vulnerability is in what they're NOT protecting?</div><div class="mode-example">💡 Found $25K bug by testing logout flow instead of login</div></div>
+        <div class="mode-card neo-glass holo-panel holo-depth"><div class="mode-icon">⚡</div><div class="mode-title">PARALLEL THINKING</div><div class="mode-desc">Test multiple attack vectors simultaneously. Why check one path when you can explore five?</div><div class="mode-example">💡 Discovered 3 chained vulns in single session = $50K</div></div>
+        <div class="mode-card neo-glass holo-panel holo-depth"><div class="mode-icon">🔗</div><div class="mode-title">ASSOCIATIVE THINKING</div><div class="mode-desc">Connect patterns across different systems. That bug in App A? It exists in App B too.</div><div class="mode-example">💡 Same vuln pattern across 12 programs = $120K</div></div>
+        <div class="mode-card neo-glass holo-panel holo-depth"><div class="mode-icon">✨</div><div class="mode-title">GENERATIVE THINKING</div><div class="mode-desc">Create novel attack vectors that don't exist in any playbook. Invent, don't imitate.</div><div class="mode-example">💡 New attack class discovery = $75K + CVE</div></div>
+        <div class="mode-card neo-glass holo-panel holo-depth"><div class="mode-icon">🧬</div><div class="mode-title">COMBINATORIAL THINKING</div><div class="mode-desc">Chain low-severity bugs into critical exploits. 3 lows = 1 critical.</div><div class="mode-example">💡 Chained IDOR + CSRF + XSS = RCE = $100K</div></div>
+        <div class="mode-card neo-glass holo-panel holo-depth"><div class="mode-icon">🎭</div><div class="mode-title">PERSPECTIVE THINKING</div><div class="mode-desc">Think like APT41, Lazarus, or nation-state actors. What would they target?</div><div class="mode-example">💡 Supply chain focus = $50K average bounty</div></div>
+        <div class="mode-card neo-glass holo-panel holo-depth"><div class="mode-icon">🔓</div><div class="mode-title">CONSTRAINT-FREE THINKING</div><div class="mode-desc">Remove all assumptions. What if rate limiting didn't exist? What if you had unlimited time?</div><div class="mode-example">💡 "Impossible" auth bypass = $200K bounty</div></div>
+    </div>
+</section>
+
+<section class="section" id="comparison">
+    <h2 class="section-title">Traditional vs Ghost Protocol™</h2>
+    <p class="section-subtitle">See why elite hunters earn 33x more with the same time investment.</p>
+    <div class="comparison-table neo-glass holo-panel">
+        <div class="comparison-row comparison-header"><span>Approach</span><span>Traditional</span><span>Ghost Protocol™</span></div>
+        <div class="comparison-row"><span>Time per target</span><span>2 hours</span><span>20 hours (deep)</span></div>
+        <div class="comparison-row"><span>Bugs found</span><span>3 low/medium</span><span>1-2 critical</span></div>
+        <div class="comparison-row"><span>Average bounty</span><span>$500</span><span>$15,000+</span></div>
+        <div class="comparison-row"><span>Hourly rate</span><span>$250/hr</span><span>$750/hr</span></div>
+        <div class="comparison-row"><span>Thinking modes</span><span class="cross">✗ 1 (linear)</span><span class="check">✓ 7 (divergent)</span></div>
+        <div class="comparison-row"><span>Supply chain focus</span><span class="cross">✗</span><span class="check">✓</span></div>
+        <div class="comparison-row"><span>Nation-state methodology</span><span class="cross">✗</span><span class="check">✓</span></div>
+        <div class="comparison-row"><span>Year 1 potential</span><span>$30K-$60K</span><span style="color:var(--neo);font-weight:700">$190K-$475K</span></div>
+    </div>
+</section>
+
+<section class="section" id="pricing">
+    <h2 class="section-title">Get Ghost Protocol™</h2>
+    <p class="section-subtitle">One investment. Lifetime methodology. 33x returns.</p>
+    <div class="price-card neo-glass holo-panel">
+        <div class="price-title">GHOST PROTOCOL™ COMPLETE</div>
+        <div class="price-value">$997</div>
+        <div class="price-period">per year • Instant access</div>
+        <div class="price-features">
+            <div class="price-feature"><span class="feature-check">✓</span><span>7 Divergent Thinking Modes (complete system)</span></div>
+            <div class="price-feature"><span class="feature-check">✓</span><span>Nation-State Methodology Guide (12,000+ words)</span></div>
+            <div class="price-feature"><span class="feature-check">✓</span><span>Anonymous Operations Framework</span></div>
+            <div class="price-feature"><span class="feature-check">✓</span><span>Supply Chain Attack Playbook</span></div>
+            <div class="price-feature"><span class="feature-check">✓</span><span>Real bounty examples with amounts</span></div>
+            <div class="price-feature"><span class="feature-check">✓</span><span>Wyoming LLC setup guide (privacy)</span></div>
+            <div class="price-feature"><span class="feature-check">✓</span><span>OPSEC procedures & templates</span></div>
+            <div class="price-feature"><span class="feature-check">✓</span><span>Lifetime updates</span></div>
+        </div>
+        <button class="buy-btn" onclick="purchase()">🚀 Get Instant Access - $997</button>
+        <div class="guarantee"><span class="guarantee-icon">🛡️</span><div class="guarantee-text"><strong>30-Day Money Back Guarantee</strong><br>If you don't find at least one bug worth $997+ in 30 days using our methodology, get a full refund.</div></div>
+    </div>
+</section>
+
+<section class="section" id="roi">
+    <h2 class="section-title">Your ROI Calculation</h2>
+    <p class="section-subtitle">Conservative estimate based on finding just 2 critical bugs per month.</p>
+    <div class="roi-card neo-glass holo-panel">
+        <div class="roi-row"><span class="roi-label">Ghost Protocol™ Investment</span><span class="roi-value negative">-$997</span></div>
+        <div class="roi-row"><span class="roi-label">Average critical bug bounty</span><span class="roi-value">$15,000</span></div>
+        <div class="roi-row"><span class="roi-label">Bugs per month (conservative)</span><span class="roi-value">2</span></div>
+        <div class="roi-row"><span class="roi-label">Monthly revenue</span><span class="roi-value positive">+$30,000</span></div>
+        <div class="roi-row"><span class="roi-label">Year 1 revenue (12 months)</span><span class="roi-value positive">+$360,000</span></div>
+        <div class="roi-total"><div class="roi-total-label">NET RETURN ON INVESTMENT</div><div class="roi-total-value">361x ROI</div></div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-logo">👻 Ghost Protocol™ V2</div>
+    <p class="footer-text">© 2025 DoctorMen. All Rights Reserved.<br>Ghost Protocol™ and Divergent Thinking System™ are protected intellectual property.</p>
+</footer>
+
+<script>
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function purchase(){alert('🚀 Ghost Protocol™ Purchase\n\nRedirecting to secure checkout...\n\nPrice: $997/year\nAccess: Instant\nGuarantee: 30-day money back')}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+document.addEventListener('mousemove',e=>{document.querySelectorAll('.neo-glass').forEach(el=>{const r=el.getBoundingClientRect();el.style.setProperty('--mouse-x',((e.clientX-r.left)/r.width*100)+'%');el.style.setProperty('--mouse-y',((e.clientY-r.top)/r.height*100)+'%')})});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
+document.querySelectorAll('.mode-card,.stat,.price-card,.roi-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(40px)';el.style.transition='all .7s cubic-bezier(.4,0,.2,1)';obs.observe(el)});
+</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+SecureStack™ V2 - Neo-Glass + Plasma-morphism + Hologram UI
+Automated Security Assessment Platform
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SecureStack™ V2 - Neo-Glass Holographic Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--secure:#00d4ff;--neo:#00ff88;--neo2:#00d4ff;--neo3:#ff0080;--neo4:#8b5cf6;--dark:#0a0e1a;--darker:#050810}
+body{font-family:Inter,sans-serif;background:var(--darker);color:#fff;overflow-x:hidden;min-height:100vh}
+
+/* PLASMA-MORPHISM BACKGROUND */
+.plasma-bg{position:fixed;inset:0;overflow:hidden;z-index:0}
+.plasma-blob{position:absolute;border-radius:50%;filter:blur(120px);mix-blend-mode:screen;animation:plasmaFloat 25s ease-in-out infinite}
+.plasma-blob:nth-child(1){width:700px;height:700px;background:radial-gradient(circle,rgba(0,212,255,.5),transparent 70%);top:-15%;left:-15%}
+.plasma-blob:nth-child(2){width:600px;height:600px;background:radial-gradient(circle,rgba(0,255,136,.4),transparent 70%);bottom:-10%;right:-10%;animation-delay:8s}
+.plasma-blob:nth-child(3){width:500px;height:500px;background:radial-gradient(circle,rgba(139,92,246,.4),transparent 70%);top:50%;left:50%;animation-delay:16s}
+.plasma-blob:nth-child(4){width:450px;height:450px;background:radial-gradient(circle,rgba(255,0,128,.3),transparent 70%);top:20%;right:20%;animation-delay:12s}
+@keyframes plasmaFloat{0%,100%{transform:translate(0,0) scale(1) rotate(0deg);opacity:.5}25%{transform:translate(80px,-60px) scale(1.15) rotate(90deg);opacity:.7}50%{transform:translate(-40px,80px) scale(.9) rotate(180deg);opacity:.4}75%{transform:translate(-80px,-80px) scale(1.1) rotate(270deg);opacity:.6}}
+.plasma-grid{position:fixed;inset:0;background:linear-gradient(rgba(0,212,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.02) 1px,transparent 1px);background-size:50px 50px;animation:gridPulse 5s ease-in-out infinite;pointer-events:none;z-index:1}
+@keyframes gridPulse{0%,100%{opacity:.2}50%{opacity:.5}}
+
+/* NEO-GLASS UI */
+.neo-glass{background:linear-gradient(135deg,rgba(10,14,26,.75),rgba(0,212,255,.08),rgba(10,14,26,.8));backdrop-filter:blur(25px) saturate(200%);-webkit-backdrop-filter:blur(25px) saturate(200%);border:1px solid rgba(0,212,255,.2);box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.1);position:relative;overflow:hidden}
+.neo-glass::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(0,212,255,.12),transparent 50%);opacity:0;transition:opacity .3s;pointer-events:none}
+.neo-glass:hover::before{opacity:1}
+.neo-glass::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.6),rgba(0,255,136,.4),transparent);animation:refractionShift 4s ease-in-out infinite}
+@keyframes refractionShift{0%,100%{opacity:.4;transform:scaleX(.7)}50%{opacity:1;transform:scaleX(1)}}
+
+/* HOLOGRAM EFFECTS */
+.holo-panel{position:relative}
+.holo-panel::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(0,212,255,.08) 0%,transparent 50%,rgba(0,255,136,.04) 100%);pointer-events:none;animation:holoScan 3s linear infinite}
+@keyframes holoScan{0%{background-position:0 -100%}100%{background-position:0 200%}}
+.holo-flicker{animation:flicker .15s infinite}
+@keyframes flicker{0%,100%{opacity:1}50%{opacity:.97}}
+.holo-depth:hover{transform:translateZ(30px) scale(1.02);box-shadow:0 25px 80px rgba(0,212,255,.4)}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;padding:18px 40px;z-index:1000;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Orbitron,sans-serif;font-size:1.5rem;font-weight:900;background:linear-gradient(135deg,var(--secure),var(--neo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:12px}
+.logo-icon{font-size:2rem;filter:drop-shadow(0 0 20px rgba(0,212,255,.6))}
+.nav-links{display:flex;gap:30px}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-weight:500;transition:all .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--secure);transition:width .3s}
+.nav-links a:hover{color:var(--secure)}
+.nav-links a:hover::after{width:100%}
+.status-badge{display:flex;align-items:center;gap:10px;padding:10px 20px;border-radius:50px;font-size:.9rem}
+.status-dot{width:10px;height:10px;background:var(--neo);border-radius:50%;animation:statusPulse 2s infinite}
+@keyframes statusPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,136,.5)}50%{box-shadow:0 0 0 8px rgba(0,255,136,0)}}
+
+/* MAIN CONTENT */
+.main{padding:100px 40px 60px;position:relative;z-index:10}
+.dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;max-width:1400px;margin:0 auto 40px}
+
+/* KPI CARDS */
+.kpi-card{padding:28px;border-radius:20px;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.kpi-card:hover{transform:translateY(-8px) scale(1.02)}
+.kpi-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:15px}
+.kpi-icon{font-size:2.5rem;filter:drop-shadow(0 0 15px rgba(0,212,255,.5))}
+.kpi-trend{display:flex;align-items:center;gap:5px;font-size:.85rem;padding:5px 12px;border-radius:20px}
+.kpi-trend.up{background:rgba(0,255,136,.15);color:var(--neo)}
+.kpi-trend.down{background:rgba(255,0,128,.15);color:var(--neo3)}
+.kpi-value{font-family:Orbitron,sans-serif;font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--secure));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.kpi-label{color:rgba(255,255,255,.6);font-size:.9rem;text-transform:uppercase;letter-spacing:1px}
+
+/* CHARTS SECTION */
+.charts-grid{display:grid;grid-template-columns:2fr 1fr;gap:25px;max-width:1400px;margin:0 auto 40px}
+.chart-card{padding:30px;border-radius:20px}
+.chart-title{font-family:Orbitron,sans-serif;font-size:1.2rem;color:var(--secure);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.chart-container{height:250px;position:relative}
+.chart-bar{position:absolute;bottom:0;width:8%;background:linear-gradient(180deg,var(--secure),rgba(0,212,255,.3));border-radius:4px 4px 0 0;transition:height .5s cubic-bezier(.4,0,.2,1)}
+.chart-bar:hover{background:linear-gradient(180deg,var(--neo),rgba(0,255,136,.3));transform:scaleX(1.1)}
+
+/* VULNERABILITY DISTRIBUTION */
+.vuln-list{display:flex;flex-direction:column;gap:15px}
+.vuln-item{display:flex;align-items:center;gap:15px;padding:15px;border-radius:12px;background:rgba(0,0,0,.2);transition:all .3s}
+.vuln-item:hover{background:rgba(0,212,255,.1);transform:translateX(5px)}
+.vuln-dot{width:12px;height:12px;border-radius:50%}
+.vuln-dot.critical{background:var(--neo3);box-shadow:0 0 10px var(--neo3)}
+.vuln-dot.high{background:#f59e0b;box-shadow:0 0 10px #f59e0b}
+.vuln-dot.medium{background:#eab308;box-shadow:0 0 10px #eab308}
+.vuln-dot.low{background:var(--neo);box-shadow:0 0 10px var(--neo)}
+.vuln-info{flex:1}
+.vuln-label{font-weight:600;margin-bottom:3px}
+.vuln-count{font-size:.85rem;color:rgba(255,255,255,.5)}
+.vuln-bar{width:100px;height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden}
+.vuln-bar-fill{height:100%;border-radius:3px;transition:width .5s}
+
+/* LIVE SCANS */
+.scans-section{max-width:1400px;margin:0 auto 40px}
+.scans-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.scans-title{font-family:Orbitron,sans-serif;font-size:1.4rem;color:#fff;display:flex;align-items:center;gap:12px}
+.scan-btn{padding:12px 25px;background:linear-gradient(135deg,var(--secure),#0099cc);border:none;border-radius:10px;color:#fff;font-weight:600;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:8px}
+.scan-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,212,255,.4)}
+.scans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.scan-card{padding:25px;border-radius:16px;transition:all .3s}
+.scan-card:hover{transform:translateY(-5px)}
+.scan-target{font-family:Orbitron,sans-serif;font-size:1rem;color:var(--secure);margin-bottom:10px;word-break:break-all}
+.scan-status{display:flex;align-items:center;gap:8px;margin-bottom:15px}
+.scan-status-dot{width:8px;height:8px;border-radius:50%}
+.scan-status-dot.running{background:var(--neo);animation:statusPulse 1s infinite}
+.scan-status-dot.complete{background:var(--secure)}
+.scan-status-dot.queued{background:#f59e0b}
+.scan-progress{height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin-bottom:12px}
+.scan-progress-fill{height:100%;background:linear-gradient(90deg,var(--secure),var(--neo));border-radius:2px;transition:width .3s}
+.scan-stats{display:flex;justify-content:space-between;font-size:.85rem;color:rgba(255,255,255,.6)}
+
+/* PRICING SECTION */
+.pricing-section{max-width:1200px;margin:0 auto;padding:60px 0}
+.pricing-title{font-family:Orbitron,sans-serif;font-size:2.5rem;text-align:center;margin-bottom:15px;background:linear-gradient(135deg,#fff,var(--secure));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.pricing-subtitle{text-align:center;color:rgba(255,255,255,.6);margin-bottom:50px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.price-card{padding:40px;border-radius:24px;text-align:center;transition:all .4s}
+.price-card:hover{transform:translateY(-10px) scale(1.02)}
+.price-card.featured{border:2px solid var(--secure);position:relative}
+.price-card.featured::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--secure),var(--neo));color:var(--dark);padding:6px 20px;border-radius:20px;font-size:.75rem;font-weight:700}
+.price-tier{font-family:Orbitron,sans-serif;font-size:1.2rem;color:var(--secure);margin-bottom:15px}
+.price-amount{font-family:Orbitron,sans-serif;font-size:3.5rem;font-weight:900;color:#fff;margin-bottom:5px}
+.price-period{color:rgba(255,255,255,.5);margin-bottom:30px}
+.price-features{text-align:left;margin-bottom:35px}
+.price-feature{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(0,212,255,.1);font-size:.95rem}
+.price-feature:last-child{border-bottom:none}
+.price-check{color:var(--neo);font-size:1.1rem}
+.price-btn{width:100%;padding:16px;background:linear-gradient(135deg,var(--secure),#0099cc);border:none;border-radius:12px;color:#fff;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all .3s}
+.price-btn:hover{transform:translateY(-2px);box-shadow:0 15px 40px rgba(0,212,255,.4)}
+
+/* FOOTER */
+.footer{padding:50px 40px;text-align:center;border-top:1px solid rgba(0,212,255,.1);position:relative;z-index:10}
+.footer-logo{font-family:Orbitron,sans-serif;font-size:1.4rem;font-weight:900;color:var(--secure);margin-bottom:15px}
+.footer-text{color:rgba(255,255,255,.5);font-size:.85rem}
+
+/* RESPONSIVE */
+@media(max-width:1200px){.dashboard-grid{grid-template-columns:repeat(2,1fr)}.charts-grid{grid-template-columns:1fr}.scans-grid{grid-template-columns:repeat(2,1fr)}.pricing-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.dashboard-grid{grid-template-columns:1fr}.scans-grid{grid-template-columns:1fr}.nav-links{display:none}.header{padding:15px 20px}}
+</style>
+</head>
+<body>
+<div class="plasma-bg">
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+</div>
+<div class="plasma-grid"></div>
+
+<header class="header neo-glass">
+    <div class="logo"><span class="logo-icon">🛡️</span>SecureStack™ V2</div>
+    <nav class="nav-links">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#scans">Live Scans</a>
+        <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="status-badge neo-glass"><span class="status-dot"></span>All Systems Operational</div>
+</header>
+
+<main class="main">
+    <!-- KPI Dashboard -->
+    <div class="dashboard-grid" id="dashboard">
+        <div class="kpi-card neo-glass holo-panel holo-depth">
+            <div class="kpi-header"><span class="kpi-icon">🔍</span><span class="kpi-trend up">↑ 12%</span></div>
+            <div class="kpi-value" id="totalScans">1,247</div>
+            <div class="kpi-label">Total Scans</div>
+        </div>
+        <div class="kpi-card neo-glass holo-panel holo-depth">
+            <div class="kpi-header"><span class="kpi-icon">🎯</span><span class="kpi-trend up">↑ 8%</span></div>
+            <div class="kpi-value" id="vulnsFound">342</div>
+            <div class="kpi-label">Vulnerabilities Found</div>
+        </div>
+        <div class="kpi-card neo-glass holo-panel holo-depth">
+            <div class="kpi-header"><span class="kpi-icon">⏱️</span><span class="kpi-trend up">↑ 23%</span></div>
+            <div class="kpi-value" id="timeSaved">487 hrs</div>
+            <div class="kpi-label">Time Saved</div>
+        </div>
+        <div class="kpi-card neo-glass holo-panel holo-depth">
+            <div class="kpi-header"><span class="kpi-icon">💰</span><span class="kpi-trend up">↑ 15%</span></div>
+            <div class="kpi-value" id="revenue">$89.4K</div>
+            <div class="kpi-label">Revenue Generated</div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts-grid">
+        <div class="chart-card neo-glass holo-panel">
+            <div class="chart-title">📊 Scan Performance (Last 30 Days)</div>
+            <div class="chart-container" id="performanceChart"></div>
+        </div>
+        <div class="chart-card neo-glass holo-panel">
+            <div class="chart-title">🎯 Vulnerability Distribution</div>
+            <div class="vuln-list">
+                <div class="vuln-item"><span class="vuln-dot critical"></span><div class="vuln-info"><div class="vuln-label">Critical</div><div class="vuln-count">12 found</div></div><div class="vuln-bar"><div class="vuln-bar-fill" style="width:15%;background:var(--neo3)"></div></div></div>
+                <div class="vuln-item"><span class="vuln-dot high"></span><div class="vuln-info"><div class="vuln-label">High</div><div class="vuln-count">45 found</div></div><div class="vuln-bar"><div class="vuln-bar-fill" style="width:35%;background:#f59e0b"></div></div></div>
+                <div class="vuln-item"><span class="vuln-dot medium"></span><div class="vuln-info"><div class="vuln-label">Medium</div><div class="vuln-count">128 found</div></div><div class="vuln-bar"><div class="vuln-bar-fill" style="width:65%;background:#eab308"></div></div></div>
+                <div class="vuln-item"><span class="vuln-dot low"></span><div class="vuln-info"><div class="vuln-label">Low</div><div class="vuln-count">157 found</div></div><div class="vuln-bar"><div class="vuln-bar-fill" style="width:80%;background:var(--neo)"></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Scans -->
+    <div class="scans-section" id="scans">
+        <div class="scans-header">
+            <div class="scans-title"><span>⚡</span>Live Scans</div>
+            <button class="scan-btn" onclick="startNewScan()">🚀 New Scan</button>
+        </div>
+        <div class="scans-grid">
+            <div class="scan-card neo-glass holo-panel">
+                <div class="scan-target">api.enterprise-client.com</div>
+                <div class="scan-status"><span class="scan-status-dot running"></span><span style="color:var(--neo)">Running</span></div>
+                <div class="scan-progress"><div class="scan-progress-fill" style="width:67%"></div></div>
+                <div class="scan-stats"><span>67% Complete</span><span>~8 min left</span></div>
+            </div>
+            <div class="scan-card neo-glass holo-panel">
+                <div class="scan-target">dashboard.fintech-startup.io</div>
+                <div class="scan-status"><span class="scan-status-dot running"></span><span style="color:var(--neo)">Running</span></div>
+                <div class="scan-progress"><div class="scan-progress-fill" style="width:34%"></div></div>
+                <div class="scan-stats"><span>34% Complete</span><span>~15 min left</span></div>
+            </div>
+            <div class="scan-card neo-glass holo-panel">
+                <div class="scan-target">portal.healthcare-corp.net</div>
+                <div class="scan-status"><span class="scan-status-dot complete"></span><span style="color:var(--secure)">Complete</span></div>
+                <div class="scan-progress"><div class="scan-progress-fill" style="width:100%"></div></div>
+                <div class="scan-stats"><span>3 vulns found</span><span>12 min ago</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="pricing-section" id="pricing">
+        <h2 class="pricing-title">Choose Your Plan</h2>
+        <p class="pricing-subtitle">CFAA-compliant automated security assessments</p>
+        <div class="pricing-grid">
+            <div class="price-card neo-glass holo-panel holo-depth">
+                <div class="price-tier">STARTER</div>
+                <div class="price-amount">$99</div>
+                <div class="price-period">per month</div>
+                <div class="price-features">
+                    <div class="price-feature"><span class="price-check">✓</span>50 scans/month</div>
+                    <div class="price-feature"><span class="price-check">✓</span>Basic vulnerability detection</div>
+                    <div class="price-feature"><span class="price-check">✓</span>Email reports</div>
+                    <div class="price-feature"><span class="price-check">✓</span>Community support</div>
+                </div>
+                <button class="price-btn">Get Started</button>
+            </div>
+            <div class="price-card neo-glass holo-panel holo-depth featured">
+                <div class="price-tier">PROFESSIONAL</div>
+                <div class="price-amount">$299</div>
+                <div class="price-period">per month</div>
+                <div class="price-features">
+                    <div class="price-feature"><span class="price-check">✓</span>Unlimited scans</div>
+                    <div class="price-feature"><span class="price-check">✓</span>Advanced detection + AI</div>
+                    <div class="price-feature"><span class="price-check">✓</span>API access</div>
+                    <div class="price-feature"><span class="price-check">✓</span>Priority support</div>
+                    <div class="price-feature"><span class="price-check">✓</span>Custom integrations</div>
+                </div>
+                <button class="price-btn">Get Professional</button>
+            </div>
+            <div class="price-card neo-glass holo-panel holo-depth">
+                <div class="price-tier">ENTERPRISE</div>
+                <div class="price-amount">Custom</div>
+                <div class="price-period">contact us</div>
+                <div class="price-features">
+                    <div class="price-feature"><span class="price-check">✓</span>Everything in Pro</div>
+                    <div class="price-feature"><span class="price-check">✓</span>White-label solution</div>
+                    <div class="price-feature"><span class="price-check">✓</span>Dedicated infrastructure</div>
+                    <div class="price-feature"><span class="price-check">✓</span>24/7 support + SLA</div>
+                    <div class="price-feature"><span class="price-check">✓</span>On-premise deployment</div>
+                </div>
+                <button class="price-btn">Contact Sales</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-logo">🛡️ SecureStack™ V2</div>
+    <p class="footer-text">© 2025 DoctorMen. All Rights Reserved. CFAA-Compliant Security Assessments.</p>
+</footer>
+
+<script>
+// Generate performance chart bars
+const chartContainer=document.getElementById('performanceChart');
+const data=[65,78,45,89,92,67,85,73,95,88,76,82,91,69,84,77,93,86,71,79,88,94,81,75,90,83,87,72,96,89];
+data.forEach((v,i)=>{const bar=document.createElement('div');bar.className='chart-bar';bar.style.left=(i*3.3)+'%';bar.style.height='0%';chartContainer.appendChild(bar);setTimeout(()=>{bar.style.height=v+'%'},i*50)});
+
+// Animate KPI values
+function animateValue(id,start,end,duration){const el=document.getElementById(id);if(!el)return;const range=end-start;const startTime=performance.now();const step=t=>{const progress=Math.min((t-startTime)/duration,1);const current=Math.floor(start+range*progress);el.textContent=id==='revenue'?'$'+current.toLocaleString()+'K':id==='timeSaved'?current+' hrs':current.toLocaleString();if(progress<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+setTimeout(()=>{animateValue('totalScans',0,1247,2000);animateValue('vulnsFound',0,342,2000);animateValue('timeSaved',0,487,2000);animateValue('revenue',0,89.4,2000)},500);
+
+// Mouse tracking for neo-glass
+document.addEventListener('mousemove',e=>{document.querySelectorAll('.neo-glass').forEach(el=>{const r=el.getBoundingClientRect();el.style.setProperty('--mouse-x',((e.clientX-r.left)/r.width*100)+'%');el.style.setProperty('--mouse-y',((e.clientY-r.top)/r.height*100)+'%')})});
+
+// New scan button
+function startNewScan(){alert('🚀 SecureStack™ New Scan\n\nEnter target URL and authorization to begin CFAA-compliant security assessment.')}
+
+// Intersection observer for animations
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
+document.querySelectorAll('.kpi-card,.chart-card,.scan-card,.price-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='all .6s cubic-bezier(.4,0,.2,1)';obs.observe(el)});
+</script>
+</body>
+</html>

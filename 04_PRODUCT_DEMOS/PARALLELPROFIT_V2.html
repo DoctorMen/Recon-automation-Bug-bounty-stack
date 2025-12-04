@@ -1,0 +1,331 @@
+<!--
+Copyright © 2025 DoctorMen. All Rights Reserved.
+ParallelProfit™ V2 - Neo-Glass + Plasma-morphism + Hologram UI
+3D Money-Making Visualization System
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ParallelProfit™ V2 - Neo-Glass Holographic Money Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--profit:#10b981;--neo:#00ff88;--neo2:#00d4ff;--neo3:#ff0080;--neo4:#8b5cf6;--gold:#f59e0b;--dark:#0a0e1a;--darker:#050810}
+body{font-family:Inter,sans-serif;background:var(--darker);color:#fff;overflow-x:hidden;min-height:100vh}
+
+/* PLASMA-MORPHISM BACKGROUND */
+.plasma-bg{position:fixed;inset:0;overflow:hidden;z-index:0}
+.plasma-blob{position:absolute;border-radius:50%;filter:blur(120px);mix-blend-mode:screen;animation:plasmaFloat 25s ease-in-out infinite}
+.plasma-blob:nth-child(1){width:700px;height:700px;background:radial-gradient(circle,rgba(16,185,129,.5),transparent 70%);top:-15%;left:-15%}
+.plasma-blob:nth-child(2){width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,.4),transparent 70%);bottom:-10%;right:-10%;animation-delay:8s}
+.plasma-blob:nth-child(3){width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,255,.4),transparent 70%);top:50%;left:50%;animation-delay:16s}
+.plasma-blob:nth-child(4){width:450px;height:450px;background:radial-gradient(circle,rgba(139,92,246,.4),transparent 70%);top:30%;right:30%;animation-delay:12s}
+@keyframes plasmaFloat{0%,100%{transform:translate(0,0) scale(1) rotate(0deg);opacity:.5}25%{transform:translate(80px,-60px) scale(1.15) rotate(90deg);opacity:.7}50%{transform:translate(-40px,80px) scale(.9) rotate(180deg);opacity:.4}75%{transform:translate(-80px,-80px) scale(1.1) rotate(270deg);opacity:.6}}
+.plasma-grid{position:fixed;inset:0;background:linear-gradient(rgba(16,185,129,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,.02) 1px,transparent 1px);background-size:50px 50px;animation:gridPulse 5s ease-in-out infinite;pointer-events:none;z-index:1}
+@keyframes gridPulse{0%,100%{opacity:.2}50%{opacity:.5}}
+
+/* NEO-GLASS UI */
+.neo-glass{background:linear-gradient(135deg,rgba(10,14,26,.75),rgba(16,185,129,.08),rgba(10,14,26,.8));backdrop-filter:blur(25px) saturate(200%);-webkit-backdrop-filter:blur(25px) saturate(200%);border:1px solid rgba(16,185,129,.2);box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.1);position:relative;overflow:hidden}
+.neo-glass::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(16,185,129,.12),transparent 50%);opacity:0;transition:opacity .3s;pointer-events:none}
+.neo-glass:hover::before{opacity:1}
+.neo-glass::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,.6),rgba(245,158,11,.4),transparent);animation:refractionShift 4s ease-in-out infinite}
+@keyframes refractionShift{0%,100%{opacity:.4;transform:scaleX(.7)}50%{opacity:1;transform:scaleX(1)}}
+
+/* HOLOGRAM EFFECTS */
+.holo-panel{position:relative}
+.holo-panel::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(16,185,129,.08) 0%,transparent 50%,rgba(245,158,11,.04) 100%);pointer-events:none;animation:holoScan 3s linear infinite}
+@keyframes holoScan{0%{background-position:0 -100%}100%{background-position:0 200%}}
+.holo-flicker{animation:flicker .15s infinite}
+@keyframes flicker{0%,100%{opacity:1}50%{opacity:.97}}
+.holo-depth:hover{transform:translateZ(30px) scale(1.02);box-shadow:0 25px 80px rgba(16,185,129,.4)}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;padding:18px 40px;z-index:1000;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Orbitron,sans-serif;font-size:1.5rem;font-weight:900;background:linear-gradient(135deg,var(--profit),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:12px}
+.logo-icon{font-size:2rem;filter:drop-shadow(0 0 20px rgba(16,185,129,.6))}
+.nav-links{display:flex;gap:30px}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-weight:500;transition:all .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--profit);transition:width .3s}
+.nav-links a:hover{color:var(--profit)}
+.nav-links a:hover::after{width:100%}
+.live-revenue{display:flex;align-items:center;gap:12px;padding:12px 22px;border-radius:50px;font-family:Orbitron,sans-serif}
+.revenue-dot{width:10px;height:10px;background:var(--neo);border-radius:50%;animation:revenuePulse 1s infinite}
+@keyframes revenuePulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,136,.5)}50%{box-shadow:0 0 0 10px rgba(0,255,136,0)}}
+.revenue-value{font-size:1.1rem;font-weight:700;color:var(--neo)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;position:relative;z-index:10}
+.hero-content{max-width:1000px;text-align:center}
+.badge{display:inline-block;padding:10px 25px;border-radius:50px;font-size:.9rem;color:var(--profit);margin-bottom:35px;animation:badgePulse 2s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 20px rgba(16,185,129,.3)}50%{box-shadow:0 0 40px rgba(16,185,129,.6)}}
+.hero h1{font-family:Orbitron,sans-serif;font-size:4.5rem;font-weight:900;line-height:1.1;margin-bottom:30px;background:linear-gradient(135deg,#fff 0%,var(--profit) 40%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 80px rgba(16,185,129,.3)}
+.hero p{font-size:1.35rem;color:rgba(255,255,255,.75);margin-bottom:45px;max-width:750px;margin-left:auto;margin-right:auto}
+
+/* MONEY STREAMS */
+.streams-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-bottom:55px}
+.stream-card{padding:30px;border-radius:20px;text-align:center;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.stream-card:hover{transform:translateY(-10px) scale(1.03)}
+.stream-icon{font-size:3.5rem;margin-bottom:18px;filter:drop-shadow(0 0 20px rgba(16,185,129,.5))}
+.stream-name{font-family:Orbitron,sans-serif;font-size:1.1rem;color:var(--profit);margin-bottom:10px}
+.stream-amount{font-family:Orbitron,sans-serif;font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--neo),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.stream-period{color:rgba(255,255,255,.5);font-size:.85rem}
+.stream-status{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:15px;font-size:.85rem;color:var(--neo)}
+.stream-status-dot{width:8px;height:8px;background:var(--neo);border-radius:50%;animation:revenuePulse 1.5s infinite}
+
+/* TOTAL REVENUE */
+.total-section{text-align:center;margin-bottom:50px}
+.total-card{display:inline-block;padding:40px 80px;border-radius:24px}
+.total-label{font-size:1rem;color:rgba(255,255,255,.6);margin-bottom:10px;text-transform:uppercase;letter-spacing:2px}
+.total-value{font-family:Orbitron,sans-serif;font-size:5rem;font-weight:900;background:linear-gradient(135deg,var(--neo),var(--gold),var(--neo2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:totalPulse 3s ease-in-out infinite}
+@keyframes totalPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.2)}}
+.total-subtitle{color:rgba(255,255,255,.5);margin-top:10px}
+
+/* CTA */
+.hero-cta{display:flex;gap:25px;justify-content:center}
+.primary-btn{padding:20px 55px;background:linear-gradient(135deg,var(--profit),#059669);border:none;border-radius:14px;color:#fff;font-size:1.15rem;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:12px;box-shadow:0 8px 30px rgba(16,185,129,.4)}
+.primary-btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 20px 60px rgba(16,185,129,.5)}
+.secondary-btn{padding:20px 55px;background:transparent;border:2px solid rgba(16,185,129,.5);border-radius:14px;color:var(--profit);font-size:1.15rem;font-weight:600;cursor:pointer;transition:all .3s}
+.secondary-btn:hover{background:rgba(16,185,129,.15);border-color:var(--profit);transform:translateY(-2px)}
+
+/* FEATURES SECTION */
+.section{padding:100px 40px;position:relative;z-index:10}
+.section-title{font-family:Orbitron,sans-serif;font-size:2.8rem;font-weight:700;text-align:center;margin-bottom:25px;background:linear-gradient(135deg,#fff,var(--profit));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-subtitle{text-align:center;color:rgba(255,255,255,.6);font-size:1.15rem;max-width:650px;margin:0 auto 70px}
+
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:1200px;margin:0 auto}
+.feature-card{padding:35px;border-radius:20px;transition:all .4s}
+.feature-card:hover{transform:translateY(-8px)}
+.feature-icon{font-size:3rem;margin-bottom:20px}
+.feature-title{font-family:Orbitron,sans-serif;font-size:1.2rem;color:var(--profit);margin-bottom:12px}
+.feature-desc{color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.6}
+
+/* REVENUE BREAKDOWN */
+.breakdown-section{max-width:1000px;margin:0 auto}
+.breakdown-card{padding:50px;border-radius:24px}
+.breakdown-title{font-family:Orbitron,sans-serif;font-size:1.5rem;color:var(--profit);margin-bottom:30px;text-align:center}
+.breakdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
+.breakdown-item{text-align:center;padding:25px;border-radius:16px;background:rgba(0,0,0,.2);transition:all .3s}
+.breakdown-item:hover{background:rgba(16,185,129,.1);transform:translateY(-5px)}
+.breakdown-icon{font-size:2.5rem;margin-bottom:12px}
+.breakdown-name{font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:8px}
+.breakdown-value{font-family:Orbitron,sans-serif;font-size:1.5rem;font-weight:700;color:var(--neo)}
+
+/* TESTIMONIALS */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1200px;margin:0 auto}
+.testimonial-card{padding:30px;border-radius:20px}
+.testimonial-quote{font-size:1rem;color:rgba(255,255,255,.8);margin-bottom:20px;font-style:italic;line-height:1.7}
+.testimonial-author{display:flex;align-items:center;gap:15px}
+.testimonial-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--profit),var(--gold));display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.testimonial-info{flex:1}
+.testimonial-name{font-weight:600;margin-bottom:3px}
+.testimonial-role{font-size:.85rem;color:rgba(255,255,255,.5)}
+.testimonial-revenue{font-family:Orbitron,sans-serif;font-size:1.1rem;color:var(--neo)}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1200px;margin:0 auto}
+.price-card{padding:40px;border-radius:24px;text-align:center;transition:all .4s}
+.price-card:hover{transform:translateY(-10px)}
+.price-card.featured{border:2px solid var(--profit);position:relative}
+.price-card.featured::before{content:'BEST ROI';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--profit),var(--gold));color:var(--dark);padding:6px 20px;border-radius:20px;font-size:.75rem;font-weight:700}
+.price-tier{font-family:Orbitron,sans-serif;font-size:1.2rem;color:var(--profit);margin-bottom:15px}
+.price-amount{font-family:Orbitron,sans-serif;font-size:3.5rem;font-weight:900;color:#fff;margin-bottom:5px}
+.price-period{color:rgba(255,255,255,.5);margin-bottom:25px}
+.price-roi{background:rgba(0,255,136,.1);padding:10px 20px;border-radius:10px;margin-bottom:25px;font-size:.9rem;color:var(--neo)}
+.price-features{text-align:left;margin-bottom:30px}
+.price-feature{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(16,185,129,.1);font-size:.95rem}
+.price-feature:last-child{border-bottom:none}
+.price-check{color:var(--neo);font-size:1.1rem}
+.price-btn{width:100%;padding:16px;background:linear-gradient(135deg,var(--profit),#059669);border:none;border-radius:12px;color:#fff;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all .3s}
+.price-btn:hover{transform:translateY(-2px);box-shadow:0 15px 40px rgba(16,185,129,.4)}
+
+/* FOOTER */
+.footer{padding:60px 40px;text-align:center;border-top:1px solid rgba(16,185,129,.1);position:relative;z-index:10}
+.footer-logo{font-family:Orbitron,sans-serif;font-size:1.5rem;font-weight:900;color:var(--profit);margin-bottom:18px}
+.footer-text{color:rgba(255,255,255,.5);font-size:.9rem}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.streams-grid{grid-template-columns:repeat(2,1fr)}.breakdown-grid{grid-template-columns:repeat(2,1fr)}.testimonials-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.hero h1{font-size:2.8rem}.streams-grid{grid-template-columns:1fr}.total-value{font-size:3rem}.hero-cta{flex-direction:column}.nav-links{display:none}.header{padding:15px 20px}}
+</style>
+</head>
+<body>
+<div class="plasma-bg">
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+    <div class="plasma-blob"></div>
+</div>
+<div class="plasma-grid"></div>
+
+<header class="header neo-glass">
+    <div class="logo"><span class="logo-icon">💰</span>ParallelProfit™ V2</div>
+    <nav class="nav-links">
+        <a href="#streams">Revenue Streams</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="live-revenue neo-glass"><span class="revenue-dot"></span><span class="revenue-value">$<span id="liveRevenue">47,892</span>/mo</span></div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="badge neo-glass holo-panel">💎 Automated Income System</div>
+        <h1 class="holo-flicker">Multiple Revenue Streams.<br>One Unified System.</h1>
+        <p>ParallelProfit™ visualizes and automates your income streams in real-time. See exactly where your money comes from and optimize for maximum returns.</p>
+        
+        <div class="streams-grid" id="streams">
+            <div class="stream-card neo-glass holo-panel holo-depth">
+                <div class="stream-icon">🔒</div>
+                <div class="stream-name">Security Consulting</div>
+                <div class="stream-amount">$15,000</div>
+                <div class="stream-period">per month</div>
+                <div class="stream-status"><span class="stream-status-dot"></span>Active</div>
+            </div>
+            <div class="stream-card neo-glass holo-panel holo-depth">
+                <div class="stream-icon">🐛</div>
+                <div class="stream-name">Bug Bounties</div>
+                <div class="stream-amount">$22,500</div>
+                <div class="stream-period">per month</div>
+                <div class="stream-status"><span class="stream-status-dot"></span>Active</div>
+            </div>
+            <div class="stream-card neo-glass holo-panel holo-depth">
+                <div class="stream-icon">📦</div>
+                <div class="stream-name">Product Sales</div>
+                <div class="stream-amount">$10,392</div>
+                <div class="stream-period">per month</div>
+                <div class="stream-status"><span class="stream-status-dot"></span>Active</div>
+            </div>
+        </div>
+        
+        <div class="total-section">
+            <div class="total-card neo-glass holo-panel">
+                <div class="total-label">Total Monthly Revenue</div>
+                <div class="total-value">$<span id="totalRevenue">47,892</span></div>
+                <div class="total-subtitle">↑ 23% from last month</div>
+            </div>
+        </div>
+        
+        <div class="hero-cta">
+            <button class="primary-btn" onclick="scrollToSection('pricing')">🚀 Start Earning - $497/year</button>
+            <button class="secondary-btn" onclick="scrollToSection('features')">See How It Works</button>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="features">
+    <h2 class="section-title">Why ParallelProfit™?</h2>
+    <p class="section-subtitle">The only system that visualizes, tracks, and optimizes multiple income streams simultaneously.</p>
+    <div class="features-grid">
+        <div class="feature-card neo-glass holo-panel holo-depth"><div class="feature-icon">📊</div><div class="feature-title">Real-Time Visualization</div><div class="feature-desc">See all your revenue streams in one beautiful 3D dashboard. Track income as it happens.</div></div>
+        <div class="feature-card neo-glass holo-panel holo-depth"><div class="feature-icon">🤖</div><div class="feature-title">AI Optimization</div><div class="feature-desc">Our AI analyzes your streams and suggests optimizations to maximize your earnings.</div></div>
+        <div class="feature-card neo-glass holo-panel holo-depth"><div class="feature-icon">⚡</div><div class="feature-title">Automation Engine</div><div class="feature-desc">Automate repetitive tasks across all income streams. Work smarter, not harder.</div></div>
+        <div class="feature-card neo-glass holo-panel holo-depth"><div class="feature-icon">📈</div><div class="feature-title">Growth Analytics</div><div class="feature-desc">Identify which streams have the highest ROI and double down on what works.</div></div>
+        <div class="feature-card neo-glass holo-panel holo-depth"><div class="feature-icon">🔗</div><div class="feature-title">Integration Hub</div><div class="feature-desc">Connect Stripe, PayPal, Gumroad, HackerOne, and 50+ other platforms.</div></div>
+        <div class="feature-card neo-glass holo-panel holo-depth"><div class="feature-icon">🎯</div><div class="feature-title">Goal Tracking</div><div class="feature-desc">Set income goals and track your progress with beautiful visual milestones.</div></div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="breakdown-section">
+        <div class="breakdown-card neo-glass holo-panel">
+            <div class="breakdown-title">📊 Revenue Breakdown This Month</div>
+            <div class="breakdown-grid">
+                <div class="breakdown-item"><div class="breakdown-icon">🔒</div><div class="breakdown-name">Consulting</div><div class="breakdown-value">$15,000</div></div>
+                <div class="breakdown-item"><div class="breakdown-icon">🐛</div><div class="breakdown-name">Bug Bounties</div><div class="breakdown-value">$22,500</div></div>
+                <div class="breakdown-item"><div class="breakdown-icon">📦</div><div class="breakdown-name">Products</div><div class="breakdown-value">$10,392</div></div>
+                <div class="breakdown-item"><div class="breakdown-icon">💎</div><div class="breakdown-name">Total</div><div class="breakdown-value">$47,892</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Success Stories</h2>
+    <p class="section-subtitle">Real users, real results.</p>
+    <div class="testimonials-grid">
+        <div class="testimonial-card neo-glass holo-panel">
+            <div class="testimonial-quote">"ParallelProfit helped me visualize where my money was actually coming from. I doubled my bug bounty income in 3 months."</div>
+            <div class="testimonial-author"><div class="testimonial-avatar">👨‍💻</div><div class="testimonial-info"><div class="testimonial-name">Alex Chen</div><div class="testimonial-role">Security Researcher</div></div><div class="testimonial-revenue">+$18K/mo</div></div>
+        </div>
+        <div class="testimonial-card neo-glass holo-panel">
+            <div class="testimonial-quote">"The automation features alone saved me 15 hours per week. Now I focus on high-value work while the system handles the rest."</div>
+            <div class="testimonial-author"><div class="testimonial-avatar">👩‍💼</div><div class="testimonial-info"><div class="testimonial-name">Sarah Kim</div><div class="testimonial-role">Consultant</div></div><div class="testimonial-revenue">+$25K/mo</div></div>
+        </div>
+        <div class="testimonial-card neo-glass holo-panel">
+            <div class="testimonial-quote">"I went from 1 income stream to 5 in 6 months. ParallelProfit made it easy to manage everything in one place."</div>
+            <div class="testimonial-author"><div class="testimonial-avatar">👨‍🚀</div><div class="testimonial-info"><div class="testimonial-name">Marcus Johnson</div><div class="testimonial-role">Entrepreneur</div></div><div class="testimonial-revenue">+$42K/mo</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="pricing">
+    <h2 class="section-title">Choose Your Plan</h2>
+    <p class="section-subtitle">Investment that pays for itself in the first week.</p>
+    <div class="pricing-grid">
+        <div class="price-card neo-glass holo-panel holo-depth">
+            <div class="price-tier">STARTER</div>
+            <div class="price-amount">$197</div>
+            <div class="price-period">per year</div>
+            <div class="price-roi">Avg ROI: 5x in 90 days</div>
+            <div class="price-features">
+                <div class="price-feature"><span class="price-check">✓</span>3 revenue streams</div>
+                <div class="price-feature"><span class="price-check">✓</span>Basic analytics</div>
+                <div class="price-feature"><span class="price-check">✓</span>Email reports</div>
+                <div class="price-feature"><span class="price-check">✓</span>Community access</div>
+            </div>
+            <button class="price-btn">Get Started</button>
+        </div>
+        <div class="price-card neo-glass holo-panel holo-depth featured">
+            <div class="price-tier">PROFESSIONAL</div>
+            <div class="price-amount">$497</div>
+            <div class="price-period">per year</div>
+            <div class="price-roi">Avg ROI: 15x in 90 days</div>
+            <div class="price-features">
+                <div class="price-feature"><span class="price-check">✓</span>Unlimited streams</div>
+                <div class="price-feature"><span class="price-check">✓</span>AI optimization</div>
+                <div class="price-feature"><span class="price-check">✓</span>Automation engine</div>
+                <div class="price-feature"><span class="price-check">✓</span>50+ integrations</div>
+                <div class="price-feature"><span class="price-check">✓</span>Priority support</div>
+            </div>
+            <button class="price-btn">Get Professional</button>
+        </div>
+        <div class="price-card neo-glass holo-panel holo-depth">
+            <div class="price-tier">ENTERPRISE</div>
+            <div class="price-amount">$1,997</div>
+            <div class="price-period">per year</div>
+            <div class="price-roi">Avg ROI: 50x in 90 days</div>
+            <div class="price-features">
+                <div class="price-feature"><span class="price-check">✓</span>Everything in Pro</div>
+                <div class="price-feature"><span class="price-check">✓</span>White-label</div>
+                <div class="price-feature"><span class="price-check">✓</span>API access</div>
+                <div class="price-feature"><span class="price-check">✓</span>Dedicated support</div>
+                <div class="price-feature"><span class="price-check">✓</span>Custom integrations</div>
+            </div>
+            <button class="price-btn">Contact Sales</button>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-logo">💰 ParallelProfit™ V2</div>
+    <p class="footer-text">© 2025 DoctorMen. All Rights Reserved. Multiple Streams. Maximum Profit.</p>
+</footer>
+
+<script>
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+
+// Live revenue counter
+let revenue=47892;
+setInterval(()=>{revenue+=Math.floor(Math.random()*50);document.getElementById('liveRevenue').textContent=revenue.toLocaleString();document.getElementById('totalRevenue').textContent=revenue.toLocaleString()},3000);
+
+// Mouse tracking for neo-glass
+document.addEventListener('mousemove',e=>{document.querySelectorAll('.neo-glass').forEach(el=>{const r=el.getBoundingClientRect();el.style.setProperty('--mouse-x',((e.clientX-r.left)/r.width*100)+'%');el.style.setProperty('--mouse-y',((e.clientY-r.top)/r.height*100)+'%')})});
+
+// Intersection observer for animations
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
+document.querySelectorAll('.stream-card,.feature-card,.testimonial-card,.price-card,.breakdown-item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(40px)';el.style.transition='all .7s cubic-bezier(.4,0,.2,1)';obs.observe(el)});
+</script>
+</body>
+</html>
