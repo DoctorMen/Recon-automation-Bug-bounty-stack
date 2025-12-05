@@ -43,12 +43,14 @@ SEVERITY_SCORES = {
 }
 
 # False positive indicators (keywords that might indicate false positives)
-FP_INDICATORS = [
+# Pre-compile regex patterns for better performance (avoids recompilation on each call)
+FP_INDICATORS_RAW = [
     r"test\.example\.com",
     r"localhost",
     r"127\.0\.0\.1",
     r"example\.com",
 ]
+FP_INDICATORS = [re.compile(pattern, re.IGNORECASE) for pattern in FP_INDICATORS_RAW]
 
 
 def log(message: str):
@@ -63,26 +65,28 @@ def log(message: str):
 def is_false_positive(finding: Dict[str, Any]) -> bool:
     """Check if a finding might be a false positive"""
     url = finding.get("matched-at", finding.get("host", ""))
-    name = finding.get("name", "").lower()
     info = finding.get("info", {})
-    description = info.get("description", "").lower()
-    template_id = finding.get("template-id", "").lower()
+    # Keep description original (not lowercased) since regex patterns are case-insensitive
+    description = info.get("description", "")
     
-    # Check against FP indicators
-    for indicator in FP_INDICATORS:
-        if re.search(indicator, url, re.IGNORECASE):
+    # Check against pre-compiled FP indicator patterns (performance optimization)
+    # Note: patterns use re.IGNORECASE so both url and description matching is case-insensitive
+    for pattern in FP_INDICATORS:
+        if pattern.search(url):
             return True
-        if re.search(indicator, description, re.IGNORECASE):
+        if pattern.search(description):
             return True
     
-    # Check for common false positive patterns
-    if "test" in name and ("environment" in description or "staging" in description):
+    # Check for common false positive patterns (these use lowercase comparison)
+    description_lower = description.lower()
+    name = finding.get("name", "").lower()
+    if "test" in name and ("environment" in description_lower or "staging" in description_lower):
         # Might be intentional test endpoints
         pass
     
     # Skip very low severity info findings that are often noise
     severity = info.get("severity", "info").lower()
-    if severity == "info" and "exposed" not in description and "leak" not in description:
+    if severity == "info" and "exposed" not in description_lower and "leak" not in description_lower:
         # Many info-level findings are informational only
         pass
     

@@ -24,6 +24,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any
 from urllib.parse import urlparse
+from collections import Counter
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
@@ -228,11 +229,11 @@ def generate_summary_report(findings: List[Dict[str, Any]]) -> Path:
     """Generate a summary report of all findings"""
     summary_path = REPORTS_DIR / "summary.md"
     
-    # Count by severity
-    severity_counts = {}
-    for finding in findings:
-        severity = finding.get("info", {}).get("severity", "info").lower()
-        severity_counts[severity] = severity_counts.get(severity, 0) + 1
+    # Count by severity using Counter for better performance
+    severity_counts = Counter(
+        finding.get("info", {}).get("severity", "info").lower() 
+        for finding in findings
+    )
     
     # Sort findings by exploitability score
     sorted_findings = sorted(

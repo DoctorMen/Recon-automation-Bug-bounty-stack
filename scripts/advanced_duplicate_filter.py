@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-#!/usr/bin/env python3
 """
 Copyright © 2025 DoctorMen. All Rights Reserved.
 """
@@ -11,6 +10,7 @@ Intelligently filters duplicates and consolidates similar bugs
 import json
 from typing import List, Dict, Any, Set, Optional
 from urllib.parse import urlparse
+from collections import defaultdict
 import hashlib
 
 class AdvancedDuplicateFilter:
@@ -28,24 +28,27 @@ class AdvancedDuplicateFilter:
         """
         Filter duplicates and consolidate similar bugs
         Returns unique, high-value findings
+        
+        Performance optimized: Uses signature-to-index mapping instead of
+        recalculating hashes for lookup (O(1) vs O(n) per duplicate check)
         """
         unique = []
-        seen_signatures = set()
+        # Map signature to index in unique list for O(1) lookup
+        signature_to_index: Dict[str, int] = {}
         
         for finding in findings:
             # Create signature for duplicate detection
             signature = self._create_signature(finding)
             
-            if signature not in seen_signatures:
-                seen_signatures.add(signature)
+            if signature not in signature_to_index:
+                # New unique finding
+                signature_to_index[signature] = len(unique)
                 unique.append(finding)
             else:
-                # Check if this is a better version (higher value, better proof)
-                existing_idx = self._find_existing(unique, signature)
-                if existing_idx is not None:
-                    # Replace if this finding is better
-                    if self._is_better(finding, unique[existing_idx]):
-                        unique[existing_idx] = finding
+                # Duplicate found - check if this version is better
+                existing_idx = signature_to_index[signature]
+                if self._is_better(finding, unique[existing_idx]):
+                    unique[existing_idx] = finding
         
         return unique
     
@@ -64,13 +67,6 @@ class AdvancedDuplicateFilter:
         
         return signature
     
-    def _find_existing(self, findings: List[Dict[str, Any]], signature: str) -> Optional[int]:
-        """Find existing finding with same signature"""
-        for idx, finding in enumerate(findings):
-            if self._create_signature(finding) == signature:
-                return idx
-        return None
-    
     def _is_better(self, new_finding: Dict[str, Any], existing_finding: Dict[str, Any]) -> bool:
         """Check if new finding is better than existing"""
         new_value = new_finding.get("value", 0)
@@ -83,9 +79,11 @@ class AdvancedDuplicateFilter:
         return new_value > existing_value or new_confidence > existing_confidence
     
     def consolidate_similar(self, findings: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Consolidate similar bugs (e.g., multiple swagger endpoints)"""
-        consolidated = []
-        grouped = {}
+        """
+        Consolidate similar bugs (e.g., multiple swagger endpoints)
+        Uses defaultdict for cleaner grouping code
+        """
+        grouped = defaultdict(list)
         
         for finding in findings:
             endpoint = finding.get("endpoint", "")
@@ -95,12 +93,10 @@ class AdvancedDuplicateFilter:
             parsed = urlparse(endpoint)
             domain = parsed.netloc
             group_key = f"{domain}:{test_type}"
-            
-            if group_key not in grouped:
-                grouped[group_key] = []
             grouped[group_key].append(finding)
         
         # Consolidate groups
+        consolidated = []
         for group_key, group_findings in grouped.items():
             if len(group_findings) == 1:
                 consolidated.append(group_findings[0])
