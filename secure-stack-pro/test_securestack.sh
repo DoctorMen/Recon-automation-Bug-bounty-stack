@@ -47,7 +47,7 @@ if [ -d "reports" ]; then
         echo "✅ TEST 3 PASSED: Reports generated successfully"
         echo ""
         echo "Sample report:"
-        head -20 reports/SecureStack_Scan_*.json | head -15
+        head -15 reports/SecureStack_Scan_*.json
     else
         echo "❌ TEST 3 FAILED: No reports found"
     fi
@@ -110,7 +110,12 @@ PASSED=0
 
 [ $TEST1_EXIT -eq 0 ] && ((PASSED++))
 [ $TEST2_EXIT -eq 0 ] && ((PASSED++))
-[ -d "reports" ] && ((PASSED++))
+
+# Test 3: Check if reports exist (not just directory)
+if [ -d "reports" ] && [ $(ls -1 reports/*.json 2>/dev/null | wc -l) -gt 0 ]; then
+    ((PASSED++))
+fi
+
 [ $TEST4_EXIT -eq 0 ] && ((PASSED++))
 
 echo "Tests passed: $PASSED/$TOTAL_TESTS"
