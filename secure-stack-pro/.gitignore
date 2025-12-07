@@ -1,0 +1,34 @@
+# SecureStack CLI - Git Ignore
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Reports (keep directory but ignore generated files)
+reports/*.json
+reports/*.pdf
+reports/*.html
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+
+# Logs
+*.log
