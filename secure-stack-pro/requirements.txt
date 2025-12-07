@@ -1,0 +1,11 @@
+# SecureStack CLI - Python Requirements
+# 
+# For the proof-of-concept, no external dependencies are required.
+# The tool uses only Python standard library modules.
+#
+# Future production enhancements may require:
+# - openai>=1.0.0  # For AI-powered insights
+# - requests>=2.31.0  # For API communications
+# - reportlab>=4.0.0  # For PDF report generation
+# - python-dateutil>=2.8.0  # For enhanced date handling
+# - pydantic>=2.0.0  # For data validation
