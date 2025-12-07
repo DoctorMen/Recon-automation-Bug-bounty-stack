@@ -1,0 +1,21 @@
+{
+  "version": "2.1",
+  "timestamp": "2025-12-07T23:08:12.010992",
+  "target_scope": "*.example.com",
+  "engagement_id": "TEST-001-XYZ",
+  "duration_seconds": 4,
+  "endpoints_discovered": 5,
+  "vulnerabilities_found": 1,
+  "vulnerabilities": [
+    {
+      "type": "BOLA / IDOR (Broken Object Level Authorization)",
+      "endpoint": "/api/v1/user/profile?id=1002",
+      "payload": "User ID enumeration (No Auth Enforcement)",
+      "severity": "CVSS 9.1 (Critical)",
+      "confidence": 0.95,
+      "description": "Endpoint allows unauthorized access to user profiles by manipulating ID parameter",
+      "impact": "Attackers can enumerate and access all user profiles without authentication",
+      "recommendation": "Implement proper authorization checks before returning user data"
+    }
+  ]
+}
